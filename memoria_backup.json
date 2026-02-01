@@ -58,7 +58,7 @@
                 "channel_code": "gr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+1&code=gr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-1.svg",
-                "viewers": 22
+                "viewers": 35
             },
             {
                 "channel_name": "Arena 1 Premium",
@@ -72,7 +72,7 @@
                 "channel_code": "rs",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
-                "viewers": 47
+                "viewers": 36
             }
         ],
         "custom_sport_cat": "Soccer"
@@ -120,7 +120,7 @@
                 "channel_code": "it",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+253&code=it&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 18
+                "viewers": 15
             }
         ],
         "custom_sport_cat": "Soccer"
@@ -144,7 +144,7 @@
                 "channel_code": "it",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+252&code=it&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 12
+                "viewers": 10
             },
             {
                 "channel_name": "Sky Sport Uno",
@@ -182,28 +182,28 @@
                 "channel_code": "za",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+maximo+1&code=za&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-maximo-1.webp",
-                "viewers": 99
+                "viewers": 110
             },
             {
                 "channel_name": "beIN SPORTS N",
                 "channel_code": "es",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg",
-                "viewers": 118
+                "viewers": 72
             },
             {
                 "channel_name": "Sky Sport Calcio",
                 "channel_code": "it",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
-                "viewers": 5
+                "viewers": 3
             },
             {
                 "channel_name": "DAZN 1",
                 "channel_code": "de",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=de&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-1.png",
-                "viewers": 17
+                "viewers": 18
             },
             {
                 "channel_name": "Sport TV 3",
@@ -224,21 +224,21 @@
                 "channel_code": "pl",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+3&code=pl&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/eleven-sport-3.svg",
-                "viewers": 9
+                "viewers": 13
             },
             {
                 "channel_name": "Diema Sport 2",
                 "channel_code": "bg",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+2&code=bg&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-2.png",
-                "viewers": 3
+                "viewers": 0
             },
             {
                 "channel_name": "Arena Sport 4",
                 "channel_code": "hr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+4&code=hr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-4.webp",
-                "viewers": 73
+                "viewers": 44
             },
             {
                 "channel_name": "Nova Sport 3",
@@ -266,14 +266,14 @@
                 "channel_code": "il",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+plus&code=il&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-plus.png",
-                "viewers": 8
+                "viewers": 7
             },
             {
                 "channel_name": "beIN SPORTS 1",
                 "channel_code": "sa",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
-                "viewers": 1
+                "viewers": 3
             }
         ],
         "custom_sport_cat": "Soccer"
@@ -297,21 +297,21 @@
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=astro+football&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/astro-football.webp",
-                "viewers": 90
+                "viewers": 88
             },
             {
                 "channel_name": "TNT Sports 1",
                 "channel_code": "gb",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png",
-                "viewers": 79
+                "viewers": 70
             },
             {
                 "channel_name": "SuperSport Football",
                 "channel_code": "za",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+football&code=za&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-football.webp",
-                "viewers": 1
+                "viewers": 2
             },
             {
                 "channel_name": "DAZN 2",
@@ -339,14 +339,14 @@
                 "channel_code": "gr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+2&code=gr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-2.webp",
-                "viewers": 1
+                "viewers": 4
             },
             {
                 "channel_name": "Eleven Sports 1",
                 "channel_code": "pl",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+1&code=pl&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/eleven-sport-1.svg",
-                "viewers": 8
+                "viewers": 7
             },
             {
                 "channel_name": "Match Football 1",
@@ -360,7 +360,7 @@
                 "channel_code": "bg",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+3&code=bg&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-3.svg",
-                "viewers": 0
+                "viewers": 1
             },
             {
                 "channel_name": "Arena 3 Premium",
@@ -388,7 +388,7 @@
                 "channel_code": "ro",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+2&code=ro&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-2.png",
-                "viewers": 7
+                "viewers": 9
             },
             {
                 "channel_name": "Prima Sport 2",
@@ -402,7 +402,7 @@
                 "channel_code": "il",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+1&code=il&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-1.png",
-                "viewers": 11
+                "viewers": 9
             }
         ],
         "custom_sport_cat": "Soccer"
@@ -433,7 +433,7 @@
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn-deportes.png",
-                "viewers": 90
+                "viewers": 122
             },
             {
                 "channel_name": "LaLiga TV",
@@ -447,35 +447,35 @@
                 "channel_code": "gb",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png",
-                "viewers": 5
+                "viewers": 4
             },
             {
                 "channel_name": "Premier Sports 1",
                 "channel_code": "gb",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+1&code=gb&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-1.svg",
-                "viewers": 0
+                "viewers": 3
             },
             {
                 "channel_name": "SuperSport LaLiga",
                 "channel_code": "za",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+laliga&code=za&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-laliga.webp",
-                "viewers": 2
+                "viewers": 3
             },
             {
                 "channel_name": "beIN SPORTS 1",
                 "channel_code": "fr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-1.svg",
-                "viewers": 3
+                "viewers": 8
             },
             {
                 "channel_name": "DAZN LaLiga",
                 "channel_code": "es",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+laliga&code=es&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/dazn-laliga.png",
-                "viewers": 51
+                "viewers": 63
             },
             {
                 "channel_name": "DAZN 1",
@@ -496,14 +496,14 @@
                 "channel_code": "gr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+1&code=gr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-1.png",
-                "viewers": 1
+                "viewers": 0
             },
             {
                 "channel_name": "TV2 Sport X",
                 "channel_code": "dk",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv2+sport+x&code=dk&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv2-sports-x.svg",
-                "viewers": 0
+                "viewers": 1
             },
             {
                 "channel_name": "Eleven Sports 2",
@@ -566,7 +566,7 @@
                 "channel_code": "ro",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+3&code=ro&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-3.png",
-                "viewers": 0
+                "viewers": 1
             }
         ],
         "custom_sport_cat": "Soccer"
@@ -597,7 +597,7 @@
                 "channel_code": "fr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
-                "viewers": 1
+                "viewers": 0
             },
             {
                 "channel_name": "LaLiga TV Hypermotion 1",
@@ -642,7 +642,7 @@
                 "channel_code": "ar",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
-                "viewers": 2
+                "viewers": 3
             }
         ],
         "custom_sport_cat": "Soccer"
@@ -682,21 +682,21 @@
                 "channel_code": "fr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=fr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-2.svg",
-                "viewers": 42
+                "viewers": 38
             },
             {
                 "channel_name": "SportDigital Fussball",
                 "channel_code": "de",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg",
-                "viewers": 2
+                "viewers": 0
             },
             {
                 "channel_name": "Sport TV 1",
                 "channel_code": "pt",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-                "viewers": 97
+                "viewers": 78
             },
             {
                 "channel_name": "Ziggo Sport 3",
@@ -738,7 +738,7 @@
                 "channel_code": "il",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+2&code=il&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-2.png",
-                "viewers": 2
+                "viewers": 1
             }
         ],
         "custom_sport_cat": "Soccer"
@@ -786,14 +786,14 @@
                 "channel_code": "gb",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png",
-                "viewers": 5
+                "viewers": 4
             },
             {
                 "channel_name": "Premier Sports 2",
                 "channel_code": "gb",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
-                "viewers": 2
+                "viewers": 1
             },
             {
                 "channel_name": "Vamos Spain",
@@ -814,7 +814,7 @@
                 "channel_code": "de",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg",
-                "viewers": 2
+                "viewers": 0
             },
             {
                 "channel_name": "Sport TV 2",
@@ -873,7 +873,7 @@
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
-                "viewers": 2
+                "viewers": 0
             }
         ],
         "custom_sport_cat": "Soccer"
@@ -965,7 +965,7 @@
                 "channel_code": "ar",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
-                "viewers": 2
+                "viewers": 3
             },
             {
                 "channel_name": "Sport 3",
@@ -1020,14 +1020,14 @@
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg",
-                "viewers": 205
+                "viewers": 159
             },
             {
                 "channel_name": "Sky Sport 251",
                 "channel_code": "it",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+251&code=it&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 5
+                "viewers": 10
             },
             {
                 "channel_name": "Sport TV 6",
@@ -1048,7 +1048,7 @@
                 "channel_code": "gr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp",
-                "viewers": 2
+                "viewers": 0
             },
             {
                 "channel_name": "TVP Sport",
@@ -1069,7 +1069,7 @@
                 "channel_code": "rs",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-                "viewers": 1
+                "viewers": 0
             },
             {
                 "channel_name": "Nova Sport 6",
@@ -1097,7 +1097,7 @@
                 "channel_code": "mx",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=mx&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-3.svg",
-                "viewers": 1
+                "viewers": 0
             },
             {
                 "channel_name": "Sport 5 Live",
@@ -1119,7 +1119,7 @@
         "tournament": "NBA",
         "country": "United States",
         "countryIMG": "https://flagcdn.com/w40/us.png",
-        "status": "live",
+        "status": "upcoming",
         "start": "2026-02-01 21:00",
         "end": "2026-02-01 23:40",
         "channels": [
@@ -1128,7 +1128,7 @@
                 "channel_code": "gr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp",
-                "viewers": 2
+                "viewers": 0
             },
             {
                 "channel_name": "Arena 1 Premium",
@@ -1207,7 +1207,7 @@
                 "channel_code": "it",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+252&code=it&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 12
+                "viewers": 10
             }
         ],
         "custom_sport_cat": "NBA"
@@ -1262,7 +1262,7 @@
                 "channel_code": "gb",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-main-event.svg",
-                "viewers": 188
+                "viewers": 226
             },
             {
                 "channel_name": "Sky Sports Mix",
@@ -1290,14 +1290,14 @@
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+2&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-2.svg",
-                "viewers": 2
+                "viewers": 3
             },
             {
                 "channel_name": "beIN SPORTS 1",
                 "channel_code": "fr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-1.svg",
-                "viewers": 3
+                "viewers": 8
             },
             {
                 "channel_name": "Sky Sport Bundesliga 2",
@@ -1318,14 +1318,14 @@
                 "channel_code": "pt",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-                "viewers": 97
+                "viewers": 78
             },
             {
                 "channel_name": "Diema Sport 2",
                 "channel_code": "bg",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+2&code=bg&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-2.png",
-                "viewers": 3
+                "viewers": 0
             },
             {
                 "channel_name": "Arena 1 Premium",
@@ -1339,7 +1339,7 @@
                 "channel_code": "rs",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-                "viewers": 1
+                "viewers": 0
             },
             {
                 "channel_name": "Nova Sport 2",
@@ -1408,7 +1408,7 @@
                 "channel_code": "il",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
-                "viewers": 1
+                "viewers": 2
             }
         ],
         "custom_sport_cat": "NBA"
@@ -1453,7 +1453,7 @@
                 "channel_code": "gb",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-main-event.svg",
-                "viewers": 188
+                "viewers": 226
             },
             {
                 "channel_name": "SuperSport Grandstand",
@@ -1526,28 +1526,28 @@
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-east.png",
-                "viewers": 36
+                "viewers": 48
             },
             {
                 "channel_name": "Sportsnet Ontario",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png",
-                "viewers": 155
+                "viewers": 149
             },
             {
                 "channel_name": "Sportsnet West",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-west.png",
-                "viewers": 60
+                "viewers": 65
             },
             {
                 "channel_name": "Movistar Deportes 1",
                 "channel_code": "es",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=movistar+deportes+1&code=es&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-deportes-1.svg",
-                "viewers": 3
+                "viewers": 5
             },
             {
                 "channel_name": "Sky Sport 256",
@@ -1568,14 +1568,14 @@
                 "channel_code": "de",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
-                "viewers": 20
+                "viewers": 24
             },
             {
                 "channel_name": "Arena Sport 1",
                 "channel_code": "rs",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=rs&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-1.webp",
-                "viewers": 0
+                "viewers": 1
             }
         ],
         "custom_sport_cat": "NHL"
@@ -1599,7 +1599,7 @@
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg",
-                "viewers": 205
+                "viewers": 159
             },
             {
                 "channel_name": "Viaplay Sports 2",
@@ -1613,35 +1613,35 @@
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-east.png",
-                "viewers": 36
+                "viewers": 48
             },
             {
                 "channel_name": "Sportsnet Ontario",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png",
-                "viewers": 155
+                "viewers": 149
             },
             {
                 "channel_name": "Sportsnet West",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-west.png",
-                "viewers": 60
+                "viewers": 65
             },
             {
                 "channel_name": "beIN SPORTS 3",
                 "channel_code": "fr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=fr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-3.svg",
-                "viewers": 1
+                "viewers": 0
             },
             {
                 "channel_name": "Sky Sport Mix",
                 "channel_code": "de",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
-                "viewers": 20
+                "viewers": 24
             },
             {
                 "channel_name": "Max Sport 2",
@@ -1679,42 +1679,42 @@
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg",
-                "viewers": 205
+                "viewers": 159
             },
             {
                 "channel_name": "Sportsnet East",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-east.png",
-                "viewers": 36
+                "viewers": 48
             },
             {
                 "channel_name": "Sportsnet Ontario",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png",
-                "viewers": 155
+                "viewers": 149
             },
             {
                 "channel_name": "Sportsnet West",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-west.png",
-                "viewers": 60
+                "viewers": 65
             },
             {
                 "channel_name": "Sportsnet 360",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+360&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-360.png",
-                "viewers": 1
+                "viewers": 0
             },
             {
                 "channel_name": "Sky Sport 253",
                 "channel_code": "it",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+253&code=it&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 18
+                "viewers": 15
             },
             {
                 "channel_name": "Sky Sport 254",
