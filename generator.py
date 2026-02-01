@@ -3,209 +3,241 @@ import json
 import os
 from datetime import datetime, timedelta
 
-# URL de l'API
+# API URL
 API_URL = "https://api.cdn-live.tv/api/v1/events/sports/?user=cdnlivetv&plan=free"
-FITXER_MEMORIA = "memoria_partits.json"
+MEMORY_FILE = "memoria_partits.json"
 
-def obtenir_nom_esport(clau_api):
-    noms = {
-        "Soccer": "FUTBOL ⚽", "NBA": "BÀSQUET (NBA) 🏀", "NFL": "NFL 🏈",
-        "NHL": "HOQUEI (NHL) 🏒", "MLB": "BEISBOL ⚾", "F1": "FÓRMULA 1 🏎️",
-        "MotoGP": "MOTOGP 🏍️", "Tennis": "TENNIS 🎾", "Boxing": "BOXA 🥊",
-        "Rugby": "RUGBI 🏉"
+def get_sport_name(api_key):
+    # Translation to English & Icons
+    names = {
+        "Soccer": "FOOTBALL ⚽", 
+        "NBA": "BASKETBALL (NBA) 🏀", 
+        "NFL": "NFL 🏈",
+        "NHL": "HOCKEY (NHL) 🏒", 
+        "MLB": "BASEBALL ⚾", 
+        "F1": "FORMULA 1 🏎️",
+        "MotoGP": "MOTOGP 🏍️", 
+        "Tennis": "TENNIS 🎾", 
+        "Boxing": "BOXING 🥊",
+        "Rugby": "RUGBY 🏉",
+        "Darts": "DARTS 🎯",
+        "Snooker": "SNOOKER 🎱"
     }
-    return noms.get(clau_api, clau_api.upper())
+    return names.get(api_key, api_key.upper())
 
-def arreglar_hora(hora_str):
+def fix_time(time_str):
     try:
-        data_hora = datetime.strptime(hora_str, "%H:%M")
-        nova_hora = data_hora + timedelta(hours=1) # Ajusta segons la teva zona
-        return nova_hora.strftime("%H:%M")
+        time_obj = datetime.strptime(time_str, "%H:%M")
+        # Add 1 Hour (Adjust based on your timezone needs)
+        new_time = time_obj + timedelta(hours=1)
+        return new_time.strftime("%H:%M")
     except:
-        return hora_str
+        return time_str
 
-def carregar_memoria():
-    if os.path.exists(FITXER_MEMORIA):
+def load_memory():
+    if os.path.exists(MEMORY_FILE):
         try:
-            with open(FITXER_MEMORIA, 'r', encoding='utf-8') as f:
+            with open(MEMORY_FILE, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except:
             return {}
     return {}
 
-def guardar_memoria(dades):
-    with open(FITXER_MEMORIA, 'w', encoding='utf-8') as f:
-        json.dump(dades, f, indent=4)
+def save_memory(data):
+    with open(MEMORY_FILE, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
 
-def netejar_esdeveniments_antics(diccionari_events):
-    """
-    Elimina partits que ja han acabat segur o fa massa hores que duren.
-    Retorna el diccionari netejat.
-    """
-    events_actualitzats = {}
-    ara = datetime.utcnow()
+def clean_old_events(events_dict):
+    updated_events = {}
+    now = datetime.utcnow()
 
-    for game_id, match in diccionari_events.items():
-        # 1. Si l'estat és 'finished', fora.
+    for game_id, match in events_dict.items():
+        # 1. Status Filter
         if match.get('status', '').lower() == 'finished':
             continue
 
-        # 2. Control de temps (Seguretat de 6 hores)
-        start_str = match.get('start') # "2026-02-01 23:00"
+        # 2. Time Filter (Updated to 4 HOURS)
+        start_str = match.get('start') 
         if start_str:
             try:
                 start_dt = datetime.strptime(start_str, "%Y-%m-%d %H:%M")
-                diferencia = ara - start_dt
+                diff = now - start_dt
                 
-                # Si fa més de 6 hores (21600s) que ha començat, l'esborrem de la memòria
-                if diferencia.total_seconds() > 6 * 3600:
+                # If started more than 4 hours ago (4 * 3600 seconds), remove it.
+                if diff.total_seconds() > 4 * 3600:
                     continue
                 
-                # Si el partit és de fa 2 dies (error api), fora també
-                if diferencia.total_seconds() < -24 * 3600:
+                # Safety: If it's from 24h ago (API error), remove it.
+                if diff.total_seconds() < -24 * 3600:
                     continue
 
             except ValueError:
-                pass # Si falla la data, el mantenim per si de cas
+                pass 
         
-        events_actualitzats[game_id] = match
+        updated_events[game_id] = match
     
-    return events_actualitzats
+    return updated_events
 
 def main():
     try:
-        print("1. Carregant memòria anterior...")
-        memoria = carregar_memoria()
+        print("1. Loading memory...")
+        memory = load_memory()
         
-        print("2. Descarregant dades noves de l'API...")
+        print("2. Fetching API data...")
         headers = {"User-Agent": "Mozilla/5.0"}
         try:
             response = requests.get(API_URL, headers=headers, timeout=15)
             data_api = response.json()
-            tots_esports_api = data_api.get("cdn-live-tv", {})
+            all_sports_api = data_api.get("cdn-live-tv", {})
         except:
-            print("Error connectant API, farem servir només la memòria.")
-            tots_esports_api = {}
+            print("API Error. Using memory only.")
+            all_sports_api = {}
 
-        # 3. FUSIONAR DADES (API + Memòria)
-        # Convertim l'estructura de l'API en una llista plana per processar
-        # La clau única serà el 'gameID' que ve al JSON
-        
-        # A. Primer, actualitzem la memòria amb el que diu l'API (és el més fiable)
-        for esport, llista in tots_esports_api.items():
-            if not isinstance(llista, list): continue
-            for match in llista:
+        # 3. MERGE DATA
+        for sport, event_list in all_sports_api.items():
+            if not isinstance(event_list, list): continue
+            for match in event_list:
                 game_id = match.get('gameID')
                 if game_id:
-                    # Afegim el camp 'esport_categoria' per saber on pintar-lo després
-                    match['custom_sport_cat'] = esport 
-                    memoria[game_id] = match
+                    match['custom_sport_cat'] = sport 
+                    memory[game_id] = match
 
-        # B. Netegem la memòria (esborrem els antics)
-        memoria_neta = netejar_esdeveniments_antics(memoria)
+        # 4. CLEAN DATA (4h Limit)
+        clean_memory = clean_old_events(memory)
+        save_memory(clean_memory)
         
-        # C. Guardem la nova memòria al disc
-        guardar_memoria(memoria_neta)
-        
-        # 4. RECONSTRUIR L'ESTRUCTURA PER A L'HTML
-        # Hem de tornar a agrupar per categories (Soccer, NBA...)
-        events_per_html = {}
-        for game_id, match in memoria_neta.items():
-            cat = match.get('custom_sport_cat', 'Altres')
-            if cat not in events_per_html:
-                events_per_html[cat] = []
-            events_per_html[cat].append(match)
+        # 5. PREPARE FOR HTML
+        events_by_cat = {}
+        for game_id, match in clean_memory.items():
+            cat = match.get('custom_sport_cat', 'Other')
+            if cat not in events_by_cat:
+                events_by_cat[cat] = []
+            events_by_cat[cat].append(match)
 
-        # Ordenar partits per hora dins de cada categoria
-        for cat in events_per_html:
-            events_per_html[cat].sort(key=lambda x: x.get('time', '00:00'))
+        # Sort by time
+        for cat in events_by_cat:
+            events_by_cat[cat].sort(key=lambda x: x.get('time', '00:00'))
 
-        # Llista de categories actives per al menú
-        esports_actius = list(events_per_html.keys())
+        active_sports = list(events_by_cat.keys())
 
         # -----------------------------------------------------------
-        # GENERACIÓ HTML (Igual que abans)
+        # HTML GENERATION (ENGLISH & PRO STYLE)
         # -----------------------------------------------------------
         html_content = """
         <!DOCTYPE html>
-        <html lang="ca">
+        <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Esports TV</title>
+            <title>MatchDay Hub</title>
             <style>
-                body { background-color: #f0f2f5; color: #1c1e21; font-family: -apple-system, sans-serif; margin: 0; padding: 0; }
-                .navbar { background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-                .nav-btn { text-decoration: none; color: #444; font-weight: bold; padding: 8px 16px; border-radius: 20px; background-color: #e4e6eb; transition: all 0.2s; text-transform: uppercase; font-size: 0.85em; }
-                .nav-btn:hover { background-color: #007aff; color: white; }
-                .container { padding: 20px; max-width: 1200px; margin: 0 auto; }
-                .sport-section { scroll-margin-top: 80px; }
-                .sport-title { margin-top: 40px; margin-bottom: 20px; font-size: 1.8em; color: #1c1e21; border-bottom: 3px solid #007aff; display: inline-block; padding-bottom: 5px; font-weight: 800; text-transform: uppercase; }
-                .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
-                .card { background-color: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e1e3e8; }
-                .header { display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
-                .time { font-size: 1.2em; font-weight: bold; color: #007aff; background: #ebf5ff; padding: 4px 10px; border-radius: 6px; }
-                .teams { font-size: 1.1em; font-weight: bold; margin-left: 12px; color: #333; line-height: 1.2; }
-                .channels { display: flex; flex-wrap: wrap; gap: 8px; }
-                .btn { display: flex; align-items: center; text-decoration: none; color: #333; background-color: #f7f8fa; padding: 8px 12px; border-radius: 8px; font-size: 0.95em; border: 1px solid #ddd; font-weight: 500; }
-                .btn:hover { background-color: #007aff; color: white; border-color: #007aff; }
-                .flag-img { width: 20px; height: 15px; margin-right: 8px; border-radius: 2px; object-fit: cover; border: 1px solid #eee;}
-                .footer { text-align: center; margin-top: 60px; color: #888; font-size: 0.8em; padding-bottom: 20px;}
+                body { background-color: #f4f6f8; color: #333; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; margin: 0; padding: 0; }
+                
+                /* Navbar */
+                .navbar { background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #eaeaea; }
+                .nav-btn { text-decoration: none; color: #555; font-weight: 700; padding: 10px 20px; border-radius: 30px; background-color: #f0f2f5; transition: all 0.2s ease; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
+                .nav-btn:hover { background-color: #000; color: white; transform: translateY(-2px); }
+                
+                .container { padding: 40px 20px; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
+                
+                /* Section Titles */
+                .sport-section { scroll-margin-top: 100px; margin-bottom: 60px; }
+                .sport-title { font-size: 2em; color: #111; display: flex; align-items: center; gap: 10px; margin-bottom: 25px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
+                .sport-title::after { content: ""; flex-grow: 1; height: 2px; background: #eaeaea; margin-left: 20px; }
+
+                /* Grid */
+                .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
+                
+                /* Cards */
+                .card { background-color: #fff; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #fff; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+                .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: #eaeaea; }
+                
+                .header { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #f0f0f0; }
+                .time { font-size: 1.1em; font-weight: 800; color: #fff; background: #000; padding: 6px 12px; border-radius: 8px; }
+                .teams { font-size: 1.2em; font-weight: 700; margin-left: 15px; color: #222; line-height: 1.3; }
+                
+                .channels { display: flex; flex-wrap: wrap; gap: 10px; }
+                .btn { display: flex; align-items: center; text-decoration: none; color: #333; background-color: #f9f9f9; padding: 10px 16px; border-radius: 10px; font-size: 0.9em; border: 1px solid #eee; font-weight: 600; transition: all 0.2s; }
+                .btn:hover { background-color: #007aff; color: white; border-color: #007aff; box-shadow: 0 4px 10px rgba(0,122,255,0.3); }
+                .flag-img { width: 22px; height: 16px; margin-right: 10px; border-radius: 3px; object-fit: cover; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+                
+                /* Footer / About */
+                .footer { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid #eaeaea; color: #888; }
+                .about-box { max-width: 600px; margin: 0 auto 30px auto; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+                .about-title { font-weight: 800; color: #000; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+                .about-text { font-size: 0.9em; line-height: 1.6; color: #666; }
+                .update-badge { display: inline-block; background: #e1f5fe; color: #0288d1; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; margin-top: 10px; }
             </style>
         </head>
         <body>
             <div class="navbar">
         """
         
-        if not esports_actius:
-             html_content += '<span style="color:#666">Sense partits en memòria</span>'
+        if not active_sports:
+             html_content += '<span style="color:#999; font-weight:600;">OFFLINE</span>'
         else:
-            for esport in esports_actius:
-                nom_maco = obtenir_nom_esport(esport)
-                html_content += f'<a href="#{esport}" class="nav-btn">{nom_maco}</a>'
+            for sport in active_sports:
+                nice_name = get_sport_name(sport)
+                html_content += f'<a href="#{sport}" class="nav-btn">{nice_name}</a>'
 
         html_content += '</div><div class="container">'
 
-        if not esports_actius:
-            html_content += '<div style="text-align:center; margin-top:100px; font-size:1.5em; color:#888;">No hi ha esports actius 😴</div>'
+        if not active_sports:
+            html_content += """
+            <div style="text-align:center; margin-top:15vh;">
+                <div style="font-size:4em;">😴</div>
+                <h2 style="color:#333; margin-top:20px;">No live events right now</h2>
+                <p style="color:#888;">The system is scanning... check back later.</p>
+            </div>
+            """
 
-        for esport in esports_actius:
-            llista_partits = events_per_html[esport]
-            nom_maco = obtenir_nom_esport(esport)
+        for sport in active_sports:
+            match_list = events_by_cat[sport]
+            nice_name = get_sport_name(sport)
             
-            html_content += f'<div id="{esport}" class="sport-section"><div class="sport-title">{nom_maco}</div><div class="grid">'
+            html_content += f'<div id="{sport}" class="sport-section"><div class="sport-title">{nice_name}</div><div class="grid">'
 
-            for match in llista_partits:
+            for match in match_list:
                 home = match.get('homeTeam', 'Home')
                 away = match.get('awayTeam', 'Away')
-                hora = arreglar_hora(match.get('time', '00:00'))
+                time = fix_time(match.get('time', '00:00'))
                 
                 html_content += f"""
                 <div class="card">
                     <div class="header">
-                        <span class="time">{hora}</span>
+                        <span class="time">{time}</span>
                         <span class="teams">{home} vs {away}</span>
                     </div>
                     <div class="channels">
                 """
                 
                 for channel in match.get('channels', []):
-                    name = channel.get('channel_name', 'Canal')
+                    name = channel.get('channel_name', 'Channel')
                     url = channel.get('url', '#')
                     code = channel.get('channel_code', 'xx').lower()
-                    img_bandera = f"https://flagcdn.com/24x18/{code}.png"
+                    flag = f"https://flagcdn.com/24x18/{code}.png"
                     
-                    html_content += f"""<a href="{url}" class="btn"><img src="{img_bandera}" class="flag-img" onerror="this.style.display='none'"> {name}</a>"""
+                    html_content += f"""<a href="{url}" class="btn"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</a>"""
                 
                 html_content += "</div></div>"
             
             html_content += '</div></div>'
 
+        # FOOTER AMB "ABOUT"
         html_content += f"""
             </div>
             <div class="footer">
-                Última actualització: {datetime.now().strftime('%H:%M')} <br>
-                Mode Persistent Activat (6h) 💾
+                <div class="about-box">
+                    <div class="about-title">About MatchDay Hub</div>
+                    <div class="about-text">
+                        This is a personal, automated aggregator for live sports events. 
+                        It runs on GitHub Actions, fetching real-time data and maintaining a 
+                        persistent schedule for better reliability on Smart TVs.
+                        <br><br>
+                        <em>Developed with ❤️ for personal use.</em>
+                    </div>
+                    <div class="update-badge">Last Update: {datetime.now().strftime('%H:%M')}</div>
+                </div>
             </div>
         </body>
         </html>
@@ -214,7 +246,7 @@ def main():
         with open("index.html", "w", encoding="utf-8") as f:
             f.write(html_content)
             
-        print("ÈXIT: Web generada amb MEMÒRIA PERSISTENT.")
+        print("SUCCESS: Web generated (English + 4h Limit + About).")
 
     except Exception as e:
         print(f"Error: {e}")
