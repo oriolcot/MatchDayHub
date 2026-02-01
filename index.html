@@ -6,42 +6,46 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>MatchDay Hub</title>
             <style>
-                body { background-color: #f4f6f8; color: #333; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; margin: 0; padding: 0; }
+                body { background-color: #1a1a1a; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; }
                 
                 /* Navbar */
-                .navbar { background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #eaeaea; }
-                .nav-btn { text-decoration: none; color: #555; font-weight: 700; padding: 10px 20px; border-radius: 30px; background-color: #f0f2f5; transition: all 0.2s ease; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
-                .nav-btn:hover { background-color: #000; color: white; transform: translateY(-2px); }
+                .navbar { background-color: #252525; padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+                .nav-btn { text-decoration: none; color: #ccc; font-weight: 700; padding: 8px 16px; border-radius: 20px; background-color: #333; transition: all 0.2s; font-size: 0.85em; text-transform: uppercase; }
+                .nav-btn:hover { background-color: #007aff; color: white; }
                 
-                .container { padding: 40px 20px; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
+                .container { padding: 30px 15px; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
                 
-                /* Section Titles */
-                .sport-section { scroll-margin-top: 100px; margin-bottom: 60px; }
-                .sport-title { font-size: 2em; color: #111; display: flex; align-items: center; gap: 10px; margin-bottom: 25px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
-                .sport-title::after { content: ""; flex-grow: 1; height: 2px; background: #eaeaea; margin-left: 20px; }
-
+                /* Titles */
+                .sport-section { scroll-margin-top: 80px; margin-bottom: 50px; }
+                .sport-title { font-size: 1.8em; color: #fff; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; border-left: 5px solid #007aff; padding-left: 15px; }
+                
                 /* Grid */
-                .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
+                .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
                 
                 /* Cards */
-                .card { background-color: #fff; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #fff; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
-                .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: #eaeaea; }
+                .card { background-color: #2a2a2a; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 1px solid #333; position: relative; transition: transform 0.2s; }
+                .card:hover { transform: translateY(-3px); border-color: #555; }
                 
-                .header { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #f0f0f0; }
-                .time { font-size: 1.1em; font-weight: 800; color: #fff; background: #000; padding: 6px 12px; border-radius: 8px; }
-                .teams { font-size: 1.2em; font-weight: 700; margin-left: 15px; color: #222; line-height: 1.3; }
+                /* MILLORA 5: LIVE Styles */
+                .live-badge { 
+                    display: inline-block; background: #ff3b30; color: white; 
+                    font-size: 0.7em; font-weight: bold; padding: 2px 8px; 
+                    border-radius: 4px; margin-left: 10px; vertical-align: middle;
+                    animation: pulse 2s infinite; 
+                }
+                @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
                 
-                .channels { display: flex; flex-wrap: wrap; gap: 10px; }
-                .btn { display: flex; align-items: center; text-decoration: none; color: #333; background-color: #f9f9f9; padding: 10px 16px; border-radius: 10px; font-size: 0.9em; border: 1px solid #eee; font-weight: 600; transition: all 0.2s; }
-                .btn:hover { background-color: #007aff; color: white; border-color: #007aff; box-shadow: 0 4px 10px rgba(0,122,255,0.3); }
-                .flag-img { width: 22px; height: 16px; margin-right: 10px; border-radius: 3px; object-fit: cover; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+                .header { display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #444; }
+                .time { font-size: 1.1em; font-weight: 800; color: #111; background: #fff; padding: 5px 10px; border-radius: 6px; }
+                .teams { font-size: 1.1em; font-weight: 600; margin-left: 15px; color: #eee; line-height: 1.3; }
                 
-                /* Footer / About */
-                .footer { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid #eaeaea; color: #888; }
-                .about-box { max-width: 600px; margin: 0 auto 30px auto; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-                .about-title { font-weight: 800; color: #000; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-                .about-text { font-size: 0.9em; line-height: 1.6; color: #666; }
-                .update-badge { display: inline-block; background: #e1f5fe; color: #0288d1; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; margin-top: 10px; }
+                .channels { display: flex; flex-wrap: wrap; gap: 8px; }
+                .btn { display: flex; align-items: center; text-decoration: none; color: #ddd; background-color: #383838; padding: 8px 14px; border-radius: 8px; font-size: 0.85em; border: 1px solid #444; transition: background 0.2s; }
+                .btn:hover { background-color: #007aff; color: white; border-color: #007aff; }
+                .flag-img { width: 20px; height: 14px; margin-right: 8px; border-radius: 2px; }
+                
+                /* Footer */
+                .footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #333; color: #666; font-size: 0.8em; }
             </style>
         </head>
         <body>
@@ -63,119 +67,91 @@
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/co.png" class="flag-img" onerror="this.style.display='none'"> Win Futbol</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">19:00</span>
-                        <span class="teams">Hapoel Petah Tikva vs Ashdod</span>
-                    </div>
-                    <div class="channels">
-                <a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/il.png" class="flag-img" onerror="this.style.display='none'"> Sport 5 Live</a></div></div>
-                <div class="card">
-                    <div class="header">
-                        <span class="time">19:00</span>
-                        <span class="teams">FCSB vs Csikszereda</span>
-                    </div>
-                    <div class="channels">
-                <a href="https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ro.png" class="flag-img" onerror="this.style.display='none'"> Digi Sport 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ro.png" class="flag-img" onerror="this.style.display='none'"> Prima Sport 1</a></div></div>
-                <div class="card">
-                    <div class="header">
-                        <span class="time">19:00</span>
-                        <span class="teams">Sporting CP vs Nacional</span>
-                    </div>
-                    <div class="channels">
-                <a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/fr.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS MAX 4</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/de.png" class="flag-img" onerror="this.style.display='none'"> SportDigital Fussball</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+2&code=pt&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/pt.png" class="flag-img" onerror="this.style.display='none'"> Sport TV 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+3&code=gr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gr.png" class="flag-img" onerror="this.style.display='none'"> Cosmote Sport 3</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=ring&code=bg&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/bg.png" class="flag-img" onerror="this.style.display='none'"> Ring</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=rs&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/rs.png" class="flag-img" onerror="this.style.display='none'"> Arena Sport 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/rs.png" class="flag-img" onerror="this.style.display='none'"> Sport Klub 4</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=br&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/br.png" class="flag-img" onerror="this.style.display='none'"> ESPN 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+2&code=il&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/il.png" class="flag-img" onerror="this.style.display='none'"> Sport 2</a></div></div>
-                <div class="card">
-                    <div class="header">
-                        <span class="time">19:00</span>
-                        <span class="teams">Deportivo Garcilaso vs Sporting Cristal</span>
-                    </div>
-                    <div class="channels">
-                </div></div>
-                <div class="card">
-                    <div class="header">
-                        <span class="time">19:45</span>
+                        <span class="time">19:45</span><span class="live-badge">LIVE</span>
                         <span class="teams">Zalaegerszegi TE vs Nyíregyháza Spartacus</span>
                     </div>
                     <div class="channels">
                 </div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">20:00</span>
+                        <span class="time">20:00</span><span class="live-badge">LIVE</span>
                         <span class="teams">Atlético Bucaramanga vs Alianza</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/co.png" class="flag-img" onerror="this.style.display='none'"> Win Futbol</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">20:00</span>
+                        <span class="time">20:00</span><span class="live-badge">LIVE</span>
                         <span class="teams">AEK Athens vs Olympiakos Piraeus</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+1&code=gr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gr.png" class="flag-img" onerror="this.style.display='none'"> Cosmote Sport 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/rs.png" class="flag-img" onerror="this.style.display='none'"> Arena 1 Premium</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/rs.png" class="flag-img" onerror="this.style.display='none'"> Sport Klub 3</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">20:00</span>
+                        <span class="time">20:00</span><span class="live-badge">LIVE</span>
                         <span class="teams">Volendam vs Go Ahead Eagles</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/nl.png" class="flag-img" onerror="this.style.display='none'"> ESPN</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">20:30</span>
+                        <span class="time">20:30</span><span class="live-badge">LIVE</span>
                         <span class="teams">Foggia vs Audace Cerignola</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+253&code=it&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/it.png" class="flag-img" onerror="this.style.display='none'"> Sky Sport 253</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">20:30</span>
+                        <span class="time">20:30</span><span class="live-badge">LIVE</span>
                         <span class="teams">Salernitana vs Giugliano</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+252&code=it&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/it.png" class="flag-img" onerror="this.style.display='none'"> Sky Sport 252</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+uno&code=it&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/it.png" class="flag-img" onerror="this.style.display='none'"> Sky Sport Uno</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">20:45</span>
+                        <span class="time">20:45</span><span class="live-badge">LIVE</span>
                         <span class="teams">Strasbourg vs PSG</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/us.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=supersport+maximo+1&code=za&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/za.png" class="flag-img" onerror="this.style.display='none'"> SuperSport Maximo 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/es.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS N</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/it.png" class="flag-img" onerror="this.style.display='none'"> Sky Sport Calcio</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=de&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/de.png" class="flag-img" onerror="this.style.display='none'"> DAZN 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+3&code=pt&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/pt.png" class="flag-img" onerror="this.style.display='none'"> Sport TV 3</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=tv3+sport&code=dk&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/dk.png" class="flag-img" onerror="this.style.display='none'"> TV3 Sport</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+3&code=pl&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/pl.png" class="flag-img" onerror="this.style.display='none'"> Eleven Sports 3</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+2&code=bg&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/bg.png" class="flag-img" onerror="this.style.display='none'"> Diema Sport 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+4&code=hr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/hr.png" class="flag-img" onerror="this.style.display='none'"> Arena Sport 4</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+3&code=cz&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/cz.png" class="flag-img" onerror="this.style.display='none'"> Nova Sport 3</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=ar&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ar.png" class="flag-img" onerror="this.style.display='none'"> ESPN 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+4&code=tr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/tr.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS 4</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+5+plus&code=il&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/il.png" class="flag-img" onerror="this.style.display='none'"> Sport 5 Plus</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/sa.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS 1</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">20:45</span>
+                        <span class="time">20:45</span><span class="live-badge">LIVE</span>
                         <span class="teams">Parma vs Juventus</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=astro+football&code=us&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/us.png" class="flag-img" onerror="this.style.display='none'"> Astro Football</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gb.png" class="flag-img" onerror="this.style.display='none'"> TNT Sports 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=supersport+football&code=za&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/za.png" class="flag-img" onerror="this.style.display='none'"> SuperSport Football</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=dazn+2&code=de&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/de.png" class="flag-img" onerror="this.style.display='none'"> DAZN 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+4&code=pt&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/pt.png" class="flag-img" onerror="this.style.display='none'"> Sport TV 4</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+2&code=nl&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/nl.png" class="flag-img" onerror="this.style.display='none'"> Ziggo Sport 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+2&code=gr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gr.png" class="flag-img" onerror="this.style.display='none'"> Cosmote Sport 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+1&code=pl&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/pl.png" class="flag-img" onerror="this.style.display='none'"> Eleven Sports 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=match+football+1&code=ru&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ru.png" class="flag-img" onerror="this.style.display='none'"> Match Football 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=max+sport+3&code=bg&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/bg.png" class="flag-img" onerror="this.style.display='none'"> Max Sport 3</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+3+premium&code=rs&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/rs.png" class="flag-img" onerror="this.style.display='none'"> Arena 3 Premium</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/hr.png" class="flag-img" onerror="this.style.display='none'"> Arena Sport 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=espn+4&code=br&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/br.png" class="flag-img" onerror="this.style.display='none'"> ESPN 4</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+2&code=ro&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ro.png" class="flag-img" onerror="this.style.display='none'"> Digi Sport 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+2&code=ro&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ro.png" class="flag-img" onerror="this.style.display='none'"> Prima Sport 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+1&code=il&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/il.png" class="flag-img" onerror="this.style.display='none'"> Sport 1</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">21:00</span>
+                        <span class="time">21:00</span><span class="live-badge">LIVE</span>
                         <span class="teams">Athletic Club vs Real Sociedad</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=us&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/us.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/us.png" class="flag-img" onerror="this.style.display='none'"> ESPN Deportes</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv&code=gb&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gb.png" class="flag-img" onerror="this.style.display='none'"> LaLiga TV</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gb.png" class="flag-img" onerror="this.style.display='none'"> Viaplay Sports 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+1&code=gb&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gb.png" class="flag-img" onerror="this.style.display='none'"> Premier Sports 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=supersport+laliga&code=za&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/za.png" class="flag-img" onerror="this.style.display='none'"> SuperSport LaLiga</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/fr.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=dazn+laliga&code=es&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/es.png" class="flag-img" onerror="this.style.display='none'"> DAZN LaLiga</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=pt&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/pt.png" class="flag-img" onerror="this.style.display='none'"> DAZN 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+1&code=nl&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/nl.png" class="flag-img" onerror="this.style.display='none'"> Ziggo Sport 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+1&code=gr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gr.png" class="flag-img" onerror="this.style.display='none'"> Nova Sports 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=tv2+sport+x&code=dk&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/dk.png" class="flag-img" onerror="this.style.display='none'"> TV2 Sport X</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+2&code=pl&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/pl.png" class="flag-img" onerror="this.style.display='none'"> Eleven Sports 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=match+tv&code=ru&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ru.png" class="flag-img" onerror="this.style.display='none'"> Match TV</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=match+football+2&code=ru&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ru.png" class="flag-img" onerror="this.style.display='none'"> Match Football 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/bg.png" class="flag-img" onerror="this.style.display='none'"> Max Sport 4</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/rs.png" class="flag-img" onerror="this.style.display='none'"> Arena 2 Premium</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+3&code=hr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/hr.png" class="flag-img" onerror="this.style.display='none'"> Arena Sport 3</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+4&code=cz&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/cz.png" class="flag-img" onerror="this.style.display='none'"> Nova Sport 4</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=tv4+football&code=se&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/se.png" class="flag-img" onerror="this.style.display='none'"> TV4 Football</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+3&code=ro&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ro.png" class="flag-img" onerror="this.style.display='none'"> Digi Sport 3</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">21:00</span>
+                        <span class="time">21:00</span><span class="live-badge">LIVE</span>
                         <span class="teams">Granada vs Racing Santander</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=us&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/us.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/fr.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS MAX 5</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/es.png" class="flag-img" onerror="this.style.display='none'"> LaLiga TV Hypermotion 1</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=dazn+2&code=pt&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/pt.png" class="flag-img" onerror="this.style.display='none'"> DAZN 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=tv4+sportkanalen&code=se&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/se.png" class="flag-img" onerror="this.style.display='none'"> TV4 Sportkanalen</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">21:00</span>
+                        <span class="time">21:00</span><span class="live-badge">LIVE</span>
                         <span class="teams">Barracas Central vs Deportivo Riestra</span>
                     </div>
                     <div class="channels">
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ar.png" class="flag-img" onerror="this.style.display='none'"> TNT Sports</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">21:15</span>
+                        <span class="time">21:15</span><span class="live-badge">LIVE</span>
                         <span class="teams">Alianza Atlético vs Cusco</span>
                     </div>
                     <div class="channels">
                 </div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">21:30</span>
+                        <span class="time">21:30</span><span class="live-badge">LIVE</span>
                         <span class="teams">Tondela vs Benfica</span>
                     </div>
                     <div class="channels">
@@ -245,7 +221,7 @@
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=telemundo&code=us&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/us.png" class="flag-img" onerror="this.style.display='none'"> Telemundo</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gb.png" class="flag-img" onerror="this.style.display='none'"> TNT Sports 8</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+mix&code=gb&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gb.png" class="flag-img" onerror="this.style.display='none'"> Sky Sports Mix</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gb.png" class="flag-img" onerror="this.style.display='none'"> Sky Sports Main Event</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=supersport+grandstand&code=za&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/za.png" class="flag-img" onerror="this.style.display='none'"> SuperSport Grandstand</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=supersport+action&code=za&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/za.png" class="flag-img" onerror="this.style.display='none'"> SuperSport Action</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/de.png" class="flag-img" onerror="this.style.display='none'"> Sky Sport Top Event</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/nl.png" class="flag-img" onerror="this.style.display='none'"> ESPN</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/rs.png" class="flag-img" onerror="this.style.display='none'"> Arena 1 Premium</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+6&code=cz&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/cz.png" class="flag-img" onerror="this.style.display='none'"> Nova Sport 6</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/il.png" class="flag-img" onerror="this.style.display='none'"> Sport 5</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">21:30</span>
+                        <span class="time">21:30</span><span class="live-badge">LIVE</span>
                         <span class="teams">Boston Celtics vs Milwaukee Bucks</span>
                     </div>
                     <div class="channels">
@@ -294,7 +270,7 @@
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/us.png" class="flag-img" onerror="this.style.display='none'"> ESPN</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ca.png" class="flag-img" onerror="this.style.display='none'"> Sportsnet East</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ca.png" class="flag-img" onerror="this.style.display='none'"> Sportsnet Ontario</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ca.png" class="flag-img" onerror="this.style.display='none'"> Sportsnet West</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+360&code=ca&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ca.png" class="flag-img" onerror="this.style.display='none'"> Sportsnet 360</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+253&code=it&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/it.png" class="flag-img" onerror="this.style.display='none'"> Sky Sport 253</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+254&code=it&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/it.png" class="flag-img" onerror="this.style.display='none'"> Sky Sport 254</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=tv3+sport&code=dk&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/dk.png" class="flag-img" onerror="this.style.display='none'"> TV3 Sport</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=max+sport+2&code=bg&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/bg.png" class="flag-img" onerror="this.style.display='none'"> Max Sport 2</a></div></div>
                 <div class="card">
                     <div class="header">
-                        <span class="time">21:00</span>
+                        <span class="time">21:00</span><span class="live-badge">LIVE</span>
                         <span class="teams">Los Angeles Kings vs Carolina Hurricanes</span>
                     </div>
                     <div class="channels">
@@ -308,17 +284,7 @@
                 <a href="https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/us.png" class="flag-img" onerror="this.style.display='none'"> ESPN</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/gb.png" class="flag-img" onerror="this.style.display='none'"> Viaplay Sports 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ca.png" class="flag-img" onerror="this.style.display='none'"> Sportsnet East</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ca.png" class="flag-img" onerror="this.style.display='none'"> Sportsnet Ontario</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/ca.png" class="flag-img" onerror="this.style.display='none'"> Sportsnet West</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=fr&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/fr.png" class="flag-img" onerror="this.style.display='none'"> beIN SPORTS 3</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/de.png" class="flag-img" onerror="this.style.display='none'"> Sky Sport Mix</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=max+sport+2&code=bg&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/bg.png" class="flag-img" onerror="this.style.display='none'"> Max Sport 2</a><a href="https://cdn-live.tv/api/v1/channels/player/?name=arena+3+premium&code=rs&user=cdnlivetv&plan=free" class="btn"><img src="https://flagcdn.com/24x18/rs.png" class="flag-img" onerror="this.style.display='none'"> Arena 3 Premium</a></div></div></div></div>
             </div>
             <div class="footer">
-                <div class="about-box">
-                    <div class="about-title">About MatchDay Hub</div>
-                    <div class="about-text">
-                        This is a personal, automated aggregator for live sports events. 
-                        It runs on GitHub Actions, fetching real-time data and maintaining a 
-                        persistent schedule for better reliability on Smart TVs.
-                        <br><br>
-                        <em>Developed with ❤️ for personal use.</em>
-                    </div>
-                    <div class="update-badge">Last Update: 20:14</div>
-                </div>
+                Updated: 20:43
             </div>
         </body>
         </html>

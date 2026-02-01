@@ -2,25 +2,22 @@ name: Actualitzar Llista TV
 
 on:
   schedule:
-    # 1. HORARI NOCTURN (Estalvi de recursos)
-    # De 02:00 AM a 09:00 AM (hora nostra CET) s'executa cada 2 hores.
-    # En UTC (GitHub) això equival a les: 01:00, 03:00, 05:00, 07:00
+    # 02:00 a 09:00 (UTC+1) -> cada 2 hores
     - cron: '0 1,3,5,7 * * *'
-
-    # 2. HORARI DIÜRN (Ritme normal)
-    # De 10:00 AM a 01:30 AM (hora nostra CET) s'executa cada 30 minuts.
-    # En UTC (GitHub) això equival a: de les 09:00 fins a les 00:30
+    # 09:00 a 00:30 (UTC+1) -> cada 30 minuts
     - cron: '*/30 9-23,0 * * *'
 
-  workflow_dispatch: # Això permet que li donis a un botó per actualitzar manualment si vols
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Baixar el codi del repositori
+      - name: Baixar el codi
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Important per poder fer --amend
 
       - name: Instal·lar Python
         uses: actions/setup-python@v4
@@ -28,16 +25,20 @@ jobs:
           python-version: '3.9'
 
       - name: Instal·lar llibreries
-        run: |
-          pip install requests
+        run: pip install requests
 
       - name: Executar el generador
+        env: 
+          # MILLORA 8: Aquí injectem el secret
+          API_URL: ${{ secrets.API_URL }}
         run: python generator.py
 
-      - name: Guardar i publicar els canvis
+      - name: Guardar i publicar (Clean History)
+        # MILLORA 7: Evitar el 'Git Bloat' amb --amend i force push
         run: |
           git config --global user.name "Bot Actualitzador"
           git config --global user.email "bot@github.com"
-          git add .  # El punt afegeix TOTS els fitxers (inclosa la memòria)
-          git commit -m "Actualització automàtica" || exit 0
-          git push
+          git add .
+          # Si ja hi ha un commit previ del bot, el sobreescrivim. Si no, en fem un de nou.
+          git commit --amend --no-edit || git commit -m "Actualització automàtica"
+          git push --force origin main

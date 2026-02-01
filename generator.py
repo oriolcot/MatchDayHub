@@ -3,12 +3,11 @@ import json
 import os
 from datetime import datetime, timedelta
 
-# API URL
-API_URL = "https://api.cdn-live.tv/api/v1/events/sports/?user=cdnlivetv&plan=free"
+# MILLORA 8: Seguretat. Llegim la URL de les variables d'entorn
+API_URL = os.environ.get("API_URL")
 MEMORY_FILE = "memoria_partits.json"
 
 def get_sport_name(api_key):
-    # Translation to English & Icons
     names = {
         "Soccer": "FOOTBALL ⚽", 
         "NBA": "BASKETBALL (NBA) 🏀", 
@@ -28,7 +27,7 @@ def get_sport_name(api_key):
 def fix_time(time_str):
     try:
         time_obj = datetime.strptime(time_str, "%H:%M")
-        # Add 1 Hour (Adjust based on your timezone needs)
+        # Ajusta això segons la teva zona horària (Ex: +1h per CET)
         new_time = time_obj + timedelta(hours=1)
         return new_time.strftime("%H:%M")
     except:
@@ -52,22 +51,30 @@ def clean_old_events(events_dict):
     now = datetime.utcnow()
 
     for game_id, match in events_dict.items():
-        # 1. Status Filter
+        # 1. Filtre Status
         if match.get('status', '').lower() == 'finished':
             continue
 
-        # 2. Time Filter (Updated to 4 HOURS)
+        # MILLORA 6: Smart Cleaning per esport
+        sport = match.get('custom_sport_cat', 'Other')
+        # Límits en hores segons l'esport
+        limit_hours = 4  # Per defecte
+        if sport == 'Soccer': limit_hours = 2.5
+        elif sport == 'NBA': limit_hours = 3.5
+        elif sport == 'F1': limit_hours = 3
+        
+        # 2. Filtre de Temps Variable
         start_str = match.get('start') 
         if start_str:
             try:
                 start_dt = datetime.strptime(start_str, "%Y-%m-%d %H:%M")
                 diff = now - start_dt
                 
-                # If started more than 4 hours ago (4 * 3600 seconds), remove it.
-                if diff.total_seconds() > 4 * 3600:
+                # Si ha passat més del límit específic de l'esport
+                if diff.total_seconds() > limit_hours * 3600:
                     continue
                 
-                # Safety: If it's from 24h ago (API error), remove it.
+                # Seguretat: Si diu que és de fa 24h (error API), fora.
                 if diff.total_seconds() < -24 * 3600:
                     continue
 
@@ -84,13 +91,19 @@ def main():
         memory = load_memory()
         
         print("2. Fetching API data...")
+        if not API_URL:
+            print("ERROR: No s'ha trobat l'API_URL a les variables d'entorn.")
+            # Si vols provar en local sense secrets, descomenta la línia següent:
+            # API_URL = "LA_TEVA_URL_AQUI"
+            return
+
         headers = {"User-Agent": "Mozilla/5.0"}
         try:
             response = requests.get(API_URL, headers=headers, timeout=15)
             data_api = response.json()
             all_sports_api = data_api.get("cdn-live-tv", {})
-        except:
-            print("API Error. Using memory only.")
+        except Exception as e:
+            print(f"API Error: {e}. Using memory only.")
             all_sports_api = {}
 
         # 3. MERGE DATA
@@ -99,10 +112,16 @@ def main():
             for match in event_list:
                 game_id = match.get('gameID')
                 if game_id:
+                    # Si l'API diu que ja ha acabat, no l'actualitzem (o l'esborrem si hi era)
+                    if match.get('status', '').lower() == 'finished':
+                        if game_id in memory:
+                            del memory[game_id]
+                        continue
+                        
                     match['custom_sport_cat'] = sport 
                     memory[game_id] = match
 
-        # 4. CLEAN DATA (4h Limit)
+        # 4. CLEAN DATA
         clean_memory = clean_old_events(memory)
         save_memory(clean_memory)
         
@@ -121,7 +140,7 @@ def main():
         active_sports = list(events_by_cat.keys())
 
         # -----------------------------------------------------------
-        # HTML GENERATION (ENGLISH & PRO STYLE)
+        # HTML GENERATION
         # -----------------------------------------------------------
         html_content = """
         <!DOCTYPE html>
@@ -131,42 +150,46 @@ def main():
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>MatchDay Hub</title>
             <style>
-                body { background-color: #f4f6f8; color: #333; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; margin: 0; padding: 0; }
+                body { background-color: #1a1a1a; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; }
                 
                 /* Navbar */
-                .navbar { background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #eaeaea; }
-                .nav-btn { text-decoration: none; color: #555; font-weight: 700; padding: 10px 20px; border-radius: 30px; background-color: #f0f2f5; transition: all 0.2s ease; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
-                .nav-btn:hover { background-color: #000; color: white; transform: translateY(-2px); }
+                .navbar { background-color: #252525; padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+                .nav-btn { text-decoration: none; color: #ccc; font-weight: 700; padding: 8px 16px; border-radius: 20px; background-color: #333; transition: all 0.2s; font-size: 0.85em; text-transform: uppercase; }
+                .nav-btn:hover { background-color: #007aff; color: white; }
                 
-                .container { padding: 40px 20px; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
+                .container { padding: 30px 15px; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
                 
-                /* Section Titles */
-                .sport-section { scroll-margin-top: 100px; margin-bottom: 60px; }
-                .sport-title { font-size: 2em; color: #111; display: flex; align-items: center; gap: 10px; margin-bottom: 25px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
-                .sport-title::after { content: ""; flex-grow: 1; height: 2px; background: #eaeaea; margin-left: 20px; }
-
+                /* Titles */
+                .sport-section { scroll-margin-top: 80px; margin-bottom: 50px; }
+                .sport-title { font-size: 1.8em; color: #fff; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; border-left: 5px solid #007aff; padding-left: 15px; }
+                
                 /* Grid */
-                .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
+                .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
                 
                 /* Cards */
-                .card { background-color: #fff; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #fff; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
-                .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: #eaeaea; }
+                .card { background-color: #2a2a2a; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 1px solid #333; position: relative; transition: transform 0.2s; }
+                .card:hover { transform: translateY(-3px); border-color: #555; }
                 
-                .header { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #f0f0f0; }
-                .time { font-size: 1.1em; font-weight: 800; color: #fff; background: #000; padding: 6px 12px; border-radius: 8px; }
-                .teams { font-size: 1.2em; font-weight: 700; margin-left: 15px; color: #222; line-height: 1.3; }
+                /* MILLORA 5: LIVE Styles */
+                .live-badge { 
+                    display: inline-block; background: #ff3b30; color: white; 
+                    font-size: 0.7em; font-weight: bold; padding: 2px 8px; 
+                    border-radius: 4px; margin-left: 10px; vertical-align: middle;
+                    animation: pulse 2s infinite; 
+                }
+                @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
                 
-                .channels { display: flex; flex-wrap: wrap; gap: 10px; }
-                .btn { display: flex; align-items: center; text-decoration: none; color: #333; background-color: #f9f9f9; padding: 10px 16px; border-radius: 10px; font-size: 0.9em; border: 1px solid #eee; font-weight: 600; transition: all 0.2s; }
-                .btn:hover { background-color: #007aff; color: white; border-color: #007aff; box-shadow: 0 4px 10px rgba(0,122,255,0.3); }
-                .flag-img { width: 22px; height: 16px; margin-right: 10px; border-radius: 3px; object-fit: cover; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+                .header { display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #444; }
+                .time { font-size: 1.1em; font-weight: 800; color: #111; background: #fff; padding: 5px 10px; border-radius: 6px; }
+                .teams { font-size: 1.1em; font-weight: 600; margin-left: 15px; color: #eee; line-height: 1.3; }
                 
-                /* Footer / About */
-                .footer { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid #eaeaea; color: #888; }
-                .about-box { max-width: 600px; margin: 0 auto 30px auto; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-                .about-title { font-weight: 800; color: #000; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-                .about-text { font-size: 0.9em; line-height: 1.6; color: #666; }
-                .update-badge { display: inline-block; background: #e1f5fe; color: #0288d1; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; margin-top: 10px; }
+                .channels { display: flex; flex-wrap: wrap; gap: 8px; }
+                .btn { display: flex; align-items: center; text-decoration: none; color: #ddd; background-color: #383838; padding: 8px 14px; border-radius: 8px; font-size: 0.85em; border: 1px solid #444; transition: background 0.2s; }
+                .btn:hover { background-color: #007aff; color: white; border-color: #007aff; }
+                .flag-img { width: 20px; height: 14px; margin-right: 8px; border-radius: 2px; }
+                
+                /* Footer */
+                .footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #333; color: #666; font-size: 0.8em; }
             </style>
         </head>
         <body>
@@ -174,7 +197,7 @@ def main():
         """
         
         if not active_sports:
-             html_content += '<span style="color:#999; font-weight:600;">OFFLINE</span>'
+             html_content += '<span style="color:#666;">OFFLINE</span>'
         else:
             for sport in active_sports:
                 nice_name = get_sport_name(sport)
@@ -185,9 +208,8 @@ def main():
         if not active_sports:
             html_content += """
             <div style="text-align:center; margin-top:15vh;">
-                <div style="font-size:4em;">😴</div>
-                <h2 style="color:#333; margin-top:20px;">No live events right now</h2>
-                <p style="color:#888;">The system is scanning... check back later.</p>
+                <div style="font-size:3em;">😴</div>
+                <h3 style="color:#888;">No live events</h3>
             </div>
             """
 
@@ -202,10 +224,14 @@ def main():
                 away = match.get('awayTeam', 'Away')
                 time = fix_time(match.get('time', '00:00'))
                 
+                # MILLORA 5: Detectar si és LIVE
+                is_live = match.get('status', '').lower() == 'live'
+                live_html = '<span class="live-badge">LIVE</span>' if is_live else ''
+                
                 html_content += f"""
                 <div class="card">
                     <div class="header">
-                        <span class="time">{time}</span>
+                        <span class="time">{time}</span>{live_html}
                         <span class="teams">{home} vs {away}</span>
                     </div>
                     <div class="channels">
@@ -223,21 +249,10 @@ def main():
             
             html_content += '</div></div>'
 
-        # FOOTER AMB "ABOUT"
         html_content += f"""
             </div>
             <div class="footer">
-                <div class="about-box">
-                    <div class="about-title">About MatchDay Hub</div>
-                    <div class="about-text">
-                        This is a personal, automated aggregator for live sports events. 
-                        It runs on GitHub Actions, fetching real-time data and maintaining a 
-                        persistent schedule for better reliability on Smart TVs.
-                        <br><br>
-                        <em>Developed with ❤️ for personal use.</em>
-                    </div>
-                    <div class="update-badge">Last Update: {datetime.now().strftime('%H:%M')}</div>
-                </div>
+                Updated: {datetime.now().strftime('%H:%M')}
             </div>
         </body>
         </html>
@@ -246,10 +261,10 @@ def main():
         with open("index.html", "w", encoding="utf-8") as f:
             f.write(html_content)
             
-        print("SUCCESS: Web generated (English + 4h Limit + About).")
+        print("SUCCESS: Web generated.")
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error Global: {e}")
 
 if __name__ == "__main__":
     main()
