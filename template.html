@@ -67,32 +67,38 @@
     </div>
 
     <script>
-        // MILLORA 1: Auto-Refresc cada 5 minuts (300.000 ms)
+        // 1. Auto-Refresc cada 5 minuts
         setTimeout(() => {
             window.location.reload();
         }, 300000);
 
-        // MILLORA 3: Zona Horària Dinàmica
-        // Aquesta funció converteix l'hora UTC (del servidor) a l'hora del teu navegador (TV)
+        // 2. Zona Horària Dinàmica
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll(".time").forEach(el => {
                 const utcTime = el.getAttribute("data-utc");
                 if (utcTime) {
-                    // Creem una data a partir de l'string UTC (afegint 'Z' per forçar UTC)
-                    // Format esperat de l'API: "2024-02-01 20:30" -> "2024-02-01T20:30:00Z"
                     const date = new Date(utcTime.replace(" ", "T") + ":00Z");
-                    
-                    // Si la data és vàlida, la mostrem en format local (HH:MM)
                     if (!isNaN(date)) {
                         el.textContent = date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                     }
                 }
             });
             
-            // Actualitzar footer
             const now = new Date();
             document.getElementById("last-update").textContent = "Last checked: " + now.toLocaleTimeString();
         });
+
+        // 3. MODE SIGILÓS: Obrir enllaços xifrats
+        function openLink(btn) {
+            // Llegim el codi secret
+            const encoded = btn.getAttribute("data-link");
+            if (encoded) {
+                // Descodifiquem de Base64 a text normal
+                const url = atob(encoded);
+                // Obrim en una pestanya nova
+                window.open(url, '_blank');
+            }
+        }
     </script>
 </body>
 </html>
