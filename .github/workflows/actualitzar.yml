@@ -1,0 +1,34 @@
+name: Actualitzar Llista TV
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Això s'executa cada hora en punt.
+  workflow_dispatch: # Això permet que li donis a un botó per actualitzar manualment si vols
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Baixar el codi del repositori
+        uses: actions/checkout@v3
+
+      - name: Instal·lar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instal·lar llibreries
+        run: |
+          pip install requests
+
+      - name: Executar el generador
+        run: python generator.py
+
+      - name: Guardar i publicar els canvis
+        run: |
+          git config --global user.name "Bot Actualitzador"
+          git config --global user.email "bot@github.com"
+          git add llista.m3u
+          git commit -m "Actualització automàtica de la llista" || exit 0
+          git push
