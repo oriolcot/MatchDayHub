@@ -2,7 +2,7 @@ name: Actualitzar Llista TV
 
 on:
   schedule:
-    - cron: '0 * * * *' # Això s'executa cada hora en punt.
+    - cron: '*/15 * * * *' # Això s'executa cada hora en punt.
   workflow_dispatch: # Això permet que li donis a un botó per actualitzar manualment si vols
 
 jobs:
