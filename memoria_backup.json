@@ -1,68 +1,4 @@
 {
-    "MzgQB01i": {
-        "gameID": "MzgQB01i",
-        "homeTeam": "Damac",
-        "awayTeam": "Al Kholood",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "15:40",
-        "tournament": "Pro League",
-        "country": "Saudi Arabia",
-        "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "live",
-        "start": "2026-02-03 15:40",
-        "end": "2026-02-03 18:19",
-        "channels": [
-            {
-                "channel_name": "Sky Sport 252",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+252&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "WL6CtxEf": {
-        "gameID": "WL6CtxEf",
-        "homeTeam": "Universitatea Cluj",
-        "awayTeam": "SCM Arge\u015ful Pite\u015fti",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7734.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/116221.png",
-        "time": "16:00",
-        "tournament": "Liga I",
-        "country": "Romania",
-        "countryIMG": "https://flagcdn.com/w40/ro.png",
-        "status": "live",
-        "start": "2026-02-03 16:00",
-        "end": "2026-02-03 18:39",
-        "channels": [
-            {
-                "channel_name": "Arena Sport 1",
-                "channel_code": "hr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Digi Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Prima Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "8SEtaKvz": {
         "gameID": "8SEtaKvz",
         "homeTeam": "Al Ittifaq",
@@ -140,7 +76,7 @@
         "tournament": "Liga I",
         "country": "Romania",
         "countryIMG": "https://flagcdn.com/w40/ro.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-03 18:30",
         "end": "2026-02-03 21:09",
         "channels": [
@@ -172,7 +108,7 @@
         "tournament": "KNVB Beker",
         "country": "Netherlands",
         "countryIMG": "https://flagcdn.com/w40/nl.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-03 19:00",
         "end": "2026-02-03 21:39",
         "channels": [
@@ -225,7 +161,7 @@
         "tournament": "Eerste Divisie",
         "country": "Netherlands",
         "countryIMG": "https://flagcdn.com/w40/nl.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-03 19:00",
         "end": "2026-02-03 21:39",
         "channels": [
