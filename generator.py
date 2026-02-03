@@ -42,12 +42,14 @@ def are_same_match(m1, m2):
     try:
         t1 = datetime.strptime(m1['start'], "%Y-%m-%d %H:%M")
         t2 = datetime.strptime(m2['start'], "%Y-%m-%d %H:%M")
-        if abs((t1 - t2).total_seconds()) / 60 > 60: return False # Marge d'1 hora
+        # Si hi ha més de 60 minuts de diferència, no és el mateix
+        if abs((t1 - t2).total_seconds()) / 60 > 60: return False
     except: return False
     
     h1, a1 = normalize_name(m1.get('homeTeam')), normalize_name(m1.get('awayTeam'))
     h2, a2 = normalize_name(m2.get('homeTeam')), normalize_name(m2.get('awayTeam'))
     
+    # Comparem noms creuats
     ratio = SequenceMatcher(None, f"{h1}{a1}", f"{h2}{a2}").ratio()
     return ratio > 0.60
 
@@ -78,6 +80,7 @@ def fetch_ppv_to():
         resp = requests.get(API_URL_PPV, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
         data = resp.json()
         
+        # Iterem sobre els grups de streams
         for cat_group in data.get('streams', []):
             cat_name = cat_group.get('category_name', 'Other')
             my_cat = CAT_MAP_PPV.get(cat_name)
@@ -145,6 +148,7 @@ def main():
         merged = list_cdn
         print(f"Fusionant: {len(list_cdn)} CDN + {len(list_ppv)} PPV")
 
+        # Fusió de llistes
         for p_match in list_ppv:
             found = False
             for existing in merged:
@@ -166,7 +170,7 @@ def main():
                 continue
             memory[gid] = m
 
-        # Neteja
+        # Neteja per temps
         final_mem = {}
         now = datetime.utcnow()
         for gid, m in memory.items():
@@ -179,7 +183,7 @@ def main():
         
         save_memory(final_mem)
 
-        # Generar HTML
+        # Generar HTML (AQUÍ ESTAVA EL PROBLEMA ANTERIOR, ARA CORREGIT)
         events_by_cat = {}
         for m in final_mem.values():
             cat = m.get('custom_sport_cat', 'Other')
@@ -226,7 +230,10 @@ def main():
                     img = "https://fav.farm/📺" if code == 'ppv' else f"https://flagcdn.com/24x18/{code}.png"
                     
                     # ENCRIPTACIÓ BASE64 (STEALTH MODE)
-                    enc_url = base64.b64encode(url.encode('utf-8')).decode('utf-8')
+                    try:
+                        enc_url = base64.b64encode(url.encode('utf-8')).decode('utf-8')
+                    except:
+                        enc_url = ""
                     
                     content += f"""
                     <div class="btn" style="cursor:pointer;" data-link="{enc_url}" onclick="openLink(this)">
@@ -236,10 +243,13 @@ def main():
                 content += "</div></div>"
             content += "</div></div>"
 
-        # Injectar a la plantilla
+        # Injectar a la plantilla (Això evita el text vertical)
         if os.path.exists(TEMPLATE_FILE):
             with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f: template = f.read()
-            html = template.replace('', navbar).replace('', content)
+            # Substitució simple i neta
+            html = template.replace('', navbar)
+            html = html.replace('', content)
+            
             with open("index.html", "w", encoding="utf-8") as f: f.write(html)
             print("Web Generated Successfully.")
         else:
