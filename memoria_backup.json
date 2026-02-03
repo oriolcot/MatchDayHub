@@ -1,82 +1,4 @@
 {
-    "583CEQHF": {
-        "gameID": "583CEQHF",
-        "homeTeam": "AZ",
-        "awayTeam": "Twente",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2950.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2955.png",
-        "time": "19:00",
-        "tournament": "KNVB Beker",
-        "country": "Netherlands",
-        "countryIMG": "https://flagcdn.com/w40/nl.png",
-        "status": "live",
-        "start": "2026-02-03 19:00",
-        "end": "2026-02-03 21:39",
-        "channels": [
-            {
-                "channel_name": "SportDigital Fussball",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "DAZN 3",
-                "channel_code": "pt",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+3&code=pt&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-3.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "ESPN",
-                "channel_code": "nl",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Ring",
-                "channel_code": "bg",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=ring&code=bg&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/ring.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport 5",
-                "channel_code": "il",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "E9VAkRXI": {
-        "gameID": "E9VAkRXI",
-        "homeTeam": "Dordrecht",
-        "awayTeam": "Helmond Sport",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2973.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2974.png",
-        "time": "19:00",
-        "tournament": "Eerste Divisie",
-        "country": "Netherlands",
-        "countryIMG": "https://flagcdn.com/w40/nl.png",
-        "status": "live",
-        "start": "2026-02-03 19:00",
-        "end": "2026-02-03 21:39",
-        "channels": [
-            {
-                "channel_name": "ESPN 3",
-                "channel_code": "nl",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=nl&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn-3.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "lBO13XjF": {
         "gameID": "lBO13XjF",
         "homeTeam": "Reims",
@@ -931,6 +853,13 @@
         "end": "2026-02-04 02:40",
         "channels": [
             {
+                "channel_name": "NBA League Pass 1",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+                "viewers": 0
+            },
+            {
                 "channel_name": "beIN SPORTS 1",
                 "channel_code": "fr",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free",
@@ -956,10 +885,10 @@
         "end": "2026-02-04 02:40",
         "channels": [
             {
-                "channel_name": "Sky Sport Premier League",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+premier+league&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-premier-league.webp",
+                "channel_name": "NBA League Pass 2",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
                 "viewers": 0
             }
         ],
@@ -981,17 +910,17 @@
         "end": "2026-02-04 02:40",
         "channels": [
             {
+                "channel_name": "NBA League Pass 3",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+                "viewers": 0
+            },
+            {
                 "channel_name": "MSG",
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport 252",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+252&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
                 "viewers": 0
             }
         ],
@@ -1013,17 +942,17 @@
         "end": "2026-02-04 03:10",
         "channels": [
             {
+                "channel_name": "NBA League Pass 4",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+                "viewers": 0
+            },
+            {
                 "channel_name": "Yes Network",
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=yes+network&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/yes.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport 251",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+251&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
                 "viewers": 0
             },
             {
@@ -1057,7 +986,15 @@
         "status": "upcoming",
         "start": "2026-02-04 00:30",
         "end": "2026-02-04 03:10",
-        "channels": [],
+        "channels": [
+            {
+                "channel_name": "NBA League Pass 5",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+5&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+                "viewers": 0
+            }
+        ],
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
@@ -1075,6 +1012,13 @@
         "start": "2026-02-04 01:00",
         "end": "2026-02-04 03:40",
         "channels": [
+            {
+                "channel_name": "NBA League Pass 6",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+6&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+                "viewers": 0
+            },
             {
                 "channel_name": "Sky Sports Arena",
                 "channel_code": "gb",
@@ -1101,13 +1045,6 @@
                 "channel_code": "za",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+action&code=za&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-action.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport Bundesliga 5",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+5&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-5.png",
                 "viewers": 0
             },
             {
@@ -1164,10 +1101,10 @@
         "end": "2026-02-04 03:40",
         "channels": [
             {
-                "channel_name": "V Sport Premium",
-                "channel_code": "se",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=v+sport+premium&code=se&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/sweden/v-sport-premium.png",
+                "channel_name": "NBA League Pass 7",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+7&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
                 "viewers": 0
             }
         ],
@@ -1189,17 +1126,17 @@
         "end": "2026-02-04 03:40",
         "channels": [
             {
+                "channel_name": "NBA League Pass 8",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+8&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+                "viewers": 0
+            },
+            {
                 "channel_name": "TSN 4",
                 "channel_code": "ca",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-4.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport Bundesliga 2",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+2&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-2.png",
                 "viewers": 0
             }
         ],
@@ -1221,10 +1158,10 @@
         "end": "2026-02-04 05:40",
         "channels": [
             {
-                "channel_name": "Sky Sport Bundesliga 4",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+4&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-4.png",
+                "channel_name": "NBA League Pass 9",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+9&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
                 "viewers": 0
             },
             {
@@ -1253,10 +1190,10 @@
         "end": "2026-02-04 06:40",
         "channels": [
             {
-                "channel_name": "TNT Sports 7",
-                "channel_code": "gb",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+                "channel_name": "NBA League Pass 10",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+10&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
                 "viewers": 0
             },
             {
@@ -1341,10 +1278,10 @@
         "end": "2026-02-04 02:45",
         "channels": [
             {
-                "channel_name": "TNT Sports 8",
-                "channel_code": "gb",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png",
+                "channel_name": "NHL League Pass 1",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+1&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
                 "viewers": 0
             },
             {
@@ -1372,6 +1309,13 @@
         "start": "2026-02-04 00:00",
         "end": "2026-02-04 02:45",
         "channels": [
+            {
+                "channel_name": "NHL League Pass 2",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+2&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+                "viewers": 0
+            },
             {
                 "channel_name": "Viaplay Sports 2",
                 "channel_code": "gb",
@@ -1419,17 +1363,17 @@
         "end": "2026-02-04 02:45",
         "channels": [
             {
+                "channel_name": "NHL League Pass 3",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+3&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+                "viewers": 0
+            },
+            {
                 "channel_name": "MSG",
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport 253",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+253&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
                 "viewers": 0
             },
             {
@@ -1458,17 +1402,17 @@
         "end": "2026-02-04 03:15",
         "channels": [
             {
+                "channel_name": "NHL League Pass 4",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+4&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+                "viewers": 0
+            },
+            {
                 "channel_name": "TNT",
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tnt.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport 254",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+254&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
                 "viewers": 0
             }
         ],
@@ -1490,10 +1434,10 @@
         "end": "2026-02-04 03:15",
         "channels": [
             {
-                "channel_name": "Sky Sport 256",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+256&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
+                "channel_name": "NHL League Pass 5",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+5&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
                 "viewers": 0
             }
         ],
@@ -1514,6 +1458,13 @@
         "start": "2026-02-04 01:30",
         "end": "2026-02-04 04:15",
         "channels": [
+            {
+                "channel_name": "NHL League Pass 6",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+6&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+                "viewers": 0
+            },
             {
                 "channel_name": "Viaplay Sports 1",
                 "channel_code": "gb",
@@ -1567,6 +1518,13 @@
         "start": "2026-02-04 03:00",
         "end": "2026-02-04 05:45",
         "channels": [
+            {
+                "channel_name": "NHL League Pass 7",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+7&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+                "viewers": 0
+            },
             {
                 "channel_name": "TNT",
                 "channel_code": "us",
