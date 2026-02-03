@@ -42,14 +42,12 @@ def are_same_match(m1, m2):
     try:
         t1 = datetime.strptime(m1['start'], "%Y-%m-%d %H:%M")
         t2 = datetime.strptime(m2['start'], "%Y-%m-%d %H:%M")
-        # Si hi ha més de 60 minuts de diferència, no és el mateix
         if abs((t1 - t2).total_seconds()) / 60 > 60: return False
     except: return False
     
     h1, a1 = normalize_name(m1.get('homeTeam')), normalize_name(m1.get('awayTeam'))
     h2, a2 = normalize_name(m2.get('homeTeam')), normalize_name(m2.get('awayTeam'))
     
-    # Comparem noms creuats
     ratio = SequenceMatcher(None, f"{h1}{a1}", f"{h2}{a2}").ratio()
     return ratio > 0.60
 
@@ -80,7 +78,6 @@ def fetch_ppv_to():
         resp = requests.get(API_URL_PPV, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
         data = resp.json()
         
-        # Iterem sobre els grups de streams
         for cat_group in data.get('streams', []):
             cat_name = cat_group.get('category_name', 'Other')
             my_cat = CAT_MAP_PPV.get(cat_name)
@@ -148,7 +145,6 @@ def main():
         merged = list_cdn
         print(f"Fusionant: {len(list_cdn)} CDN + {len(list_ppv)} PPV")
 
-        # Fusió de llistes
         for p_match in list_ppv:
             found = False
             for existing in merged:
@@ -158,7 +154,6 @@ def main():
                     break
             if not found: merged.append(p_match)
 
-        # Actualitzar memòria
         for m in merged:
             if 'gameID' not in m or m['provider'] == 'PPV':
                 slug = f"{m['custom_sport_cat']}{m['homeTeam']}{m['awayTeam']}{m['start']}"
@@ -170,7 +165,6 @@ def main():
                 continue
             memory[gid] = m
 
-        # Neteja per temps
         final_mem = {}
         now = datetime.utcnow()
         for gid, m in memory.items():
@@ -183,13 +177,11 @@ def main():
         
         save_memory(final_mem)
 
-        # Generar HTML (AQUÍ ESTAVA EL PROBLEMA ANTERIOR, ARA CORREGIT)
         events_by_cat = {}
         for m in final_mem.values():
             cat = m.get('custom_sport_cat', 'Other')
             if cat not in events_by_cat: events_by_cat[cat] = []
             
-            # Ordenar canals (ES > PPV > Altres)
             m['channels'].sort(key=lambda x: 10 if x.get('channel_code') in ['es','mx'] else (5 if 'ppv' in x.get('channel_code','') else 1), reverse=True)
             events_by_cat[cat].append(m)
 
@@ -229,7 +221,6 @@ def main():
                     code = ch.get('channel_code', 'xx').lower()
                     img = "https://fav.farm/📺" if code == 'ppv' else f"https://flagcdn.com/24x18/{code}.png"
                     
-                    # ENCRIPTACIÓ BASE64 (STEALTH MODE)
                     try:
                         enc_url = base64.b64encode(url.encode('utf-8')).decode('utf-8')
                     except:
@@ -243,17 +234,16 @@ def main():
                 content += "</div></div>"
             content += "</div></div>"
 
-        # Injectar a la plantilla (Això evita el text vertical)
+        # CORRECCIÓ CLAU AQUÍ BAIX:
         if os.path.exists(TEMPLATE_FILE):
             with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f: template = f.read()
-            # Substitució simple i neta
-            html = template.replace('', navbar)
-            html = html.replace('', content)
+            html = template.replace('', navbar) # CORREGIT
+            html = html.replace('', content)   # CORREGIT
             
             with open("index.html", "w", encoding="utf-8") as f: f.write(html)
             print("Web Generated Successfully.")
         else:
-            print("ERROR: template.html no trobat. Assegura't que existeix al GitHub.")
+            print("ERROR: template.html no trobat.")
 
     except Exception as e:
         print(f"CRITICAL ERROR: {e}")
