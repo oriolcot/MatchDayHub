@@ -1,54 +1,4 @@
 {
-    "E0YLKIGm": {
-        "gameID": "E0YLKIGm",
-        "homeTeam": "Omonia Nicosia",
-        "awayTeam": "AEL",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3395.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "17:00",
-        "tournament": "Cypriot Cup",
-        "country": "Cyprus",
-        "countryIMG": "https://flagcdn.com/w40/cy.png",
-        "status": "upcoming",
-        "start": "2026-02-04 17:00",
-        "end": "2026-02-04 19:39",
-        "channels": [
-            {
-                "channel_name": "Cytavision Sports 1",
-                "channel_code": "cy",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+1&code=cy&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-1.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "pFKloArN": {
-        "gameID": "pFKloArN",
-        "homeTeam": "Bologna",
-        "awayTeam": "Lazio",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2685.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2699.png",
-        "time": "17:00",
-        "tournament": "Coppa Italia",
-        "country": "Italy",
-        "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
-        "start": "2026-02-04 17:00",
-        "end": "2026-02-04 19:39",
-        "channels": [
-            {
-                "channel_name": "Viaplay Sports 2",
-                "channel_code": "gb",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "2Tm8VYrC": {
         "gameID": "2Tm8VYrC",
         "homeTeam": "Galatasaray",
@@ -2074,56 +2024,6 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "6kLrVOj9": {
-        "gameID": "6kLrVOj9",
-        "homeTeam": "Omonia Nicosia",
-        "awayTeam": "AEL",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3395.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "17:00",
-        "tournament": "Cypriot Cup",
-        "country": "Cyprus",
-        "countryIMG": "https://flagcdn.com/w40/cy.png",
-        "status": "live",
-        "start": "2026-02-04 17:00",
-        "end": "2026-02-04 19:39",
-        "channels": [
-            {
-                "channel_name": "Cytavision Sports 1",
-                "channel_code": "cy",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+1&code=cy&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-1.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "VNw5EHdj": {
-        "gameID": "VNw5EHdj",
-        "homeTeam": "Bologna",
-        "awayTeam": "Lazio",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2685.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2699.png",
-        "time": "17:00",
-        "tournament": "Coppa Italia",
-        "country": "Italy",
-        "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "live",
-        "start": "2026-02-04 17:00",
-        "end": "2026-02-04 19:39",
-        "channels": [
-            {
-                "channel_name": "Viaplay Sports 2",
-                "channel_code": "gb",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "irxYOm8Q": {
         "gameID": "irxYOm8Q",
         "homeTeam": "Galatasaray",
@@ -2248,7 +2148,7 @@
         "tournament": "Coupe de France",
         "country": "France",
         "countryIMG": "https://flagcdn.com/w40/fr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 19:30",
         "end": "2026-02-04 22:09",
         "channels": [
@@ -2301,7 +2201,7 @@
         "tournament": "Coupe de France",
         "country": "France",
         "countryIMG": "https://flagcdn.com/w40/fr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 19:30",
         "end": "2026-02-04 22:09",
         "channels": [
@@ -2333,7 +2233,7 @@
         "tournament": "Coupe de France",
         "country": "France",
         "countryIMG": "https://flagcdn.com/w40/fr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 19:30",
         "end": "2026-02-04 22:09",
         "channels": [
@@ -2365,7 +2265,7 @@
         "tournament": "Coupe de France",
         "country": "France",
         "countryIMG": "https://flagcdn.com/w40/fr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 19:30",
         "end": "2026-02-04 22:09",
         "channels": [
@@ -2411,7 +2311,7 @@
         "tournament": "Ekstraklasa",
         "country": "Poland",
         "countryIMG": "https://flagcdn.com/w40/pl.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 19:30",
         "end": "2026-02-04 22:09",
         "channels": [
@@ -2450,7 +2350,7 @@
         "tournament": "DFB Pokal",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 19:45",
         "end": "2026-02-04 22:24",
         "channels": [
