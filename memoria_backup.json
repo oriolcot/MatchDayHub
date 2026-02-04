@@ -1,53 +1,4 @@
 {
-    "8nzEmxe5": {
-        "gameID": "8nzEmxe5",
-        "homeTeam": "OFI",
-        "awayTeam": "Levadiakos",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5063.png",
-        "time": "15:00",
-        "tournament": "Greek Cup",
-        "country": "Greece",
-        "countryIMG": "https://flagcdn.com/w40/gr.png",
-        "status": "live",
-        "start": "2026-02-04 15:00",
-        "end": "2026-02-04 17:39",
-        "channels": [
-            {
-                "channel_name": "Cosmote Sport 2",
-                "channel_code": "gr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+2&code=gr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-2.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport 5 Stars",
-                "channel_code": "il",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "9RWLgCjb": {
-        "gameID": "9RWLgCjb",
-        "homeTeam": "Gen\u00e7lerbirli\u011fi",
-        "awayTeam": "Ey\u00fcpspor",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7802.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7040.png",
-        "time": "15:00",
-        "tournament": "Turkish Cup",
-        "country": "Turkey",
-        "countryIMG": "https://flagcdn.com/w40/tr.png",
-        "status": "live",
-        "start": "2026-02-04 15:00",
-        "end": "2026-02-04 17:39",
-        "channels": [],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "ltYXfjaD": {
         "gameID": "ltYXfjaD",
         "homeTeam": "UTA Arad",
@@ -2212,55 +2163,6 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "2dzuBZjp": {
-        "gameID": "2dzuBZjp",
-        "homeTeam": "OFI",
-        "awayTeam": "Levadiakos",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5063.png",
-        "time": "15:00",
-        "tournament": "Greek Cup",
-        "country": "Greece",
-        "countryIMG": "https://flagcdn.com/w40/gr.png",
-        "status": "live",
-        "start": "2026-02-04 15:00",
-        "end": "2026-02-04 17:39",
-        "channels": [
-            {
-                "channel_name": "Cosmote Sport 2",
-                "channel_code": "gr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+2&code=gr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-2.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport 5 Stars",
-                "channel_code": "il",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "rYaSEkIm": {
-        "gameID": "rYaSEkIm",
-        "homeTeam": "Gen\u00e7lerbirli\u011fi",
-        "awayTeam": "Ey\u00fcpspor",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7802.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7040.png",
-        "time": "15:00",
-        "tournament": "Turkish Cup",
-        "country": "Turkey",
-        "countryIMG": "https://flagcdn.com/w40/tr.png",
-        "status": "live",
-        "start": "2026-02-04 15:00",
-        "end": "2026-02-04 17:39",
-        "channels": [],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "iD6W8doU": {
         "gameID": "iD6W8doU",
         "homeTeam": "UTA Arad",
@@ -2410,7 +2312,7 @@
         "tournament": "Turkish Cup",
         "country": "Turkey",
         "countryIMG": "https://flagcdn.com/w40/tr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 17:30",
         "end": "2026-02-04 20:09",
         "channels": [
@@ -2435,7 +2337,7 @@
         "tournament": "KNVB Beker",
         "country": "Netherlands",
         "countryIMG": "https://flagcdn.com/w40/nl.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 17:45",
         "end": "2026-02-04 20:24",
         "channels": [

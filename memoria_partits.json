@@ -1,93 +1,4 @@
 {
-    "ltYXfjaD": {
-        "gameID": "ltYXfjaD",
-        "homeTeam": "UTA Arad",
-        "awayTeam": "CFR Cluj",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/204657.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5287.png",
-        "time": "16:00",
-        "tournament": "Liga I",
-        "country": "Romania",
-        "countryIMG": "https://flagcdn.com/w40/ro.png",
-        "status": "upcoming",
-        "start": "2026-02-04 16:00",
-        "end": "2026-02-04 18:39",
-        "channels": [
-            {
-                "channel_name": "Arena Sport 2",
-                "channel_code": "hr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Digi Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Prima Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "7lNucyW5": {
-        "gameID": "7lNucyW5",
-        "homeTeam": "Apollon",
-        "awayTeam": "Omonia Aradippou",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/25542.png",
-        "time": "16:00",
-        "tournament": "Cypriot Cup",
-        "country": "Cyprus",
-        "countryIMG": "https://flagcdn.com/w40/cy.png",
-        "status": "upcoming",
-        "start": "2026-02-04 16:00",
-        "end": "2026-02-04 18:39",
-        "channels": [
-            {
-                "channel_name": "Cytavision Sports 2",
-                "channel_code": "cy",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+2&code=cy&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-2.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "0zKHvsfV": {
-        "gameID": "0zKHvsfV",
-        "homeTeam": "Asteras Tripolis",
-        "awayTeam": "Olympiakos Piraeus",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "16:30",
-        "tournament": "Super League",
-        "country": "Greece",
-        "countryIMG": "https://flagcdn.com/w40/gr.png",
-        "status": "upcoming",
-        "start": "2026-02-04 16:30",
-        "end": "2026-02-04 19:09",
-        "channels": [
-            {
-                "channel_name": "Nova Sports Prime",
-                "channel_code": "gr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+prime&code=gr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-prime.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "E0YLKIGm": {
         "gameID": "E0YLKIGm",
         "homeTeam": "Omonia Nicosia",
@@ -2163,95 +2074,6 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "iD6W8doU": {
-        "gameID": "iD6W8doU",
-        "homeTeam": "UTA Arad",
-        "awayTeam": "CFR Cluj",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/204657.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5287.png",
-        "time": "16:00",
-        "tournament": "Liga I",
-        "country": "Romania",
-        "countryIMG": "https://flagcdn.com/w40/ro.png",
-        "status": "live",
-        "start": "2026-02-04 16:00",
-        "end": "2026-02-04 18:39",
-        "channels": [
-            {
-                "channel_name": "Arena Sport 2",
-                "channel_code": "hr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Digi Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Prima Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "QHNMePtx": {
-        "gameID": "QHNMePtx",
-        "homeTeam": "Apollon",
-        "awayTeam": "Omonia Aradippou",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/25542.png",
-        "time": "16:00",
-        "tournament": "Cypriot Cup",
-        "country": "Cyprus",
-        "countryIMG": "https://flagcdn.com/w40/cy.png",
-        "status": "live",
-        "start": "2026-02-04 16:00",
-        "end": "2026-02-04 18:39",
-        "channels": [
-            {
-                "channel_name": "Cytavision Sports 2",
-                "channel_code": "cy",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+2&code=cy&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-2.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "mX62OIDw": {
-        "gameID": "mX62OIDw",
-        "homeTeam": "Asteras Tripolis",
-        "awayTeam": "Olympiakos Piraeus",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "16:30",
-        "tournament": "Super League",
-        "country": "Greece",
-        "countryIMG": "https://flagcdn.com/w40/gr.png",
-        "status": "live",
-        "start": "2026-02-04 16:30",
-        "end": "2026-02-04 19:09",
-        "channels": [
-            {
-                "channel_name": "Nova Sports Prime",
-                "channel_code": "gr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+prime&code=gr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-prime.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "6kLrVOj9": {
         "gameID": "6kLrVOj9",
         "homeTeam": "Omonia Nicosia",
@@ -2362,7 +2184,7 @@
         "tournament": "Greek Cup",
         "country": "Greece",
         "countryIMG": "https://flagcdn.com/w40/gr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 18:30",
         "end": "2026-02-04 21:09",
         "channels": [
@@ -2394,7 +2216,7 @@
         "tournament": "Liga I",
         "country": "Romania",
         "countryIMG": "https://flagcdn.com/w40/ro.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 18:30",
         "end": "2026-02-04 21:09",
         "channels": [
