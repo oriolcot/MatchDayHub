@@ -1,29 +1,4 @@
 {
-    "NGZmI6B3": {
-        "gameID": "NGZmI6B3",
-        "homeTeam": "Fafe",
-        "awayTeam": "Torreense",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/25787.png",
-        "time": "20:15",
-        "tournament": "Ta\u00e7a de Portugal",
-        "country": "Portugal",
-        "countryIMG": "https://flagcdn.com/w40/pt.png",
-        "status": "upcoming",
-        "start": "2026-02-04 20:15",
-        "end": "2026-02-04 22:54",
-        "channels": [
-            {
-                "channel_name": "Sport TV 1",
-                "channel_code": "pt",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "HE6uZTR2": {
         "gameID": "HE6uZTR2",
         "homeTeam": "Flamengo",
@@ -1011,31 +986,6 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "iLdfva4D": {
-        "gameID": "iLdfva4D",
-        "homeTeam": "Fafe",
-        "awayTeam": "Torreense",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/25787.png",
-        "time": "20:15",
-        "tournament": "Ta\u00e7a de Portugal",
-        "country": "Portugal",
-        "countryIMG": "https://flagcdn.com/w40/pt.png",
-        "status": "live",
-        "start": "2026-02-04 20:15",
-        "end": "2026-02-04 22:54",
-        "channels": [
-            {
-                "channel_name": "Sport TV 1",
-                "channel_code": "pt",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "sOPmyJGi": {
         "gameID": "sOPmyJGi",
         "homeTeam": "Flamengo",
@@ -1095,7 +1045,7 @@
         "tournament": "Brasileir\u00e3o",
         "country": "Brazil",
         "countryIMG": "https://flagcdn.com/w40/br.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 23:00",
         "end": "2026-02-05 01:39",
         "channels": [
@@ -1120,7 +1070,7 @@
         "tournament": "Brasileir\u00e3o",
         "country": "Brazil",
         "countryIMG": "https://flagcdn.com/w40/br.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-04 23:00",
         "end": "2026-02-05 01:39",
         "channels": [
