@@ -1,61 +1,4 @@
 {
-    "QYwhnaCI": {
-        "gameID": "QYwhnaCI",
-        "homeTeam": "Kocaelispor",
-        "awayTeam": "Be\u015fikta\u015f",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3065.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3050.png",
-        "time": "15:00",
-        "tournament": "Turkish Cup",
-        "country": "Turkey",
-        "countryIMG": "https://flagcdn.com/w40/tr.png",
-        "status": "live",
-        "start": "2026-02-05 15:00",
-        "end": "2026-02-05 17:39",
-        "channels": [
-            {
-                "channel_name": "Max Sport 4",
-                "channel_code": "bg",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport Klub 3",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "Sc6Ca3Ln": {
-        "gameID": "Sc6Ca3Ln",
-        "homeTeam": "Al Feiha",
-        "awayTeam": "Al Najma",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "15:20",
-        "tournament": "Pro League",
-        "country": "Saudi Arabia",
-        "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "live",
-        "start": "2026-02-05 15:20",
-        "end": "2026-02-05 17:59",
-        "channels": [
-            {
-                "channel_name": "Sky Sport Premier League",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+premier+league&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-premier-league.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "y6gxe03f": {
         "gameID": "y6gxe03f",
         "homeTeam": "CSU Craiova",
@@ -105,7 +48,7 @@
         "tournament": "Turkish Cup",
         "country": "Turkey",
         "countryIMG": "https://flagcdn.com/w40/tr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-05 17:30",
         "end": "2026-02-05 20:09",
         "channels": [
@@ -137,7 +80,7 @@
         "tournament": "Pro League",
         "country": "Saudi Arabia",
         "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-05 17:30",
         "end": "2026-02-05 20:09",
         "channels": [
@@ -162,7 +105,7 @@
         "tournament": "Pro League",
         "country": "Saudi Arabia",
         "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-05 17:30",
         "end": "2026-02-05 20:09",
         "channels": [
