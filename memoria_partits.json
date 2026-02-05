@@ -1,142 +1,4 @@
 {
-    "Eo870KcZ": {
-        "gameID": "Eo870KcZ",
-        "homeTeam": "Fenerbah\u00e7e",
-        "awayTeam": "BB Erzurumspor",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3052.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/55603.png",
-        "time": "17:30",
-        "tournament": "Turkish Cup",
-        "country": "Turkey",
-        "countryIMG": "https://flagcdn.com/w40/tr.png",
-        "status": "live",
-        "start": "2026-02-05 17:30",
-        "end": "2026-02-05 20:09",
-        "channels": [
-            {
-                "channel_name": "Max Sport 2",
-                "channel_code": "bg",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+2&code=bg&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-2.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport Klub 3",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "p2NzKSXc": {
-        "gameID": "p2NzKSXc",
-        "homeTeam": "Al-Ahli",
-        "awayTeam": "Al Hazm",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/34469.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "17:30",
-        "tournament": "Pro League",
-        "country": "Saudi Arabia",
-        "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "live",
-        "start": "2026-02-05 17:30",
-        "end": "2026-02-05 20:09",
-        "channels": [
-            {
-                "channel_name": "Sky Sport 252",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+252&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "QDqkgHNa": {
-        "gameID": "QDqkgHNa",
-        "homeTeam": "Al Akhdoud",
-        "awayTeam": "Al Hilal",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "17:30",
-        "tournament": "Pro League",
-        "country": "Saudi Arabia",
-        "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "live",
-        "start": "2026-02-05 17:30",
-        "end": "2026-02-05 20:09",
-        "channels": [
-            {
-                "channel_name": "FOX Soccer Plus",
-                "channel_code": "us",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+soccer+plus&code=us&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-soccer-plus.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "FOX Deportes",
-                "channel_code": "us",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "M Liga de Campeones 1",
-                "channel_code": "es",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport 251",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+251&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "DAZN 1",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport TV 1",
-                "channel_code": "pt",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Cosmote Sport 7",
-                "channel_code": "gr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+7&code=gr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-7.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Max Sport 4",
-                "channel_code": "bg",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "SporTV 1",
-                "channel_code": "br",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "XCAxjheU": {
         "gameID": "XCAxjheU",
         "homeTeam": "FCSB",
@@ -232,7 +94,7 @@
         "tournament": "Coppa Italia",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-05 20:00",
         "end": "2026-02-05 22:39",
         "channels": [
@@ -348,7 +210,7 @@
         "tournament": "Copa del Rey",
         "country": "Spain",
         "countryIMG": "https://flagcdn.com/w40/es.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-05 20:00",
         "end": "2026-02-05 22:39",
         "channels": [
@@ -443,7 +305,7 @@
         "tournament": "Coupe de France",
         "country": "France",
         "countryIMG": "https://flagcdn.com/w40/fr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-05 20:00",
         "end": "2026-02-05 22:39",
         "channels": [
@@ -510,7 +372,7 @@
         "tournament": "Ta\u00e7a de Portugal",
         "country": "Portugal",
         "countryIMG": "https://flagcdn.com/w40/pt.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-05 20:45",
         "end": "2026-02-05 23:24",
         "channels": [
