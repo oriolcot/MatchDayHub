@@ -1,89 +1,4 @@
 {
-    "J3dvXT5b": {
-        "gameID": "J3dvXT5b",
-        "homeTeam": "Zrinjski",
-        "awayTeam": "Sloga Doboj",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5178.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/37064.png",
-        "time": "17:00",
-        "tournament": "Premijer Liga",
-        "country": "Bosnia and Herzegovina",
-        "countryIMG": "https://flagcdn.com/w40/ba.png",
-        "status": "live",
-        "start": "2026-02-06 17:00",
-        "end": "2026-02-06 19:39",
-        "channels": [
-            {
-                "channel_name": "Arena Sport 9",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+9&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-9.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena Sport 2",
-                "channel_code": "hr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "Aajso4EO": {
-        "gameID": "Aajso4EO",
-        "homeTeam": "Korona Kielce",
-        "awayTeam": "Zag\u0142\u0119bie Lubin",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5065.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3113.png",
-        "time": "17:00",
-        "tournament": "Ekstraklasa",
-        "country": "Poland",
-        "countryIMG": "https://flagcdn.com/w40/pl.png",
-        "status": "live",
-        "start": "2026-02-06 17:00",
-        "end": "2026-02-06 19:39",
-        "channels": [
-            {
-                "channel_name": "beIN SPORTS",
-                "channel_code": "us",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "beIN SPORTS N",
-                "channel_code": "es",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Canal Sport 3",
-                "channel_code": "pl",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+3&code=pl&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-3.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Canal Sport 5",
-                "channel_code": "pl",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+5&code=pl&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-5.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena Sport 1",
-                "channel_code": "hr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "7iAFDqrf": {
         "gameID": "7iAFDqrf",
         "homeTeam": "Preu\u00dfen M\u00fcnster",
@@ -640,7 +555,7 @@
         "tournament": "Bundesliga",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:30",
         "end": "2026-02-06 22:09",
         "channels": [
@@ -763,7 +678,7 @@
         "tournament": "Ekstraklasa",
         "country": "Poland",
         "countryIMG": "https://flagcdn.com/w40/pl.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:30",
         "end": "2026-02-06 22:09",
         "channels": [
@@ -795,7 +710,7 @@
         "tournament": "Segunda Division",
         "country": "Spain",
         "countryIMG": "https://flagcdn.com/w40/es.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:30",
         "end": "2026-02-06 22:09",
         "channels": [
@@ -827,7 +742,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:30",
         "end": "2026-02-06 22:09",
         "channels": [],
@@ -844,7 +759,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:30",
         "end": "2026-02-06 22:09",
         "channels": [],
@@ -861,7 +776,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:30",
         "end": "2026-02-06 22:09",
         "channels": [],
@@ -878,7 +793,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:30",
         "end": "2026-02-06 22:09",
         "channels": [],
@@ -895,7 +810,7 @@
         "tournament": "Bundesliga",
         "country": "Austria",
         "countryIMG": "https://flagcdn.com/w40/at.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:30",
         "end": "2026-02-06 22:09",
         "channels": [
@@ -927,7 +842,7 @@
         "tournament": "Ligue 1",
         "country": "France",
         "countryIMG": "https://flagcdn.com/w40/fr.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:45",
         "end": "2026-02-06 22:24",
         "channels": [
@@ -1015,7 +930,7 @@
         "tournament": "Serie A",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 19:45",
         "end": "2026-02-06 22:24",
         "channels": [
@@ -1140,6 +1055,13 @@
                 "channel_code": "us",
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=astro+grandstand&code=us&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/astro-grandstand.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Hub Premier 1",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=hub+premier+1&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/hub-premier-1.png",
                 "viewers": 0
             },
             {
