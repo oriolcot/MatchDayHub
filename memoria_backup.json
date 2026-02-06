@@ -1,36 +1,4 @@
 {
-    "pCtHoqEN": {
-        "gameID": "pCtHoqEN",
-        "homeTeam": "NEOM",
-        "awayTeam": "Al Riyadh",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "14:25",
-        "tournament": "Pro League",
-        "country": "Saudi Arabia",
-        "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "live",
-        "start": "2026-02-06 14:25",
-        "end": "2026-02-06 17:04",
-        "channels": [
-            {
-                "channel_name": "Sky Sport 251",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+251&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "SporTV 1",
-                "channel_code": "br",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "luMUbrCO": {
         "gameID": "luMUbrCO",
         "homeTeam": "Rudar Prijedor",
@@ -162,7 +130,7 @@
         "tournament": "NB1",
         "country": "Hungary",
         "countryIMG": "https://flagcdn.com/w40/hu.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 16:45",
         "end": "2026-02-06 19:24",
         "channels": [
@@ -187,7 +155,7 @@
         "tournament": "Premijer Liga",
         "country": "Bosnia and Herzegovina",
         "countryIMG": "https://flagcdn.com/w40/ba.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 17:00",
         "end": "2026-02-06 19:39",
         "channels": [
@@ -219,7 +187,7 @@
         "tournament": "Ekstraklasa",
         "country": "Poland",
         "countryIMG": "https://flagcdn.com/w40/pl.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 17:00",
         "end": "2026-02-06 19:39",
         "channels": [

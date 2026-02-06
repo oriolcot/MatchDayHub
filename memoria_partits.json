@@ -1,100 +1,4 @@
 {
-    "luMUbrCO": {
-        "gameID": "luMUbrCO",
-        "homeTeam": "Rudar Prijedor",
-        "awayTeam": "\u0160iroki Brijeg",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/36537.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5239.png",
-        "time": "15:00",
-        "tournament": "Premijer Liga",
-        "country": "Bosnia and Herzegovina",
-        "countryIMG": "https://flagcdn.com/w40/ba.png",
-        "status": "live",
-        "start": "2026-02-06 15:00",
-        "end": "2026-02-06 17:39",
-        "channels": [
-            {
-                "channel_name": "Arena Sport 9",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+9&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-9.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena Sport 2",
-                "channel_code": "hr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "pUHPNwar": {
-        "gameID": "pUHPNwar",
-        "homeTeam": "SCM Arge\u015ful Pite\u015fti",
-        "awayTeam": "Hermannstadt",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/116221.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/260356.png",
-        "time": "15:00",
-        "tournament": "Liga I",
-        "country": "Romania",
-        "countryIMG": "https://flagcdn.com/w40/ro.png",
-        "status": "live",
-        "start": "2026-02-06 15:00",
-        "end": "2026-02-06 17:39",
-        "channels": [
-            {
-                "channel_name": "Arena Sport 1",
-                "channel_code": "hr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Digi Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Prima Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "GXrZTq0A": {
-        "gameID": "GXrZTq0A",
-        "homeTeam": "Al Ittifaq",
-        "awayTeam": "Damac",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "15:00",
-        "tournament": "Pro League",
-        "country": "Saudi Arabia",
-        "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "live",
-        "start": "2026-02-06 15:00",
-        "end": "2026-02-06 17:39",
-        "channels": [
-            {
-                "channel_name": "Sky Sport Bundesliga 5",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+5&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-5.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "3HG9MsZh": {
         "gameID": "3HG9MsZh",
         "homeTeam": "CSKA Sofia",
@@ -240,7 +144,7 @@
         "tournament": "Bundesliga 2",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 17:30",
         "end": "2026-02-06 20:09",
         "channels": [
@@ -307,7 +211,7 @@
         "tournament": "Bundesliga 2",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 17:30",
         "end": "2026-02-06 20:09",
         "channels": [
@@ -374,7 +278,7 @@
         "tournament": "Pro League",
         "country": "Saudi Arabia",
         "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 17:30",
         "end": "2026-02-06 20:09",
         "channels": [
@@ -483,7 +387,7 @@
         "tournament": "Segunda liga",
         "country": "Portugal",
         "countryIMG": "https://flagcdn.com/w40/pt.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 18:00",
         "end": "2026-02-06 20:39",
         "channels": [
@@ -508,7 +412,7 @@
         "tournament": "Liga I",
         "country": "Romania",
         "countryIMG": "https://flagcdn.com/w40/ro.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-06 18:00",
         "end": "2026-02-06 20:39",
         "channels": [
