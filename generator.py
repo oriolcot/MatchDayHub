@@ -14,7 +14,47 @@ MEMORY_FILE = "memoria_partits.json"
 BACKUP_FILE = "memoria_backup.json"
 TEMPLATE_FILE = "template.html"
 
-# HEADERS REALS (Solució al "No Events" per bloqueig)
+# PLANTILLA D'EMERGÈNCIA (Per si s'esborra el fitxer template.html)
+DEFAULT_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Schedule</title>
+    <style>
+        :root { --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --accent: #3b82f6; --live: #ef4444; }
+        body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; padding: 20px; }
+        .navbar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 15px; margin-bottom: 20px; }
+        .nav-btn { background: var(--card); color: var(--text); padding: 8px 16px; border-radius: 20px; text-decoration: none; border: 1px solid #334155; }
+        .nav-btn:hover { background: var(--accent); }
+        .sport-title { font-size: 1.5rem; font-weight: bold; margin: 30px 0 15px 0; border-left: 4px solid var(--accent); padding-left: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+        .card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
+        .header { padding: 15px; background: rgba(0,0,0,0.2); display: flex; justify-content: space-between; align-items: center; }
+        .live-badge { background: var(--live); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+        .channels { padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .btn { background: #334155; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+        .btn:hover { background: var(--accent); }
+        .flag-img { width: 16px; height: 12px; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <div class="navbar" id="navbar"></div>
+    <div id="content"></div>
+    <script>
+        document.querySelectorAll('.time').forEach(el => {
+            const utc = el.getAttribute('data-utc');
+            if(utc) el.textContent = new Date(utc.replace(' ', 'T')+'Z').toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+        });
+        function openLink(el) {
+            const raw = el.getAttribute('data-link');
+            if(raw) window.open(atob(raw), '_blank');
+        }
+    </script>
+</body>
+</html>"""
+
+# HEADERS REALS (Per evitar error 403 i "No events")
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -28,20 +68,14 @@ CAT_MAP_PPV = {
 }
 
 def get_sport_name(api_key):
-    names = {
-        "Soccer": "FUTBOL ⚽", "NBA": "BÀSQUET (NBA) 🏀", "NFL": "NFL 🏈",
-        "NHL": "HOQUEI (NHL) 🏒", "MLB": "BEISBOL ⚾", "F1": "FÓRMULA 1 🏎️",
-        "MotoGP": "MOTOGP 🏍️", "Tennis": "TENNIS 🎾", "Boxing": "BOXA 🥊",
-        "Rugby": "RUGBI 🏉"
-    }
+    names = { "Soccer": "FUTBOL ⚽", "NBA": "BÀSQUET (NBA) 🏀", "NFL": "NFL 🏈", "NHL": "HOQUEI (NHL) 🏒", "MLB": "BEISBOL ⚾", "F1": "FÓRMULA 1 🏎️", "MotoGP": "MOTOGP 🏍️", "Tennis": "TENNIS 🎾", "Boxing": "BOXA 🥊", "Rugby": "RUGBI 🏉" }
     return names.get(api_key, api_key.upper())
 
 def normalize_name(name):
     if not name: return ""
     garbage = ["fc", "cf", "ud", "ca", "sc", "basketball", "football"]
     clean = name.lower()
-    for g in garbage:
-        clean = clean.replace(f" {g} ", " ").replace(f"{g} ", "").replace(f" {g}", "")
+    for g in garbage: clean = clean.replace(f" {g} ", " ").replace(f"{g} ", "").replace(f" {g}", "")
     return clean.strip()
 
 def are_same_match(m1, m2):
@@ -51,12 +85,9 @@ def are_same_match(m1, m2):
         t2 = datetime.strptime(m2['start'], "%Y-%m-%d %H:%M")
         if abs((t1 - t2).total_seconds()) / 60 > 60: return False
     except: return False
-    
     h1, a1 = normalize_name(m1.get('homeTeam')), normalize_name(m1.get('awayTeam'))
     h2, a2 = normalize_name(m2.get('homeTeam')), normalize_name(m2.get('awayTeam'))
-    
-    ratio = SequenceMatcher(None, f"{h1}{a1}", f"{h2}{a2}").ratio()
-    return ratio > 0.60
+    return SequenceMatcher(None, f"{h1}{a1}", f"{h2}{a2}").ratio() > 0.60
 
 def fetch_cdn_live():
     print("Fetching CDN-Live...")
@@ -72,10 +103,8 @@ def fetch_cdn_live():
                         m['custom_sport_cat'] = sport
                         m['provider'] = 'CDN'
                         matches.append(m)
-        else:
-            print(f"⚠️ CDN Error Code: {resp.status_code}")
-    except Exception as e:
-        print(f"❌ Error CDN: {e}")
+        else: print(f"⚠️ CDN Error Code: {resp.status_code}")
+    except Exception as e: print(f"❌ Error CDN: {e}")
     return matches
 
 def fetch_ppv_to():
@@ -90,42 +119,22 @@ def fetch_ppv_to():
                 cat_name = cat_group.get('category_name', 'Other')
                 my_cat = CAT_MAP_PPV.get(cat_name)
                 if not my_cat: continue 
-
                 for s in cat_group.get('streams', []):
                     try:
-                        ts = s.get('starts_at')
-                        dt = datetime.utcfromtimestamp(int(ts))
+                        dt = datetime.utcfromtimestamp(int(s.get('starts_at')))
                         start_str = dt.strftime("%Y-%m-%d %H:%M")
                         time_str = dt.strftime("%H:%M")
                     except: continue
-
                     full_name = s.get('name', '')
-                    parts = full_name.split(' vs. ')
-                    if len(parts) < 2: parts = full_name.split(' v ')
-                    if len(parts) < 2: parts = full_name.split(' - ')
-                    
-                    h = parts[0].strip() if len(parts) > 0 else "Unknown"
-                    a = parts[1].strip() if len(parts) > 1 else "Unknown"
-
-                    match = {
-                        "gameID": str(s.get('id')),
-                        "homeTeam": h, "awayTeam": a,
-                        "time": time_str, "start": start_str,
-                        "custom_sport_cat": my_cat,
-                        "status": "upcoming",
-                        "provider": "PPV",
-                        "channels": [{
-                            "channel_name": f"{s.get('tag', 'Link')} (HD)",
-                            "channel_code": "ppv",
-                            "url": s.get('iframe', '#'),
-                            "priority": 5
-                        }]
-                    }
-                    matches.append(match)
-        else:
-            print(f"⚠️ PPV Error Code: {resp.status_code}")
-    except Exception as e:
-        print(f"❌ Error PPV: {e}")
+                    parts = full_name.split(' vs. ') if ' vs. ' in full_name else (full_name.split(' v ') if ' v ' in full_name else full_name.split(' - '))
+                    h, a = (parts[0].strip(), parts[1].strip()) if len(parts) > 1 else (full_name, "Unknown")
+                    matches.append({
+                        "gameID": str(s.get('id')), "homeTeam": h, "awayTeam": a, "time": time_str, "start": start_str,
+                        "custom_sport_cat": my_cat, "status": "upcoming", "provider": "PPV",
+                        "channels": [{"channel_name": f"{s.get('tag', 'Link')} (HD)", "channel_code": "ppv", "url": s.get('iframe', '#'), "priority": 5}]
+                    })
+        else: print(f"⚠️ PPV Error Code: {resp.status_code}")
+    except Exception as e: print(f"❌ Error PPV: {e}")
     return matches
 
 def load_memory():
@@ -149,7 +158,7 @@ def main():
         list_ppv = fetch_ppv_to()
         
         merged = list_cdn
-        print(f"🔄 Total events found: CDN({len(list_cdn)}) + PPV({len(list_ppv)})")
+        print(f"🔄 Fusionant: CDN({len(list_cdn)}) + PPV({len(list_ppv)})")
 
         for p_match in list_ppv:
             found = False
@@ -160,31 +169,25 @@ def main():
                     break
             if not found: merged.append(p_match)
 
-        # Update memory
         for m in merged:
             if 'gameID' not in m or m['provider'] == 'PPV':
-                slug = f"{m['custom_sport_cat']}{m['homeTeam']}{m['awayTeam']}{m['start']}"
-                m['gameID'] = str(abs(hash(slug)))
-            
+                m['gameID'] = str(abs(hash(f"{m['custom_sport_cat']}{m['homeTeam']}{m['awayTeam']}{m['start']}")))
             gid = m['gameID']
             if m.get('status', '').lower() == 'finished':
                 if gid in memory: del memory[gid]
                 continue
             memory[gid] = m
 
-        # Filter old events (keep recent ones for 4 hours)
         final_mem = {}
         now = datetime.utcnow()
         for gid, m in memory.items():
             try:
-                s_dt = datetime.strptime(m.get('start'), "%Y-%m-%d %H:%M")
-                if (now - s_dt).total_seconds() < 4 * 3600:
+                if (now - datetime.strptime(m.get('start'), "%Y-%m-%d %H:%M")).total_seconds() < 4 * 3600:
                     final_mem[gid] = m
             except: pass
         
         save_memory(final_mem)
 
-        # Generate HTML content
         events_by_cat = {}
         for m in final_mem.values():
             cat = m.get('custom_sport_cat', 'Other')
@@ -197,54 +200,49 @@ def main():
         content = ""
         
         if not active_sports:
-            content = "<div style='text-align:center; padding:50px; color:#666;'>No live events found right now.</div>"
+            content = "<div style='text-align:center; padding:50px; color:#94a3b8;'>😴 No s'han trobat partits en viu.</div>"
         
         for sport in active_sports:
             nice = get_sport_name(sport)
             navbar += f'<a href="#{sport}" class="nav-btn">{nice}</a>'
             matches = sorted(events_by_cat[sport], key=lambda x: x.get('start'))
-            
             content += f'<div id="{sport}" class="sport-section"><div class="sport-title">{nice}</div><div class="grid">'
             for m in matches:
                 utc = m.get('start', '')
                 is_live = m.get('status', '').lower() == 'live'
                 badges = '<span class="live-badge">LIVE</span> ' if is_live else ''
-                
-                content += f"""
-                <div class="card">
-                    <div class="header">
-                        <span class="time" data-utc="{utc}">--:--</span>
-                        {badges}
-                        <span class="teams">{m['homeTeam']} vs {m['awayTeam']}</span>
-                    </div>
-                    <div class="channels">
-                """
+                content += f"""<div class="card"><div class="header"><span class="time" data-utc="{utc}">--:--</span>{badges}<span class="teams">{m['homeTeam']} vs {m['awayTeam']}</span></div><div class="channels">"""
                 for ch in m['channels']:
                     name = ch.get('channel_name', 'Link')
-                    url = ch.get('url', '#')
+                    try: enc = base64.b64encode(ch.get('url', '#').encode('utf-8')).decode('utf-8')
+                    except: enc = ""
                     code = ch.get('channel_code', 'xx').lower()
                     img = "https://fav.farm/📺" if code == 'ppv' else f"https://flagcdn.com/24x18/{code}.png"
-                    try: enc_url = base64.b64encode(url.encode('utf-8')).decode('utf-8')
-                    except: enc_url = ""
-                    
-                    content += f"""<div class="btn" style="cursor:pointer;" data-link="{enc_url}" onclick="openLink(this)">
-                        <img src="{img}" class="flag-img" onerror="this.style.display='none'"> {name}
-                    </div>"""
+                    content += f"""<div class="btn" data-link="{enc}" onclick="openLink(this)"><img src="{img}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
                 content += "</div></div>"
             content += "</div></div>"
 
-        # INJECTING INTO TEMPLATE
+        # --- GENERACIÓ FINAL ---
+        # Si troba template.html el fa servir, si no, fa servir el d'emergència
+        template_content = DEFAULT_TEMPLATE
         if os.path.exists(TEMPLATE_FILE):
-            with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f: template = f.read()
-            
-            # --- AQUÍ ESTÀ LA CORRECCIÓ CLAU ---
-            html = template.replace('', navbar)
-            html = html.replace('', content)
-            
-            with open("index.html", "w", encoding="utf-8") as f: f.write(html)
-            print("✅ Web Generated Successfully.")
+            try:
+                with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f:
+                    file_content = f.read()
+                    if "" in file_content:
+                        template_content = file_content
+                        print("✅ Usant template.html extern.")
+                    else:
+                        print("⚠️ template.html trobat però sense marques. Usant per defecte.")
+            except: pass
         else:
-            print("❌ ERROR: template.html not found.")
+            print("⚠️ template.html NO trobat. Usant plantilla d'emergència.")
+
+        html = template_content.replace('', navbar)
+        html = html.replace('', content)
+        
+        with open("index.html", "w", encoding="utf-8") as f: f.write(html)
+        print("✅ Web generada correctament!")
 
     except Exception as e:
         print(f"❌ CRITICAL ERROR: {e}")
