@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # Botó manual
 
 permissions:
-  contents: write # ⚠️ IMPRESCINDIBLE per guardar fitxers
+  contents: write # ⚠️ IMPRESCINDIBLE: Dóna permís al bot per guardar canvis
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: 📥 Baixar el codi
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Baixa tot l'historial per evitar errors de git
+          fetch-depth: 0 # Baixa tot l'historial per evitar conflictes
 
       - name: 🐍 Configurar Python
         uses: actions/setup-python@v4
@@ -32,27 +32,34 @@ jobs:
           API_URL_PPV: ${{ secrets.API_URL_PPV }}
         run: python generator.py
 
-      - name: 🔍 DIAGNÒSTIC - Comprovar si existeix index.html
+      - name: 🔍 DIAGNÒSTIC - Verificar fitxer
         run: |
+          echo "---- LLISTAT DE FITXERS GENERATS ----"
           ls -la
+          echo "---- MIDA DEL INDEX.HTML ----"
           if [ -f index.html ]; then
-            echo "✅ ÈXIT: El fitxer index.html s'ha generat correctament!"
+            du -h index.html
+            echo "---- PRIMERES 20 LÍNIES DEL INDEX.HTML ----"
+            head -n 20 index.html
           else
-            echo "❌ ERROR FATAL: El fitxer index.html NO existeix. El script de Python ha fallat silenciosament."
+            echo "❌ ERROR: El fitxer index.html NO existeix!"
             exit 1
           fi
 
-      - name: 💾 Guardar i Pujar (Push automàtic a la branca actual)
+      - name: 💾 Guardar i Pujar (NUCLEAR PUSH)
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
           
-          # Forcem l'afegit del fitxer per si de cas
-          git add -f index.html memoria_partits.json memoria_backup.json
+          # Afegim tot el que hagi canviat
+          git add .
           
-          # Mirem l'estat abans de fer commit
+          # Comprovem estat
+          echo "---- ESTAT DE GIT ABANS DEL COMMIT ----"
           git status
           
-          # Fem commit i push a la branca que toqui (main o master)
-          git commit -m "Auto-update: Web actualitzada ⚽" || echo "⚠️ No hi ha canvis nous, tot està al dia."
+          # Fem commit (si falla perquè no hi ha canvis, no passa res)
+          git commit -m "Auto-update: Nous partits ⚽" || echo "⚠️ No hi ha canvis nous."
+          
+          # Forcem la pujada a la branca principal (detecta si és main o master)
           git push origin HEAD:${{ github.ref_name }}
