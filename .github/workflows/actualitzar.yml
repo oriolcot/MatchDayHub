@@ -1,47 +1,40 @@
-name: Actualitzar Llista TV
+name: Actualitzar Futbol
 
 on:
   schedule:
-    # 02:00 a 09:00 (UTC+1) -> cada 2 hores
-    - cron: '0 1,3,5,7 * * *'
-    # 09:00 a 00:30 (UTC+1) -> cada 30 minuts
-    - cron: '*/30 9-23,0 * * *'
+    - cron: '0 */4 * * *' # S'executa cada 4 hores
+  workflow_dispatch: # Permet executar manualment amb el botó
 
-  workflow_dispatch:
-
-concurrency:
-  group: production
-  cancel-in-progress: false
+permissions:
+  contents: write  # IMPORTANT: Dóna permís per escriure i guardar canvis
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    steps:
-      - name: Baixar el codi
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
-      - name: Instal·lar Python
+    steps:
+      - name: Baixar el codi del repositori
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Instal·lar llibreries
-        run: pip install requests
+      - name: Instal·lar llibreries necessàries
+        run: |
+          pip install requests
 
-      - name: Executar el generador
-        env: 
+      - name: Executar el generador (Python)
+        env:
           API_URL: ${{ secrets.API_URL }}
           API_URL_PPV: ${{ secrets.API_URL_PPV }}
         run: python generator.py
 
-      - name: Guardar i publicar
-        # HEM TRET EL --AMEND PERQUÈ ES NETEGI EL NOM DEL COMMIT
+      - name: Guardar i Pujar canvis (Commit & Push)
         run: |
-          git config --global user.name "Bot Actualitzador"
-          git config --global user.email "bot@github.com"
-          git add .
-          git commit -m "Actualització automàtica" || exit 0
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "action@github.com"
+          git add index.html memoria_partits.json memoria_backup.json
+          git commit -m "Auto-update schedule ⚽" || echo "No hi ha canvis per guardar"
           git push
