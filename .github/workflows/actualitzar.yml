@@ -2,18 +2,18 @@ name: Actualitzar Futbol
 
 on:
   schedule:
-    - cron: '0 */4 * * *' # S'executa cada 4 hores
-  workflow_dispatch: # Permet executar manualment amb el botó
+    - cron: '0 */4 * * *' # Executa cada 4 hores
+  workflow_dispatch: # Botó manual
 
 permissions:
-  contents: write  # IMPORTANT: Dóna permís per escriure i guardar canvis
+  contents: write # IMPORTANT: Permet escriure al repositori
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar el codi del repositori
+      - name: Baixar codi
         uses: actions/checkout@v3
 
       - name: Configurar Python
@@ -21,20 +21,21 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Instal·lar llibreries necessàries
-        run: |
-          pip install requests
+      - name: Instal·lar llibreries
+        run: pip install requests
 
-      - name: Executar el generador (Python)
+      - name: Executar Generador
         env:
           API_URL: ${{ secrets.API_URL }}
           API_URL_PPV: ${{ secrets.API_URL_PPV }}
         run: python generator.py
 
-      - name: Guardar i Pujar canvis (Commit & Push)
+      - name: 💾 Guardar i Pujar Canvis (Commit & Push)
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
+          # Afegim explícitament els fitxers que volem guardar
           git add index.html memoria_partits.json memoria_backup.json
-          git commit -m "Auto-update schedule ⚽" || echo "No hi ha canvis per guardar"
+          # Fem commit només si hi ha canvis
+          git commit -m "Auto-update: Nous partits ⚽" || echo "No hi ha canvis per guardar"
           git push
