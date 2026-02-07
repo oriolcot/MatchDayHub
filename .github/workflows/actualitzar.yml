@@ -1,15 +1,13 @@
-name: Actualitzar Futbol
+name: Sherlock Holmes Debug
 
 on:
-  schedule:
-    - cron: '0 */4 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # Només manual per ara
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  debug_job:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,24 +22,24 @@ jobs:
       - name: 📦 Instal·lar llibreries
         run: pip install requests
 
-      - name: 🚀 GENERAR WEB (Mode Debug Total)
-        env:
-          API_URL: ${{ secrets.API_URL }}
-          API_URL_PPV: ${{ secrets.API_URL_PPV }}
-        # AFEGIM "2>&1" AL FINAL PERQUÈ ELS ERRORS SURTIN A LA WEB
-        run: python generator.py > index.html 2>&1
-
-      - name: 🔍 VERIFICAR ARXIU (Debug)
+      # PAS 1: Mirem què coi hi ha dins del fitxer generator.py
+      - name: 🧐 INSPECCIONAR generator.py
         run: |
-          echo "Mida del fitxer index.html:"
-          ls -l index.html
-          echo "Primeres 10 línies:"
-          head -n 10 index.html
+          echo "================ CONTINGUT DEL SCRIPT ================"
+          cat generator.py
+          echo "======================================================"
 
-      - name: 💾 Guardar i Pujar
+      # PAS 2: Mirem si el JSON té dades realment
+      - name: 🧐 INSPECCIONAR memoria_partits.json
         run: |
-          git config --global user.name "GitHub Action Bot"
-          git config --global user.email "action@github.com"
-          git add index.html memoria_partits.json
-          git commit -m "Auto-update ⚽" || echo "No changes"
-          git push
+          echo "================ MIDA DEL JSON ================"
+          ls -lh memoria_partits.json
+          echo "================ PRIMERES 20 LÍNIES DEL JSON ================"
+          head -n 20 memoria_partits.json
+
+      # PAS 3: Executem el script DIRECTAMENT a la consola (sense amagar el resultat)
+      - name: 🚀 EXECUTAR SENSE FILTRES
+        run: |
+          echo "Iniciant execució..."
+          python generator.py
+          echo "Finalitzat."
