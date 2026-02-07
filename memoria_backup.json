@@ -1,269 +1,4 @@
 {
-    "m2MsQ8xj": {
-        "gameID": "m2MsQ8xj",
-        "homeTeam": "Fatih Karag\u00fcmr\u00fck",
-        "awayTeam": "Antalyaspor",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/4954.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3056.png",
-        "time": "11:30",
-        "tournament": "Super Lig",
-        "country": "Turkey",
-        "countryIMG": "https://flagcdn.com/w40/tr.png",
-        "status": "live",
-        "start": "2026-02-07 11:30",
-        "end": "2026-02-07 14:09",
-        "channels": [
-            {
-                "channel_name": "beIN SPORTS 1",
-                "channel_code": "tr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=tr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-1.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "Pz5eSu6X": {
-        "gameID": "Pz5eSu6X",
-        "homeTeam": "Di\u00f3sgy\u0151r",
-        "awayTeam": "Gy\u0151ri ETO",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "11:45",
-        "tournament": "NB1",
-        "country": "Hungary",
-        "countryIMG": "https://flagcdn.com/w40/hu.png",
-        "status": "live",
-        "start": "2026-02-07 11:45",
-        "end": "2026-02-07 14:24",
-        "channels": [],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "tohMAsV2": {
-        "gameID": "tohMAsV2",
-        "homeTeam": "Multiview",
-        "awayTeam": "Multiview",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "12:00",
-        "tournament": "Bundesliga 2",
-        "country": "Germany",
-        "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "live",
-        "start": "2026-02-07 12:00",
-        "end": "2026-02-07 14:39",
-        "channels": [
-            {
-                "channel_name": "Sky Sport Bundesliga 6",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+6&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-6.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "X7CP2B3Q": {
-        "gameID": "X7CP2B3Q",
-        "homeTeam": "Simulcast",
-        "awayTeam": "Simulcast",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "12:00",
-        "tournament": "Bundesliga 2",
-        "country": "Germany",
-        "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "live",
-        "start": "2026-02-07 12:00",
-        "end": "2026-02-07 14:39",
-        "channels": [
-            {
-                "channel_name": "Sky Sport Bundesliga 2",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+2&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-2.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport Top Event",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "ksjGK7DP": {
-        "gameID": "ksjGK7DP",
-        "homeTeam": "Schalke 04",
-        "awayTeam": "Dynamo Dresden",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2530.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2595.png",
-        "time": "12:00",
-        "tournament": "Bundesliga 2",
-        "country": "Germany",
-        "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "live",
-        "start": "2026-02-07 12:00",
-        "end": "2026-02-07 14:39",
-        "channels": [
-            {
-                "channel_name": "Sky Sport Max",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+max&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-max.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport Bundesliga 3",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+3&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-3.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "DAZN 3",
-                "channel_code": "pt",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+3&code=pt&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-3.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Eleven Sports 2",
-                "channel_code": "pl",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+2&code=pl&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/eleven-sport-2.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Nova Sport 5",
-                "channel_code": "cz",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+5&code=cz&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-5.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Digi Sport 3",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+3&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-3.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport 3",
-                "channel_code": "il",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+3&code=il&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-3.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "KwYUAL6z": {
-        "gameID": "KwYUAL6z",
-        "homeTeam": "Elversberg",
-        "awayTeam": "Hertha BSC",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2598.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2528.png",
-        "time": "12:00",
-        "tournament": "Bundesliga 2",
-        "country": "Germany",
-        "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "live",
-        "start": "2026-02-07 12:00",
-        "end": "2026-02-07 14:39",
-        "channels": [
-            {
-                "channel_name": "beIN SPORTS MAX 7",
-                "channel_code": "fr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+7&code=fr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-7.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sky Sport Bundesliga 4",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+4&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-4.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Eleven Sports 1",
-                "channel_code": "pl",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+1&code=pl&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/eleven-sport-1.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena Sport 3",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+3&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-3.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Nova Sport 3",
-                "channel_code": "cz",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+3&code=cz&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-3.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Canal Sport",
-                "channel_code": "cz",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport&code=cz&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/canal-sport.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Nova Sport 5",
-                "channel_code": "cz",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+5&code=cz&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-5.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "biAzSseI": {
-        "gameID": "biAzSseI",
-        "homeTeam": "Paderborn",
-        "awayTeam": "N\u00fcrnberg",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2561.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2523.png",
-        "time": "12:00",
-        "tournament": "Bundesliga 2",
-        "country": "Germany",
-        "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "live",
-        "start": "2026-02-07 12:00",
-        "end": "2026-02-07 14:39",
-        "channels": [
-            {
-                "channel_name": "Sky Sport Bundesliga 5",
-                "channel_code": "de",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+5&code=de&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-5.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena Sport 4",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+4&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-4.webp",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "TR5OokMI": {
         "gameID": "TR5OokMI",
         "homeTeam": "Manchester United",
@@ -1133,7 +868,7 @@
         "tournament": "Segunda liga",
         "country": "Portugal",
         "countryIMG": "https://flagcdn.com/w40/pt.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:00",
         "end": "2026-02-07 16:39",
         "channels": [],
@@ -1150,7 +885,7 @@
         "tournament": "Serie B",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:00",
         "end": "2026-02-07 16:39",
         "channels": [
@@ -1189,7 +924,7 @@
         "tournament": "Pro League",
         "country": "Saudi Arabia",
         "countryIMG": "https://flagcdn.com/w40/sa.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:00",
         "end": "2026-02-07 16:39",
         "channels": [],
@@ -1206,7 +941,7 @@
         "tournament": "Bundesliga",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:30",
         "end": "2026-02-07 17:09",
         "channels": [
@@ -1231,7 +966,7 @@
         "tournament": "Bundesliga",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:30",
         "end": "2026-02-07 17:09",
         "channels": [
@@ -1277,7 +1012,7 @@
         "tournament": "Bundesliga",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:30",
         "end": "2026-02-07 17:09",
         "channels": [
@@ -1330,7 +1065,7 @@
         "tournament": "Bundesliga",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:30",
         "end": "2026-02-07 17:09",
         "channels": [
@@ -1362,7 +1097,7 @@
         "tournament": "Bundesliga",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:30",
         "end": "2026-02-07 17:09",
         "channels": [
@@ -1478,7 +1213,7 @@
         "tournament": "Bundesliga",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:30",
         "end": "2026-02-07 17:09",
         "channels": [
@@ -1503,7 +1238,7 @@
         "tournament": "Bundesliga",
         "country": "Germany",
         "countryIMG": "https://flagcdn.com/w40/de.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 14:30",
         "end": "2026-02-07 17:09",
         "channels": [
