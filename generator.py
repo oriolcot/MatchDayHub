@@ -14,7 +14,7 @@ MEMORY_FILE = "memoria_partits.json"
 BACKUP_FILE = "memoria_backup.json"
 TEMPLATE_FILE = "template.html"
 
-# PLANTILLA D'EMERGÈNCIA (Per si s'esborra el fitxer template.html)
+# PLANTILLA D'EMERGÈNCIA (Per si falla el template.html)
 DEFAULT_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,10 +54,11 @@ DEFAULT_TEMPLATE = """<!DOCTYPE html>
 </body>
 </html>"""
 
-# HEADERS REALS (Per evitar error 403 i "No events")
+# HEADERS REALS - Intentem imitar Chrome al màxim
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
     "Referer": "https://www.google.com/"
 }
 
@@ -92,49 +93,72 @@ def are_same_match(m1, m2):
 def fetch_cdn_live():
     print("Fetching CDN-Live...")
     matches = []
-    if not API_URL_CDN: return matches
+    if not API_URL_CDN:
+        print("❌ ERROR: La variable API_URL està buida!")
+        return matches
+        
     try:
-        resp = requests.get(API_URL_CDN, headers=HEADERS, timeout=20)
+        resp = requests.get(API_URL_CDN, headers=HEADERS, timeout=25)
+        print(f"📡 CDN Status: {resp.status_code}")
+        
         if resp.status_code == 200:
-            data = resp.json().get("cdn-live-tv", {})
-            for sport, event_list in data.items():
-                if isinstance(event_list, list):
-                    for m in event_list:
-                        m['custom_sport_cat'] = sport
-                        m['provider'] = 'CDN'
-                        matches.append(m)
-        else: print(f"⚠️ CDN Error Code: {resp.status_code}")
-    except Exception as e: print(f"❌ Error CDN: {e}")
+            try:
+                data = resp.json().get("cdn-live-tv", {})
+                for sport, event_list in data.items():
+                    if isinstance(event_list, list):
+                        for m in event_list:
+                            m['custom_sport_cat'] = sport
+                            m['provider'] = 'CDN'
+                            matches.append(m)
+                if len(matches) == 0:
+                    print(f"⚠️ CDN OK però buit. Resposta parcial: {str(resp.text)[:200]}")
+            except json.JSONDecodeError:
+                print(f"❌ CDN Error JSON. Resposta rebuda: {str(resp.text)[:200]}")
+        else:
+            print(f"❌ CDN Error HTTP {resp.status_code}. Resposta: {str(resp.text)[:200]}")
+    except Exception as e: print(f"❌ Error CRÍTIC CDN: {e}")
     return matches
 
 def fetch_ppv_to():
     print("Fetching PPV.to...")
     matches = []
-    if not API_URL_PPV: return matches
+    if not API_URL_PPV:
+        print("❌ ERROR: La variable API_URL_PPV està buida!")
+        return matches
+
     try:
-        resp = requests.get(API_URL_PPV, headers=HEADERS, timeout=20)
+        resp = requests.get(API_URL_PPV, headers=HEADERS, timeout=25)
+        print(f"📡 PPV Status: {resp.status_code}")
+
         if resp.status_code == 200:
-            data = resp.json()
-            for cat_group in data.get('streams', []):
-                cat_name = cat_group.get('category_name', 'Other')
-                my_cat = CAT_MAP_PPV.get(cat_name)
-                if not my_cat: continue 
-                for s in cat_group.get('streams', []):
-                    try:
-                        dt = datetime.utcfromtimestamp(int(s.get('starts_at')))
-                        start_str = dt.strftime("%Y-%m-%d %H:%M")
-                        time_str = dt.strftime("%H:%M")
-                    except: continue
-                    full_name = s.get('name', '')
-                    parts = full_name.split(' vs. ') if ' vs. ' in full_name else (full_name.split(' v ') if ' v ' in full_name else full_name.split(' - '))
-                    h, a = (parts[0].strip(), parts[1].strip()) if len(parts) > 1 else (full_name, "Unknown")
-                    matches.append({
-                        "gameID": str(s.get('id')), "homeTeam": h, "awayTeam": a, "time": time_str, "start": start_str,
-                        "custom_sport_cat": my_cat, "status": "upcoming", "provider": "PPV",
-                        "channels": [{"channel_name": f"{s.get('tag', 'Link')} (HD)", "channel_code": "ppv", "url": s.get('iframe', '#'), "priority": 5}]
-                    })
-        else: print(f"⚠️ PPV Error Code: {resp.status_code}")
-    except Exception as e: print(f"❌ Error PPV: {e}")
+            try:
+                data = resp.json()
+                for cat_group in data.get('streams', []):
+                    cat_name = cat_group.get('category_name', 'Other')
+                    my_cat = CAT_MAP_PPV.get(cat_name)
+                    if not my_cat: continue 
+                    for s in cat_group.get('streams', []):
+                        try:
+                            dt = datetime.utcfromtimestamp(int(s.get('starts_at')))
+                            start_str = dt.strftime("%Y-%m-%d %H:%M")
+                            time_str = dt.strftime("%H:%M")
+                        except: continue
+                        
+                        full_name = s.get('name', '')
+                        parts = full_name.split(' vs. ') if ' vs. ' in full_name else (full_name.split(' v ') if ' v ' in full_name else full_name.split(' - '))
+                        h, a = (parts[0].strip(), parts[1].strip()) if len(parts) > 1 else (full_name, "Unknown")
+                        matches.append({
+                            "gameID": str(s.get('id')), "homeTeam": h, "awayTeam": a, "time": time_str, "start": start_str,
+                            "custom_sport_cat": my_cat, "status": "upcoming", "provider": "PPV",
+                            "channels": [{"channel_name": f"{s.get('tag', 'Link')} (HD)", "channel_code": "ppv", "url": s.get('iframe', '#'), "priority": 5}]
+                        })
+                if len(matches) == 0:
+                    print(f"⚠️ PPV OK però buit. Resposta parcial: {str(resp.text)[:200]}")
+            except json.JSONDecodeError:
+                 print(f"❌ PPV Error JSON. Resposta rebuda: {str(resp.text)[:200]}")
+        else:
+             print(f"❌ PPV Error HTTP {resp.status_code}. Resposta: {str(resp.text)[:200]}")
+    except Exception as e: print(f"❌ Error CRÍTIC PPV: {e}")
     return matches
 
 def load_memory():
@@ -182,7 +206,8 @@ def main():
         now = datetime.utcnow()
         for gid, m in memory.items():
             try:
-                if (now - datetime.strptime(m.get('start'), "%Y-%m-%d %H:%M")).total_seconds() < 4 * 3600:
+                # Augmentem el temps de vida dels partits a 5 hores per seguretat
+                if (now - datetime.strptime(m.get('start'), "%Y-%m-%d %H:%M")).total_seconds() < 5 * 3600:
                     final_mem[gid] = m
             except: pass
         
@@ -200,7 +225,7 @@ def main():
         content = ""
         
         if not active_sports:
-            content = "<div style='text-align:center; padding:50px; color:#94a3b8;'>😴 No s'han trobat partits en viu.</div>"
+            content = "<div style='text-align:center; padding:50px; color:#94a3b8;'>😴 No s'han trobat partits en viu.<br><small>Revisa els logs per veure l'error API</small></div>"
         
         for sport in active_sports:
             nice = get_sport_name(sport)
@@ -223,17 +248,17 @@ def main():
             content += "</div></div>"
 
         # --- GENERACIÓ FINAL ---
-        # Si troba template.html el fa servir, si no, fa servir el d'emergència
         template_content = DEFAULT_TEMPLATE
         if os.path.exists(TEMPLATE_FILE):
             try:
                 with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f:
                     file_content = f.read()
+                    # CORRECCIÓ: Verifiquem si té les marques
                     if "" in file_content:
                         template_content = file_content
                         print("✅ Usant template.html extern.")
                     else:
-                        print("⚠️ template.html trobat però sense marques. Usant per defecte.")
+                        print("⚠️ template.html trobat però sense marques (PLACEHOLDER). Ignorant-lo i usant plantilla per defecte.")
             except: pass
         else:
             print("⚠️ template.html NO trobat. Usant plantilla d'emergència.")
@@ -242,7 +267,7 @@ def main():
         html = html.replace('', content)
         
         with open("index.html", "w", encoding="utf-8") as f: f.write(html)
-        print("✅ Web generada correctament!")
+        print("✅ Web generada correctament! (Ara cal que l'Action la pugi)")
 
     except Exception as e:
         print(f"❌ CRITICAL ERROR: {e}")
