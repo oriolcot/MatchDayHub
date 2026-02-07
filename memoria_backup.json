@@ -1,61 +1,4 @@
 {
-    "sDwYaFCv": {
-        "gameID": "sDwYaFCv",
-        "homeTeam": "Lusitania FC Lourosa",
-        "awayTeam": "Felgueiras 1932",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/35174.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "11:00",
-        "tournament": "Segunda liga",
-        "country": "Portugal",
-        "countryIMG": "https://flagcdn.com/w40/pt.png",
-        "status": "live",
-        "start": "2026-02-07 11:00",
-        "end": "2026-02-07 13:39",
-        "channels": [
-            {
-                "channel_name": "Sport TV 1",
-                "channel_code": "pt",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "RLC8mHwN": {
-        "gameID": "RLC8mHwN",
-        "homeTeam": "Unirea Slobozia",
-        "awayTeam": "Farul Constan\u021ba",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/44259.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3294.png",
-        "time": "11:00",
-        "tournament": "Liga I",
-        "country": "Romania",
-        "countryIMG": "https://flagcdn.com/w40/ro.png",
-        "status": "live",
-        "start": "2026-02-07 11:00",
-        "end": "2026-02-07 13:39",
-        "channels": [
-            {
-                "channel_name": "Digi Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Prima Sport 1",
-                "channel_code": "ro",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
     "m2MsQ8xj": {
         "gameID": "m2MsQ8xj",
         "homeTeam": "Fatih Karag\u00fcmr\u00fck",
@@ -1032,7 +975,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 13:30",
         "end": "2026-02-07 16:09",
         "channels": [],
@@ -1049,7 +992,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 13:30",
         "end": "2026-02-07 16:09",
         "channels": [],
@@ -1066,7 +1009,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 13:30",
         "end": "2026-02-07 16:09",
         "channels": [],
@@ -1083,7 +1026,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 13:30",
         "end": "2026-02-07 16:09",
         "channels": [],
@@ -1100,7 +1043,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 13:30",
         "end": "2026-02-07 16:09",
         "channels": [],
@@ -1117,7 +1060,7 @@
         "tournament": "Serie C",
         "country": "Italy",
         "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 13:30",
         "end": "2026-02-07 16:09",
         "channels": [],
@@ -1134,7 +1077,7 @@
         "tournament": "NB1",
         "country": "Hungary",
         "countryIMG": "https://flagcdn.com/w40/hu.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 13:45",
         "end": "2026-02-07 16:24",
         "channels": [],
@@ -1151,7 +1094,7 @@
         "tournament": "Ekstraklasa",
         "country": "Poland",
         "countryIMG": "https://flagcdn.com/w40/pl.png",
-        "status": "upcoming",
+        "status": "live",
         "start": "2026-02-07 13:45",
         "end": "2026-02-07 16:24",
         "channels": [
