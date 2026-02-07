@@ -14,6 +14,13 @@ MEMORY_FILE = "memoria_partits.json"
 BACKUP_FILE = "memoria_backup.json"
 TEMPLATE_FILE = "template.html"
 
+# HEADERS REALS (Solució al "No Events" per bloqueig)
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Referer": "https://www.google.com/"
+}
+
 CAT_MAP_PPV = {
     "Football": "Soccer", "American Football": "NFL", "Basketball": "NBA",
     "Hockey": "NHL", "Baseball": "MLB", "Motor Sports": "F1",
@@ -25,7 +32,7 @@ def get_sport_name(api_key):
         "Soccer": "FUTBOL ⚽", "NBA": "BÀSQUET (NBA) 🏀", "NFL": "NFL 🏈",
         "NHL": "HOQUEI (NHL) 🏒", "MLB": "BEISBOL ⚾", "F1": "FÓRMULA 1 🏎️",
         "MotoGP": "MOTOGP 🏍️", "Tennis": "TENNIS 🎾", "Boxing": "BOXA 🥊",
-        "Rugby": "RUGBI 🏉", "Darts": "DARTS 🎯", "Snooker": "SNOOKER 🎱"
+        "Rugby": "RUGBI 🏉"
     }
     return names.get(api_key, api_key.upper())
 
@@ -56,76 +63,75 @@ def fetch_cdn_live():
     matches = []
     if not API_URL_CDN: return matches
     try:
-        resp = requests.get(API_URL_CDN, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
-        data = resp.json().get("cdn-live-tv", {})
-        for sport, event_list in data.items():
-            if isinstance(event_list, list):
-                for m in event_list:
-                    m['custom_sport_cat'] = sport
-                    m['provider'] = 'CDN'
-                    matches.append(m)
+        resp = requests.get(API_URL_CDN, headers=HEADERS, timeout=20)
+        if resp.status_code == 200:
+            data = resp.json().get("cdn-live-tv", {})
+            for sport, event_list in data.items():
+                if isinstance(event_list, list):
+                    for m in event_list:
+                        m['custom_sport_cat'] = sport
+                        m['provider'] = 'CDN'
+                        matches.append(m)
+        else:
+            print(f"⚠️ CDN Error Code: {resp.status_code}")
     except Exception as e:
-        print(f"Error CDN: {e}")
+        print(f"❌ Error CDN: {e}")
     return matches
 
 def fetch_ppv_to():
     print("Fetching PPV.to...")
     matches = []
-    if not API_URL_PPV: 
-        print("AVIS: Falta API_URL_PPV als secrets.")
-        return matches
+    if not API_URL_PPV: return matches
     try:
-        resp = requests.get(API_URL_PPV, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
-        data = resp.json()
-        
-        for cat_group in data.get('streams', []):
-            cat_name = cat_group.get('category_name', 'Other')
-            my_cat = CAT_MAP_PPV.get(cat_name)
-            if not my_cat: continue 
+        resp = requests.get(API_URL_PPV, headers=HEADERS, timeout=20)
+        if resp.status_code == 200:
+            data = resp.json()
+            for cat_group in data.get('streams', []):
+                cat_name = cat_group.get('category_name', 'Other')
+                my_cat = CAT_MAP_PPV.get(cat_name)
+                if not my_cat: continue 
 
-            for s in cat_group.get('streams', []):
-                try:
-                    ts = s.get('starts_at')
-                    dt = datetime.utcfromtimestamp(int(ts))
-                    start_str = dt.strftime("%Y-%m-%d %H:%M")
-                    time_str = dt.strftime("%H:%M")
-                except: continue
+                for s in cat_group.get('streams', []):
+                    try:
+                        ts = s.get('starts_at')
+                        dt = datetime.utcfromtimestamp(int(ts))
+                        start_str = dt.strftime("%Y-%m-%d %H:%M")
+                        time_str = dt.strftime("%H:%M")
+                    except: continue
 
-                full_name = s.get('name', '')
-                parts = full_name.split(' vs. ')
-                if len(parts) < 2: parts = full_name.split(' v ')
-                if len(parts) < 2: parts = full_name.split(' - ')
-                
-                h = parts[0].strip() if len(parts) > 0 else "Unknown"
-                a = parts[1].strip() if len(parts) > 1 else "Unknown"
+                    full_name = s.get('name', '')
+                    parts = full_name.split(' vs. ')
+                    if len(parts) < 2: parts = full_name.split(' v ')
+                    if len(parts) < 2: parts = full_name.split(' - ')
+                    
+                    h = parts[0].strip() if len(parts) > 0 else "Unknown"
+                    a = parts[1].strip() if len(parts) > 1 else "Unknown"
 
-                match = {
-                    "gameID": str(s.get('id')),
-                    "homeTeam": h, "awayTeam": a,
-                    "time": time_str, "start": start_str,
-                    "custom_sport_cat": my_cat,
-                    "status": "upcoming",
-                    "provider": "PPV",
-                    "channels": [{
-                        "channel_name": f"{s.get('tag', 'Link')} (HD)",
-                        "channel_code": "ppv",
-                        "url": s.get('iframe', '#'),
-                        "priority": 5
-                    }]
-                }
-                matches.append(match)
+                    match = {
+                        "gameID": str(s.get('id')),
+                        "homeTeam": h, "awayTeam": a,
+                        "time": time_str, "start": start_str,
+                        "custom_sport_cat": my_cat,
+                        "status": "upcoming",
+                        "provider": "PPV",
+                        "channels": [{
+                            "channel_name": f"{s.get('tag', 'Link')} (HD)",
+                            "channel_code": "ppv",
+                            "url": s.get('iframe', '#'),
+                            "priority": 5
+                        }]
+                    }
+                    matches.append(match)
+        else:
+            print(f"⚠️ PPV Error Code: {resp.status_code}")
     except Exception as e:
-        print(f"Error PPV: {e}")
+        print(f"❌ Error PPV: {e}")
     return matches
 
 def load_memory():
     if os.path.exists(MEMORY_FILE):
         try:
             with open(MEMORY_FILE, 'r', encoding='utf-8') as f: return json.load(f)
-        except: pass
-    if os.path.exists(BACKUP_FILE):
-        try:
-            with open(BACKUP_FILE, 'r', encoding='utf-8') as f: return json.load(f)
         except: pass
     return {}
 
@@ -143,7 +149,7 @@ def main():
         list_ppv = fetch_ppv_to()
         
         merged = list_cdn
-        print(f"Fusionant: {len(list_cdn)} CDN + {len(list_ppv)} PPV")
+        print(f"🔄 Total events found: CDN({len(list_cdn)}) + PPV({len(list_ppv)})")
 
         for p_match in list_ppv:
             found = False
@@ -154,6 +160,7 @@ def main():
                     break
             if not found: merged.append(p_match)
 
+        # Update memory
         for m in merged:
             if 'gameID' not in m or m['provider'] == 'PPV':
                 slug = f"{m['custom_sport_cat']}{m['homeTeam']}{m['awayTeam']}{m['start']}"
@@ -165,33 +172,32 @@ def main():
                 continue
             memory[gid] = m
 
+        # Filter old events (keep recent ones for 4 hours)
         final_mem = {}
         now = datetime.utcnow()
         for gid, m in memory.items():
-            limit = 3.5 if m.get('custom_sport_cat') == 'NBA' else 2.5
             try:
                 s_dt = datetime.strptime(m.get('start'), "%Y-%m-%d %H:%M")
-                if (now - s_dt).total_seconds() < limit * 3600:
+                if (now - s_dt).total_seconds() < 4 * 3600:
                     final_mem[gid] = m
             except: pass
         
         save_memory(final_mem)
 
+        # Generate HTML content
         events_by_cat = {}
         for m in final_mem.values():
             cat = m.get('custom_sport_cat', 'Other')
             if cat not in events_by_cat: events_by_cat[cat] = []
-            
-            m['channels'].sort(key=lambda x: 10 if x.get('channel_code') in ['es','mx'] else (5 if 'ppv' in x.get('channel_code','') else 1), reverse=True)
+            m['channels'].sort(key=lambda x: 10 if x.get('channel_code') in ['es','mx'] else 1, reverse=True)
             events_by_cat[cat].append(m)
 
         active_sports = sorted(list(events_by_cat.keys()))
-        
         navbar = ""
         content = ""
         
         if not active_sports:
-            content = "<div style='text-align:center; margin-top:50px;'>😴 No events found</div>"
+            content = "<div style='text-align:center; padding:50px; color:#666;'>No live events found right now.</div>"
         
         for sport in active_sports:
             nice = get_sport_name(sport)
@@ -199,7 +205,6 @@ def main():
             matches = sorted(events_by_cat[sport], key=lambda x: x.get('start'))
             
             content += f'<div id="{sport}" class="sport-section"><div class="sport-title">{nice}</div><div class="grid">'
-            
             for m in matches:
                 utc = m.get('start', '')
                 is_live = m.get('status', '').lower() == 'live'
@@ -214,39 +219,35 @@ def main():
                     </div>
                     <div class="channels">
                 """
-                
                 for ch in m['channels']:
                     name = ch.get('channel_name', 'Link')
                     url = ch.get('url', '#')
                     code = ch.get('channel_code', 'xx').lower()
                     img = "https://fav.farm/📺" if code == 'ppv' else f"https://flagcdn.com/24x18/{code}.png"
+                    try: enc_url = base64.b64encode(url.encode('utf-8')).decode('utf-8')
+                    except: enc_url = ""
                     
-                    try:
-                        enc_url = base64.b64encode(url.encode('utf-8')).decode('utf-8')
-                    except:
-                        enc_url = ""
-                    
-                    content += f"""
-                    <div class="btn" style="cursor:pointer;" data-link="{enc_url}" onclick="openLink(this)">
+                    content += f"""<div class="btn" style="cursor:pointer;" data-link="{enc_url}" onclick="openLink(this)">
                         <img src="{img}" class="flag-img" onerror="this.style.display='none'"> {name}
-                    </div>
-                    """
+                    </div>"""
                 content += "</div></div>"
             content += "</div></div>"
 
-        # CORRECCIÓ CLAU: Busquem la marca exacta
+        # INJECTING INTO TEMPLATE
         if os.path.exists(TEMPLATE_FILE):
             with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f: template = f.read()
+            
+            # --- AQUÍ ESTÀ LA CORRECCIÓ CLAU ---
             html = template.replace('', navbar)
             html = html.replace('', content)
             
             with open("index.html", "w", encoding="utf-8") as f: f.write(html)
-            print("Web Generated Successfully.")
+            print("✅ Web Generated Successfully.")
         else:
-            print("ERROR: template.html no trobat.")
+            print("❌ ERROR: template.html not found.")
 
     except Exception as e:
-        print(f"CRITICAL ERROR: {e}")
+        print(f"❌ CRITICAL ERROR: {e}")
 
 if __name__ == "__main__":
     main()

@@ -3,92 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta property="og:title" content="MatchDay Hub - Live Sports">
-    <meta property="og:description" content="Automated sports schedule for TV and Web.">
-    <meta property="og:image" content="https://api.cdn-live.tv/api/v1/team/images/3422.png"> 
-    <meta property="og:type" content="website">
-
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="https://fav.farm/⚽"> 
-    <title>MatchDay Hub</title>
+    <title>Sports Schedule</title>
     <style>
-        body { background-color: #1a1a1a; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; }
+        :root { --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --accent: #3b82f6; --live: #ef4444; }
+        body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 20px; }
         
         /* Navbar */
-        .navbar { background-color: #252525; padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .nav-btn { text-decoration: none; color: #ccc; font-weight: 700; padding: 8px 16px; border-radius: 20px; background-color: #333; transition: all 0.2s; font-size: 0.85em; text-transform: uppercase; }
-        .nav-btn:hover { background-color: #007aff; color: white; }
+        .navbar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 15px; margin-bottom: 20px; scrollbar-width: none; }
+        .nav-btn { background: var(--card); color: var(--text); padding: 8px 16px; border-radius: 20px; text-decoration: none; white-space: nowrap; border: 1px solid #334155; font-size: 0.9rem; transition: 0.2s; }
+        .nav-btn:hover { background: var(--accent); border-color: var(--accent); }
         
-        .container { padding: 30px 15px; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
-        
-        /* Titles */
-        .sport-section { scroll-margin-top: 80px; margin-bottom: 50px; }
-        .sport-title { font-size: 1.8em; color: #fff; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; border-left: 5px solid #007aff; padding-left: 15px; }
-        
-        /* Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+        /* Sections */
+        .sport-title { font-size: 1.5rem; font-weight: bold; margin: 30px 0 15px 0; padding-left: 10px; border-left: 4px solid var(--accent); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
         
         /* Cards */
-        .card { background-color: #2a2a2a; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 1px solid #333; position: relative; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-3px); border-color: #555; }
+        .card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
+        .header { padding: 15px; background: rgba(0,0,0,0.2); display: flex; justify-content: space-between; align-items: center; }
+        .time { font-family: monospace; color: #94a3b8; font-size: 0.9rem; }
+        .live-badge { background: var(--live); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; animation: pulse 2s infinite; }
+        .teams { font-weight: 600; text-align: right; flex-grow: 1; margin-left: 10px; }
         
-        .live-badge { 
-            display: inline-block; background: #ff3b30; color: white; 
-            font-size: 0.7em; font-weight: bold; padding: 2px 8px; 
-            border-radius: 4px; margin-left: 10px; vertical-align: middle;
-            animation: pulse 2s infinite; 
-        }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
-        
-        .header { display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #444; }
-        
-        .time { font-size: 1.1em; font-weight: 800; color: #111; background: #fff; padding: 5px 10px; border-radius: 6px; min-width: 50px; text-align: center;}
-        
-        .teams { font-size: 1.1em; font-weight: 600; margin-left: 15px; color: #eee; line-height: 1.3; }
-        
-        .channels { display: flex; flex-wrap: wrap; gap: 8px; }
-        .btn { display: flex; align-items: center; text-decoration: none; color: #ddd; background-color: #383838; padding: 8px 14px; border-radius: 8px; font-size: 0.85em; border: 1px solid #444; transition: background 0.2s; }
-        .btn:hover { background-color: #007aff; color: white; border-color: #007aff; }
-        .flag-img { width: 20px; height: 14px; margin-right: 8px; border-radius: 2px; }
-        
-        .footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #333; color: #666; font-size: 0.8em; }
+        /* Channels */
+        .channels { padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .btn { background: #334155; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; transition: 0.2s; }
+        .btn:hover { background: var(--accent); }
+        .flag-img { width: 16px; height: 12px; object-fit: cover; border-radius: 2px; }
+
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        </div>
-    
-    <div class="container">
+
+    <div class="navbar" id="navbar">
         </div>
 
-    <div class="footer">
-        MatchDay Hub &bull; Auto-updates every 5 mins <br>
-        <span id="last-update"></span>
-    </div>
+    <div id="content">
+        </div>
 
     <script>
-        setTimeout(() => { window.location.reload(); }, 300000);
-
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".time").forEach(el => {
-                const utcTime = el.getAttribute("data-utc");
-                if (utcTime) {
-                    const date = new Date(utcTime.replace(" ", "T") + ":00Z");
-                    if (!isNaN(date)) {
-                        el.textContent = date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-                    }
-                }
-            });
-            const now = new Date();
-            document.getElementById("last-update").textContent = "Last checked: " + now.toLocaleTimeString();
+        // Funció per convertir l'hora a la zona horària local de l'usuari
+        document.querySelectorAll('.time').forEach(el => {
+            const utc = el.getAttribute('data-utc');
+            if(utc) {
+                const date = new Date(utc.replace(' ', 'T') + 'Z');
+                el.textContent = date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            }
         });
 
-        function openLink(btn) {
-            const encoded = btn.getAttribute("data-link");
-            if (encoded) {
-                const url = atob(encoded);
-                window.open(url, '_blank');
+        // Funció per obrir els enllaços (descodifica Base64)
+        function openLink(el) {
+            const raw = el.getAttribute('data-link');
+            if(raw) {
+                try {
+                    const url = atob(raw);
+                    window.open(url, '_blank');
+                } catch(e) { console.error("Error decoding URL"); }
             }
         }
     </script>
