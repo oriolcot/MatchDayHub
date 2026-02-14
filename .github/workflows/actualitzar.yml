@@ -2,8 +2,8 @@ name: Actualitzar Futbol
 
 on:
   schedule:
-    - cron: '0 */4 * * *' # Executar cada 4 hores
-  workflow_dispatch: # Botó manual
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -22,19 +22,18 @@ jobs:
           python-version: '3.9'
 
       - name: 📦 Instal·lar llibreries
-        run: pip install requests
+        # AFEGIM beautifulsoup4 PER LLEGIR LA WEB DE LA NBA
+        run: pip install requests beautifulsoup4
 
-      - name: 🚀 GENERAR WEB I ACTUALITZAR MEMÒRIA
+      - name: 🚀 GENERAR WEB
         env:
           API_URL: ${{ secrets.API_URL }}
-        # Redirecció màgica: El que surt per print() va a index.html
         run: python generator.py > index.html
 
-      - name: 💾 Guardar i Pujar (Web + Memòria)
+      - name: 💾 Guardar i Pujar
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
-          # Guardem tant la web com la base de dades JSON
           git add index.html memoria_partits.json
-          git commit -m "Auto-update ⚽" || echo "Sense canvis nous"
+          git commit -m "Auto-update ⚽ + 🏀" || echo "Sense canvis nous"
           git push
