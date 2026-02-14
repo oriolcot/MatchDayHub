@@ -135,26 +135,20 @@ def fetch_nba_replays():
         
         for a in soup.find_all('a', href=True):
             link = a['href']
-            if link.startswith("/"):
-                link = "https://basketball-video.com" + link
-                
-            # Agafem el text. Si està buit (perquè és una imatge), agafem l'atribut title o deduïm de l'URL.
-            title = a.text.strip()
-            if not title and a.has_attr('title'):
-                title = a['title']
-            if not title:
-                title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
-                
-            # Filtrem per assegurar que és un partit sencer
-            if "replay" in link.lower() or "full-game" in link.lower() or "replay" in title.lower():
-                # Evitar repetits
+            
+            # Filtrem amb la mateixa lògica exacta del teu test local
+            if 'replay' in link.lower() or 'full-game' in link.lower():
+                # Corregim els enllaços relatius
+                if link.startswith("/"):
+                    link = "https://basketball-video.com" + link
+                    
                 if any(m['channels'][0]['url'] == link for m in matches if m.get('channels')): continue
                 
-                # Netegem el títol perquè no sigui quilomètric
-                clean_title = title.split('Full Game')[0].split('Replay')[0].strip()
-                if len(clean_title) < 5: clean_title = title.replace('-', ' ').title()
+                # Extreiem el nom directament de l'enllaç, ja que és el més fiable
+                raw_title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
+                clean_title = raw_title.split(' Full Game')[0].split(' Replay')[0].strip()
                 
-                # Limitem el nom a 45 caràcters per no trencar la targeta
+                # Evitem títols extremadament llargs
                 short_title = clean_title[:45] + "..." if len(clean_title) > 45 else clean_title
                 
                 matches.append({
@@ -166,7 +160,7 @@ def fetch_nba_replays():
                     'provider': 'NBA_REPLAY',
                     'channels': [{'channel_name': 'Veure Partit', 'url': link, 'channel_code': 'us'}]
                 })
-        log(f"✅ {len(matches)} repeticions NBA trobades.")
+        log(f"✅ {len(matches)} repeticions NBA trobades i processades.")
     except Exception as e:
         log(f"❌ Error buscant NBA Replays: {e}")
     return matches
