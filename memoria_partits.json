@@ -1,200 +1,6 @@
 {
-    "4547912107941078140": {
-        "gameID": "4547912107941078140",
-        "homeTeam": "Arda",
-        "awayTeam": "Slavia Sofia",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/274971.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3274.png",
-        "time": "15:15",
-        "tournament": "Parva Liga",
-        "country": "Bulgaria",
-        "countryIMG": "https://flagcdn.com/w40/bg.png",
-        "status": "finished",
-        "start": "2026-02-14 15:15",
-        "end": "2026-02-14 17:54",
-        "channels": [
-            {
-                "channel_name": "Diema Sport 1",
-                "channel_code": "bg",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "7472333541363108496": {
-        "gameID": "7472333541363108496",
-        "homeTeam": "Burgos",
-        "awayTeam": "C\u00e1diz",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2854.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/4488.png",
-        "time": "15:15",
-        "tournament": "Segunda Division",
-        "country": "Spain",
-        "countryIMG": "https://flagcdn.com/w40/es.png",
-        "status": "finished",
-        "start": "2026-02-14 15:15",
-        "end": "2026-02-14 17:54",
-        "channels": [
-            {
-                "channel_name": "LaLiga TV Hypermotion 1",
-                "channel_code": "es",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "610547270383345602": {
-        "gameID": "610547270383345602",
-        "homeTeam": "Getafe",
-        "awayTeam": "Villarreal",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2859.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2819.png",
-        "time": "15:15",
-        "tournament": "La Liga",
-        "country": "Spain",
-        "countryIMG": "https://flagcdn.com/w40/es.png",
-        "status": "finished",
-        "start": "2026-02-14 15:15",
-        "end": "2026-02-14 17:54",
-        "channels": [
-            {
-                "channel_name": "beIN SPORTS 1",
-                "channel_code": "us",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=us&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "LaLiga TV",
-                "channel_code": "gb",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv&code=gb&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/la-liga-tv.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Premier Sports 2",
-                "channel_code": "gb",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "SuperSport LaLiga",
-                "channel_code": "za",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+laliga&code=za&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-laliga.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "beIN SPORTS MAX 6",
-                "channel_code": "fr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+6&code=fr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-6.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "DAZN LaLiga",
-                "channel_code": "es",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+laliga&code=es&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/dazn-laliga.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "beIN SPORTS XTRA",
-                "channel_code": "es",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+xtra&code=es&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-xtra.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "DAZN 1",
-                "channel_code": "pt",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=pt&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Ziggo Sport 2",
-                "channel_code": "nl",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+2&code=nl&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-2.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Nova Sports 1",
-                "channel_code": "gr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+1&code=gr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Canal Sport 1",
-                "channel_code": "pl",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+1&code=pl&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Match Football 2",
-                "channel_code": "ru",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+football+2&code=ru&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-2.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Max Sport 4",
-                "channel_code": "bg",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena 2 Premium",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena Sport 3",
-                "channel_code": "hr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+3&code=hr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-3.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Nova Sport 4",
-                "channel_code": "cz",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+4&code=cz&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-4.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "TV4 Sport Live 1",
-                "channel_code": "se",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv4+sport+live+1&code=se&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/sweden/tv4-sport-live-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "ESPN 4",
-                "channel_code": "br",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+4&code=br&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-4.svg",
-                "viewers": 0
-            }
-        ],
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "8064299638505400008": {
-        "gameID": "8064299638505400008",
+    "6921165647227961497": {
+        "gameID": "6921165647227961497",
         "homeTeam": "Vitesse",
         "awayTeam": "VVV",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -218,8 +24,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "714126302017760264": {
-        "gameID": "714126302017760264",
+    "6501191093229482519": {
+        "gameID": "6501191093229482519",
         "homeTeam": "Ironi Kiryat Shmona",
         "awayTeam": "Ironi Tiberias",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -243,8 +49,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8486284544820754865": {
-        "gameID": "8486284544820754865",
+    "8398235645935568665": {
+        "gameID": "8398235645935568665",
         "homeTeam": "Casa Pia",
         "awayTeam": "Arouca",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/36365.png",
@@ -268,8 +74,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6703282762393686789": {
-        "gameID": "6703282762393686789",
+    "7918576113636423788": {
+        "gameID": "7918576113636423788",
         "homeTeam": "Heracles",
         "awayTeam": "NAC Breda",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2977.png",
@@ -293,8 +99,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1003463953092167644": {
-        "gameID": "1003463953092167644",
+    "8848625921851959303": {
+        "gameID": "8848625921851959303",
         "homeTeam": "Farense",
         "awayTeam": "Leix\u00f5es",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2998.png",
@@ -318,8 +124,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5186928994583354251": {
-        "gameID": "5186928994583354251",
+    "9165354349722948553": {
+        "gameID": "9165354349722948553",
         "homeTeam": "Al Najma",
         "awayTeam": "Al Kholood",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -335,8 +141,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4643882523548805608": {
-        "gameID": "4643882523548805608",
+    "1861764598387391425": {
+        "gameID": "1861764598387391425",
         "homeTeam": "Polokwane City",
         "awayTeam": "Siwelele",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/25002.png",
@@ -360,8 +166,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2435300993843383858": {
-        "gameID": "2435300993843383858",
+    "3257550381863550492": {
+        "gameID": "3257550381863550492",
         "homeTeam": "Zalaegerszegi TE",
         "awayTeam": "Ferencv\u00e1ros",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1922.png",
@@ -385,8 +191,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6332551651177431552": {
-        "gameID": "6332551651177431552",
+    "832711942708244044": {
+        "gameID": "832711942708244044",
         "homeTeam": "WSG Tirol",
         "awayTeam": "Sturm Graz",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5405.png",
@@ -402,8 +208,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8028125190630413447": {
-        "gameID": "8028125190630413447",
+    "804750270778704657": {
+        "gameID": "804750270778704657",
         "homeTeam": "Ried",
         "awayTeam": "LASK Linz",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -419,8 +225,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4423616254877263451": {
-        "gameID": "4423616254877263451",
+    "6903320900191593226": {
+        "gameID": "6903320900191593226",
         "homeTeam": "Hartberg",
         "awayTeam": "Rheindorf Altach",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2075.png",
@@ -436,8 +242,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1604437704219110148": {
-        "gameID": "1604437704219110148",
+    "1073238721316157311": {
+        "gameID": "1073238721316157311",
         "homeTeam": "Bodrumspor",
         "awayTeam": "Ke\u00e7i\u00f6reng\u00fcc\u00fc",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -468,8 +274,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4410549243570762389": {
-        "gameID": "4410549243570762389",
+    "2093904494579606952": {
+        "gameID": "2093904494579606952",
         "homeTeam": "Olympique Marseille",
         "awayTeam": "Strasbourg",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1641.png",
@@ -542,8 +348,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "9165435567701889281": {
-        "gameID": "9165435567701889281",
+    "4799479470548389332": {
+        "gameID": "4799479470548389332",
         "homeTeam": "Zag\u0142\u0119bie Lubin",
         "awayTeam": "Rak\u00f3w Cz\u0119stochowa",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3113.png",
@@ -567,8 +373,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7915884326224733326": {
-        "gameID": "7915884326224733326",
+    "3150358920714441226": {
+        "gameID": "3150358920714441226",
         "homeTeam": "Siracusa",
         "awayTeam": "Catania",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/37177.png",
@@ -592,8 +398,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7507767299335411299": {
-        "gameID": "7507767299335411299",
+    "9010815692608827711": {
+        "gameID": "9010815692608827711",
         "homeTeam": "Foggia",
         "awayTeam": "Atalanta II",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2803.png",
@@ -701,8 +507,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3997425697445257375": {
-        "gameID": "3997425697445257375",
+    "8277141207622938782": {
+        "gameID": "8277141207622938782",
         "homeTeam": "Picerno",
         "awayTeam": "Crotone",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/205714.png",
@@ -726,8 +532,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8581948592333799203": {
-        "gameID": "8581948592333799203",
+    "5496507902893834838": {
+        "gameID": "5496507902893834838",
         "homeTeam": "Maccabi Bnei Raina",
         "awayTeam": "Maccabi Netanya",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -751,8 +557,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "304441786269947186": {
-        "gameID": "304441786269947186",
+    "5223824348337648411": {
+        "gameID": "5223824348337648411",
         "homeTeam": "Universitatea Cluj",
         "awayTeam": "Csikszereda",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7734.png",
@@ -783,8 +589,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6144980886743914988": {
-        "gameID": "6144980886743914988",
+    "7290789461971158695": {
+        "gameID": "7290789461971158695",
         "homeTeam": "Trabzonspor",
         "awayTeam": "Fenerbah\u00e7e",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3051.png",
@@ -864,8 +670,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5448906709105933958": {
-        "gameID": "5448906709105933958",
+    "7152351305401391498": {
+        "gameID": "7152351305401391498",
         "homeTeam": "Deportivo Garcilaso",
         "awayTeam": "ADT",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2833.png",
@@ -1022,8 +828,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3352807946966753065": {
-        "gameID": "3352807946966753065",
+    "8229058072832034065": {
+        "gameID": "8229058072832034065",
         "homeTeam": "Cultural Leonesa",
         "awayTeam": "Real Zaragoza",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2868.png",
@@ -1054,8 +860,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1522538346616226941": {
-        "gameID": "1522538346616226941",
+    "3853595214740555455": {
+        "gameID": "3853595214740555455",
         "homeTeam": "Ashdod",
         "awayTeam": "Hapoel Be'er Sheva",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1079,8 +885,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8000932574697315805": {
-        "gameID": "8000932574697315805",
+    "7757204129739700180": {
+        "gameID": "7757204129739700180",
         "homeTeam": "Stuttgart",
         "awayTeam": "K\u00f6ln Tactical Feed",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2677.png",
@@ -1202,8 +1008,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2112672633248195245": {
-        "gameID": "2112672633248195245",
+    "883957082614985075": {
+        "gameID": "883957082614985075",
         "homeTeam": "Levadiakos",
         "awayTeam": "Olympiakos Piraeus",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5063.png",
@@ -1227,8 +1033,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5566211100370894984": {
-        "gameID": "5566211100370894984",
+    "5467803680028567080": {
+        "gameID": "5467803680028567080",
         "homeTeam": "Al Fateh",
         "awayTeam": "Al Nassr",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1287,8 +1093,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5326698791946539917": {
-        "gameID": "5326698791946539917",
+    "8991027436266924930": {
+        "gameID": "8991027436266924930",
         "homeTeam": "Aston Villa",
         "awayTeam": "Newcastle United",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/40.png",
@@ -1445,8 +1251,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6578950944766197978": {
-        "gameID": "6578950944766197978",
+    "467202012050671665": {
+        "gameID": "467202012050671665",
         "homeTeam": "Excelsior",
         "awayTeam": "AZ",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2967.png",
@@ -1477,8 +1283,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "922188686434930837": {
-        "gameID": "922188686434930837",
+    "3878430780179510221": {
+        "gameID": "3878430780179510221",
         "homeTeam": "Lille",
         "awayTeam": "Brest",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1643.png",
@@ -1551,8 +1357,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2210669373552968449": {
-        "gameID": "2210669373552968449",
+    "7555558431588888936": {
+        "gameID": "7555558431588888936",
         "homeTeam": "Vit\u00f3ria Guimar\u00e3es",
         "awayTeam": "Estrela",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3009.png",
@@ -1576,8 +1382,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "9162329624025106075": {
-        "gameID": "9162329624025106075",
+    "6617080343667706183": {
+        "gameID": "6617080343667706183",
         "homeTeam": "Volos NFC",
         "awayTeam": "Aris",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1601,8 +1407,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4453948850836577719": {
-        "gameID": "4453948850836577719",
+    "525338932618480975": {
+        "gameID": "525338932618480975",
         "homeTeam": "Benfica II",
         "awayTeam": "Felgueiras 1932",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/74465.png",
@@ -1626,8 +1432,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5884233008071475800": {
-        "gameID": "5884233008071475800",
+    "3090347316361675872": {
+        "gameID": "3090347316361675872",
         "homeTeam": "Paksi SE",
         "awayTeam": "Di\u00f3sgy\u0151r",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/6059.png",
@@ -1643,8 +1449,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "9192318618569438152": {
-        "gameID": "9192318618569438152",
+    "795521285109084188": {
+        "gameID": "795521285109084188",
         "homeTeam": "Chippa United",
         "awayTeam": "Richards Bay",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/70946.png",
@@ -1668,8 +1474,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1266609953577231850": {
-        "gameID": "1266609953577231850",
+    "1406506791255819368": {
+        "gameID": "1406506791255819368",
         "homeTeam": "Guingamp",
         "awayTeam": "Saint-\u00c9tienne",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1654.png",
@@ -1693,8 +1499,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "451375665836637625": {
-        "gameID": "451375665836637625",
+    "8628607188170292112": {
+        "gameID": "8628607188170292112",
         "homeTeam": "Ajax",
         "awayTeam": "Fortuna Sittard",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2953.png",
@@ -1767,8 +1573,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1576614511994406163": {
-        "gameID": "1576614511994406163",
+    "6555265245825563095": {
+        "gameID": "6555265245825563095",
         "homeTeam": "Wis\u0142a P\u0142ock",
         "awayTeam": "Widzew \u0141\u00f3d\u017a",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3122.png",
@@ -1799,8 +1605,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "442567572276236546": {
-        "gameID": "442567572276236546",
+    "7455110713598026047": {
+        "gameID": "7455110713598026047",
         "homeTeam": "Dynamo Dresden",
         "awayTeam": "Elversberg",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2595.png",
@@ -1852,8 +1658,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1262356892361668843": {
-        "gameID": "1262356892361668843",
+    "272039026442192408": {
+        "gameID": "272039026442192408",
         "homeTeam": "Internazionale",
         "awayTeam": "Juventus",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2697.png",
@@ -2017,8 +1823,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6093832074510535724": {
-        "gameID": "6093832074510535724",
+    "4845611532063638997": {
+        "gameID": "4845611532063638997",
         "homeTeam": "Granada",
         "awayTeam": "Real Valladolid",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/33779.png",
@@ -2042,8 +1848,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5581158475496420004": {
-        "gameID": "5581158475496420004",
+    "6060668139227842391": {
+        "gameID": "6060668139227842391",
         "homeTeam": "Liverpool",
         "awayTeam": "Brighton & Hove Albion",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/44.png",
@@ -2200,8 +2006,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5285379786326759633": {
-        "gameID": "5285379786326759633",
+    "5101006904452454804": {
+        "gameID": "5101006904452454804",
         "homeTeam": "Real Madrid",
         "awayTeam": "Real Sociedad",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2829.png",
@@ -2351,8 +2157,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2383726781103617129": {
-        "gameID": "2383726781103617129",
+    "7629308259841865455": {
+        "gameID": "7629308259841865455",
         "homeTeam": "Groningen",
         "awayTeam": "Utrecht",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2951.png",
@@ -2376,8 +2182,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6953634259703577246": {
-        "gameID": "6953634259703577246",
+    "2651817591095691631": {
+        "gameID": "2651817591095691631",
         "homeTeam": "Paris",
         "awayTeam": "Lens",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -2450,8 +2256,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3529899908956988615": {
-        "gameID": "3529899908956988615",
+    "378597784093587676": {
+        "gameID": "378597784093587676",
         "homeTeam": "Juan Pablo II College",
         "awayTeam": "Sporting Cristal",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -2475,8 +2281,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8503132735468284779": {
-        "gameID": "8503132735468284779",
+    "3554576839419838562": {
+        "gameID": "3554576839419838562",
         "homeTeam": "Gil Vicente",
         "awayTeam": "Sporting Braga",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3010.png",
@@ -2507,8 +2313,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8201815471457854779": {
-        "gameID": "8201815471457854779",
+    "4805542717709126679": {
+        "gameID": "4805542717709126679",
         "homeTeam": "Banfield",
         "awayTeam": "Racing Club",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3219.png",
@@ -2532,8 +2338,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2705150014699210832": {
-        "gameID": "2705150014699210832",
+    "4780366973272096345": {
+        "gameID": "4780366973272096345",
         "homeTeam": "Deportes Limache",
         "awayTeam": "O'Higgins",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/331131.png",
@@ -2557,8 +2363,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "114978557344845437": {
-        "gameID": "114978557344845437",
+    "2283607968347836400": {
+        "gameID": "2283607968347836400",
         "homeTeam": "Millonarios",
         "awayTeam": "Llaneros",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/6117.png",
@@ -2582,8 +2388,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2583939415930466045": {
-        "gameID": "2583939415930466045",
+    "8145618901237739131": {
+        "gameID": "8145618901237739131",
         "homeTeam": "Sport Boys",
         "awayTeam": "Atl\u00e9tico Grau",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2312.png",
@@ -2607,8 +2413,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7249471153083134786": {
-        "gameID": "7249471153083134786",
+    "7131104760350154426": {
+        "gameID": "7131104760350154426",
         "homeTeam": "Hurac\u00e1n",
         "awayTeam": "Sarmiento",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7629.png",
@@ -2632,8 +2438,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3377785693176879989": {
-        "gameID": "3377785693176879989",
+    "2545513528265101036": {
+        "gameID": "2545513528265101036",
         "homeTeam": "Talleres C\u00f3rdoba",
         "awayTeam": "Gimnasia Mendoza",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -2664,8 +2470,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1731480622446341757": {
-        "gameID": "1731480622446341757",
+    "3657670743437829413": {
+        "gameID": "3657670743437829413",
         "homeTeam": "Atl\u00e9tico San Luis",
         "awayTeam": "Quer\u00e9taro",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1950.png",
@@ -2689,8 +2495,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6374747721097117407": {
-        "gameID": "6374747721097117407",
+    "6518724497933146943": {
+        "gameID": "6518724497933146943",
         "homeTeam": "Medell\u00edn",
         "awayTeam": "Deportivo Pereira",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -2714,8 +2520,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4644499173637265302": {
-        "gameID": "4644499173637265302",
+    "2105644728742178277": {
+        "gameID": "2105644728742178277",
         "homeTeam": "Cobresal",
         "awayTeam": "Universidad Cat\u00f3lica",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3167.png",
@@ -2739,8 +2545,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5905458018094516468": {
-        "gameID": "5905458018094516468",
+    "1283191495241025353": {
+        "gameID": "1283191495241025353",
         "homeTeam": "Ju\u00e1rez",
         "awayTeam": "Necaxa",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/321814.png",
@@ -2764,8 +2570,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7623063295101414767": {
-        "gameID": "7623063295101414767",
+    "4783078521127645002": {
+        "gameID": "4783078521127645002",
         "homeTeam": "Monterrey",
         "awayTeam": "Le\u00f3n",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/274540.png",
@@ -2789,8 +2595,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4663910663637548194": {
-        "gameID": "4663910663637548194",
+    "1107059883794475193": {
+        "gameID": "1107059883794475193",
         "homeTeam": "Atl\u00e9tico Tucum\u00e1n",
         "awayTeam": "Estudiantes R\u00edo Cuarto",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/36833.png",
@@ -2814,8 +2620,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8068274280844645990": {
-        "gameID": "8068274280844645990",
+    "8953418270579513470": {
+        "gameID": "8953418270579513470",
         "homeTeam": "Independiente Rivadavia",
         "awayTeam": "Belgrano",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -2839,8 +2645,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "760982426296172242": {
-        "gameID": "760982426296172242",
+    "6926063995266598354": {
+        "gameID": "6926063995266598354",
         "homeTeam": "Alianza Atl\u00e9tico",
         "awayTeam": "Alianza Lima",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -2864,8 +2670,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2105693831874418178": {
-        "gameID": "2105693831874418178",
+    "6346030683952688874": {
+        "gameID": "6346030683952688874",
         "homeTeam": "Deportivo Pasto",
         "awayTeam": "Inter Bogot\u00e1",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/6113.png",
@@ -2889,8 +2695,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7112998892950269804": {
-        "gameID": "7112998892950269804",
+    "638134440259871127": {
+        "gameID": "638134440259871127",
         "homeTeam": "Guadalajara",
         "awayTeam": "Am\u00e9rica",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/264823.png",
