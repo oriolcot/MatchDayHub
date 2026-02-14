@@ -79,7 +79,6 @@ HEADERS = {
 
 def log(msg): sys.stderr.write(f"[LOG] {msg}\n")
 
-# --- AQUESTA ÉS LA FUNCIÓ QUE FALTAVA ---
 def get_sport_name(key):
     names = { 
         "Soccer": "FUTBOL ⚽", "NBA": "BÀSQUET 🏀", "NFL": "NFL 🏈", "F1": "FÓRMULA 1 🏎️", 
@@ -135,22 +134,32 @@ def fetch_nba_replays():
         soup = BeautifulSoup(resp.text, 'html.parser')
         
         for a in soup.find_all('a', href=True):
-            title = a.text.strip()
             link = a['href']
-            
-            # Arreglem enllaços que no tenen l'http al davant
             if link.startswith("/"):
                 link = "https://basketball-video.com" + link
                 
-            if ("replay" in title.lower() or "replay" in link.lower()) and len(title) > 5:
+            # Agafem el text. Si està buit (perquè és una imatge), agafem l'atribut title o deduïm de l'URL.
+            title = a.text.strip()
+            if not title and a.has_attr('title'):
+                title = a['title']
+            if not title:
+                title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
+                
+            # Filtrem per assegurar que és un partit sencer
+            if "replay" in link.lower() or "full-game" in link.lower() or "replay" in title.lower():
+                # Evitar repetits
                 if any(m['channels'][0]['url'] == link for m in matches if m.get('channels')): continue
                 
-                clean_title = title.split('Full Game')[0].strip()
-                if not clean_title: clean_title = title
+                # Netegem el títol perquè no sigui quilomètric
+                clean_title = title.split('Full Game')[0].split('Replay')[0].strip()
+                if len(clean_title) < 5: clean_title = title.replace('-', ' ').title()
+                
+                # Limitem el nom a 45 caràcters per no trencar la targeta
+                short_title = clean_title[:45] + "..." if len(clean_title) > 45 else clean_title
                 
                 matches.append({
                     'custom_sport_cat': 'NBA Replays 🏀',
-                    'homeTeam': clean_title,
+                    'homeTeam': short_title,
                     'awayTeam': 'Diferit Complet',
                     'start': datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
                     'status': 'vod',
