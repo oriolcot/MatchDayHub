@@ -103,8 +103,9 @@ def are_duplicates(m1, m2):
 
     if m1.get('custom_sport_cat') != m2.get('custom_sport_cat'): return False
     try:
-        t1 = datetime.strptime(m1['start'], "%Y-%m-%d %H:%M")
-        t2 = datetime.strptime(m2['start'], "%Y-%m-%d %H:%M")
+        # Pels partits en directe necessitem saber si coincideixen en la mateixa hora
+        t1 = datetime.strptime(m1['start_raw'], "%Y-%m-%d %H:%M")
+        t2 = datetime.strptime(m2['start_raw'], "%Y-%m-%d %H:%M")
         if abs((t1 - t2).total_seconds()) / 3600 > 1.0: return False
     except: return False
     
@@ -120,6 +121,8 @@ def fetch_cdn_live():
             for sport, event_list in resp.json().get("cdn-live-tv", {}).items():
                 if isinstance(event_list, list):
                     for m in event_list:
+                        # Guardem l'hora intocable
+                        m['start_raw'] = m.get('start', '')
                         m.update({'custom_sport_cat': sport, 'provider': 'CDN'})
                         matches.append(m)
     except: pass
@@ -155,15 +158,12 @@ def fetch_nba_replays(memory_matches):
                     
         log(f"🔎 S'han trobat {len(partits_a_visitar)} partits NOUS per investigar.")
         
-        # Limitem a 8 partits nous per execució per protegir-nos del baneig
         for link, short_title in partits_a_visitar[:8]:
             try:
                 art_resp = scraper.get(link, timeout=10)
                 art_soup = BeautifulSoup(art_resp.text, 'html.parser')
                 
                 channels = []
-                
-                # Busquem els botons que porten als vídeos (watch, server, part...)
                 for a in art_soup.find_all('a', href=True):
                     text_a = a.text.strip().lower()
                     href = a['href']
@@ -178,13 +178,14 @@ def fetch_nba_replays(memory_matches):
                                 'channel_code': 'us'
                             })
                 
-                # Només guardem el partit a la memòria si hem trobat algun enllaç de vídeo (evitem targetes buides)
                 if channels:
+                    hora_actual = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
                     matches.append({
                         'custom_sport_cat': 'NBA Replays 🏀',
                         'homeTeam': short_title,
                         'awayTeam': 'Diferit Complet',
-                        'start': datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
+                        'start': "Diferit",
+                        'start_raw': hora_actual, # Aquesta hora és la interna que compta els 4 dies
                         'status': 'vod',
                         'provider': 'NBA_REPLAY',
                         'channels': channels
@@ -199,7 +200,13 @@ def fetch_nba_replays(memory_matches):
 def load_memory():
     if os.path.exists(MEMORY_FILE):
         try:
-            with open(MEMORY_FILE, 'r', encoding='utf-8') as f: return json.load(f)
+            with open(MEMORY_FILE, 'r', encoding='utf-8') as f:
+                # Comprovem ràpidament si els VOD vells tenen start_raw per no petar
+                dades = json.load(f)
+                for v in dades.values():
+                    if 'start_raw' not in v and 'start' in v:
+                        v['start_raw'] = v['start']
+                return dades
         except: pass
     return {}
 
@@ -211,8 +218,10 @@ def main():
         sys.stdout.reconfigure(encoding='utf-8')
 
         memory = load_memory()
+        nous_directes = fetch_cdn_live()
+        nous_replays = fetch_nba_replays(list(memory.values()))
         
-        all_raw_matches = list(memory.values()) + fetch_cdn_live() + fetch_nba_replays(list(memory.values()))
+        all_raw_matches = list(memory.values()) + nous_directes + nous_replays
         
         unique_matches = {}
         for match in all_raw_matches:
@@ -222,7 +231,8 @@ def main():
             for uid, existing_match in unique_matches.items():
                 if are_duplicates(existing_match, match):
                     is_duplicate = True
-                    if 'start' in existing_match: match['start'] = existing_match['start']
+                    # Conservem sempre la hora base original (start_raw)
+                    if 'start_raw' in existing_match: match['start_raw'] = existing_match['start_raw']
                     
                     existing_urls = {c['url'] for c in existing_match.get('channels', []) if 'url' in c}
                     for ch in match.get('channels', []):
@@ -245,12 +255,12 @@ def main():
 
         for gid, m in unique_matches.items():
             try:
-                s_dt = datetime.strptime(m.get('start'), "%Y-%m-%d %H:%M")
+                # Comprovem la caducitat basant-nos en start_raw, que és segur i no conté la paraula "Diferit"
+                s_dt = datetime.strptime(m.get('start_raw'), "%Y-%m-%d %H:%M")
                 diff_hours = (now - s_dt).total_seconds() / 3600
                 
                 if m.get('provider') == 'NBA_REPLAY':
-                    if diff_hours < 96.0:
-                        m['start'] = "Diferit"
+                    if diff_hours < 96.0: # Duren 4 dies
                         clean_memory[gid] = m
                         display_matches.append(m)
                 else:
@@ -258,7 +268,8 @@ def main():
                         clean_memory[gid] = m
                     if diff_hours < 4.0 and len(m.get('channels', [])) > 0:
                         display_matches.append(m)
-            except: pass
+            except Exception as e:
+                pass
         
         save_memory(clean_memory)
 
@@ -280,7 +291,7 @@ def main():
             for sport in sorted_cats:
                 nice_name = sport if '🏀' in sport else get_sport_name(sport)
                 navbar_html += f'<a href="#{sport}" class="nav-btn">{nice_name}</a>'
-                sport_matches = sorted(events_by_cat[sport], key=lambda x: x.get('start', ''))
+                sport_matches = sorted(events_by_cat[sport], key=lambda x: x.get('start_raw', ''))
                 
                 content_html += f'<div id="{sport}" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>{nice_name}</div><div class="grid">'
                 
