@@ -79,6 +79,15 @@ HEADERS = {
 
 def log(msg): sys.stderr.write(f"[LOG] {msg}\n")
 
+# --- AQUESTA ÉS LA FUNCIÓ QUE FALTAVA ---
+def get_sport_name(key):
+    names = { 
+        "Soccer": "FUTBOL ⚽", "NBA": "BÀSQUET 🏀", "NFL": "NFL 🏈", "F1": "FÓRMULA 1 🏎️", 
+        "MotoGP": "MOTOGP 🏍️", "Tennis": "TENNIS 🎾", "Boxing": "BOXA 🥊", "Rugby": "RUGBI 🏉",
+        "Hockey": "HOQUEI 🏒", "Baseball": "BEISBOL ⚾", "Darts": "DARTS 🎯"
+    }
+    return names.get(key, key.upper())
+
 def clean_string(text):
     if not text: return ""
     garbage = ["fc", "cf", "sc", "ac", "cd", "ud", "ca", "club", "real", "city", "united", "sporting", "athletic", "vs", "-", "."]
@@ -87,16 +96,13 @@ def clean_string(text):
     return "".join(e for e in cleaned if e.isalnum())
 
 def are_duplicates(m1, m2):
-    # Mai fusionar un directe amb un diferit
     if m1.get('provider') != m2.get('provider'): return False
     
-    # Lògica exacta per diferits NBA (per URL)
     if m1.get('provider') == 'NBA_REPLAY':
         url1 = m1.get('channels', [{}])[0].get('url', '')
         url2 = m2.get('channels', [{}])[0].get('url', '')
         return url1 == url2 and url1 != ''
 
-    # Lògica per CDN directes
     if m1.get('custom_sport_cat') != m2.get('custom_sport_cat'): return False
     try:
         t1 = datetime.strptime(m1['start'], "%Y-%m-%d %H:%M")
@@ -122,24 +128,23 @@ def fetch_cdn_live():
     return matches
 
 def fetch_nba_replays():
-    """ Escrapeja basketball-video.com pels últims partits """
     matches = []
     log("Buscant repeticions NBA...")
     try:
         resp = requests.get("https://basketball-video.com/", headers=HEADERS, timeout=15)
         soup = BeautifulSoup(resp.text, 'html.parser')
         
-        # Busquem tots els enllaços que semblin partits (la majoria tenen "Replay" al títol)
         for a in soup.find_all('a', href=True):
             title = a.text.strip()
             link = a['href']
             
-            # Filtrem enllaços brossa i ens quedem amb els que sonen a partit
-            if "replay" in title.lower() and link.startswith("http"):
-                # Si ja l'hem afegit a la llista d'aquesta sessió, el saltem
+            # Arreglem enllaços que no tenen l'http al davant
+            if link.startswith("/"):
+                link = "https://basketball-video.com" + link
+                
+            if ("replay" in title.lower() or "replay" in link.lower()) and len(title) > 5:
                 if any(m['channels'][0]['url'] == link for m in matches if m.get('channels')): continue
                 
-                # Netegem el títol perquè quedi maco (ex: "NBA Rising Stars Full Game Replay" -> "NBA Rising Stars")
                 clean_title = title.split('Full Game')[0].strip()
                 if not clean_title: clean_title = title
                 
@@ -147,7 +152,7 @@ def fetch_nba_replays():
                     'custom_sport_cat': 'NBA Replays 🏀',
                     'homeTeam': clean_title,
                     'awayTeam': 'Diferit Complet',
-                    'start': datetime.utcnow().strftime("%Y-%m-%d %H:%M"), # Hora de trobada per començar el cronòmetre dels 4 dies
+                    'start': datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
                     'status': 'vod',
                     'provider': 'NBA_REPLAY',
                     'channels': [{'channel_name': 'Veure Partit', 'url': link, 'channel_code': 'us'}]
@@ -173,7 +178,6 @@ def main():
 
         memory = load_memory()
         
-        # Baixem Directes i Diferits
         all_raw_matches = list(memory.values()) + fetch_cdn_live() + fetch_nba_replays()
         
         unique_matches = {}
@@ -184,7 +188,6 @@ def main():
             for uid, existing_match in unique_matches.items():
                 if are_duplicates(existing_match, match):
                     is_duplicate = True
-                    # Conservem l'hora original (important per als VOD, perquè no s'esborrin mai si els renovem l'hora)
                     if 'start' in existing_match: match['start'] = existing_match['start']
                     
                     existing_urls = {c['url'] for c in existing_match.get('channels', []) if 'url' in c}
@@ -202,7 +205,6 @@ def main():
                 match['gameID'] = gid
                 unique_matches[gid] = match
 
-        # --- FILTRATGE: El Secret dels 4 dies ---
         clean_memory = {}
         display_matches = []
         now = datetime.utcnow()
@@ -213,13 +215,11 @@ def main():
                 diff_hours = (now - s_dt).total_seconds() / 3600
                 
                 if m.get('provider') == 'NBA_REPLAY':
-                    # És una repetició de bàsquet: Donem 4 DIES (96 hores) de vida
                     if diff_hours < 96.0:
-                        m['start'] = "Diferit" # Canviem l'etiqueta d'hora a la UI
+                        m['start'] = "Diferit"
                         clean_memory[gid] = m
                         display_matches.append(m)
                 else:
-                    # És un directe (CDN): Donem 4/5 HORES de vida
                     if diff_hours < 5.0:
                         clean_memory[gid] = m
                     if diff_hours < 4.0 and len(m.get('channels', [])) > 0:
@@ -228,7 +228,6 @@ def main():
         
         save_memory(clean_memory)
 
-        # Generació Visual
         events_by_cat = {}
         for m in display_matches:
             cat = m.get('custom_sport_cat', 'Other')
@@ -242,7 +241,6 @@ def main():
         if not events_by_cat:
             content_html = "<div style='text-align:center; padding:80px; color:#6b7280;'><h2>😴 No hi ha partits disponibles.</h2></div>"
         else:
-            # Posem "NBA Replays" al final del navbar i de la pàgina per no destorbar els directes
             sorted_cats = sorted(events_by_cat.keys(), key=lambda x: (x == 'NBA Replays 🏀', x))
             
             for sport in sorted_cats:
