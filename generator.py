@@ -1,4 +1,5 @@
 import requests
+import cloudscraper
 import json
 import os
 import sys
@@ -128,27 +129,24 @@ def fetch_cdn_live():
 
 def fetch_nba_replays():
     matches = []
-    log("Buscant repeticions NBA...")
+    log("Buscant repeticions NBA amb Cloudscraper...")
     try:
-        resp = requests.get("https://basketball-video.com/", headers=HEADERS, timeout=15)
+        scraper = cloudscraper.create_scraper(
+            browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True}
+        )
+        resp = scraper.get("https://basketball-video.com/", timeout=15)
         soup = BeautifulSoup(resp.text, 'html.parser')
         
         for a in soup.find_all('a', href=True):
             link = a['href']
-            
-            # Filtrem amb la mateixa lògica exacta del teu test local
             if 'replay' in link.lower() or 'full-game' in link.lower():
-                # Corregim els enllaços relatius
                 if link.startswith("/"):
                     link = "https://basketball-video.com" + link
                     
                 if any(m['channels'][0]['url'] == link for m in matches if m.get('channels')): continue
                 
-                # Extreiem el nom directament de l'enllaç, ja que és el més fiable
                 raw_title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
                 clean_title = raw_title.split(' Full Game')[0].split(' Replay')[0].strip()
-                
-                # Evitem títols extremadament llargs
                 short_title = clean_title[:45] + "..." if len(clean_title) > 45 else clean_title
                 
                 matches.append({
@@ -160,7 +158,7 @@ def fetch_nba_replays():
                     'provider': 'NBA_REPLAY',
                     'channels': [{'channel_name': 'Veure Partit', 'url': link, 'channel_code': 'us'}]
                 })
-        log(f"✅ {len(matches)} repeticions NBA trobades i processades.")
+        log(f"✅ {len(matches)} repeticions NBA trobades.")
     except Exception as e:
         log(f"❌ Error buscant NBA Replays: {e}")
     return matches

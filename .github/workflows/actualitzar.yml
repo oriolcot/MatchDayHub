@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: 📥 Baixar el codi
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🐍 Configurar Python
         uses: actions/setup-python@v4
@@ -22,8 +22,7 @@ jobs:
           python-version: '3.9'
 
       - name: 📦 Instal·lar llibreries
-        # AFEGIM beautifulsoup4 PER LLEGIR LA WEB DE LA NBA
-        run: pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4 cloudscraper
 
       - name: 🚀 GENERAR WEB
         env:
