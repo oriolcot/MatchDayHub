@@ -99,9 +99,7 @@ def are_duplicates(m1, m2):
     if m1.get('provider') != m2.get('provider'): return False
     
     if m1.get('provider') == 'NBA_REPLAY':
-        url1 = m1.get('channels', [{}])[0].get('url', '')
-        url2 = m2.get('channels', [{}])[0].get('url', '')
-        return url1 == url2 and url1 != ''
+        return m1.get('homeTeam') == m2.get('homeTeam')
 
     if m1.get('custom_sport_cat') != m2.get('custom_sport_cat'): return False
     try:
@@ -127,9 +125,12 @@ def fetch_cdn_live():
     except: pass
     return matches
 
-def fetch_nba_replays():
+def fetch_nba_replays(memory_matches):
     matches = []
-    log("Buscant repeticions NBA amb Cloudscraper...")
+    log("Buscant repeticions NBA amb Cloudscraper (Doble extracció intel·ligent)...")
+    
+    partits_coneguts = [m.get('homeTeam') for m in memory_matches if m.get('provider') == 'NBA_REPLAY']
+    
     try:
         scraper = cloudscraper.create_scraper(
             browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True}
@@ -137,30 +138,62 @@ def fetch_nba_replays():
         resp = scraper.get("https://basketball-video.com/", timeout=15)
         soup = BeautifulSoup(resp.text, 'html.parser')
         
+        partits_a_visitar = []
+        
         for a in soup.find_all('a', href=True):
             link = a['href']
-            if 'replay' in link.lower() or 'full-game' in link.lower():
+            if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower():
                 if link.startswith("/"):
                     link = "https://basketball-video.com" + link
                     
-                if any(m['channels'][0]['url'] == link for m in matches if m.get('channels')): continue
-                
                 raw_title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
                 clean_title = raw_title.split(' Full Game')[0].split(' Replay')[0].strip()
                 short_title = clean_title[:45] + "..." if len(clean_title) > 45 else clean_title
                 
-                matches.append({
-                    'custom_sport_cat': 'NBA Replays 🏀',
-                    'homeTeam': short_title,
-                    'awayTeam': 'Diferit Complet',
-                    'start': datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
-                    'status': 'vod',
-                    'provider': 'NBA_REPLAY',
-                    'channels': [{'channel_name': 'Veure Partit', 'url': link, 'channel_code': 'us'}]
-                })
-        log(f"✅ {len(matches)} repeticions NBA trobades.")
+                if short_title not in partits_coneguts and not any(p[1] == short_title for p in partits_a_visitar):
+                    partits_a_visitar.append((link, short_title))
+                    
+        log(f"🔎 S'han trobat {len(partits_a_visitar)} partits NOUS per investigar.")
+        
+        # Limitem a 8 partits nous per execució per protegir-nos del baneig
+        for link, short_title in partits_a_visitar[:8]:
+            try:
+                art_resp = scraper.get(link, timeout=10)
+                art_soup = BeautifulSoup(art_resp.text, 'html.parser')
+                
+                channels = []
+                
+                # Busquem els botons que porten als vídeos (watch, server, part...)
+                for a in art_soup.find_all('a', href=True):
+                    text_a = a.text.strip().lower()
+                    href = a['href']
+                    
+                    if ('watch' in text_a or 'part' in text_a or 'server' in text_a) and href.startswith('http') and 'basketball-video.com' not in href:
+                        nom_boto = a.text.strip() if a.text.strip() else "Veure Vídeo"
+                        
+                        if not any(c['url'] == href for c in channels):
+                            channels.append({
+                                'channel_name': nom_boto,
+                                'url': href,
+                                'channel_code': 'us'
+                            })
+                
+                # Només guardem el partit a la memòria si hem trobat algun enllaç de vídeo (evitem targetes buides)
+                if channels:
+                    matches.append({
+                        'custom_sport_cat': 'NBA Replays 🏀',
+                        'homeTeam': short_title,
+                        'awayTeam': 'Diferit Complet',
+                        'start': datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
+                        'status': 'vod',
+                        'provider': 'NBA_REPLAY',
+                        'channels': channels
+                    })
+            except Exception as e:
+                log(f"   ❌ Error llegint {short_title}: {e}")
+                
     except Exception as e:
-        log(f"❌ Error buscant NBA Replays: {e}")
+        log(f"❌ Error a la portada de NBA Replays: {e}")
     return matches
 
 def load_memory():
@@ -179,7 +212,7 @@ def main():
 
         memory = load_memory()
         
-        all_raw_matches = list(memory.values()) + fetch_cdn_live() + fetch_nba_replays()
+        all_raw_matches = list(memory.values()) + fetch_cdn_live() + fetch_nba_replays(list(memory.values()))
         
         unique_matches = {}
         for match in all_raw_matches:
