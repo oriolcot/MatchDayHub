@@ -1,0 +1,127 @@
+{
+    "459062747615356717": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Dallas Mavericks",
+        "awayTeam": "Los Angeles Lakers",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+        "start": "\ud83d\udcfc 12 Feb 2026",
+        "start_raw": "2026-02-15 12:49",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zvs4o",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zvs4m",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/0ix1d5n8c4hh",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "459062747615356717"
+    },
+    "5639269089816769422": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Portland Trail Blazers",
+        "awayTeam": "Utah Jazz",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
+        "start": "\ud83d\udcfc 12 Feb 2026",
+        "start_raw": "2026-02-15 12:49",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/5c3lzytz5itx",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "5639269089816769422"
+    },
+    "3934343655270637606": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Milwaukee Bucks",
+        "awayTeam": "Oklahoma City Thunder",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png",
+        "start": "\ud83d\udcfc 12 Feb 2026",
+        "start_raw": "2026-02-15 12:49",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zvtyc",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zvtye",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/n8g4s5o5ba0l",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "3934343655270637606"
+    },
+    "9147272407434733330": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "San Antonio Spurs",
+        "awayTeam": "Golden State Warriors",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+        "start": "\ud83d\udcfc 11 Feb 2026",
+        "start_raw": "2026-02-15 12:49",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zsqdm",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zsrc6",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/3tesrnqfj435",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "9147272407434733330"
+    },
+    "2911623989205285276": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Oklahoma City Thunder",
+        "awayTeam": "Phoenix Suns",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png",
+        "start": "\ud83d\udcfc 11 Feb 2026",
+        "start_raw": "2026-02-15 12:49",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/hfld8n1ne3zz",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "2911623989205285276"
+    }
+}

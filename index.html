@@ -29,11 +29,12 @@
     .live-dot { width: 6px; height: 6px; background: white; border-radius: 50%; }
     
     .match-info { text-align: center; padding: 5px 0; }
-    .teams { font-size: 1.1rem; font-weight: 700; line-height: 1.4; color: white; }
-    .versus { color: #6b7280; font-size: 0.9rem; margin: 0 8px; font-weight: 400; }
+    .teams { font-size: 1.1rem; font-weight: 700; line-height: 1.4; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .versus { color: #6b7280; font-size: 0.9rem; font-weight: 400; }
+    .team-logo { width: 28px; height: 28px; object-fit: contain; }
 
     .channels { padding: 16px; display: flex; flex-wrap: wrap; gap: 10px; background: #1a222e; flex-grow: 1; align-content: flex-start; }
-    .btn { background: #374151; color: #e5e7eb; padding: 8px 14px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; user-select: none; border: 1px solid transparent; text-decoration: none; width: 100%; justify-content: flex-start; }
+    .btn { background: #374151; color: #e5e7eb; padding: 8px 14px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; user-select: none; border: 1px solid transparent; text-decoration: none; width: 100%; justify-content: flex-start; font-weight:500;}
     .btn:hover { background: var(--accent); color: white; border-color: #93c5fd; }
     .flag-img { width: 20px; height: 15px; object-fit: cover; border-radius: 3px; box-shadow: 0 1px 2px rgba(0,0,0,0.3); }
 
@@ -48,157 +49,46 @@
     <div id="content"><div id="NBA Replays 🏀" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>NBA Replays 🏀</div><div class="grid">
                     <div class="card">
                         <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Las Vegas Aces Vs Phoenix Mercury Game 4 Octo... <span class="versus">vs</span> Diferit Complet</div></div>
+                            <div class="meta"><span class="utc-time" data-ts="📼 12 Feb 2026">📼 12 Feb 2026</span></div>
+                            <div class="match-info"><div class="teams"><img src='https://a.espncdn.com/i/teamlogos/nba/500/dal.png' class='team-logo' onerror="this.style.display='none'"> Dallas Mavericks <span class='versus'>vs</span> Los Angeles Lakers <img src='https://a.espncdn.com/i/teamlogos/nba/500/lal.png' class='team-logo' onerror="this.style.display='none'"></div></div>
                         </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9maWxlbW9vbi50by9lL2I0NG5yNXBvbGR5OC9XTkJBX0ZpbmFsc18yMDI1X0xhc19WZWdhc19BY2VzX3ZzX1Bob2VuaXhfTWVyY3VyeV9HYW1lXzRfMTBfMTBfMTA4MHBFTjMwZnBzX0VTUE4ubWt2" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
+                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5enZzNG8=" onclick="openLink(this)">1a Part 🎬</div><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5enZzNG0=" onclick="openLink(this)">2a Part 🎬</div><div class="btn" data-link="aHR0cHM6Ly9ieXNlc3VraW9yLmNvbS9lLzBpeDFkNW44YzRoaA==" onclick="openLink(this)">Partit Sencer 🍿</div></div>
                     </div>
                     <div class="card">
                         <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Las Vegas Aces Vs Phoenix Mercury Game 3 Octo... <span class="versus">vs</span> Diferit Complet</div></div>
+                            <div class="meta"><span class="utc-time" data-ts="📼 12 Feb 2026">📼 12 Feb 2026</span></div>
+                            <div class="match-info"><div class="teams"><img src='https://a.espncdn.com/i/teamlogos/nba/500/por.png' class='team-logo' onerror="this.style.display='none'"> Portland Trail Blazers <span class='versus'>vs</span> Utah Jazz <img src='https://a.espncdn.com/i/teamlogos/nba/500/utah.png' class='team-logo' onerror="this.style.display='none'"></div></div>
                         </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9maWxlbW9vbi50by9lL3phNGE0bjd3b205ai9XTkJBX0ZJbmFsc18yMDI1X0xhc19WZWdhc19BY2VzX3ZzX1Bob2VuaXhfTWVyY3VyeV9HYW1lXzNfMDhfMTBfNzIwcEVONjBmcHNfRVNQTi5ta3Y=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
+                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ieXNlc3VraW9yLmNvbS9lLzVjM2x6eXR6NWl0eA==" onclick="openLink(this)">Partit Sencer 🍿</div></div>
                     </div>
                     <div class="card">
                         <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Phoenix Mercury Vs Las Vegas Aces Game 2 Octo... <span class="versus">vs</span> Diferit Complet</div></div>
+                            <div class="meta"><span class="utc-time" data-ts="📼 12 Feb 2026">📼 12 Feb 2026</span></div>
+                            <div class="match-info"><div class="teams"><img src='https://a.espncdn.com/i/teamlogos/nba/500/mil.png' class='team-logo' onerror="this.style.display='none'"> Milwaukee Bucks <span class='versus'>vs</span> Oklahoma City Thunder <img src='https://a.espncdn.com/i/teamlogos/nba/500/okc.png' class='team-logo' onerror="this.style.display='none'"></div></div>
                         </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9sdWx1dmlkLmNvbS9lL2sxMnpqOGl5ZXh0bQ==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
+                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5enZ0eWM=" onclick="openLink(this)">1a Part 🎬</div><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5enZ0eWU=" onclick="openLink(this)">2a Part 🎬</div><div class="btn" data-link="aHR0cHM6Ly9ieXNlc3VraW9yLmNvbS9lL244ZzRzNW81YmEwbA==" onclick="openLink(this)">Partit Sencer 🍿</div></div>
                     </div>
                     <div class="card">
                         <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Phoenix Mercury Vs Las Vegas Aces Game 1 Octo... <span class="versus">vs</span> Diferit Complet</div></div>
+                            <div class="meta"><span class="utc-time" data-ts="📼 11 Feb 2026">📼 11 Feb 2026</span></div>
+                            <div class="match-info"><div class="teams"><img src='https://a.espncdn.com/i/teamlogos/nba/500/sa.png' class='team-logo' onerror="this.style.display='none'"> San Antonio Spurs <span class='versus'>vs</span> Golden State Warriors <img src='https://a.espncdn.com/i/teamlogos/nba/500/gs.png' class='team-logo' onerror="this.style.display='none'"></div></div>
                         </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9maWxlbW9vbi50by9lL2Q5emQyanZwZzI2dS9XTkJBX0ZJbmFsc18yMDI1X1Bob2VuaXhfTWVyY3VyeV92c19MYXNfVmVnZWFzX0FjZXNfR2FtZXNfMV8wM18xMF8xMDgwcEVOMzBmcHNfRVNQTi5ta3Y=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
+                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5enNxZG0=" onclick="openLink(this)">1a Part 🎬</div><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5enNyYzY=" onclick="openLink(this)">2a Part 🎬</div><div class="btn" data-link="aHR0cHM6Ly9ieXNlc3VraW9yLmNvbS9lLzN0ZXNybnFmajQzNQ==" onclick="openLink(this)">Partit Sencer 🍿</div></div>
                     </div>
                     <div class="card">
                         <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Indiana Fever Vs Las Vegas Aces Game 5 Septem... <span class="versus">vs</span> Diferit Complet</div></div>
+                            <div class="meta"><span class="utc-time" data-ts="📼 11 Feb 2026">📼 11 Feb 2026</span></div>
+                            <div class="match-info"><div class="teams"><img src='https://a.espncdn.com/i/teamlogos/nba/500/okc.png' class='team-logo' onerror="this.style.display='none'"> Oklahoma City Thunder <span class='versus'>vs</span> Phoenix Suns <img src='https://a.espncdn.com/i/teamlogos/nba/500/phx.png' class='team-logo' onerror="this.style.display='none'"></div></div>
                         </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9maWxlbW9vbi50by9lL2FnNHgxeGd4ZXh6My9XTkJBX1BsYXlvZmZzXzIwMjVfSW5kaWFuYV9GZXZlcl92c19MYXNfVmVnYXNfQWNlc19HYW1lXzVfMzBfMDlfMTA4MHBFTjMwZnBzX0VTUE4ubWt2" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Nba Rising Stars <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmFndWUtZW4tc2FwaGlyLW5vaXItbXlzdGVyZS1zdHlsZS1ndWlkZS1jb21wbGV0" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vZ3JlbmF0LWJsZXUtdW5lLWdlbW1lLXJhcmUtZXQtZW52b3V0YW50ZQ==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 1</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vb3BhbGUtdmVydGUtbGEtZ2VtbWUtbXlzdGlxdWUtZXQtY2FwdGl2YW50ZQ==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 2</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmFndWVzLWVuLXNhcGhpci12aW50YWdlLWhpc3RvaXJlLXN0eWxlcy1ndWlkZS1kLWFjaGF0" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Celebrity Game <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vZ3Jvc3N1bGFyLWdhcm5ldC1ndWlkZS1jb21wbGV0LWRlcy12YXJpZXRlcy1wcm9wcmlldGVzLXVzYWdlcw==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV90dWVzZGF5X25vdmVtYmVyXzE4XzIwMjUvMS0xLTAtOTQ3" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Hbcu Classic <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vc3Blc3NhcnRpdGUtZ2FybmV0LWd1aWRlLWNvbXBsZXQtZC11bi1ncmVuYXQtb3JhbmdlLWZsYW1ib3lhbnQ=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV93ZWRuZXNkYXlfbm92ZW1iZXJfMTlfMjAyNS8xLTEtMC05NDg=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Euroleague Basketball <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV90aHVyc2RheV9ub3ZlbWJlcl8yMF8yMDI1LzEtMS0wLTk0OQ==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9tb25kYXlfbm92ZW1iZXJfMjRfMjAyNS8xLTEtMC05NTM=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9mcmlkYXlfbm92ZW1iZXJfMjFfMjAyNS8xLTEtMC05NTA=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9zYXR1cmRheV9ub3ZlbWJlcl8yMl8yMDI1LzEtMS0wLTk1MQ==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9zdW5kYXlfbm92ZW1iZXJfMjNfMjAyNS8xLTEtMC05NTI=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Dallas Mavericks Vs Los Angeles Lakers <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vb21lZ2Etc2FwcGhpcmUtbXlzdGVyZS1zaWduaWZpY2F0aW9uLWd1aWRlLWRhY2hhdA==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vb3BhbGUtZGVuZHJpdGlxdWUtYmVhdXRlLXZlcnR1cy1ndWlkZS1jb21wbGV0" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 1</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vcmhvZG9saXRlLWdhcm5ldC1waWVycmUtdW5pcXVlLWV0LXBvbHl2YWxlbnRlLWd1aWRlLWNvbXBsZXQ=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 2</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmFndWUtZW4tc2FwaGlyLWR1LW1vbnRhbmEtY291bGV1cnMtdW5pcXVlcy1ndWlkZS1jb21wbGV0" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Portland Trail Blazers Vs Utah Jazz <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmFndWUtZW4tc2FwaGlyLWR1LW1vbnRhbmEtZGVjb3V2cmV6LWNlLXRyZXNvci1uYXR1cmVsLWV0LXJhZmZpbmU=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9uYmEtZ2FtZXMtb24tdHYtdG9kYXktd2VkbmVzZGF5LW5vdmVtYmVyLTEyLTIwMjU=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Milwaukee Bucks Vs Oklahoma City Thunder <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vc2FwaGlyLWJsYW5jLXZzLWRpYW1hbnQtZ3VpZGUtY29tcGxldC1wb3VyLWJpZW4tY2hvaXNpcg==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYW5uZWF1LWRlLW1hcmlhZ2UtZW4tb3BhbGUtYmVhdXRlLXN0eWxlcy1ldC1ndWlkZS1kLWVudHJldGllbg==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 1</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYm91Y2xlcy1kLW9yZWlsbGVzLWVuLXNhcGhpci1ibGV1LWVsZWdhbmNlLWludGVtcG9yZWxsZS1ldC1ndWlkZS1kLWFjaGF0" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 2</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmFndWVzLWVuLXNhcGhpci1qYXVuZS1lY2xhdC1zb2xhaXJlLXN5bWJvbGlzbWUtZXQtZ3VpZGUtZGFjaGF0" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">San Antonio Spurs Vs Golden State Warriors <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vZmx1b3JpdGUtdmVydGUtZ3VpZGUtY29tcGxldC1kZXMtYmllbmZhaXRzLXV0aWxpc2F0aW9ucw==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vZW1lcmF1ZGUtdHJhcGljaGUtbW90aXMtb3JpZ2luZS1yYXJldGU=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 1</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vdHVycXVvaXNlLWRhZnJpcXVlLXNpZ25pZmljYXRpb24tdmVydHVzLWd1aWRlLWNvbXBsZXQ=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 2</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmFndWVzLWVuLXBpZXJyZXMtcHJlY2lldXNlcy1zdHlsZXMtdGVuZGFuY2VzLWV0LWd1aWRlLWNvbXBsZXQ=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Oklahoma City Thunder Vs Phoenix Suns <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vZmx1b3JpdGUtYmxldWUtcHJvcHJpZXRlcy1iaWVuZmFpdHMtZXQtdXRpbGlzYXRpb24=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmFndWVzLWhvbW1lcy1lbi1waWVycmVzLTYtc3R5bGVzLWVsZWdhbnRzLWV0LW1vZGVybmVz" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Memphis Grizzlies Vs Denver Nuggets <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vNy1waWVycmVzLXByZWNpZXVzZXMtcG91ci1iYWd1ZS1kZS1maWFuY2FpbGxlcy1ndWlkZS1jb21wbGV0" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmFndWVzLWVuLXNhcGhpci1ldG9pbGUtYXN0ZXJpc21lLXN0eWxlLWV0LWd1aWRlLWNvbXBsZXQ=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 1</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vY29sbGllci1lbi10dXJxdW9pc2UtZ3VpZGUtY29tcGxldC1zdHlsZXMtZXQtc29pbnM=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 2</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vZ2VtbWVzLXZlcnRlcy10eXBlcy1iaWVuZmFpdHMtZXQtZ3VpZGUtY29tcGxldA==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Sacramento Kings Vs Utah Jazz <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vYmx1ZS1lbWVyYWxkLWdlbW1lLWJsZXUtdmVydC1yYXJlLWV0LWVsZWdhbnRl" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9uYmEtZ2FtZXMtb24tdHYtdG9kYXktZnJpZGF5LW5vdmVtYmVyLTctMjAyNQ==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">La Clippers Vs Los Angeles Lakers <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5dWdldjg=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 1</div><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5dWdmZWc=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 2</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">San Antonio Spurs Vs Oklahoma City Thunder <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5dm9qOWM=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 1</div><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5dm9rMWU=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 2</div><div class="btn" data-link="aHR0cHM6Ly9maWxlbW9vbi50by9lL3hkOWVkcjdoYnptMS9OQkEtMjAyNS0xMi0xM19TQVNfT0tDX1BSSU1FLm1rdg==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Utah Jazz Vs Los Angeles Lakers <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5dTF2bms=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 1</div><div class="btn" data-link="aHR0cHM6Ly9nZW8uZGFpbHltb3Rpb24uY29tL3BsYXllci5odG1sP3ZpZGVvPXg5dTF2bmk=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Part 2</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Nba All Star Saturday Night <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vdm95YWdlci1hdmVjLWRlcy1jcmlzdGF1eC1jZS1xdS1pbC1mYXV0LXNhdm9pci1hdmFudC1sLWF2aW9u" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9ndWlkZWRlc2dlbW1lcy5jb20vbGUtZGlhbWFudC1jdWxsaW5hbi1oaXN0b2lyZS10YWlsbGUtZXQtc3ltYm9saXNtZS1kdS1wbHVzLWdyYW5kLWRpYW1hbnQtYnJ1dA==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="Diferit">Diferit</span><span class="vod-badge">📼 REPLAY</span></div>
-                            <div class="match-info"><div class="teams">Ncaa College Basketball <span class="versus">vs</span> Diferit Complet</div></div>
-                        </div>
-                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV90aHVyc2RheV9kZWNlbWJlcl80XzIwMjUvMS0xLTAtOTYz" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9mcmlkYXlfbm92ZW1iZXJfMjhfMjAyNS8xLTEtMC05NTc=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV90dWVzZGF5X25vdmVtYmVyXzI1XzIwMjUvMS0xLTAtOTU0" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9zYXR1cmRheV9ub3ZlbWJlcl8yOV8yMDI1LzEtMS0wLTk1OA==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9zdW5kYXlfbm92ZW1iZXJfMzBfMjAyNS8xLTEtMC05NTk=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9tb25kYXlfZGVjZW1iZXJfMV8yMDI1LzEtMS0wLTk2MA==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV90dWVzZGF5X2RlY2VtYmVyXzJfMjAyNS8xLTEtMC05NjE=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV93ZWRuZXNkYXlfZGVjZW1iZXJfM18yMDI1LzEtMS0wLTk2Mg==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV93ZWRuZXNkYXlfbm92ZW1iZXJfMjZfMjAyNS8xLTEtMC05NTU=" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV90aHVyc2RheV9ub3ZlbWJlcl8yN18yMDI1LzEtMS0wLTk1Ng==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9mcmlkYXlfZGVjZW1iZXJfNV8yMDI1LzEtMS0wLTk2NA==" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div><div class="btn" data-link="aHR0cHM6Ly9uYmFvbnR2LmNvbS9wdWJsL25iYV9nYW1lc19vbl90dl90b2RheV90b25pZ2h0L25iYV9nYW1lc19vbl90dl90b2RheV9zYXR1cmRheV9kZWNlbWJlcl82XzIwMjUvMS0xLTAtOTY1" onclick="openLink(this)"><img src="https://flagcdn.com/20x15/us.png" class="flag-img" onerror="this.style.display='none'"> Watch</div></div>
+                        <div class="channels"><div class="btn" data-link="aHR0cHM6Ly9ieXNlc3VraW9yLmNvbS9lL2hmbGQ4bjFuZTN6eg==" onclick="openLink(this)">Partit Sencer 🍿</div></div>
                     </div></div></div></div>
-    <div class="footer">Última actualització: <span style="color:var(--text); font-weight:bold;">15/02/2026 12:45 UTC</span><br><small>Hora local detectada automàticament</small></div>
+    <div class="footer">Última actualització: <span style="color:var(--text); font-weight:bold;">15/02/2026 12:49 UTC</span><br><small>Hora local detectada automàticament</small></div>
     <script>
         function openLink(el) { try { window.open(atob(el.getAttribute('data-link')), '_blank'); } catch(e){ console.error("Error link", e); } }
         document.querySelectorAll('.utc-time').forEach(el => {
             const raw = el.getAttribute('data-ts');
-            if(raw && raw !== "Diferit") {
+            // Si el TS no conté cap d'aquestes paraules, ho traduïm a hora local
+            if(raw && !raw.includes("Diferit") && !raw.includes("📼")) {
                 const d = new Date(raw.replace(' ', 'T')+'Z');
                 el.innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
             }
