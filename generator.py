@@ -4,13 +4,26 @@ import json
 import os
 import sys
 import base64
-from datetime import datetime
+import re
+from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
 
 # --- CONFIGURACIÓ ---
 API_URL_CDN = os.environ.get("API_URL")
 MEMORY_FILE = "memoria_partits.json"
+
+# --- DICCIONARI DE LOGOS NBA (ESPN CDN) ---
+NBA_LOGOS = {
+    "atlanta hawks": "atl", "boston celtics": "bos", "brooklyn nets": "bkn", "charlotte hornets": "cha",
+    "chicago bulls": "chi", "cleveland cavaliers": "cle", "dallas mavericks": "dal", "denver nuggets": "den",
+    "detroit pistons": "det", "golden state warriors": "gs", "houston rockets": "hou", "indiana pacers": "ind",
+    "la clippers": "lac", "los angeles clippers": "lac", "los angeles lakers": "lal", "memphis grizzlies": "mem",
+    "miami heat": "mia", "milwaukee bucks": "mil", "minnesota timberwolves": "min", "new orleans pelicans": "no",
+    "new york knicks": "ny", "oklahoma city thunder": "okc", "orlando magic": "orl", "philadelphia 76ers": "phi",
+    "phoenix suns": "phx", "portland trail blazers": "por", "sacramento kings": "sac", "san antonio spurs": "sa",
+    "toronto raptors": "tor", "utah jazz": "utah", "washington wizards": "was"
+}
 
 INTERNAL_TEMPLATE = """<!DOCTYPE html>
 <html lang="ca">
@@ -43,11 +56,12 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
     .live-dot { width: 6px; height: 6px; background: white; border-radius: 50%; }
     
     .match-info { text-align: center; padding: 5px 0; }
-    .teams { font-size: 1.1rem; font-weight: 700; line-height: 1.4; color: white; }
-    .versus { color: #6b7280; font-size: 0.9rem; margin: 0 8px; font-weight: 400; }
+    .teams { font-size: 1.1rem; font-weight: 700; line-height: 1.4; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .versus { color: #6b7280; font-size: 0.9rem; font-weight: 400; }
+    .team-logo { width: 28px; height: 28px; object-fit: contain; }
 
     .channels { padding: 16px; display: flex; flex-wrap: wrap; gap: 10px; background: #1a222e; flex-grow: 1; align-content: flex-start; }
-    .btn { background: #374151; color: #e5e7eb; padding: 8px 14px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; user-select: none; border: 1px solid transparent; text-decoration: none; width: 100%; justify-content: flex-start; }
+    .btn { background: #374151; color: #e5e7eb; padding: 8px 14px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; user-select: none; border: 1px solid transparent; text-decoration: none; width: 100%; justify-content: flex-start; font-weight:500;}
     .btn:hover { background: var(--accent); color: white; border-color: #93c5fd; }
     .flag-img { width: 20px; height: 15px; object-fit: cover; border-radius: 3px; box-shadow: 0 1px 2px rgba(0,0,0,0.3); }
 
@@ -65,7 +79,8 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
         function openLink(el) { try { window.open(atob(el.getAttribute('data-link')), '_blank'); } catch(e){ console.error("Error link", e); } }
         document.querySelectorAll('.utc-time').forEach(el => {
             const raw = el.getAttribute('data-ts');
-            if(raw && raw !== "Diferit") {
+            // Si el TS no conté cap d'aquestes paraules, ho traduïm a hora local
+            if(raw && !raw.includes("Diferit") && !raw.includes("📼")) {
                 const d = new Date(raw.replace(' ', 'T')+'Z');
                 el.innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
             }
@@ -79,6 +94,12 @@ HEADERS = {
 }
 
 def log(msg): sys.stderr.write(f"[LOG] {msg}\n")
+
+def get_nba_logo(team_name):
+    low_name = team_name.lower().strip()
+    if low_name in NBA_LOGOS:
+        return f"https://a.espncdn.com/i/teamlogos/nba/500/{NBA_LOGOS[low_name]}.png"
+    return ""
 
 def get_sport_name(key):
     names = { 
@@ -99,11 +120,10 @@ def are_duplicates(m1, m2):
     if m1.get('provider') != m2.get('provider'): return False
     
     if m1.get('provider') == 'NBA_REPLAY':
-        return m1.get('homeTeam') == m2.get('homeTeam')
+        return m1.get('homeTeam') == m2.get('homeTeam') and m1.get('awayTeam') == m2.get('awayTeam')
 
     if m1.get('custom_sport_cat') != m2.get('custom_sport_cat'): return False
     try:
-        # Pels partits en directe necessitem saber si coincideixen en la mateixa hora
         t1 = datetime.strptime(m1['start_raw'], "%Y-%m-%d %H:%M")
         t2 = datetime.strptime(m2['start_raw'], "%Y-%m-%d %H:%M")
         if abs((t1 - t2).total_seconds()) / 3600 > 1.0: return False
@@ -121,7 +141,6 @@ def fetch_cdn_live():
             for sport, event_list in resp.json().get("cdn-live-tv", {}).items():
                 if isinstance(event_list, list):
                     for m in event_list:
-                        # Guardem l'hora intocable
                         m['start_raw'] = m.get('start', '')
                         m.update({'custom_sport_cat': sport, 'provider': 'CDN'})
                         matches.append(m)
@@ -130,9 +149,10 @@ def fetch_cdn_live():
 
 def fetch_nba_replays(memory_matches):
     matches = []
-    log("Buscant repeticions NBA amb Cloudscraper (Doble extracció intel·ligent)...")
+    log("Buscant repeticions NBA (PRO: Amb filtre de VS i Logos)...")
     
     partits_coneguts = [m.get('homeTeam') for m in memory_matches if m.get('provider') == 'NBA_REPLAY']
+    dominis_directes = ['filemoon', 'vidmoly', 'vk.com', 'ok.ru', 'streamtape', 'voe', 'uqload', 'dood', 'dailymotion']
     
     try:
         scraper = cloudscraper.create_scraper(
@@ -142,23 +162,57 @@ def fetch_nba_replays(memory_matches):
         soup = BeautifulSoup(resp.text, 'html.parser')
         
         partits_a_visitar = []
+        now_utc = datetime.now(timezone.utc)
+        any_passat = str(now_utc.year - 1)
+        mes_actual = now_utc.month
         
         for a in soup.find_all('a', href=True):
             link = a['href']
-            if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower():
+            
+            # FILTRE WNBA I NO-VIDEOS
+            if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower() and 'wnba' not in link.lower():
+                
+                raw_title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
+                
+                # FILTRE "VS": Si no té "vs" o "vs." al títol, no és un partit, és un resum d'Eurolliga o NCAA. Fora!
+                if ' vs ' not in raw_title.lower() and ' vs. ' not in raw_title.lower():
+                    continue
+
+                # FILTRE ANY PASSAT
+                if f"-{any_passat}-" in link and mes_actual > 1:
+                    continue
+                
                 if link.startswith("/"):
                     link = "https://basketball-video.com" + link
                     
-                raw_title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
-                clean_title = raw_title.split(' Full Game')[0].split(' Replay')[0].strip()
-                short_title = clean_title[:45] + "..." if len(clean_title) > 45 else clean_title
+                # EXTRACCIÓ DATA BONICA
+                data_bonica = "Diferit"
+                date_match = re.search(r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\s+(\d{4})', raw_title, re.IGNORECASE)
+                if date_match:
+                    month = date_match.group(1)[:3]
+                    day = date_match.group(2)
+                    year = date_match.group(3)
+                    data_bonica = f"📼 {day} {month} {year}"
                 
-                if short_title not in partits_coneguts and not any(p[1] == short_title for p in partits_a_visitar):
-                    partits_a_visitar.append((link, short_title))
+                # SEPARACIÓ EQUIPS
+                equips_split = re.split(r'\s+Vs\.?\s+', raw_title, flags=re.IGNORECASE)
+                home_t = ""
+                away_t = ""
+                
+                if len(equips_split) >= 2:
+                    home_t = equips_split[0].strip()
+                    resta = equips_split[1]
+                    tall_away = re.split(r'\s+Full\s+Game|\s+Replay|\s+January|\s+February|\s+March|\s+April|\s+May|\s+June|\s+July|\s+August|\s+September|\s+October|\s+November|\s+December', resta, flags=re.IGNORECASE)
+                    away_t = tall_away[0].strip()
+                
+                if home_t and not any(p[1] == home_t for p in partits_a_visitar) and home_t not in partits_coneguts:
+                    partits_a_visitar.append((link, home_t, away_t, data_bonica))
                     
         log(f"🔎 S'han trobat {len(partits_a_visitar)} partits NOUS per investigar.")
         
-        for link, short_title in partits_a_visitar[:8]:
+        # Limitem a 8 perquè no ens banegin
+        for link, h_team, a_team, data_partit in partits_a_visitar[:8]: 
+            log(f"   Investigant: {h_team} vs {a_team}...")
             try:
                 art_resp = scraper.get(link, timeout=10)
                 art_soup = BeautifulSoup(art_resp.text, 'html.parser')
@@ -169,29 +223,60 @@ def fetch_nba_replays(memory_matches):
                     href = a['href']
                     
                     if ('watch' in text_a or 'part' in text_a or 'server' in text_a) and href.startswith('http') and 'basketball-video.com' not in href:
-                        nom_boto = a.text.strip() if a.text.strip() else "Veure Vídeo"
                         
-                        if not any(c['url'] == href for c in channels):
+                        nom_final = ""
+                        if 'watch' in text_a or 'server 1' in text_a or 'full game' in text_a:
+                            nom_final = "Partit Sencer 🍿"
+                        elif 'part 1' in text_a:
+                            nom_final = "1a Part 🎬"
+                        elif 'part 2' in text_a:
+                            nom_final = "2a Part 🎬"
+                        elif 'part 3' in text_a:
+                            nom_final = "3a Part 🎬"
+                        elif 'part 4' in text_a:
+                            nom_final = "4a Part 🎬"
+                        else:
+                            nom_final = a.text.strip() if a.text.strip() else "Veure Vídeo"
+
+                        final_url = ""
+                        
+                        if not any(d in href.lower() for d in dominis_directes):
+                            try:
+                                fake_resp = scraper.get(href, timeout=8)
+                                fake_soup = BeautifulSoup(fake_resp.text, 'html.parser')
+                                for iframe in fake_soup.find_all('iframe'):
+                                    src = iframe.get('src', '')
+                                    if src and 'http' in src and not any(x in src.lower() for x in ['facebook', 'twitter', 'google']):
+                                        final_url = src
+                                        break
+                            except Exception:
+                                pass
+                        else:
+                            final_url = href
+                        
+                        if final_url and not any(c['url'] == final_url for c in channels):
                             channels.append({
-                                'channel_name': nom_boto,
-                                'url': href,
+                                'channel_name': nom_final,
+                                'url': final_url,
                                 'channel_code': 'us'
                             })
                 
                 if channels:
-                    hora_actual = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
+                    hora_actual = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
                     matches.append({
                         'custom_sport_cat': 'NBA Replays 🏀',
-                        'homeTeam': short_title,
-                        'awayTeam': 'Diferit Complet',
-                        'start': "Diferit",
-                        'start_raw': hora_actual, # Aquesta hora és la interna que compta els 4 dies
+                        'homeTeam': h_team,
+                        'awayTeam': a_team,
+                        'homeLogo': get_nba_logo(h_team),
+                        'awayLogo': get_nba_logo(a_team),
+                        'start': data_partit,
+                        'start_raw': hora_actual,
                         'status': 'vod',
                         'provider': 'NBA_REPLAY',
                         'channels': channels
                     })
             except Exception as e:
-                log(f"   ❌ Error llegint {short_title}: {e}")
+                log(f"   ❌ Error llegint {h_team}: {e}")
                 
     except Exception as e:
         log(f"❌ Error a la portada de NBA Replays: {e}")
@@ -201,7 +286,6 @@ def load_memory():
     if os.path.exists(MEMORY_FILE):
         try:
             with open(MEMORY_FILE, 'r', encoding='utf-8') as f:
-                # Comprovem ràpidament si els VOD vells tenen start_raw per no petar
                 dades = json.load(f)
                 for v in dades.values():
                     if 'start_raw' not in v and 'start' in v:
@@ -219,7 +303,8 @@ def main():
 
         memory = load_memory()
         nous_directes = fetch_cdn_live()
-        nous_replays = fetch_nba_replays(list(memory.values()))
+        # Per les proves locals desactivem temporalment la memòria i deixem que busqui partits nous sempre
+        nous_replays = fetch_nba_replays([])
         
         all_raw_matches = list(memory.values()) + nous_directes + nous_replays
         
@@ -231,7 +316,6 @@ def main():
             for uid, existing_match in unique_matches.items():
                 if are_duplicates(existing_match, match):
                     is_duplicate = True
-                    # Conservem sempre la hora base original (start_raw)
                     if 'start_raw' in existing_match: match['start_raw'] = existing_match['start_raw']
                     
                     existing_urls = {c['url'] for c in existing_match.get('channels', []) if 'url' in c}
@@ -241,6 +325,8 @@ def main():
                     if len(match.get('homeTeam', '')) > len(existing_match.get('homeTeam', '')):
                         existing_match['homeTeam'] = match['homeTeam']
                         existing_match['awayTeam'] = match['awayTeam']
+                        existing_match['homeLogo'] = match.get('homeLogo', '')
+                        existing_match['awayLogo'] = match.get('awayLogo', '')
                     break
             
             if not is_duplicate:
@@ -251,16 +337,15 @@ def main():
 
         clean_memory = {}
         display_matches = []
-        now = datetime.utcnow()
+        now_utc = datetime.now(timezone.utc).replace(tzinfo=None) # Preparem per comparar
 
         for gid, m in unique_matches.items():
             try:
-                # Comprovem la caducitat basant-nos en start_raw, que és segur i no conté la paraula "Diferit"
                 s_dt = datetime.strptime(m.get('start_raw'), "%Y-%m-%d %H:%M")
-                diff_hours = (now - s_dt).total_seconds() / 3600
+                diff_hours = (now_utc - s_dt).total_seconds() / 3600
                 
                 if m.get('provider') == 'NBA_REPLAY':
-                    if diff_hours < 96.0: # Duren 4 dies
+                    if diff_hours < 96.0:
                         clean_memory[gid] = m
                         display_matches.append(m)
                 else:
@@ -299,11 +384,19 @@ def main():
                     utc = m.get('start')
                     
                     if m.get('status') == 'vod':
-                        badge_html = '<span class="vod-badge">📼 REPLAY</span>'
+                        badge_html = '' 
                     elif m.get('status') == 'live':
                         badge_html = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>'
                     else:
                         badge_html = ''
+                        
+                    home_logo_html = f"<img src='{m.get('homeLogo')}' class='team-logo' onerror=\"this.style.display='none'\">" if m.get('homeLogo') else ""
+                    away_logo_html = f"<img src='{m.get('awayLogo')}' class='team-logo' onerror=\"this.style.display='none'\">" if m.get('awayLogo') else ""
+                    
+                    if home_logo_html or away_logo_html:
+                        teams_display = f"{home_logo_html} {m['homeTeam']} <span class='versus'>vs</span> {m['awayTeam']} {away_logo_html}"
+                    else:
+                        teams_display = f"{m['homeTeam']} <span class='versus'>vs</span> {m['awayTeam']}"
                     
                     btns_html = ""
                     for ch in m.get('channels', []):
@@ -312,19 +405,23 @@ def main():
                         code = ch.get('channel_code', 'xx').lower()
                         flag = f"https://flagcdn.com/20x15/{code}.png"
                         name = ch.get('channel_name', 'Link')
-                        btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
+                        
+                        if m.get('provider') == 'NBA_REPLAY':
+                            btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)">{name}</div>"""
+                        else:
+                            btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
 
                     content_html += f"""
                     <div class="card">
                         <div class="header">
                             <div class="meta"><span class="utc-time" data-ts="{utc}">{utc}</span>{badge_html}</div>
-                            <div class="match-info"><div class="teams">{m['homeTeam']} <span class="versus">vs</span> {m['awayTeam']}</div></div>
+                            <div class="match-info"><div class="teams">{teams_display}</div></div>
                         </div>
                         <div class="channels">{btns_html}</div>
                     </div>"""
                 content_html += "</div></div>"
 
-        final = INTERNAL_TEMPLATE.replace('{{NAVBAR}}', navbar_html).replace('{{CONTENT}}', content_html).replace('{{DATE}}', datetime.now().strftime("%d/%m/%Y %H:%M UTC"))
+        final = INTERNAL_TEMPLATE.replace('{{NAVBAR}}', navbar_html).replace('{{CONTENT}}', content_html).replace('{{DATE}}', datetime.now(timezone.utc).strftime("%d/%m/%Y %H:%M UTC"))
         print(final)
 
     except Exception as e:
