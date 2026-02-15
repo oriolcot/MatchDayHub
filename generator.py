@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
 
+
 # --- CONFIGURACIÓ ---
 API_URL_CDN = os.environ.get("API_URL")
 MEMORY_FILE = "memoria_partits.json"
