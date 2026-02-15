@@ -79,7 +79,6 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
         function openLink(el) { try { window.open(atob(el.getAttribute('data-link')), '_blank'); } catch(e){ console.error("Error link", e); } }
         document.querySelectorAll('.utc-time').forEach(el => {
             const raw = el.getAttribute('data-ts');
-            // Si el TS no conté cap d'aquestes paraules, ho traduïm a hora local
             if(raw && !raw.includes("Diferit") && !raw.includes("📼")) {
                 const d = new Date(raw.replace(' ', 'T')+'Z');
                 el.innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
@@ -138,18 +137,23 @@ def fetch_cdn_live():
     try:
         resp = requests.get(API_URL_CDN, headers={"User-Agent": HEADERS["User-Agent"], "Referer": "https://cdn-live.tv/"}, timeout=15)
         if resp.status_code == 200:
-            for sport, event_list in resp.json().get("cdn-live-tv", {}).items():
+            data = resp.json()
+            
+            events_dict = data.get("cdn-live-tv") or data
+            
+            for sport, event_list in events_dict.items():
                 if isinstance(event_list, list):
                     for m in event_list:
                         m['start_raw'] = m.get('start', '')
                         m.update({'custom_sport_cat': sport, 'provider': 'CDN'})
                         matches.append(m)
-    except: pass
+    except Exception as e:
+        log(f"Error llegint la API de CDN: {e}")
     return matches
 
 def fetch_nba_replays(memory_matches):
     matches = []
-    log("Buscant repeticions NBA (PRO: Amb filtre de VS i Logos)...")
+    log("Buscant repeticions NBA (PRO: Llista VIP All-Star inclosa)...")
     
     partits_coneguts = [m.get('homeTeam') for m in memory_matches if m.get('provider') == 'NBA_REPLAY']
     dominis_directes = ['filemoon', 'vidmoly', 'vk.com', 'ok.ru', 'streamtape', 'voe', 'uqload', 'dood', 'dailymotion']
@@ -169,23 +173,23 @@ def fetch_nba_replays(memory_matches):
         for a in soup.find_all('a', href=True):
             link = a['href']
             
-            # FILTRE WNBA I NO-VIDEOS
             if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower() and 'wnba' not in link.lower():
                 
                 raw_title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
+                title_lower = raw_title.lower()
                 
-                # FILTRE "VS": Si no té "vs" o "vs." al títol, no és un partit, és un resum d'Eurolliga o NCAA. Fora!
-                if ' vs ' not in raw_title.lower() and ' vs. ' not in raw_title.lower():
+                is_vs = ' vs ' in title_lower or ' vs. ' in title_lower
+                is_all_star = any(kw in title_lower for kw in ['all star', 'rising stars', 'celebrity game', 'hbcu'])
+                
+                if not is_vs and not is_all_star:
                     continue
 
-                # FILTRE ANY PASSAT
-                if f"-{any_passat}-" in link and mes_actual > 1:
+                if f"-{any_passat}-" in link and mes_actual > 1 and not is_all_star:
                     continue
                 
                 if link.startswith("/"):
                     link = "https://basketball-video.com" + link
                     
-                # EXTRACCIÓ DATA BONICA
                 data_bonica = "Diferit"
                 date_match = re.search(r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\s+(\d{4})', raw_title, re.IGNORECASE)
                 if date_match:
@@ -194,7 +198,6 @@ def fetch_nba_replays(memory_matches):
                     year = date_match.group(3)
                     data_bonica = f"📼 {day} {month} {year}"
                 
-                # SEPARACIÓ EQUIPS
                 equips_split = re.split(r'\s+Vs\.?\s+', raw_title, flags=re.IGNORECASE)
                 home_t = ""
                 away_t = ""
@@ -204,15 +207,17 @@ def fetch_nba_replays(memory_matches):
                     resta = equips_split[1]
                     tall_away = re.split(r'\s+Full\s+Game|\s+Replay|\s+January|\s+February|\s+March|\s+April|\s+May|\s+June|\s+July|\s+August|\s+September|\s+October|\s+November|\s+December', resta, flags=re.IGNORECASE)
                     away_t = tall_away[0].strip()
+                else:
+                    clean_title = raw_title.split(' Full Game')[0].split(' Replay')[0].strip()
+                    home_t = clean_title[:40] + "..." if len(clean_title) > 40 else clean_title
+                    away_t = "All-Star Event 🌟"
                 
                 if home_t and not any(p[1] == home_t for p in partits_a_visitar) and home_t not in partits_coneguts:
                     partits_a_visitar.append((link, home_t, away_t, data_bonica))
                     
         log(f"🔎 S'han trobat {len(partits_a_visitar)} partits NOUS per investigar.")
         
-        # Limitem a 8 perquè no ens banegin
         for link, h_team, a_team, data_partit in partits_a_visitar[:8]: 
-            log(f"   Investigant: {h_team} vs {a_team}...")
             try:
                 art_resp = scraper.get(link, timeout=10)
                 art_soup = BeautifulSoup(art_resp.text, 'html.parser')
@@ -303,8 +308,7 @@ def main():
 
         memory = load_memory()
         nous_directes = fetch_cdn_live()
-        # Per les proves locals desactivem temporalment la memòria i deixem que busqui partits nous sempre
-        nous_replays = fetch_nba_replays([])
+        nous_replays = fetch_nba_replays(list(memory.values()))
         
         all_raw_matches = list(memory.values()) + nous_directes + nous_replays
         
@@ -337,7 +341,7 @@ def main():
 
         clean_memory = {}
         display_matches = []
-        now_utc = datetime.now(timezone.utc).replace(tzinfo=None) # Preparem per comparar
+        now_utc = datetime.now(timezone.utc).replace(tzinfo=None)
 
         for gid, m in unique_matches.items():
             try:
@@ -351,7 +355,8 @@ def main():
                 else:
                     if diff_hours < 5.0:
                         clean_memory[gid] = m
-                    if diff_hours < 4.0 and len(m.get('channels', [])) > 0:
+                    
+                    if diff_hours < 4.0:
                         display_matches.append(m)
             except Exception as e:
                 pass
@@ -399,17 +404,21 @@ def main():
                         teams_display = f"{m['homeTeam']} <span class='versus'>vs</span> {m['awayTeam']}"
                     
                     btns_html = ""
-                    for ch in m.get('channels', []):
-                        try: link_b64 = base64.b64encode(ch.get('url', '#').encode()).decode()
-                        except: link_b64 = ""
-                        code = ch.get('channel_code', 'xx').lower()
-                        flag = f"https://flagcdn.com/20x15/{code}.png"
-                        name = ch.get('channel_name', 'Link')
-                        
-                        if m.get('provider') == 'NBA_REPLAY':
-                            btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)">{name}</div>"""
-                        else:
-                            btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
+                    
+                    if not m.get('channels', []):
+                        btns_html = """<div class="btn" style="opacity:0.6; cursor:default; justify-content:center;">Sense enllaços encara ⏳</div>"""
+                    else:
+                        for ch in m.get('channels', []):
+                            try: link_b64 = base64.b64encode(ch.get('url', '#').encode()).decode()
+                            except: link_b64 = ""
+                            code = ch.get('channel_code', 'xx').lower()
+                            flag = f"https://flagcdn.com/20x15/{code}.png"
+                            name = ch.get('channel_name', 'Link')
+                            
+                            if m.get('provider') == 'NBA_REPLAY':
+                                btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)">{name}</div>"""
+                            else:
+                                btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
 
                     content_html += f"""
                     <div class="card">

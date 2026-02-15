@@ -1,12 +1,160 @@
 {
+<<<<<<< Updated upstream
     "459062747615356717": {
+=======
+    "2829140071453027980": {
+        "gameID": "2829140071453027980",
+        "homeTeam": "Lumezzane",
+        "awayTeam": "Cittadella",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2738.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2717.png",
+        "time": "13:30",
+        "tournament": "Serie C",
+        "country": "Italy",
+        "countryIMG": "https://flagcdn.com/w40/it.png",
+        "status": "live",
+        "start": "2026-02-15 13:30",
+        "end": "2026-02-15 16:09",
+        "start_raw": "2026-02-15 13:30",
+        "channels": [
+            {
+                "channel_name": "Opci\u00f3 1",
+                "url": "https://google.com",
+                "channel_code": "it"
+            }
+        ],
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "2115538570687410692": {
+        "gameID": "2115538570687410692",
+        "homeTeam": "Virtus Casarano",
+        "awayTeam": "Sorrento",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/43684.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2718.png",
+        "time": "14:00",
+        "tournament": "Serie C",
+        "status": "upcoming",
+        "start": "2026-02-15 14:00",
+        "start_raw": "2026-02-15 14:00",
+        "channels": [],
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "7427868550244424605": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Nba All Star Saturday Night",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 14 Feb 2025",
+        "start_raw": "2026-02-15 13:17",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa025z0",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa026c4",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "3a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa02rje",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/rnz1qg5ndfoi",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "7427868550244424605"
+    },
+    "543816068138532613": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Nba Rising Stars",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 13 Feb 2025",
+        "start_raw": "2026-02-15 13:17",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zzlm4",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zzm10",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/fj0yp9k8hvzh",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "543816068138532613"
+    },
+    "1838772531631252534": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Celebrity Game",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 13 Feb 2025",
+        "start_raw": "2026-02-15 13:17",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/4v90cvsazekv",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "1838772531631252534"
+    },
+    "6531515721112952748": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Hbcu Classic",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 13 Feb 2025",
+        "start_raw": "2026-02-15 13:17",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/0dbidz0hmx3o",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "6531515721112952748"
+    },
+    "3850270420632936947": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Dallas Mavericks",
         "awayTeam": "Los Angeles Lakers",
         "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png",
         "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
         "start": "\ud83d\udcfc 12 Feb 2026",
+<<<<<<< Updated upstream
         "start_raw": "2026-02-15 12:49",
+=======
+        "start_raw": "2026-02-15 13:17",
+>>>>>>> Stashed changes
         "status": "vod",
         "provider": "NBA_REPLAY",
         "channels": [
@@ -26,16 +174,26 @@
                 "channel_code": "us"
             }
         ],
+<<<<<<< Updated upstream
         "gameID": "459062747615356717"
     },
     "5639269089816769422": {
+=======
+        "gameID": "3850270420632936947"
+    },
+    "3713011392085368233": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Portland Trail Blazers",
         "awayTeam": "Utah Jazz",
         "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
         "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
         "start": "\ud83d\udcfc 12 Feb 2026",
+<<<<<<< Updated upstream
         "start_raw": "2026-02-15 12:49",
+=======
+        "start_raw": "2026-02-15 13:17",
+>>>>>>> Stashed changes
         "status": "vod",
         "provider": "NBA_REPLAY",
         "channels": [
@@ -45,16 +203,26 @@
                 "channel_code": "us"
             }
         ],
+<<<<<<< Updated upstream
         "gameID": "5639269089816769422"
     },
     "3934343655270637606": {
+=======
+        "gameID": "3713011392085368233"
+    },
+    "8786689849850171314": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Milwaukee Bucks",
         "awayTeam": "Oklahoma City Thunder",
         "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
         "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png",
         "start": "\ud83d\udcfc 12 Feb 2026",
+<<<<<<< Updated upstream
         "start_raw": "2026-02-15 12:49",
+=======
+        "start_raw": "2026-02-15 13:17",
+>>>>>>> Stashed changes
         "status": "vod",
         "provider": "NBA_REPLAY",
         "channels": [
@@ -74,16 +242,26 @@
                 "channel_code": "us"
             }
         ],
+<<<<<<< Updated upstream
         "gameID": "3934343655270637606"
     },
     "9147272407434733330": {
+=======
+        "gameID": "8786689849850171314"
+    },
+    "2548302183429364773": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "San Antonio Spurs",
         "awayTeam": "Golden State Warriors",
         "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png",
         "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
         "start": "\ud83d\udcfc 11 Feb 2026",
+<<<<<<< Updated upstream
         "start_raw": "2026-02-15 12:49",
+=======
+        "start_raw": "2026-02-15 13:17",
+>>>>>>> Stashed changes
         "status": "vod",
         "provider": "NBA_REPLAY",
         "channels": [
@@ -103,6 +281,7 @@
                 "channel_code": "us"
             }
         ],
+<<<<<<< Updated upstream
         "gameID": "9147272407434733330"
     },
     "2911623989205285276": {
@@ -123,5 +302,8 @@
             }
         ],
         "gameID": "2911623989205285276"
+=======
+        "gameID": "2548302183429364773"
+>>>>>>> Stashed changes
     }
 }
