@@ -9,8 +9,7 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
 
-
-# --- CONFIGURACIÓ ---
+# --- CONFIGURACIÓ PER A GITHUB ACTIONS ---
 API_URL_CDN = os.environ.get("API_URL")
 MEMORY_FILE = "memoria_partits.json"
 
@@ -95,6 +94,15 @@ HEADERS = {
 
 def log(msg): sys.stderr.write(f"[LOG] {msg}\n")
 
+# --- FUNCIÓ ANTIBALES PER LA DATA ---
+def parse_date(date_str):
+    if not date_str: return None
+    clean_str = date_str.replace('T', ' ')[:16]
+    try:
+        return datetime.strptime(clean_str, "%Y-%m-%d %H:%M")
+    except:
+        return None
+
 def get_nba_logo(team_name):
     low_name = team_name.lower().strip()
     if low_name in NBA_LOGOS:
@@ -118,28 +126,31 @@ def clean_string(text):
 
 def are_duplicates(m1, m2):
     if m1.get('provider') != m2.get('provider'): return False
-    
     if m1.get('provider') == 'NBA_REPLAY':
         return m1.get('homeTeam') == m2.get('homeTeam') and m1.get('awayTeam') == m2.get('awayTeam')
-
     if m1.get('custom_sport_cat') != m2.get('custom_sport_cat'): return False
-    try:
-        t1 = datetime.strptime(m1['start_raw'], "%Y-%m-%d %H:%M")
-        t2 = datetime.strptime(m2['start_raw'], "%Y-%m-%d %H:%M")
+    
+    t1 = parse_date(m1.get('start_raw'))
+    t2 = parse_date(m2.get('start_raw'))
+    if t1 and t2:
         if abs((t1 - t2).total_seconds()) / 3600 > 1.0: return False
-    except: return False
+    else:
+        return False
     
     s1, s2 = clean_string(m1.get('homeTeam', '') + m1.get('awayTeam', '')), clean_string(m2.get('homeTeam', '') + m2.get('awayTeam', ''))
     return SequenceMatcher(None, s1, s2).ratio() > 0.55
 
 def fetch_cdn_live():
     matches = []
-    if not API_URL_CDN: return matches
+    log("Buscant partits en directe a la CDN...")
+    if not API_URL_CDN: 
+        log("❌ ERROR: La URL de la CDN està buida a les variables d'entorn!")
+        return matches
+        
     try:
         resp = requests.get(API_URL_CDN, headers={"User-Agent": HEADERS["User-Agent"], "Referer": "https://cdn-live.tv/"}, timeout=15)
         if resp.status_code == 200:
             data = resp.json()
-            
             events_dict = data.get("cdn-live-tv") or data
             
             for sport, event_list in events_dict.items():
@@ -148,8 +159,13 @@ def fetch_cdn_live():
                         m['start_raw'] = m.get('start', '')
                         m.update({'custom_sport_cat': sport, 'provider': 'CDN'})
                         matches.append(m)
+            
+            log(f"✅ S'han trobat {len(matches)} partits a la CDN de diferents esports.")
+        else:
+            log(f"❌ ERROR: La CDN ha rebutjat la connexió. Codi HTTP: {resp.status_code}")
     except Exception as e:
-        log(f"Error llegint la API de CDN: {e}")
+        log(f"❌ Error greu llegint la API de CDN: {e}")
+        
     return matches
 
 def fetch_nba_replays(memory_matches):
@@ -160,9 +176,7 @@ def fetch_nba_replays(memory_matches):
     dominis_directes = ['filemoon', 'vidmoly', 'vk.com', 'ok.ru', 'streamtape', 'voe', 'uqload', 'dood', 'dailymotion']
     
     try:
-        scraper = cloudscraper.create_scraper(
-            browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True}
-        )
+        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
         resp = scraper.get("https://basketball-video.com/", timeout=15)
         soup = BeautifulSoup(resp.text, 'html.parser')
         
@@ -175,21 +189,15 @@ def fetch_nba_replays(memory_matches):
             link = a['href']
             
             if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower() and 'wnba' not in link.lower():
-                
                 raw_title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
                 title_lower = raw_title.lower()
                 
                 is_vs = ' vs ' in title_lower or ' vs. ' in title_lower
                 is_all_star = any(kw in title_lower for kw in ['all star', 'rising stars', 'celebrity game', 'hbcu'])
                 
-                if not is_vs and not is_all_star:
-                    continue
-
-                if f"-{any_passat}-" in link and mes_actual > 1 and not is_all_star:
-                    continue
-                
-                if link.startswith("/"):
-                    link = "https://basketball-video.com" + link
+                if not is_vs and not is_all_star: continue
+                if f"-{any_passat}-" in link and mes_actual > 1 and not is_all_star: continue
+                if link.startswith("/"): link = "https://basketball-video.com" + link
                     
                 data_bonica = "Diferit"
                 date_match = re.search(r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\s+(\d{4})', raw_title, re.IGNORECASE)
@@ -200,8 +208,7 @@ def fetch_nba_replays(memory_matches):
                     data_bonica = f"📼 {day} {month} {year}"
                 
                 equips_split = re.split(r'\s+Vs\.?\s+', raw_title, flags=re.IGNORECASE)
-                home_t = ""
-                away_t = ""
+                home_t, away_t = "", ""
                 
                 if len(equips_split) >= 2:
                     home_t = equips_split[0].strip()
@@ -216,7 +223,7 @@ def fetch_nba_replays(memory_matches):
                 if home_t and not any(p[1] == home_t for p in partits_a_visitar) and home_t not in partits_coneguts:
                     partits_a_visitar.append((link, home_t, away_t, data_bonica))
                     
-        log(f"🔎 S'han trobat {len(partits_a_visitar)} partits NOUS per investigar.")
+        log(f"🔎 S'han trobat {len(partits_a_visitar)} partits NOUS per investigar a la NBA.")
         
         for link, h_team, a_team, data_partit in partits_a_visitar[:8]: 
             try:
@@ -229,23 +236,15 @@ def fetch_nba_replays(memory_matches):
                     href = a['href']
                     
                     if ('watch' in text_a or 'part' in text_a or 'server' in text_a) and href.startswith('http') and 'basketball-video.com' not in href:
-                        
                         nom_final = ""
-                        if 'watch' in text_a or 'server 1' in text_a or 'full game' in text_a:
-                            nom_final = "Partit Sencer 🍿"
-                        elif 'part 1' in text_a:
-                            nom_final = "1a Part 🎬"
-                        elif 'part 2' in text_a:
-                            nom_final = "2a Part 🎬"
-                        elif 'part 3' in text_a:
-                            nom_final = "3a Part 🎬"
-                        elif 'part 4' in text_a:
-                            nom_final = "4a Part 🎬"
-                        else:
-                            nom_final = a.text.strip() if a.text.strip() else "Veure Vídeo"
+                        if 'watch' in text_a or 'server 1' in text_a or 'full game' in text_a: nom_final = "Partit Sencer 🍿"
+                        elif 'part 1' in text_a: nom_final = "1a Part 🎬"
+                        elif 'part 2' in text_a: nom_final = "2a Part 🎬"
+                        elif 'part 3' in text_a: nom_final = "3a Part 🎬"
+                        elif 'part 4' in text_a: nom_final = "4a Part 🎬"
+                        else: nom_final = a.text.strip() if a.text.strip() else "Veure Vídeo"
 
                         final_url = ""
-                        
                         if not any(d in href.lower() for d in dominis_directes):
                             try:
                                 fake_resp = scraper.get(href, timeout=8)
@@ -255,37 +254,23 @@ def fetch_nba_replays(memory_matches):
                                     if src and 'http' in src and not any(x in src.lower() for x in ['facebook', 'twitter', 'google']):
                                         final_url = src
                                         break
-                            except Exception:
-                                pass
-                        else:
-                            final_url = href
+                            except Exception: pass
+                        else: final_url = href
                         
                         if final_url and not any(c['url'] == final_url for c in channels):
-                            channels.append({
-                                'channel_name': nom_final,
-                                'url': final_url,
-                                'channel_code': 'us'
-                            })
+                            channels.append({'channel_name': nom_final, 'url': final_url, 'channel_code': 'us'})
                 
                 if channels:
                     hora_actual = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
                     matches.append({
-                        'custom_sport_cat': 'NBA Replays 🏀',
-                        'homeTeam': h_team,
-                        'awayTeam': a_team,
-                        'homeLogo': get_nba_logo(h_team),
-                        'awayLogo': get_nba_logo(a_team),
-                        'start': data_partit,
-                        'start_raw': hora_actual,
-                        'status': 'vod',
-                        'provider': 'NBA_REPLAY',
-                        'channels': channels
+                        'custom_sport_cat': 'NBA Replays 🏀', 'homeTeam': h_team, 'awayTeam': a_team,
+                        'homeLogo': get_nba_logo(h_team), 'awayLogo': get_nba_logo(a_team), 'start': data_partit,
+                        'start_raw': hora_actual, 'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels
                     })
             except Exception as e:
-                log(f"   ❌ Error llegint {h_team}: {e}")
-                
+                pass
     except Exception as e:
-        log(f"❌ Error a la portada de NBA Replays: {e}")
+        pass
     return matches
 
 def load_memory():
@@ -294,8 +279,7 @@ def load_memory():
             with open(MEMORY_FILE, 'r', encoding='utf-8') as f:
                 dades = json.load(f)
                 for v in dades.values():
-                    if 'start_raw' not in v and 'start' in v:
-                        v['start_raw'] = v['start']
+                    if 'start_raw' not in v and 'start' in v: v['start_raw'] = v['start']
                 return dades
         except: pass
     return {}
@@ -325,8 +309,7 @@ def main():
                     
                     existing_urls = {c['url'] for c in existing_match.get('channels', []) if 'url' in c}
                     for ch in match.get('channels', []):
-                        if ch.get('url') not in existing_urls:
-                            existing_match['channels'].append(ch)
+                        if ch.get('url') not in existing_urls: existing_match['channels'].append(ch)
                     if len(match.get('homeTeam', '')) > len(existing_match.get('homeTeam', '')):
                         existing_match['homeTeam'] = match['homeTeam']
                         existing_match['awayTeam'] = match['awayTeam']
@@ -346,7 +329,9 @@ def main():
 
         for gid, m in unique_matches.items():
             try:
-                s_dt = datetime.strptime(m.get('start_raw'), "%Y-%m-%d %H:%M")
+                s_dt = parse_date(m.get('start_raw'))
+                if not s_dt: continue
+                    
                 diff_hours = (now_utc - s_dt).total_seconds() / 3600
                 
                 if m.get('provider') == 'NBA_REPLAY':
@@ -359,6 +344,7 @@ def main():
                     
                     if diff_hours < 4.0:
                         display_matches.append(m)
+
             except Exception as e:
                 pass
         
@@ -389,12 +375,9 @@ def main():
                 for m in sport_matches:
                     utc = m.get('start')
                     
-                    if m.get('status') == 'vod':
-                        badge_html = '' 
-                    elif m.get('status') == 'live':
-                        badge_html = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>'
-                    else:
-                        badge_html = ''
+                    if m.get('status') == 'vod': badge_html = '' 
+                    elif m.get('status') == 'live': badge_html = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>'
+                    else: badge_html = ''
                         
                     home_logo_html = f"<img src='{m.get('homeLogo')}' class='team-logo' onerror=\"this.style.display='none'\">" if m.get('homeLogo') else ""
                     away_logo_html = f"<img src='{m.get('awayLogo')}' class='team-logo' onerror=\"this.style.display='none'\">" if m.get('awayLogo') else ""
@@ -405,7 +388,6 @@ def main():
                         teams_display = f"{m['homeTeam']} <span class='versus'>vs</span> {m['awayTeam']}"
                     
                     btns_html = ""
-                    
                     if not m.get('channels', []):
                         btns_html = """<div class="btn" style="opacity:0.6; cursor:default; justify-content:center;">Sense enllaços encara ⏳</div>"""
                     else:
@@ -416,10 +398,8 @@ def main():
                             flag = f"https://flagcdn.com/20x15/{code}.png"
                             name = ch.get('channel_name', 'Link')
                             
-                            if m.get('provider') == 'NBA_REPLAY':
-                                btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)">{name}</div>"""
-                            else:
-                                btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
+                            if m.get('provider') == 'NBA_REPLAY': btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)">{name}</div>"""
+                            else: btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
 
                     content_html += f"""
                     <div class="card">
