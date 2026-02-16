@@ -9,9 +9,34 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
 
-# --- CONFIGURACIÓ PER A GITHUB ACTIONS ---
+# --- CARREGAR VARIABLES LOCALS (.env) ---
+if os.path.exists(".env"):
+    with open(".env", "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip() and not line.startswith("#"):
+                key, val = line.strip().split("=", 1)
+                os.environ[key] = val.strip()
+
+# --- CONFIGURACIÓ GLOBAL ---
 API_URL_CDN = os.environ.get("API_URL")
 MEMORY_FILE = "memoria_partits.json"
+
+# --- LLISTA DE CANALS 24/7 DESITJATS ---
+CANALS_DESITJATS = [
+    # Esport Premium (Futbol, Motor, etc.)
+    "DAZN 1 Spain", "DAZN 2 Spain", "DAZN 3 Spain", "DAZN 4 Spain",
+    "DAZN F1 ES", "DAZN LaLiga", "DAZN LaLiga 2",
+    "Movistar Deportes Spain", "Movistar Deportes 2 Spain", "Movistar Deportes 3 Spain", "Movistar Deportes 4 Spain",
+    "Movistar Golf Spain", "Movistar Laliga", "Movistar Liga de Campeones", "Movistar Plus+",
+    "GOL PLAY Spain", "LALIGA TV Hypermotion",
+    "EuroSport 1 Spain", "EuroSport 2 Spain", "Teledeporte Spain (TDP)",
+    
+    # Canals de Clubs
+    "Barca TV Spain", "Real Madrid TV Spain",
+    
+    # Generalistes Espanyols
+    "TVE La 1 Spain", "TVE La 2 Spain", "Antena 3 Spain", "Cuatro Spain", "Telecinco Spain", "La Sexta Spain"
+]
 
 # --- DICCIONARI DE LOGOS NBA (ESPN CDN) ---
 NBA_LOGOS = {
@@ -79,7 +104,7 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
         function openLink(el) { try { window.open(atob(el.getAttribute('data-link')), '_blank'); } catch(e){ console.error("Error link", e); } }
         document.querySelectorAll('.utc-time').forEach(el => {
             const raw = el.getAttribute('data-ts');
-            if(raw && !raw.includes("Diferit") && !raw.includes("📼")) {
+            if(raw && !raw.includes("Diferit") && !raw.includes("📼") && !raw.includes("Sempre Actiu")) {
                 const d = new Date(raw.replace(' ', 'T')+'Z');
                 el.innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
             }
@@ -94,7 +119,6 @@ HEADERS = {
 
 def log(msg): sys.stderr.write(f"[LOG] {msg}\n")
 
-# --- FUNCIÓ ANTIBALES PER LA DATA ---
 def parse_date(date_str):
     if not date_str: return None
     clean_str = date_str.replace('T', ' ')[:16]
@@ -113,7 +137,8 @@ def get_sport_name(key):
     names = { 
         "Soccer": "FUTBOL ⚽", "NBA": "BÀSQUET 🏀", "NFL": "NFL 🏈", "F1": "FÓRMULA 1 🏎️", 
         "MotoGP": "MOTOGP 🏍️", "Tennis": "TENNIS 🎾", "Boxing": "BOXA 🥊", "Rugby": "RUGBI 🏉",
-        "Hockey": "HOQUEI 🏒", "Baseball": "BEISBOL ⚾", "Darts": "DARTS 🎯"
+        "Hockey": "HOQUEI 🏒", "Baseball": "BEISBOL ⚾", "Darts": "DARTS 🎯",
+        "Canals 24/7 📺": "CANALS EN DIRECTE 📺"
     }
     return names.get(key, key.upper())
 
@@ -126,8 +151,13 @@ def clean_string(text):
 
 def are_duplicates(m1, m2):
     if m1.get('provider') != m2.get('provider'): return False
+    
+    if m1.get('provider') == 'LMAO_TV':
+        return True # Evitem duplicar la targeta
+        
     if m1.get('provider') == 'NBA_REPLAY':
         return m1.get('homeTeam') == m2.get('homeTeam') and m1.get('awayTeam') == m2.get('awayTeam')
+        
     if m1.get('custom_sport_cat') != m2.get('custom_sport_cat'): return False
     
     t1 = parse_date(m1.get('start_raw'))
@@ -140,6 +170,64 @@ def are_duplicates(m1, m2):
     s1, s2 = clean_string(m1.get('homeTeam', '') + m1.get('awayTeam', '')), clean_string(m2.get('homeTeam', '') + m2.get('awayTeam', ''))
     return SequenceMatcher(None, s1, s2).ratio() > 0.55
 
+def fetch_lmao_channels():
+    matches = []
+    log("Buscant canals 24/7 a lmao.love (JSON API)...")
+    try:
+        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
+        resp = scraper.get("https://lmao.love/channels/index.json", timeout=15)
+        
+        if resp.status_code == 200:
+            data = resp.json()
+            canals_trobats = []
+            
+            # Ara sabem EXACTAMENT com és el JSON: {"538": "DAZN LaLiga", "445": "DAZN 1 Spain"}
+            if isinstance(data, dict):
+                for channel_id, channel_name in data.items():
+                    if not channel_name or not channel_id: continue
+                    
+                    nom_canal = str(channel_name).strip()
+                    # Construïm la URL amb la lògica que has descobert
+                    url_canal = f"https://lmao.love/stream/{channel_id}"
+                    
+                    # Comprovem si el canal està a la nostra llista
+                    for desitjat in CANALS_DESITJATS:
+                        if desitjat.lower() in nom_canal.lower():
+                            nom_net = nom_canal.replace(" Spain", "").replace(" (TDP)", "").strip()
+                            
+                            # Evitem duplicats a la mateixa llista
+                            if not any(c['channel_name'] == nom_net for c in canals_trobats):
+                                canals_trobats.append({
+                                    'channel_name': nom_net,
+                                    'url': url_canal,
+                                    'channel_code': 'es'
+                                })
+                            break 
+            
+            if canals_trobats:
+                hora_actual = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
+                matches.append({
+                    'custom_sport_cat': 'Canals 24/7 📺',
+                    'homeTeam': "Televisió en Directe",
+                    'awayTeam': "Graella Premium",
+                    'homeLogo': "",
+                    'awayLogo': "",
+                    'start': "Sempre Actiu 🟢",
+                    'start_raw': hora_actual,
+                    'status': 'live',
+                    'provider': 'LMAO_TV',
+                    'channels': canals_trobats
+                })
+                log(f"✅ S'han integrat {len(canals_trobats)} canals 24/7 a la web.")
+            else:
+                log("⚠️ No s'ha trobat cap canal de la llista al JSON.")
+        else:
+            log(f"⚠️ Error a lmao.love: codi {resp.status_code}")
+    except Exception as e:
+        log(f"❌ Error greu llegint els canals: {e}")
+        
+    return matches
+
 def fetch_cdn_live():
     matches = []
     log("Buscant partits en directe a la CDN...")
@@ -148,7 +236,6 @@ def fetch_cdn_live():
         return matches
         
     try:
-        # CANVI: Utilitzem cloudscraper en lloc de requests normal per saltar bloquejos antibot
         scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
         resp = scraper.get(API_URL_CDN, headers={"Referer": "https://cdn-live.tv/"}, timeout=15)
         
@@ -297,8 +384,9 @@ def main():
         memory = load_memory()
         nous_directes = fetch_cdn_live()
         nous_replays = fetch_nba_replays(list(memory.values()))
+        canals_fixos = fetch_lmao_channels()
         
-        all_raw_matches = list(memory.values()) + nous_directes + nous_replays
+        all_raw_matches = list(memory.values()) + nous_directes + nous_replays + canals_fixos
         
         unique_matches = {}
         for match in all_raw_matches:
@@ -341,6 +429,10 @@ def main():
                     if diff_hours < 96.0:
                         clean_memory[gid] = m
                         display_matches.append(m)
+                elif m.get('provider') == 'LMAO_TV':
+                    # Els canals fixos no caduquen mai
+                    clean_memory[gid] = m
+                    display_matches.append(m)
                 else:
                     if diff_hours < 5.0:
                         clean_memory[gid] = m
@@ -366,10 +458,10 @@ def main():
         if not events_by_cat:
             content_html = "<div style='text-align:center; padding:80px; color:#6b7280;'><h2>😴 No hi ha partits disponibles.</h2></div>"
         else:
-            sorted_cats = sorted(events_by_cat.keys(), key=lambda x: (x == 'NBA Replays 🏀', x))
+            sorted_cats = sorted(events_by_cat.keys(), key=lambda x: (x == 'Canals 24/7 📺', x == 'NBA Replays 🏀', x))
             
             for sport in sorted_cats:
-                nice_name = sport if '🏀' in sport else get_sport_name(sport)
+                nice_name = sport if '🏀' in sport or '📺' in sport else get_sport_name(sport)
                 navbar_html += f'<a href="#{sport}" class="nav-btn">{nice_name}</a>'
                 sport_matches = sorted(events_by_cat[sport], key=lambda x: x.get('start_raw', ''))
                 
@@ -401,7 +493,7 @@ def main():
                             flag = f"https://flagcdn.com/20x15/{code}.png"
                             name = ch.get('channel_name', 'Link')
                             
-                            if m.get('provider') == 'NBA_REPLAY': btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)">{name}</div>"""
+                            if m.get('provider') == 'NBA_REPLAY' or m.get('provider') == 'LMAO_TV': btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)">{name}</div>"""
                             else: btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
 
                     content_html += f"""
