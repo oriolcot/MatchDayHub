@@ -1,5 +1,5 @@
 {
-    "4586546061445446575": {
+    "1578178043844474057": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba All Star Saturday Night",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -31,9 +31,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "4586546061445446575"
+        "gameID": "1578178043844474057"
     },
-    "6099417125080082417": {
+    "6328089245309755036": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba Rising Stars",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -60,9 +60,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "6099417125080082417"
+        "gameID": "6328089245309755036"
     },
-    "1908738147595204245": {
+    "5914348934060102964": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Celebrity Game",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -79,9 +79,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "1908738147595204245"
+        "gameID": "5914348934060102964"
     },
-    "7516811782577593189": {
+    "5739142315908148115": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Hbcu Classic",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -98,9 +98,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "7516811782577593189"
+        "gameID": "5739142315908148115"
     },
-    "7909601249752922255": {
+    "7705877927715516644": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Dallas Mavericks",
         "awayTeam": "Los Angeles Lakers",
@@ -127,9 +127,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "7909601249752922255"
+        "gameID": "7705877927715516644"
     },
-    "3933605391098145675": {
+    "3283365596249117344": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Portland Trail Blazers",
         "awayTeam": "Utah Jazz",
@@ -146,9 +146,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "3933605391098145675"
+        "gameID": "3283365596249117344"
     },
-    "7870005446665867827": {
+    "6488174350932233229": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Milwaukee Bucks",
         "awayTeam": "Oklahoma City Thunder",
@@ -175,9 +175,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "7870005446665867827"
+        "gameID": "6488174350932233229"
     },
-    "6723888744307168196": {
+    "865969542103859202": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "San Antonio Spurs",
         "awayTeam": "Golden State Warriors",
@@ -204,9 +204,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "6723888744307168196"
+        "gameID": "865969542103859202"
     },
-    "3377830374400513396": {
+    "6621202610334742215": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Oklahoma City Thunder",
         "awayTeam": "Phoenix Suns",
@@ -223,110 +223,40 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "3377830374400513396"
+        "gameID": "6621202610334742215"
     },
-    "8652144414591774198": {
-        "gameID": "8652144414591774198",
-        "homeTeam": "Instituto",
-        "awayTeam": "Central C\u00f3rdoba SdE",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/65676.png",
-        "time": "01:00",
-        "tournament": "Primera Divisi\u00f3n",
-        "country": "Argentina",
-        "countryIMG": "https://flagcdn.com/w40/ar.png",
-        "status": "upcoming",
-        "start": "2026-02-16 01:00",
-        "end": "2026-02-16 03:39",
+    "2975915167204392452": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Nba All Star Game",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 15 Feb 2025",
+        "start_raw": "2026-02-16 08:43",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
         "channels": [
             {
-                "channel_name": "ESPN Premium",
-                "channel_code": "ar",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
-                "viewers": 0
-            }
-        ],
-        "start_raw": "2026-02-16 01:00",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "2469377164130449440": {
-        "gameID": "2469377164130449440",
-        "homeTeam": "Rosario Central",
-        "awayTeam": "Barracas Central",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3217.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/65668.png",
-        "time": "01:00",
-        "tournament": "Primera Divisi\u00f3n",
-        "country": "Argentina",
-        "countryIMG": "https://flagcdn.com/w40/ar.png",
-        "status": "upcoming",
-        "start": "2026-02-16 01:00",
-        "end": "2026-02-16 03:39",
-        "channels": [
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa04w3s",
+                "channel_code": "us"
+            },
             {
-                "channel_name": "TNT Sports",
-                "channel_code": "ar",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
-                "viewers": 0
-            }
-        ],
-        "start_raw": "2026-02-16 01:00",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "5675964589044751321": {
-        "gameID": "5675964589044751321",
-        "homeTeam": "Fortaleza CEIF",
-        "awayTeam": "Boyac\u00e1 Chic\u00f3",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/89368.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/6107.png",
-        "time": "01:30",
-        "tournament": "Primera A",
-        "country": "Colombia",
-        "countryIMG": "https://flagcdn.com/w40/co.png",
-        "status": "upcoming",
-        "start": "2026-02-16 01:30",
-        "end": "2026-02-16 04:09",
-        "channels": [
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa04wb4",
+                "channel_code": "us"
+            },
             {
-                "channel_name": "Win Futbol",
-                "channel_code": "co",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
-                "viewers": 0
-            }
-        ],
-        "start_raw": "2026-02-16 01:30",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "2665928725484115863": {
-        "gameID": "2665928725484115863",
-        "homeTeam": "Victoria",
-        "awayTeam": "Olimpia",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/42214.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/25358.png",
-        "time": "01:30",
-        "tournament": "Liga Nacional",
-        "country": "Honduras",
-        "countryIMG": "https://flagcdn.com/w40/hn.png",
-        "status": "upcoming",
-        "start": "2026-02-16 01:30",
-        "end": "2026-02-16 04:09",
-        "channels": [
+                "channel_name": "3a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa04wb2",
+                "channel_code": "us"
+            },
             {
-                "channel_name": "FOX Deportes",
-                "channel_code": "us",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg",
-                "viewers": 0
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/92je135fluj9",
+                "channel_code": "us"
             }
         ],
-        "start_raw": "2026-02-16 01:30",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
+        "gameID": "2975915167204392452"
     }
 }
