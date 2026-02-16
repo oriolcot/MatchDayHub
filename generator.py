@@ -148,7 +148,10 @@ def fetch_cdn_live():
         return matches
         
     try:
-        resp = requests.get(API_URL_CDN, headers={"User-Agent": HEADERS["User-Agent"], "Referer": "https://cdn-live.tv/"}, timeout=15)
+        # CANVI: Utilitzem cloudscraper en lloc de requests normal per saltar bloquejos antibot
+        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
+        resp = scraper.get(API_URL_CDN, headers={"Referer": "https://cdn-live.tv/"}, timeout=15)
+        
         if resp.status_code == 200:
             data = resp.json()
             events_dict = data.get("cdn-live-tv") or data
