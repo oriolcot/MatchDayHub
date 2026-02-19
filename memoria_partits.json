@@ -1,5 +1,5 @@
 {
-    "9075879038065212001": {
+    "2635028472843701237": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba All Star Game",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -31,9 +31,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "9075879038065212001"
+        "gameID": "2635028472843701237"
     },
-    "6418584197753875607": {
+    "3150243728799572839": {
         "custom_sport_cat": "Canals 24/7 \ud83d\udcfa",
         "homeTeam": "Televisi\u00f3 en Directe",
         "awayTeam": "Graella Premium",
@@ -185,10 +185,10 @@
                 "channel_code": "es"
             }
         ],
-        "gameID": "6418584197753875607"
+        "gameID": "3150243728799572839"
     },
-    "5102374021697957151": {
-        "gameID": "5102374021697957151",
+    "5124889689207929365": {
+        "gameID": "5124889689207929365",
         "homeTeam": "Sakaryaspor",
         "awayTeam": "Pendikspor",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3080.png",
@@ -220,8 +220,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "980204729594068967": {
-        "gameID": "980204729594068967",
+    "6804607641097634938": {
+        "gameID": "6804607641097634938",
         "homeTeam": "Brann",
         "awayTeam": "Bologna",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1159.png",
@@ -303,14 +303,35 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+5&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-5.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "Paramount Event 1",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=paramount+event+1&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/paramount-events.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 5",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+5&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-5.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 4",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+4&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-4.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 17:45",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1746599597763774293": {
-        "gameID": "1746599597763774293",
+    "7742199592708113662": {
+        "gameID": "7742199592708113662",
         "homeTeam": "Dinamo Zagreb",
         "awayTeam": "Genk",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2032.png",
@@ -378,14 +399,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp",
                 "viewers": 0
+            },
+            {
+                "channel_name": "Paramount Event 2",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=paramount+event+2&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/paramount-events.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 7",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 17:45",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8355444264131676173": {
-        "gameID": "8355444264131676173",
+    "3853604534849256483": {
+        "gameID": "3853604534849256483",
         "homeTeam": "Fenerbah\u00e7e",
         "awayTeam": "Nottingham Forest",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3052.png",
@@ -544,14 +579,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
                 "viewers": 0
+            },
+            {
+                "channel_name": "Paramount Event 3",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=paramount+event+3&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/paramount-events.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 2",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+2&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-2.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 17:45",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4863705543458435963": {
-        "gameID": "4863705543458435963",
+    "9028439241407987957": {
+        "gameID": "9028439241407987957",
         "homeTeam": "PAOK",
         "awayTeam": "Celta de Vigo",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3251.png",
@@ -654,14 +703,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+4&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-4.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "Paramount Event 4",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=paramount+event+4&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/paramount-events.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 6",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+6&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-6.png",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 17:45",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8106811688955276485": {
-        "gameID": "8106811688955276485",
+    "8609748402776818863": {
+        "gameID": "8609748402776818863",
         "homeTeam": "Noah",
         "awayTeam": "AZ",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -694,14 +757,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+8&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-8.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "Paramount Event 5",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=paramount+event+5&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/paramount-events.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 7",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+7&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-7.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 17:45",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3672871754884632899": {
-        "gameID": "3672871754884632899",
+    "6249126302465447846": {
+        "gameID": "6249126302465447846",
         "homeTeam": "Sigma Olomouc",
         "awayTeam": "Lausanne Sport",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2207.png",
@@ -720,14 +797,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+253&code=it&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "Paramount Event 6",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=paramount+event+6&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/paramount-events.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 9",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+9&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-9.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 17:45",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1128763601693223412": {
-        "gameID": "1128763601693223412",
+    "8395992971312303990": {
+        "gameID": "8395992971312303990",
         "homeTeam": "Zrinjski",
         "awayTeam": "Crystal Palace",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5178.png",
@@ -830,14 +921,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "Paramount Event 7",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=paramount+event+7&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/paramount-events.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 6",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+6&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-6.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 17:45",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8892119084343050328": {
-        "gameID": "8892119084343050328",
+    "6421793073801856676": {
+        "gameID": "6421793073801856676",
         "homeTeam": "KuPS",
         "awayTeam": "Lech Pozna\u0144",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -863,14 +968,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=polsat+sport&code=pl&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/polsat-sport.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "Paramount Event 8",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=paramount+event+8&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/paramount-events.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 8",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+8&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-8.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 17:45",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8578039418854382047": {
-        "gameID": "8578039418854382047",
+    "5832090138155334406": {
+        "gameID": "5832090138155334406",
         "homeTeam": "Al-Ahli",
         "awayTeam": "Al Najma",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/34469.png",
@@ -917,14 +1036,21 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 10",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+10&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-10.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 19:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8386149183795724821": {
-        "gameID": "8386149183795724821",
+    "119157833500093403": {
+        "gameID": "119157833500093403",
         "homeTeam": "Al Ittifaq",
         "awayTeam": "Al Fateh",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -941,8 +1067,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7228549327020583857": {
-        "gameID": "7228549327020583857",
+    "6993376401629749417": {
+        "gameID": "6993376401629749417",
         "homeTeam": "Al Kholood",
         "awayTeam": "Al Riyadh",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -959,8 +1085,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5534342684865922139": {
-        "gameID": "5534342684865922139",
+    "6737239411541891418": {
+        "gameID": "6737239411541891418",
         "homeTeam": "Panathinaikos",
         "awayTeam": "Viktoria Plze\u0148",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3248.png",
@@ -1084,14 +1210,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+4&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-4.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 6",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+6&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-6.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 2",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+2&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-2.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 20:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5285130838797148650": {
-        "gameID": "5285130838797148650",
+    "5844655093092497849": {
+        "gameID": "5844655093092497849",
         "homeTeam": "Ludogorets",
         "awayTeam": "Ferencv\u00e1ros",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/43840.png",
@@ -1201,14 +1341,21 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=m4+sports&code=hu&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/hungary/m4-sport.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 7",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 20:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1681224758113133959": {
-        "gameID": "1681224758113133959",
+    "7793038128320262452": {
+        "gameID": "7793038128320262452",
         "homeTeam": "Lille",
         "awayTeam": "Crvena Zvezda",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1643.png",
@@ -1304,14 +1451,28 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
                 "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 5",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+5&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-5.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 4",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+4&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-4.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 20:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8906623434940376977": {
-        "gameID": "8906623434940376977",
+    "4974085428457596949": {
+        "gameID": "4974085428457596949",
         "homeTeam": "Celtic",
         "awayTeam": "Stuttgart",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2352.png",
@@ -1490,8 +1651,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1535573541480651189": {
-        "gameID": "1535573541480651189",
+    "7526019282452271564": {
+        "gameID": "7526019282452271564",
         "homeTeam": "\u0160kendija 79",
         "awayTeam": "Samsunspor",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1517,14 +1678,21 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+1&code=tr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-1.png",
                 "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 8",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+8&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-8.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 20:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4345297436434276811": {
-        "gameID": "4345297436434276811",
+    "8402314766539738000": {
+        "gameID": "8402314766539738000",
         "homeTeam": "Jagiellonia Bia\u0142ystok",
         "awayTeam": "Fiorentina",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7691.png",
@@ -1599,14 +1767,21 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+8&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-8.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 6",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+6&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-6.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 20:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5138248473200181427": {
-        "gameID": "5138248473200181427",
+    "5610492077717091180": {
+        "gameID": "5610492077717091180",
         "homeTeam": "Drita",
         "awayTeam": "Celje",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1618,13 +1793,21 @@
         "status": "upcoming",
         "start": "2026-02-19 20:00",
         "end": "2026-02-19 22:39",
-        "channels": [],
+        "channels": [
+            {
+                "channel_name": "M Liga de Campeones 9",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+9&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-9.webp",
+                "viewers": 0
+            }
+        ],
         "start_raw": "2026-02-19 20:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1143044754159832038": {
-        "gameID": "1143044754159832038",
+    "3808689327807205483": {
+        "gameID": "3808689327807205483",
         "homeTeam": "Omonia Nicosia",
         "awayTeam": "Rijeka",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3395.png",
@@ -1664,14 +1847,21 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+5&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-5.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 7",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+7&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-7.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-19 20:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2380689724392628962": {
-        "gameID": "2380689724392628962",
+    "2761794938466040345": {
+        "gameID": "2761794938466040345",
         "homeTeam": "San Lorenzo",
         "awayTeam": "Estudiantes R\u00edo Cuarto",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3201.png",
@@ -1696,8 +1886,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6766980837747224037": {
-        "gameID": "6766980837747224037",
+    "7858577276900595574": {
+        "gameID": "7858577276900595574",
         "homeTeam": "Defensa y Justicia",
         "awayTeam": "Belgrano",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/36839.png",
@@ -1722,8 +1912,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7110164373071805572": {
-        "gameID": "7110164373071805572",
+    "9060879780729133368": {
+        "gameID": "9060879780729133368",
         "homeTeam": "Juventud",
         "awayTeam": "Guaran\u00ed",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1776,8 +1966,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7131313543646522746": {
-        "gameID": "7131313543646522746",
+    "6979788837126769694": {
+        "gameID": "6979788837126769694",
         "homeTeam": "Independiente Rivadavia",
         "awayTeam": "Independiente",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1802,8 +1992,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1642524217645822351": {
-        "gameID": "1642524217645822351",
+    "6267080997184789487": {
+        "gameID": "6267080997184789487",
         "homeTeam": "Instituto",
         "awayTeam": "Atl\u00e9tico Tucum\u00e1n",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1828,8 +2018,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6786934959275984870": {
-        "gameID": "6786934959275984870",
+    "7411634944625953001": {
+        "gameID": "7411634944625953001",
         "homeTeam": "Athletico-PR",
         "awayTeam": "Corinthians",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1967.png",
@@ -1875,8 +2065,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1681017382483508801": {
-        "gameID": "1681017382483508801",
+    "8062976815621776534": {
+        "gameID": "8062976815621776534",
         "homeTeam": "Deportivo T\u00e1chira",
         "awayTeam": "Deportes Tolima",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -1922,8 +2112,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7521492103581466377": {
-        "gameID": "7521492103581466377",
+    "7347532740270747019": {
+        "gameID": "7347532740270747019",
         "homeTeam": "Charlotte Hornets",
         "awayTeam": "Houston Rockets",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3430.png",
@@ -1935,13 +2125,21 @@
         "status": "upcoming",
         "start": "2026-02-20 00:00",
         "end": "2026-02-20 02:40",
-        "channels": [],
+        "channels": [
+            {
+                "channel_name": "TNT Sports 5",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+5&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-5.png",
+                "viewers": 0
+            }
+        ],
         "start_raw": "2026-02-20 00:00",
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "7048081768017851192": {
-        "gameID": "7048081768017851192",
+    "8321015161782014171": {
+        "gameID": "8321015161782014171",
         "homeTeam": "Cleveland Cavaliers",
         "awayTeam": "Brooklyn Nets",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3432.png",
@@ -1974,14 +2172,21 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
                 "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 3",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+3&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-3.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-20 00:00",
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "2434160350945360612": {
-        "gameID": "2434160350945360612",
+    "8056984492441138377": {
+        "gameID": "8056984492441138377",
         "homeTeam": "Philadelphia 76ers",
         "awayTeam": "Atlanta Hawks",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3420.png",
@@ -2000,14 +2205,21 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+3&code=es&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-3.webp",
                 "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 2",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+2&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-2.webp",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-20 00:00",
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "1954819390848191695": {
-        "gameID": "1954819390848191695",
+    "8965450648885311717": {
+        "gameID": "8965450648885311717",
         "homeTeam": "Washington Wizards",
         "awayTeam": "Indiana Pacers",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3431.png",
@@ -2032,8 +2244,8 @@
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "7773606520637732418": {
-        "gameID": "7773606520637732418",
+    "1118889172427246350": {
+        "gameID": "1118889172427246350",
         "homeTeam": "New York Knicks",
         "awayTeam": "Detroit Pistons",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3421.png",
@@ -2079,8 +2291,8 @@
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "6862765816665871715": {
-        "gameID": "6862765816665871715",
+    "8982537659278544640": {
+        "gameID": "8982537659278544640",
         "homeTeam": "Chicago Bulls",
         "awayTeam": "Toronto Raptors",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3409.png",
@@ -2099,14 +2311,21 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+254&code=it&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 7",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+                "viewers": 0
             }
         ],
         "start_raw": "2026-02-20 01:00",
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "7896234575800195530": {
-        "gameID": "7896234575800195530",
+    "6153940599402971279": {
+        "gameID": "6153940599402971279",
         "homeTeam": "San Antonio Spurs",
         "awayTeam": "Phoenix Suns",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3429.png",
@@ -2131,8 +2350,8 @@
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "2250580399774139834": {
-        "gameID": "2250580399774139834",
+    "2883490547922600669": {
+        "gameID": "2883490547922600669",
         "homeTeam": "Golden State Warriors",
         "awayTeam": "Boston Celtics",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3428.png",
@@ -2164,8 +2383,8 @@
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "2971192151534150537": {
-        "gameID": "2971192151534150537",
+    "8902682584774938985": {
+        "gameID": "8902682584774938985",
         "homeTeam": "Sacramento Kings",
         "awayTeam": "Orlando Magic",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3413.png",
@@ -2182,8 +2401,8 @@
         "custom_sport_cat": "NBA",
         "provider": "CDN"
     },
-    "801970560500009635": {
-        "gameID": "801970560500009635",
+    "5317720085490719178": {
+        "gameID": "5317720085490719178",
         "homeTeam": "Los Angeles Clippers",
         "awayTeam": "Denver Nuggets",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3425.png",
@@ -2207,5 +2426,154 @@
         "start_raw": "2026-02-20 03:30",
         "custom_sport_cat": "NBA",
         "provider": "CDN"
+    },
+    "572044817756316170": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Nba All Star Saturday Night",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 14 Feb 2025",
+        "start_raw": "2026-02-19 20:29",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa025z0",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa026c4",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "3a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa02rje",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/rnz1qg5ndfoi",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "572044817756316170"
+    },
+    "8682154333361640099": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Nba Rising Stars",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 13 Feb 2025",
+        "start_raw": "2026-02-19 20:29",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zzlm4",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zzm10",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/fj0yp9k8hvzh",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "8682154333361640099"
+    },
+    "1670042083316094726": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Celebrity Game",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 13 Feb 2025",
+        "start_raw": "2026-02-19 20:29",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/4v90cvsazekv",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "1670042083316094726"
+    },
+    "5027713753520582202": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Hbcu Classic",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 13 Feb 2025",
+        "start_raw": "2026-02-19 20:29",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/0dbidz0hmx3o",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "5027713753520582202"
+    },
+    "6170010602010344391": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Dallas Mavericks",
+        "awayTeam": "Los Angeles Lakers",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+        "start": "\ud83d\udcfc 12 Feb 2026",
+        "start_raw": "2026-02-19 20:29",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zvs4o",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=x9zvs4m",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/0ix1d5n8c4hh",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "6170010602010344391"
+    },
+    "400372596702159248": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Portland Trail Blazers",
+        "awayTeam": "Utah Jazz",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
+        "start": "\ud83d\udcfc 12 Feb 2026",
+        "start_raw": "2026-02-19 20:29",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/5c3lzytz5itx",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "400372596702159248"
     }
 }
