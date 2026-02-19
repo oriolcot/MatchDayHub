@@ -1,5 +1,5 @@
 {
-    "2471515776743363003": {
+    "6229234196994917060": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba All Star Saturday Night",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -31,9 +31,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "2471515776743363003"
+        "gameID": "6229234196994917060"
     },
-    "6351522560028284016": {
+    "5811794601595932020": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba Rising Stars",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -60,9 +60,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "6351522560028284016"
+        "gameID": "5811794601595932020"
     },
-    "3979676555109152337": {
+    "6934215209173188429": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Celebrity Game",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -79,9 +79,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "3979676555109152337"
+        "gameID": "6934215209173188429"
     },
-    "2776256497632543923": {
+    "5958826510197958424": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Hbcu Classic",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -98,9 +98,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "2776256497632543923"
+        "gameID": "5958826510197958424"
     },
-    "3273117908882488212": {
+    "9065849929269482115": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Dallas Mavericks",
         "awayTeam": "Los Angeles Lakers",
@@ -127,9 +127,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "3273117908882488212"
+        "gameID": "9065849929269482115"
     },
-    "3092336552889042686": {
+    "6946923741234086006": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Portland Trail Blazers",
         "awayTeam": "Utah Jazz",
@@ -146,9 +146,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "3092336552889042686"
+        "gameID": "6946923741234086006"
     },
-    "7827724575734453588": {
+    "1997114936971747071": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Milwaukee Bucks",
         "awayTeam": "Oklahoma City Thunder",
@@ -175,9 +175,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "7827724575734453588"
+        "gameID": "1997114936971747071"
     },
-    "7088595073039870242": {
+    "6147449436725276890": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "San Antonio Spurs",
         "awayTeam": "Golden State Warriors",
@@ -204,9 +204,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "7088595073039870242"
+        "gameID": "6147449436725276890"
     },
-    "3012534903594569975": {
+    "8770807694171058087": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Oklahoma City Thunder",
         "awayTeam": "Phoenix Suns",
@@ -223,9 +223,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "3012534903594569975"
+        "gameID": "8770807694171058087"
     },
-    "3751340837744436150": {
+    "380156930882081887": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba All Star Game",
         "awayTeam": "All-Star Event \ud83c\udf1f",
@@ -257,9 +257,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "3751340837744436150"
+        "gameID": "380156930882081887"
     },
-    "6332155016968899300": {
+    "5540324743611713613": {
         "custom_sport_cat": "Canals 24/7 \ud83d\udcfa",
         "homeTeam": "Televisi\u00f3 en Directe",
         "awayTeam": "Graella Premium",
@@ -411,71 +411,10 @@
                 "channel_code": "es"
             }
         ],
-        "gameID": "6332155016968899300"
+        "gameID": "5540324743611713613"
     },
-    "6209288403580724054": {
-        "gameID": "6209288403580724054",
-        "homeTeam": "O'Higgins",
-        "awayTeam": "Bahia",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3163.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1955.png",
-        "time": "22:00",
-        "tournament": "Copa Libertadores",
-        "country": "South America",
-        "countryIMG": "https://i.ibb.co/V0wcngL7/world-b7d16db.png",
-        "status": "upcoming",
-        "start": "2026-02-18 22:00",
-        "end": "2026-02-19 00:39",
-        "channels": [
-            {
-                "channel_name": "beIN SPORTS",
-                "channel_code": "us",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "beIN SPORTS N",
-                "channel_code": "es",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "FOX Sports",
-                "channel_code": "ar",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+sports&code=ar&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/fox-sports.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "ESPN 2",
-                "channel_code": "mx",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport 3",
-                "channel_code": "il",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+3&code=il&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-3.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "beIN SPORTS 2",
-                "channel_code": "sa",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
-                "viewers": 0
-            }
-        ],
-        "start_raw": "2026-02-18 22:00",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "1041975200543316551": {
-        "gameID": "1041975200543316551",
+    "1109519692511547367": {
+        "gameID": "1109519692511547367",
         "homeTeam": "Barcelona",
         "awayTeam": "Argentinos Juniors",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -535,8 +474,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8890187834913796739": {
-        "gameID": "8890187834913796739",
+    "513258398513771192": {
+        "gameID": "513258398513771192",
         "homeTeam": "Nacional Potos\u00ed",
         "awayTeam": "Botafogo",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
@@ -589,8 +528,8 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3576460445345913010": {
-        "gameID": "3576460445345913010",
+    "2609113016417660": {
+        "gameID": "2609113016417660",
         "homeTeam": "Junior",
         "awayTeam": "Am\u00e9rica de Cali",
         "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
