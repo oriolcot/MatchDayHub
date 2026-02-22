@@ -1,44 +1,34 @@
-import requests
 import cloudscraper
 import json
 import os
 import sys
 import base64
 import re
+import time
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
 
-# --- CARREGAR VARIABLES LOCALS (.env) ---
-if os.path.exists(".env"):
-    with open(".env", "r", encoding="utf-8") as f:
-        for line in f:
-            if line.strip() and not line.startswith("#"):
-                key, val = line.strip().split("=", 1)
-                os.environ[key] = val.strip()
-
 # --- CONFIGURACIÓ GLOBAL ---
-API_URL_CDN = os.environ.get("API_URL")
+API_URL_PPV = "https://api.ppv.to/api/streams"
 MEMORY_FILE = "memoria_partits.json"
+
+# Llista de dominis de DaddyLive (l'script triarà el primer que funcioni)
+DADDY_DOMAINS = ["https://daddylive.cv", "https://daddylive.top", "https://daddylives.nl"]
 
 # --- LLISTA DE CANALS 24/7 DESITJATS ---
 CANALS_DESITJATS = [
-    # Esport Premium (Futbol, Motor, etc.)
     "DAZN 1 Spain", "DAZN 2 Spain", "DAZN 3 Spain", "DAZN 4 Spain",
     "DAZN F1 ES", "DAZN LaLiga", "DAZN LaLiga 2",
     "Movistar Deportes Spain", "Movistar Deportes 2 Spain", "Movistar Deportes 3 Spain", "Movistar Deportes 4 Spain",
     "Movistar Golf Spain", "Movistar Laliga", "Movistar Liga de Campeones", "Movistar Plus+",
     "GOL PLAY Spain", "LALIGA TV Hypermotion",
     "EuroSport 1 Spain", "EuroSport 2 Spain", "Teledeporte Spain (TDP)",
-    
-    # Canals de Clubs
     "Barca TV Spain", "Real Madrid TV Spain",
-    
-    # Generalistes Espanyols
     "TVE La 1 Spain", "TVE La 2 Spain", "Antena 3 Spain", "Cuatro Spain", "Telecinco Spain", "La Sexta Spain"
 ]
 
-# --- DICCIONARI DE LOGOS NBA (ESPN CDN) ---
+# --- DICCIONARI DE LOGOS NBA ---
 NBA_LOGOS = {
     "atlanta hawks": "atl", "boston celtics": "bos", "brooklyn nets": "bkn", "charlotte hornets": "cha",
     "chicago bulls": "chi", "cleveland cavaliers": "cle", "dallas mavericks": "dal", "denver nuggets": "den",
@@ -92,6 +82,15 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
 
     .footer { text-align: center; margin-top: 60px; color: #6b7280; font-size: 0.9rem; border-top: 1px solid var(--border); padding-top: 30px; }
     
+    /* --- ESTILS DEL REPRODUCTOR FLOTANT --- */
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+    .modal-container { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 10px; padding: 15px; box-sizing: border-box; }
+    .modal-header { display: flex; justify-content: flex-end; }
+    .close-btn { background: var(--live); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: transform 0.2s; }
+    .close-btn:hover { transform: scale(1.05); }
+    .iframe-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+    .iframe-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
 </style>
@@ -100,24 +99,61 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
     <div class="navbar">{{NAVBAR}}</div>
     <div id="content">{{CONTENT}}</div>
     <div class="footer">Última actualització: <span style="color:var(--text); font-weight:bold;">{{DATE}}</span><br><small>Hora local detectada automàticament</small></div>
+    
+    <div id="playerModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closePlayer()">TANCAR VÍDEO ✖</button>
+            </div>
+            <div class="iframe-wrapper">
+                <iframe id="playerFrame" src="" allowfullscreen scrolling="no"></iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function openLink(el) { try { window.open(atob(el.getAttribute('data-link')), '_blank'); } catch(e){ console.error("Error link", e); } }
+        function openLink(el) { 
+            try { 
+                const url = atob(el.getAttribute('data-link')); 
+                document.getElementById('playerFrame').src = url;
+                document.getElementById('playerModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden'; 
+            } catch(e){ console.error("Error link", e); } 
+        }
+
+        function closePlayer() {
+            document.getElementById('playerFrame').src = ''; 
+            document.getElementById('playerModal').style.display = 'none';
+            document.body.style.overflow = ''; 
+        }
+
         document.querySelectorAll('.utc-time').forEach(el => {
             const raw = el.getAttribute('data-ts');
             if(raw && !raw.includes("Diferit") && !raw.includes("📼") && !raw.includes("Sempre Actiu")) {
-                const d = new Date(raw.replace(' ', 'T')+'Z');
-                el.innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+                try {
+                    const d = new Date(raw.replace(' ', 'T')+'Z');
+                    if(!isNaN(d.getTime())) el.innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+                } catch(e) {}
             }
         });
     </script>
 </body>
 </html>"""
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
-}
-
 def log(msg): sys.stderr.write(f"[LOG] {msg}\n")
+
+def get_working_daddy_domain(scraper):
+    log("Verificant dominis mirall de DaddyLive...")
+    for dom in DADDY_DOMAINS:
+        try:
+            resp = scraper.get(dom, timeout=5)
+            if resp.status_code == 200:
+                log(f"✅ Domini actiu seleccionat: {dom}")
+                return dom
+        except:
+            pass
+    log("⚠️ Cap domini principal respon. S'utilitzarà el domini per defecte.")
+    return DADDY_DOMAINS[0]
 
 def parse_date(date_str):
     if not date_str: return None
@@ -135,10 +171,8 @@ def get_nba_logo(team_name):
 
 def get_sport_name(key):
     names = { 
-        "Soccer": "FUTBOL ⚽", "NBA": "BÀSQUET 🏀", "NFL": "NFL 🏈", "F1": "FÓRMULA 1 🏎️", 
-        "MotoGP": "MOTOGP 🏍️", "Tennis": "TENNIS 🎾", "Boxing": "BOXA 🥊", "Rugby": "RUGBI 🏉",
-        "Hockey": "HOQUEI 🏒", "Baseball": "BEISBOL ⚾", "Darts": "DARTS 🎯",
-        "Canals 24/7 📺": "CANALS EN DIRECTE 📺"
+        "Soccer": "FUTBOL ⚽", "Football": "FUTBOL ⚽", "Basketball": "BÀSQUET 🏀", "NBA": "BÀSQUET 🏀", 
+        "NBA Replays 🏀": "NBA REPLAYS 🏀", "Canals 24/7 📺": "CANALS EN DIRECTE 📺"
     }
     return names.get(key, key.upper())
 
@@ -150,227 +184,178 @@ def clean_string(text):
     return "".join(e for e in cleaned if e.isalnum())
 
 def are_duplicates(m1, m2):
-    if m1.get('provider') != m2.get('provider'): return False
+    # NBA Replays i Canals només es comparen amb ells mateixos
+    if m1.get('provider') in ['NBA_REPLAY', 'DADDY_TV'] or m2.get('provider') in ['NBA_REPLAY', 'DADDY_TV']:
+        return m1.get('provider') == m2.get('provider') and m1.get('homeTeam') == m2.get('homeTeam')
     
-    if m1.get('provider') == 'LMAO_TV':
-        return True # Evitem duplicar la targeta
-        
-    if m1.get('provider') == 'NBA_REPLAY':
-        return m1.get('homeTeam') == m2.get('homeTeam') and m1.get('awayTeam') == m2.get('awayTeam')
-        
-    if m1.get('custom_sport_cat') != m2.get('custom_sport_cat'): return False
-    
-    t1 = parse_date(m1.get('start_raw'))
-    t2 = parse_date(m2.get('start_raw'))
+    # Diferència d'hora
+    t1, t2 = parse_date(m1.get('start_raw')), parse_date(m2.get('start_raw'))
     if t1 and t2:
-        if abs((t1 - t2).total_seconds()) / 3600 > 1.0: return False
-    else:
-        return False
-    
-    s1, s2 = clean_string(m1.get('homeTeam', '') + m1.get('awayTeam', '')), clean_string(m2.get('homeTeam', '') + m2.get('awayTeam', ''))
-    return SequenceMatcher(None, s1, s2).ratio() > 0.55
+        if abs((t1 - t2).total_seconds()) / 3600 > 2.0: return False
+    else: return False
 
-def fetch_lmao_channels():
+    s1 = clean_string(m1.get('homeTeam', '') + m1.get('awayTeam', ''))
+    s2 = clean_string(m2.get('homeTeam', '') + m2.get('awayTeam', ''))
+    return SequenceMatcher(None, s1, s2).ratio() > 0.6
+
+def fetch_ppv_to(scraper):
     matches = []
-    log("Buscant canals 24/7 a lmao.love (JSON API)...")
+    log("Buscant partits a PPV.to...")
     try:
-        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
-        resp = scraper.get("https://lmao.love/channels/index.json", timeout=15)
-        
+        resp = scraper.get(API_URL_PPV, timeout=15)
+        if resp.status_code == 200:
+            data = resp.json().get("streams", [])
+            for cat in data:
+                cat_name = cat.get("category", "")
+                if cat_name in ["Football", "Basketball"]:
+                    sport_key = "Soccer" if cat_name == "Football" else "NBA"
+                    for s in cat.get("streams", []):
+                        name = s.get("name", "")
+                        teams = name.split(" vs. ") if " vs. " in name else name.split(" vs ")
+                        home = teams[0].split(" (")[0].strip() if len(teams) > 0 else "Event"
+                        away = teams[1].split(" (")[0].strip() if len(teams) > 1 else "Unknown"
+                        dt = datetime.fromtimestamp(s.get("starts_at"), tz=timezone.utc)
+                        start_str = dt.strftime("%Y-%m-%d %H:%M")
+                        matches.append({
+                            'custom_sport_cat': sport_key, 'homeTeam': home, 'awayTeam': away,
+                            'start': start_str, 'start_raw': start_str,
+                            'status': 'live' if dt < datetime.now(timezone.utc) else 'upcoming',
+                            'provider': 'PPV', 'channels': [{'channel_name': 'PPV Stream', 'url': s.get("iframe"), 'channel_code': 'us'}]
+                        })
+            log(f"✅ S'han trobat {len(matches)} partits a PPV.to.")
+    except Exception as e: log(f"❌ Error PPV.to: {e}")
+    return matches
+
+def fetch_daddylive_events(scraper, base_domain):
+    matches = []
+    log("Buscant partits en directe a DaddyLive (tv2.json)...")
+    try:
+        resp = scraper.get(f"{base_domain}/cache/tv2/tv2.json", timeout=15)
+        if resp.status_code == 200:
+            data = resp.json()
+            now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
+            avui_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            
+            for main_category, sub_data in data.items():
+                if not isinstance(sub_data, dict): continue
+                for sub_category, events_list in sub_data.items():
+                    if not isinstance(events_list, list): continue
+                    
+                    for ev in events_list:
+                        event_text = ev.get('event', '')
+                        if ' vs ' not in event_text.lower() and ' vs. ' not in event_text.lower(): continue
+                        
+                        esport = "Other"
+                        if 'football' in event_text.lower() or 'soccer' in event_text.lower(): esport = "Soccer"
+                        elif 'basketball' in event_text.lower() or 'nba' in event_text.lower(): esport = "NBA"
+                        if esport not in ["Soccer", "NBA"]: continue
+                            
+                        noms_equips = event_text.split(' : ')[-1].strip() if ' : ' in event_text else event_text
+                        equips = noms_equips.split(' vs ') if ' vs ' in noms_equips else noms_equips.split(' vs. ')
+                        if len(equips) < 2: continue
+                        
+                        home, away = equips[0].strip(), equips[1].strip()
+                        
+                        canals_formatats = []
+                        for i, ch in enumerate(ev.get('channels', [])):
+                            c_name = ch.get('channel_name', f"Opció {i+1}")
+                            c_id = ch.get('channel_id', '')
+                            if c_id:
+                                # Events fan servir source=tv2 segons l'API
+                                url_embed = f"{base_domain}/embed/stream.php?id={c_id}&player=1&source=tv2"
+                                canals_formatats.append({
+                                    'channel_name': f"DaddyLive {c_name.replace('Link -', '').strip()}",
+                                    'url': url_embed, 'channel_code': 'us'
+                                })
+                                
+                        if canals_formatats:
+                            temps_raw = ev.get('time', 'Live')
+                            status = 'live' if 'live' in temps_raw.lower() else 'upcoming'
+                            start_real = now_str if status == 'live' else f"{avui_str} {temps_raw}"
+                            start_display = "EN DIRECTE 🟢" if status == 'live' else temps_raw
+                            
+                            matches.append({
+                                'custom_sport_cat': esport, 'homeTeam': home, 'awayTeam': away,
+                                'start': start_display, 'start_raw': start_real, 'status': status,
+                                'provider': 'DADDYLIVE_EVENTS',
+                                'channels': canals_formatats
+                            })
+            log(f"✅ S'han trobat {len(matches)} partits esportius a DaddyLive.")
+    except Exception as e: log(f"❌ Error a DaddyLive Events: {e}")
+    return matches
+
+def fetch_daddylive_channels(scraper, base_domain):
+    matches = []
+    log("Buscant canals 24/7 directament a DaddyLive...")
+    try:
+        # Evitem cache del navegador
+        cb = int(time.time() * 1000)
+        resp = scraper.get(f"{base_domain}/cache/channels.json?v={cb}", timeout=15)
         if resp.status_code == 200:
             data = resp.json()
             canals_trobats = []
-            
-            # Ara sabem EXACTAMENT com és el JSON: {"538": "DAZN LaLiga", "445": "DAZN 1 Spain"}
             if isinstance(data, dict):
-                for channel_id, channel_name in data.items():
-                    if not channel_name or not channel_id: continue
-                    
-                    nom_canal = str(channel_name).strip()
-                    # Construïm la URL amb la lògica que has descobert
-                    url_canal = f"https://lmao.love/stream/{channel_id}"
-                    
-                    # Comprovem si el canal està a la nostra llista
-                    for desitjat in CANALS_DESITJATS:
-                        if desitjat.lower() in nom_canal.lower():
-                            nom_net = nom_canal.replace(" Spain", "").replace(" (TDP)", "").strip()
-                            
-                            # Evitem duplicats a la mateixa llista
-                            if not any(c['channel_name'] == nom_net for c in canals_trobats):
-                                canals_trobats.append({
-                                    'channel_name': nom_net,
-                                    'url': url_canal,
-                                    'channel_code': 'es'
-                                })
-                            break 
-            
+                for cid, name in data.items():
+                    if any(d.lower() in name.lower() for d in CANALS_DESITJATS):
+                        nom_net = name.replace(" Spain", "").replace(" (TDP)", "").strip()
+                        # Canals regulars fan servir source=tv segons l'API
+                        url_final = f"{base_domain}/embed/stream.php?id={cid}&player=1&source=tv"
+                        canals_trobats.append({'channel_name': nom_net, 'url': url_final, 'channel_code': 'es'})
             if canals_trobats:
-                hora_actual = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
+                now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
                 matches.append({
-                    'custom_sport_cat': 'Canals 24/7 📺',
-                    'homeTeam': "Televisió en Directe",
-                    'awayTeam': "Graella Premium",
-                    'homeLogo': "",
-                    'awayLogo': "",
-                    'start': "Sempre Actiu 🟢",
-                    'start_raw': hora_actual,
-                    'status': 'live',
-                    'provider': 'LMAO_TV',
-                    'channels': canals_trobats
+                    'custom_sport_cat': 'Canals 24/7 📺', 'homeTeam': "Televisió en Directe", 'awayTeam': "Graella Premium", 
+                    'start': "Sempre Actiu 🟢", 'start_raw': now, 'status': 'live', 
+                    'provider': 'DADDY_TV', 'channels': canals_trobats
                 })
-                log(f"✅ S'han integrat {len(canals_trobats)} canals 24/7 a la web.")
-            else:
-                log("⚠️ No s'ha trobat cap canal de la llista al JSON.")
-        else:
-            log(f"⚠️ Error a lmao.love: codi {resp.status_code}")
-    except Exception as e:
-        log(f"❌ Error greu llegint els canals: {e}")
-        
+                log(f"✅ S'han integrat {len(canals_trobats)} canals 24/7 oficials.")
+    except Exception as e: log(f"❌ Error a DaddyLive Channels: {e}")
     return matches
 
-def fetch_cdn_live():
+def fetch_nba_replays(scraper, memory_matches):
     matches = []
-    log("Buscant partits en directe a la CDN...")
-    if not API_URL_CDN: 
-        log("❌ ERROR: La URL de la CDN està buida a les variables d'entorn!")
-        return matches
-        
-    try:
-        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
-        resp = scraper.get(API_URL_CDN, headers={"Referer": "https://cdn-live.tv/"}, timeout=15)
-        
-        if resp.status_code == 200:
-            data = resp.json()
-            events_dict = data.get("cdn-live-tv") or data
-            
-            for sport, event_list in events_dict.items():
-                if isinstance(event_list, list):
-                    for m in event_list:
-                        m['start_raw'] = m.get('start', '')
-                        m.update({'custom_sport_cat': sport, 'provider': 'CDN'})
-                        matches.append(m)
-            
-            log(f"✅ S'han trobat {len(matches)} partits a la CDN de diferents esports.")
-        else:
-            log(f"❌ ERROR: La CDN ha rebutjat la connexió. Codi HTTP: {resp.status_code}")
-    except Exception as e:
-        log(f"❌ Error greu llegint la API de CDN: {e}")
-        
-    return matches
-
-def fetch_nba_replays(memory_matches):
-    matches = []
-    log("Buscant repeticions NBA (PRO: Llista VIP All-Star inclosa)...")
-    
+    log("Buscant repeticions NBA...")
     partits_coneguts = [m.get('homeTeam') for m in memory_matches if m.get('provider') == 'NBA_REPLAY']
     dominis_directes = ['filemoon', 'vidmoly', 'vk.com', 'ok.ru', 'streamtape', 'voe', 'uqload', 'dood', 'dailymotion']
-    
     try:
-        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
         resp = scraper.get("https://basketball-video.com/", timeout=15)
         soup = BeautifulSoup(resp.text, 'html.parser')
-        
         partits_a_visitar = []
-        now_utc = datetime.now(timezone.utc)
-        any_passat = str(now_utc.year - 1)
-        mes_actual = now_utc.month
-        
         for a in soup.find_all('a', href=True):
             link = a['href']
-            
-            if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower() and 'wnba' not in link.lower():
-                raw_title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
-                title_lower = raw_title.lower()
-                
-                is_vs = ' vs ' in title_lower or ' vs. ' in title_lower
-                is_all_star = any(kw in title_lower for kw in ['all star', 'rising stars', 'celebrity game', 'hbcu'])
-                
-                if not is_vs and not is_all_star: continue
-                if f"-{any_passat}-" in link and mes_actual > 1 and not is_all_star: continue
-                if link.startswith("/"): link = "https://basketball-video.com" + link
-                    
-                data_bonica = "Diferit"
-                date_match = re.search(r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\s+(\d{4})', raw_title, re.IGNORECASE)
-                if date_match:
-                    month = date_match.group(1)[:3]
-                    day = date_match.group(2)
-                    year = date_match.group(3)
-                    data_bonica = f"📼 {day} {month} {year}"
-                
-                equips_split = re.split(r'\s+Vs\.?\s+', raw_title, flags=re.IGNORECASE)
-                home_t, away_t = "", ""
-                
-                if len(equips_split) >= 2:
-                    home_t = equips_split[0].strip()
-                    resta = equips_split[1]
-                    tall_away = re.split(r'\s+Full\s+Game|\s+Replay|\s+January|\s+February|\s+March|\s+April|\s+May|\s+June|\s+July|\s+August|\s+September|\s+October|\s+November|\s+December', resta, flags=re.IGNORECASE)
-                    away_t = tall_away[0].strip()
-                else:
-                    clean_title = raw_title.split(' Full Game')[0].split(' Replay')[0].strip()
-                    home_t = clean_title[:40] + "..." if len(clean_title) > 40 else clean_title
-                    away_t = "All-Star Event 🌟"
-                
-                if home_t and not any(p[1] == home_t for p in partits_a_visitar) and home_t not in partits_coneguts:
-                    partits_a_visitar.append((link, home_t, away_t, data_bonica))
-                    
-        log(f"🔎 S'han trobat {len(partits_a_visitar)} partits NOUS per investigar a la NBA.")
+            if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower():
+                title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
+                if ' vs ' in title.lower() or ' vs. ' in title.lower() or any(x in title.lower() for x in ['all star', 'rising stars']):
+                    home_t = title.split(' Vs ')[0].strip() if ' Vs ' in title else title.split(' Full ')[0].strip()
+                    if home_t not in partits_coneguts: partits_a_visitar.append((link, title))
         
-        for link, h_team, a_team, data_partit in partits_a_visitar[:8]: 
+        for link, title in partits_a_visitar[:8]:
             try:
-                art_resp = scraper.get(link, timeout=10)
+                art_resp = scraper.get(link if link.startswith('http') else "https://basketball-video.com"+link, timeout=10)
                 art_soup = BeautifulSoup(art_resp.text, 'html.parser')
-                
                 channels = []
-                for a in art_soup.find_all('a', href=True):
-                    text_a = a.text.strip().lower()
-                    href = a['href']
-                    
-                    if ('watch' in text_a or 'part' in text_a or 'server' in text_a) and href.startswith('http') and 'basketball-video.com' not in href:
-                        nom_final = ""
-                        if 'watch' in text_a or 'server 1' in text_a or 'full game' in text_a: nom_final = "Partit Sencer 🍿"
-                        elif 'part 1' in text_a: nom_final = "1a Part 🎬"
-                        elif 'part 2' in text_a: nom_final = "2a Part 🎬"
-                        elif 'part 3' in text_a: nom_final = "3a Part 🎬"
-                        elif 'part 4' in text_a: nom_final = "4a Part 🎬"
-                        else: nom_final = a.text.strip() if a.text.strip() else "Veure Vídeo"
-
-                        final_url = ""
+                for la in art_soup.find_all('a', href=True):
+                    if any(x in la.text.lower() for x in ['watch', 'full game', 'part']):
+                        href = la['href']
                         if not any(d in href.lower() for d in dominis_directes):
                             try:
-                                fake_resp = scraper.get(href, timeout=8)
-                                fake_soup = BeautifulSoup(fake_resp.text, 'html.parser')
-                                for iframe in fake_soup.find_all('iframe'):
-                                    src = iframe.get('src', '')
-                                    if src and 'http' in src and not any(x in src.lower() for x in ['facebook', 'twitter', 'google']):
-                                        final_url = src
-                                        break
-                            except Exception: pass
-                        else: final_url = href
-                        
-                        if final_url and not any(c['url'] == final_url for c in channels):
-                            channels.append({'channel_name': nom_final, 'url': final_url, 'channel_code': 'us'})
-                
+                                f_r = scraper.get(href, timeout=5)
+                                f_s = BeautifulSoup(f_r.text, 'html.parser')
+                                iframe = f_s.find('iframe')
+                                if iframe: href = iframe.get('src')
+                            except: pass
+                        channels.append({'channel_name': la.text.strip() or "Veure", 'url': href, 'channel_code': 'us'})
                 if channels:
-                    hora_actual = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
-                    matches.append({
-                        'custom_sport_cat': 'NBA Replays 🏀', 'homeTeam': h_team, 'awayTeam': a_team,
-                        'homeLogo': get_nba_logo(h_team), 'awayLogo': get_nba_logo(a_team), 'start': data_partit,
-                        'start_raw': hora_actual, 'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels
-                    })
-            except Exception as e:
-                pass
-    except Exception as e:
-        pass
+                    matches.append({'custom_sport_cat': 'NBA Replays 🏀', 'homeTeam': title, 'awayTeam': "VOD", 'start': "📼 NBA REPLAY", 'start_raw': datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M"), 'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels})
+            except: pass
+        log(f"✅ S'han trobat {len(matches)} repeticions NBA noves.")
+    except Exception as e: log(f"❌ Error NBA: {e}")
     return matches
 
 def load_memory():
     if os.path.exists(MEMORY_FILE):
         try:
-            with open(MEMORY_FILE, 'r', encoding='utf-8') as f:
-                dades = json.load(f)
-                for v in dades.values():
-                    if 'start_raw' not in v and 'start' in v: v['start_raw'] = v['start']
-                return dades
+            with open(MEMORY_FILE, 'r', encoding='utf-8') as f: return json.load(f)
         except: pass
     return {}
 
@@ -380,137 +365,86 @@ def save_memory(data):
 def main():
     try:
         sys.stdout.reconfigure(encoding='utf-8')
-
         memory = load_memory()
-        nous_directes = fetch_cdn_live()
-        nous_replays = fetch_nba_replays(list(memory.values()))
-        canals_fixos = fetch_lmao_channels()
         
-        all_raw_matches = list(memory.values()) + nous_directes + nous_replays + canals_fixos
+        # Inicialitzem CloudScraper un sol cop
+        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
         
-        unique_matches = {}
-        for match in all_raw_matches:
-            if match.get('provider') == 'PPV': continue
-            
-            is_duplicate = False
-            for uid, existing_match in unique_matches.items():
-                if are_duplicates(existing_match, match):
-                    is_duplicate = True
-                    if 'start_raw' in existing_match: match['start_raw'] = existing_match['start_raw']
-                    
-                    existing_urls = {c['url'] for c in existing_match.get('channels', []) if 'url' in c}
-                    for ch in match.get('channels', []):
-                        if ch.get('url') not in existing_urls: existing_match['channels'].append(ch)
-                    if len(match.get('homeTeam', '')) > len(existing_match.get('homeTeam', '')):
-                        existing_match['homeTeam'] = match['homeTeam']
-                        existing_match['awayTeam'] = match['awayTeam']
-                        existing_match['homeLogo'] = match.get('homeLogo', '')
-                        existing_match['awayLogo'] = match.get('awayLogo', '')
-                    break
-            
-            if not is_duplicate:
-                slug = f"{match.get('custom_sport_cat')}{match.get('homeTeam')}{match.get('awayTeam')}"
-                gid = str(abs(hash(slug)))
-                match['gameID'] = gid
-                unique_matches[gid] = match
+        # Trobem el domini de DaddyLive que estigui actiu avui
+        daddy_domain = get_working_daddy_domain(scraper)
+        
+        # Recollida massiva
+        daddy_events = fetch_daddylive_events(scraper, daddy_domain)
+        daddy_channels = fetch_daddylive_channels(scraper, daddy_domain)
+        ppv_events = fetch_ppv_to(scraper)
+        nba_replays = fetch_nba_replays(scraper, list(memory.values()))
+        
+        all_raw = list(memory.values()) + ppv_events + daddy_events + daddy_channels + nba_replays
+        unique = {}
 
-        clean_memory = {}
-        display_matches = []
+        for match in all_raw:
+            found = False
+            for uid, existing in unique.items():
+                if are_duplicates(existing, match):
+                    found = True
+                    ext_urls = {c['url'] for c in existing.get('channels', [])}
+                    for ch in match.get('channels', []):
+                        if ch['url'] not in ext_urls: existing['channels'].append(ch)
+                    if not existing.get('homeLogo') and match.get('homeLogo'):
+                        existing['homeLogo'] = match.get('homeLogo')
+                        existing['awayLogo'] = match.get('awayLogo')
+                    break
+            if not found:
+                slug = f"{match.get('homeTeam')}{match.get('start_raw')}{match.get('provider')}"
+                gid = str(abs(hash(slug)))
+                unique[gid] = match
+
+        clean_mem, display = {}, []
         now_utc = datetime.now(timezone.utc).replace(tzinfo=None)
 
-        for gid, m in unique_matches.items():
-            try:
-                s_dt = parse_date(m.get('start_raw'))
-                if not s_dt: continue
-                    
-                diff_hours = (now_utc - s_dt).total_seconds() / 3600
-                
-                if m.get('provider') == 'NBA_REPLAY':
-                    if diff_hours < 96.0:
-                        clean_memory[gid] = m
-                        display_matches.append(m)
-                elif m.get('provider') == 'LMAO_TV':
-                    # Els canals fixos no caduquen mai
-                    clean_memory[gid] = m
-                    display_matches.append(m)
-                else:
-                    if diff_hours < 5.0:
-                        clean_memory[gid] = m
-                    
-                    if diff_hours < 4.0:
-                        display_matches.append(m)
-
-            except Exception as e:
-                pass
-        
-        save_memory(clean_memory)
-
-        events_by_cat = {}
-        for m in display_matches:
-            cat = m.get('custom_sport_cat', 'Other')
-            if cat not in events_by_cat: events_by_cat[cat] = []
-            if 'channels' in m: m['channels'].sort(key=lambda x: 10 if x.get('channel_code') in ['es','mx'] else 1, reverse=True)
-            events_by_cat[cat].append(m)
-
-        navbar_html = '<a href="#" class="nav-btn active">Inici</a>'
-        content_html = ""
-        
-        if not events_by_cat:
-            content_html = "<div style='text-align:center; padding:80px; color:#6b7280;'><h2>😴 No hi ha partits disponibles.</h2></div>"
-        else:
-            sorted_cats = sorted(events_by_cat.keys(), key=lambda x: (x == 'Canals 24/7 📺', x == 'NBA Replays 🏀', x))
+        for gid, m in unique.items():
+            dt = parse_date(m.get('start_raw'))
+            if not dt: continue
+            diff = (now_utc - dt).total_seconds() / 3600
             
-            for sport in sorted_cats:
-                nice_name = sport if '🏀' in sport or '📺' in sport else get_sport_name(sport)
-                navbar_html += f'<a href="#{sport}" class="nav-btn">{nice_name}</a>'
-                sport_matches = sorted(events_by_cat[sport], key=lambda x: x.get('start_raw', ''))
+            limit = 96.0 if m.get('provider') == 'NBA_REPLAY' else 5.0
+            if m.get('provider') == 'DADDY_TV' or diff < limit:
+                clean_mem[gid] = m
+                if m.get('provider') == 'DADDY_TV' or diff < 4.0 or m.get('provider') == 'NBA_REPLAY':
+                    display.append(m)
+
+        save_memory(clean_mem)
+        
+        cats = {}
+        for m in display:
+            c = m.get('custom_sport_cat', 'Other')
+            if c not in cats: cats[c] = []
+            cats[c].append(m)
+
+        navbar, content = '<a href="#" class="nav-btn active">Inici</a>', ""
+        order = sorted(cats.keys(), key=lambda x: (x=='Canals 24/7 📺', x=='NBA Replays 🏀', x))
+        
+        for sport in order:
+            nice = get_sport_name(sport)
+            navbar += f'<a href="#{sport}" class="nav-btn">{nice}</a>'
+            content += f'<div id="{sport}" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>{nice}</div><div class="grid">'
+            for m in cats[sport]:
+                badge = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>' if m.get('status') == 'live' else ''
+                btns = ""
+                for ch in m.get('channels', []):
+                    b64 = base64.b64encode(ch["url"].encode()).decode()
+                    flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img"> ' if 'channel_code' in ch else ''
+                    btns += f'<div class="btn" data-link="{b64}" onclick="openLink(this)">{flag}{ch["channel_name"]}</div>'
                 
-                content_html += f'<div id="{sport}" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>{nice_name}</div><div class="grid">'
+                h_logo = f'<img src="{m.get("homeLogo")}" class="team-logo">' if m.get('homeLogo') else ''
+                a_logo = f'<img src="{m.get("awayLogo")}" class="team-logo">' if m.get('awayLogo') else ''
                 
-                for m in sport_matches:
-                    utc = m.get('start')
-                    
-                    if m.get('status') == 'vod': badge_html = '' 
-                    elif m.get('status') == 'live': badge_html = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>'
-                    else: badge_html = ''
-                        
-                    home_logo_html = f"<img src='{m.get('homeLogo')}' class='team-logo' onerror=\"this.style.display='none'\">" if m.get('homeLogo') else ""
-                    away_logo_html = f"<img src='{m.get('awayLogo')}' class='team-logo' onerror=\"this.style.display='none'\">" if m.get('awayLogo') else ""
-                    
-                    if home_logo_html or away_logo_html:
-                        teams_display = f"{home_logo_html} {m['homeTeam']} <span class='versus'>vs</span> {m['awayTeam']} {away_logo_html}"
-                    else:
-                        teams_display = f"{m['homeTeam']} <span class='versus'>vs</span> {m['awayTeam']}"
-                    
-                    btns_html = ""
-                    if not m.get('channels', []):
-                        btns_html = """<div class="btn" style="opacity:0.6; cursor:default; justify-content:center;">Sense enllaços encara ⏳</div>"""
-                    else:
-                        for ch in m.get('channels', []):
-                            try: link_b64 = base64.b64encode(ch.get('url', '#').encode()).decode()
-                            except: link_b64 = ""
-                            code = ch.get('channel_code', 'xx').lower()
-                            flag = f"https://flagcdn.com/20x15/{code}.png"
-                            name = ch.get('channel_name', 'Link')
-                            
-                            if m.get('provider') == 'NBA_REPLAY' or m.get('provider') == 'LMAO_TV': btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)">{name}</div>"""
-                            else: btns_html += f"""<div class="btn" data-link="{link_b64}" onclick="openLink(this)"><img src="{flag}" class="flag-img" onerror="this.style.display='none'"> {name}</div>"""
+                content += f'<div class="card"><div class="header"><div class="meta"><span class="utc-time" data-ts="{m["start_raw"]}">{m["start"]}</span>{badge}</div><div class="match-info"><div class="teams">{h_logo} {m["homeTeam"]} <span class="versus">vs</span> {m["awayTeam"]} {a_logo}</div></div></div><div class="channels">{btns}</div></div>'
+            content += "</div></div>"
 
-                    content_html += f"""
-                    <div class="card">
-                        <div class="header">
-                            <div class="meta"><span class="utc-time" data-ts="{utc}">{utc}</span>{badge_html}</div>
-                            <div class="match-info"><div class="teams">{teams_display}</div></div>
-                        </div>
-                        <div class="channels">{btns_html}</div>
-                    </div>"""
-                content_html += "</div></div>"
+        html_final = INTERNAL_TEMPLATE.replace('{{NAVBAR}}', navbar).replace('{{CONTENT}}', content).replace('{{DATE}}', datetime.now(timezone.utc).strftime("%d/%m/%Y %H:%M UTC"))
+        print(html_final)
 
-        final = INTERNAL_TEMPLATE.replace('{{NAVBAR}}', navbar_html).replace('{{CONTENT}}', content_html).replace('{{DATE}}', datetime.now(timezone.utc).strftime("%d/%m/%Y %H:%M UTC"))
-        print(final)
+    except Exception as e: log(f"CRITICAL ERROR: {e}")
 
-    except Exception as e:
-        log(f"CRITICAL ERROR: {e}")
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
