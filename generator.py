@@ -13,10 +13,8 @@ from bs4 import BeautifulSoup
 API_URL_PPV = "https://api.ppv.to/api/streams"
 MEMORY_FILE = "memoria_partits.json"
 
-# Llista de dominis de DaddyLive (l'script triarà el primer que funcioni)
 DADDY_DOMAINS = ["https://daddylive.cv", "https://daddylive.top", "https://daddylives.nl"]
 
-# --- LLISTA DE CANALS 24/7 DESITJATS ---
 CANALS_DESITJATS = [
     "DAZN 1 Spain", "DAZN 2 Spain", "DAZN 3 Spain", "DAZN 4 Spain",
     "DAZN F1 ES", "DAZN LaLiga", "DAZN LaLiga 2",
@@ -28,7 +26,6 @@ CANALS_DESITJATS = [
     "TVE La 1 Spain", "TVE La 2 Spain", "Antena 3 Spain", "Cuatro Spain", "Telecinco Spain", "La Sexta Spain"
 ]
 
-# --- DICCIONARI DE LOGOS NBA ---
 NBA_LOGOS = {
     "atlanta hawks": "atl", "boston celtics": "bos", "brooklyn nets": "bkn", "charlotte hornets": "cha",
     "chicago bulls": "chi", "cleveland cavaliers": "cle", "dallas mavericks": "dal", "denver nuggets": "den",
@@ -82,32 +79,33 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
 
     .footer { text-align: center; margin-top: 60px; color: #6b7280; font-size: 0.9rem; border-top: 1px solid var(--border); padding-top: 30px; }
     
-    /* --- ESTILS DEL REPRODUCTOR FLOTANT --- */
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-    .modal-container { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 10px; padding: 15px; box-sizing: border-box; }
-    .modal-header { display: flex; justify-content: flex-end; }
-    .close-btn { background: var(--live); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: transform 0.2s; }
-    .close-btn:hover { transform: scale(1.05); }
-    .iframe-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-    .iframe-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
+
+    /* --- ESTILS DEL REPRODUCTOR OPTIMITZAT PER A TV --- */
+    /* Eliminat el blur (que mata les CPUs de les TV) i fons totalment opac */
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000000; z-index: 9999; flex-direction: column; align-items: center; justify-content: center; }
+    .modal-container { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 10px; padding: 10px; box-sizing: border-box; }
+    .modal-header { display: flex; justify-content: flex-end; }
+    .close-btn { background: var(--live); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+    /* Afegit translateZ per forçar acceleració per hardware a la TV */
+    .iframe-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; overflow: hidden; transform: translateZ(0); }
+    .iframe-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 </style>
 </head>
 <body>
-    <div class="navbar">{{NAVBAR}}</div>
-    <div id="content">{{CONTENT}}</div>
-    <div class="footer">Última actualització: <span style="color:var(--text); font-weight:bold;">{{DATE}}</span><br><small>Hora local detectada automàticament</small></div>
+    <div id="main-ui">
+        <div class="navbar">{{NAVBAR}}</div>
+        <div id="content">{{CONTENT}}</div>
+        <div class="footer">Última actualització: <span style="color:var(--text); font-weight:bold;">{{DATE}}</span><br><small>Hora local detectada automàticament</small></div>
+    </div>
     
     <div id="playerModal" class="modal-overlay">
         <div class="modal-container">
             <div class="modal-header">
-                <button class="close-btn" onclick="closePlayer()">TANCAR VÍDEO ✖</button>
+                <button class="close-btn" onclick="closePlayer()">TORNAR A LA LLISTA ✖</button>
             </div>
-            <div class="iframe-wrapper">
-                <iframe id="playerFrame" src="" allowfullscreen scrolling="no"></iframe>
-            </div>
+            <div class="iframe-wrapper" id="videoContainer"></div>
         </div>
     </div>
 
@@ -115,22 +113,45 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
         function openLink(el) { 
             try { 
                 const url = atob(el.getAttribute('data-link')); 
-                document.getElementById('playerFrame').src = url;
+                const container = document.getElementById('videoContainer');
+                
+                // Amaguem tota la interfície de darrere per alliberar la memòria RAM de la TV
+                document.getElementById('main-ui').style.display = 'none';
+                
+                // Netejar reproductors anteriors
+                container.innerHTML = ''; 
+                
+                // Creació dinàmica de l'iframe per saltar-se els bloquejos
+                const iframe = document.createElement('iframe');
+                iframe.src = url;
+                iframe.setAttribute('allowfullscreen', 'true');
+                iframe.setAttribute('scrolling', 'no');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                // Intentem forçar que no hi hagi sandboxes estrictes del navegador
+                iframe.removeAttribute('sandbox');
+                
+                container.appendChild(iframe);
+                
                 document.getElementById('playerModal').style.display = 'flex';
                 document.body.style.overflow = 'hidden'; 
+                window.scrollTo(0,0);
             } catch(e){ console.error("Error link", e); } 
         }
 
         function closePlayer() {
-            document.getElementById('playerFrame').src = ''; 
+            // Destruïm l'iframe completament per frenar tots els processos de fons (anuncis, chatango, etc.)
+            document.getElementById('videoContainer').innerHTML = ''; 
             document.getElementById('playerModal').style.display = 'none';
+            
+            // Tornem a dibuixar la interfície web
+            document.getElementById('main-ui').style.display = 'block';
             document.body.style.overflow = ''; 
         }
 
         document.querySelectorAll('.utc-time').forEach(el => {
             const raw = el.getAttribute('data-ts');
             const txt = el.innerText;
-            // Ignorem la conversió d'hora si és un Replay o un Canal 24/7
             if(raw && !txt.includes("Diferit") && !txt.includes("📼") && !txt.includes("Sempre Actiu") && !txt.includes("EN DIRECTE")) {
                 try {
                     const d = new Date(raw.replace(' ', 'T')+'Z');
@@ -374,7 +395,7 @@ def fetch_nba_replays(scraper, memory_matches):
                         'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels
                     })
             except: pass
-        log(f"✅ S'han trobat {len(matches)} repeticions NBA (Sense WNBA i ben formatades).")
+        log(f"✅ S'han trobat {len(matches)} repeticions NBA.")
     except Exception as e: log(f"❌ Error NBA: {e}")
     return matches
 
@@ -444,8 +465,6 @@ def main():
             cats[c].append(m)
 
         navbar, content = '<a href="#" class="nav-btn active">Inici</a>', ""
-        
-        # --- ORDRE ESTRICTE DE LES SECCIONS ---
         order_weights = {'Soccer': 1, 'NBA': 2, 'NBA Replays 🏀': 3, 'Canals 24/7 📺': 4}
         order = sorted(cats.keys(), key=lambda x: order_weights.get(x, 99))
         
@@ -461,7 +480,6 @@ def main():
                     flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img"> ' if 'channel_code' in ch else ''
                     btns += f'<div class="btn" data-link="{b64}" onclick="openLink(this)">{flag}{ch["channel_name"]}</div>'
                 
-                # --- LÒGICA DE LOGOS (TANT PER REPLAYS COM PER DIRECTES) ---
                 is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
                 home_logo_url = get_nba_logo(m["homeTeam"]) if is_nba else m.get("homeLogo", "")
                 away_logo_url = get_nba_logo(m["awayTeam"]) if is_nba else m.get("awayLogo", "")
