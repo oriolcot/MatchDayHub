@@ -285,10 +285,11 @@ def fetch_daddylive_events(scraper, base_domain):
 
 def fetch_daddylive_channels(scraper, base_domain):
     matches = []
-    log("Buscant canals 24/7 directament a DaddyLive...")
+    log("Buscant canals 24/7 (via guia d'IDs)...")
     try:
-        cb = int(time.time() * 1000)
-        resp = scraper.get(f"{base_domain}/cache/channels.json?v={cb}", timeout=15)
+        # Utilitzem l'API de lmao NOMÉS com a llibreta de contactes (perquè sabem que l'estructura no canvia)
+        # Però generem l'enllaç original de DaddyLive!
+        resp = scraper.get("https://lmao.love/channels/index.json", timeout=15)
         if resp.status_code == 200:
             data = resp.json()
             canals_trobats = []
@@ -296,6 +297,7 @@ def fetch_daddylive_channels(scraper, base_domain):
                 for cid, name in data.items():
                     if any(d.lower() in name.lower() for d in CANALS_DESITJATS):
                         nom_net = name.replace(" Spain", "").replace(" (TDP)", "").strip()
+                        # Generem l'enllaç ofical de l'API de DaddyLive que obre el seu reproductor net
                         url_final = f"{base_domain}/embed/stream.php?id={cid}&player=1&source=tv"
                         canals_trobats.append({'channel_name': nom_net, 'url': url_final, 'channel_code': 'es'})
             if canals_trobats:
@@ -305,8 +307,8 @@ def fetch_daddylive_channels(scraper, base_domain):
                     'start': "Sempre Actiu 🟢", 'start_raw': now, 'status': 'live', 
                     'provider': 'DADDY_TV', 'channels': canals_trobats
                 })
-                log(f"✅ S'han integrat {len(canals_trobats)} canals 24/7 oficials.")
-    except Exception as e: log(f"❌ Error a DaddyLive Channels: {e}")
+                log(f"✅ S'han integrat {len(canals_trobats)} canals 24/7 a la web.")
+    except Exception as e: log(f"❌ Error als Canals 24/7: {e}")
     return matches
 
 def fetch_nba_replays(scraper, memory_matches):
@@ -323,10 +325,9 @@ def fetch_nba_replays(scraper, memory_matches):
             if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower():
                 title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
                 
-                # --- FILTRE WNBA ---
+                # --- FILTRE WNBA / EXTRAR ---
                 t_low = title.lower()
-                if any(w in t_low for w in ['wnba', 'aces', 'mercury', 'liberty', 'sun', 'lynx', 'sky']):
-                    continue
+                if any(w in t_low for w in ['wnba', 'aces', 'mercury', 'liberty', 'sun', 'lynx', 'sky']): continue
                 
                 if ' vs ' in title.lower() or ' vs. ' in title.lower() or any(x in title.lower() for x in ['all star', 'rising stars']):
                     home_t = title.split(' Vs ')[0].strip() if ' Vs ' in title else title.split(' Full ')[0].strip()
@@ -334,12 +335,28 @@ def fetch_nba_replays(scraper, memory_matches):
         
         for link, title in partits_a_visitar[:8]:
             try:
+                # Arreglem la separació del títol perquè surtin bé els logos
+                home = title
+                away = "VOD"
+                if ' Vs ' in title or ' vs ' in title.lower():
+                    sep = ' Vs ' if ' Vs ' in title else (' vs ' if ' vs ' in title else ' vs. ')
+                    parts = title.split(sep, 1)
+                    home = parts[0].strip()
+                    away = parts[1].split(' Full ')[0].strip()
+                else:
+                    home = title.split(' Full ')[0].strip()
+
                 art_resp = scraper.get(link if link.startswith('http') else "https://basketball-video.com"+link, timeout=10)
                 art_soup = BeautifulSoup(art_resp.text, 'html.parser')
                 channels = []
+                
                 for la in art_soup.find_all('a', href=True):
-                    if any(x in la.text.lower() for x in ['watch', 'full game', 'part']):
+                    btn_text = la.text.strip()
+                    # Condició: Text curt (evitem el menú lateral) i paraula clau
+                    if len(btn_text) < 25 and any(x in btn_text.lower() for x in ['watch', 'full game', 'part']):
                         href = la['href']
+                        if href.endswith('.html') and 'player' not in href: continue # Ignorem enllaços interns d'articles
+                        
                         if not any(d in href.lower() for d in dominis_directes):
                             try:
                                 f_r = scraper.get(href, timeout=5)
@@ -347,15 +364,23 @@ def fetch_nba_replays(scraper, memory_matches):
                                 iframe = f_s.find('iframe')
                                 if iframe: href = iframe.get('src')
                             except: pass
-                        channels.append({'channel_name': la.text.strip() or "Veure", 'url': href, 'channel_code': 'us'})
+                        
+                        c_name = "Veure"
+                        if 'part 1' in btn_text.lower() or '1a part' in btn_text.lower(): c_name = '1a Part 🎬'
+                        elif 'part 2' in btn_text.lower() or '2a part' in btn_text.lower(): c_name = '2a Part 🎬'
+                        elif 'part 3' in btn_text.lower() or '3a part' in btn_text.lower(): c_name = '3a Part 🎬'
+                        elif 'full' in btn_text.lower() or 'watch' in btn_text.lower(): c_name = 'Partit Sencer 🍿'
+                        
+                        channels.append({'channel_name': c_name, 'url': href, 'channel_code': 'us'})
+                
                 if channels:
                     matches.append({
-                        'custom_sport_cat': 'NBA Replays 🏀', 'homeTeam': title, 'awayTeam': "VOD", 
+                        'custom_sport_cat': 'NBA Replays 🏀', 'homeTeam': home, 'awayTeam': away, 
                         'start': "📼 REPLAY", 'start_raw': datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M"), 
                         'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels
                     })
             except: pass
-        log(f"✅ S'han trobat {len(matches)} repeticions NBA (Sense WNBA).")
+        log(f"✅ S'han trobat {len(matches)} repeticions NBA (Sense WNBA i ben formatades).")
     except Exception as e: log(f"❌ Error NBA: {e}")
     return matches
 
