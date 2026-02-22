@@ -1,5 +1,5 @@
 {
-    "2960379838239304608": {
+    "3721112191047583485": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Houston Rockets",
         "awayTeam": "New York Knicks",
@@ -26,9 +26,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "2960379838239304608"
+        "gameID": "3721112191047583485"
     },
-    "8277153488651703775": {
+    "2397239015300827718": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Sacramento Kings",
         "awayTeam": "San Antonio Spurs",
@@ -55,9 +55,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "8277153488651703775"
+        "gameID": "2397239015300827718"
     },
-    "6863820995213326712": {
+    "7844402817716239658": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Detroit Pistons",
         "awayTeam": "Chicago Bulls",
@@ -84,9 +84,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "6863820995213326712"
+        "gameID": "7844402817716239658"
     },
-    "2671258391284622894": {
+    "9144561335342494960": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Memphis Grizzlies",
         "awayTeam": "Miami Heat",
@@ -103,9 +103,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "2671258391284622894"
+        "gameID": "9144561335342494960"
     },
-    "664235254326901396": {
+    "9031899523992945047": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Philadelphia 76Ers",
         "awayTeam": "New Orleans Pelicans",
@@ -122,9 +122,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "664235254326901396"
+        "gameID": "9031899523992945047"
     },
-    "3725200415126600581": {
+    "2675350772477565084": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Orlando Magic",
         "awayTeam": "Phoenix Suns",
@@ -141,9 +141,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "3725200415126600581"
+        "gameID": "2675350772477565084"
     },
-    "8879846000042196470": {
+    "974550472877642485": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "La Clippers",
         "awayTeam": "Los Angeles Lakers",
@@ -170,9 +170,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "8879846000042196470"
+        "gameID": "974550472877642485"
     },
-    "4416736915516904351": {
+    "6150661601020301073": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Denver Nuggets",
         "awayTeam": "Portland Trail Blazers",
@@ -199,9 +199,9 @@
                 "channel_code": "us"
             }
         ],
-        "gameID": "4416736915516904351"
+        "gameID": "6150661601020301073"
     },
-    "5645699236261428984": {
+    "3377242795084003671": {
         "custom_sport_cat": "Canals 24/7 \ud83d\udcfa",
         "homeTeam": "Televisi\u00f3 en Directe",
         "awayTeam": "Graella Premium",
@@ -353,6 +353,78 @@
                 "channel_code": "es"
             }
         ],
-        "gameID": "5645699236261428984"
+        "gameID": "3377242795084003671"
+    },
+    "4233995136187243731": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Brooklyn Nets",
+        "awayTeam": "Oklahoma City Thunder",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png",
+        "start": "\ud83d\udcfc 20 Feb 2026",
+        "start_raw": "2026-02-22 16:27",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/jxh83i4qwqvf",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "4233995136187243731"
+    },
+    "6245037607236964930": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Dallas Mavericks",
+        "awayTeam": "Minnesota Timberwolves",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/nba/500/min.png",
+        "start": "\ud83d\udcfc 20 Feb 2026",
+        "start_raw": "2026-02-22 16:27",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/khkb3viq8qlr",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "6245037607236964930"
+    },
+    "7404962786048093629": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Nba All Star Game",
+        "awayTeam": "All-Star Event \ud83c\udf1f",
+        "homeLogo": "",
+        "awayLogo": "",
+        "start": "\ud83d\udcfc 15 Feb 2025",
+        "start_raw": "2026-02-22 16:27",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa04w3s",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa04wb4",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "3a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa04wb2",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/92je135fluj9",
+                "channel_code": "us"
+            }
+        ],
+        "gameID": "7404962786048093629"
     }
 }
