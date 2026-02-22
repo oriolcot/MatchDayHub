@@ -5,26 +5,19 @@ import sys
 import base64
 import re
 import time
+import concurrent.futures
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+
+# Carregar les variables d'entorn per a la CDN
+load_dotenv()
 
 # --- CONFIGURACIÓ GLOBAL ---
 API_URL_PPV = "https://api.ppv.to/api/streams"
+API_URL_CDN = os.environ.get("API_URL")
 MEMORY_FILE = "memoria_partits.json"
-
-DADDY_DOMAINS = ["https://daddylive.cv", "https://daddylive.top", "https://daddylives.nl"]
-
-CANALS_DESITJATS = [
-    "DAZN 1 Spain", "DAZN 2 Spain", "DAZN 3 Spain", "DAZN 4 Spain",
-    "DAZN F1 ES", "DAZN LaLiga", "DAZN LaLiga 2",
-    "Movistar Deportes Spain", "Movistar Deportes 2 Spain", "Movistar Deportes 3 Spain", "Movistar Deportes 4 Spain",
-    "Movistar Golf Spain", "Movistar Laliga", "Movistar Liga de Campeones", "Movistar Plus+",
-    "GOL PLAY Spain", "LALIGA TV Hypermotion",
-    "EuroSport 1 Spain", "EuroSport 2 Spain", "Teledeporte Spain (TDP)",
-    "Barca TV Spain", "Real Madrid TV Spain",
-    "TVE La 1 Spain", "TVE La 2 Spain", "Antena 3 Spain", "Cuatro Spain", "Telecinco Spain", "La Sexta Spain"
-]
 
 NBA_LOGOS = {
     "atlanta hawks": "atl", "boston celtics": "bos", "brooklyn nets": "bkn", "charlotte hornets": "cha",
@@ -82,13 +75,11 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
 
-    /* --- ESTILS DEL REPRODUCTOR OPTIMITZAT PER A TV --- */
-    /* Eliminat el blur (que mata les CPUs de les TV) i fons totalment opac */
+    /* ESTILS DEL REPRODUCTOR OPTIMITZAT PER A TV */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000000; z-index: 9999; flex-direction: column; align-items: center; justify-content: center; }
     .modal-container { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 10px; padding: 10px; box-sizing: border-box; }
     .modal-header { display: flex; justify-content: flex-end; }
     .close-btn { background: var(--live); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
-    /* Afegit translateZ per forçar acceleració per hardware a la TV */
     .iframe-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; overflow: hidden; transform: translateZ(0); }
     .iframe-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 </style>
@@ -115,20 +106,15 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
                 const url = atob(el.getAttribute('data-link')); 
                 const container = document.getElementById('videoContainer');
                 
-                // Amaguem tota la interfície de darrere per alliberar la memòria RAM de la TV
                 document.getElementById('main-ui').style.display = 'none';
-                
-                // Netejar reproductors anteriors
                 container.innerHTML = ''; 
                 
-                // Creació dinàmica de l'iframe per saltar-se els bloquejos
                 const iframe = document.createElement('iframe');
                 iframe.src = url;
                 iframe.setAttribute('allowfullscreen', 'true');
                 iframe.setAttribute('scrolling', 'no');
                 iframe.setAttribute('frameborder', '0');
                 iframe.setAttribute('allow', 'autoplay; fullscreen');
-                // Intentem forçar que no hi hagi sandboxes estrictes del navegador
                 iframe.removeAttribute('sandbox');
                 
                 container.appendChild(iframe);
@@ -140,11 +126,8 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
         }
 
         function closePlayer() {
-            // Destruïm l'iframe completament per frenar tots els processos de fons (anuncis, chatango, etc.)
             document.getElementById('videoContainer').innerHTML = ''; 
             document.getElementById('playerModal').style.display = 'none';
-            
-            // Tornem a dibuixar la interfície web
             document.getElementById('main-ui').style.display = 'block';
             document.body.style.overflow = ''; 
         }
@@ -165,19 +148,6 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
 
 def log(msg): sys.stderr.write(f"[LOG] {msg}\n")
 
-def get_working_daddy_domain(scraper):
-    log("Verificant dominis mirall de DaddyLive...")
-    for dom in DADDY_DOMAINS:
-        try:
-            resp = scraper.get(dom, timeout=5)
-            if resp.status_code == 200:
-                log(f"✅ Domini actiu seleccionat: {dom}")
-                return dom
-        except:
-            pass
-    log("⚠️ Cap domini principal respon. S'utilitzarà el domini per defecte.")
-    return DADDY_DOMAINS[0]
-
 def parse_date(date_str):
     if not date_str: return None
     clean_str = date_str.replace('T', ' ')[:16]
@@ -195,7 +165,7 @@ def get_nba_logo(team_name):
 def get_sport_name(key):
     names = { 
         "Soccer": "FUTBOL ⚽", "Football": "FUTBOL ⚽", "Basketball": "BÀSQUET 🏀", "NBA": "BÀSQUET 🏀", 
-        "NBA Replays 🏀": "NBA REPLAYS 🏀", "Canals 24/7 📺": "CANALS EN DIRECTE 📺"
+        "NBA Replays 🏀": "NBA REPLAYS 🏀"
     }
     return names.get(key, key.upper())
 
@@ -207,17 +177,59 @@ def clean_string(text):
     return "".join(e for e in cleaned if e.isalnum())
 
 def are_duplicates(m1, m2):
-    if m1.get('provider') in ['NBA_REPLAY', 'DADDY_TV'] or m2.get('provider') in ['NBA_REPLAY', 'DADDY_TV']:
+    if m1.get('provider') in ['NBA_REPLAY'] or m2.get('provider') in ['NBA_REPLAY']:
         return m1.get('provider') == m2.get('provider') and m1.get('homeTeam') == m2.get('homeTeam')
     
     t1, t2 = parse_date(m1.get('start_raw')), parse_date(m2.get('start_raw'))
     if t1 and t2:
-        if abs((t1 - t2).total_seconds()) / 3600 > 2.0: return False
+        # Augmentem el marge de 2 a 4 hores. Evita duplicats en partits llargs (NBA/Futbol) 
+        # quan LiveTV sobrescriu l'hora amb l'hora actual de l'scraping.
+        if abs((t1 - t2).total_seconds()) / 3600 > 4.0: return False
     else: return False
 
-    s1 = clean_string(m1.get('homeTeam', '') + m1.get('awayTeam', ''))
-    s2 = clean_string(m2.get('homeTeam', '') + m2.get('awayTeam', ''))
-    return SequenceMatcher(None, s1, s2).ratio() > 0.6
+    # Netegem els noms però SENSE alterar l'ordre alfabèticament
+    t1_m1 = clean_string(m1.get('homeTeam', ''))
+    t2_m1 = clean_string(m1.get('awayTeam', ''))
+    
+    t1_m2 = clean_string(m2.get('homeTeam', ''))
+    t2_m2 = clean_string(m2.get('awayTeam', ''))
+    
+    # Comprovem l'ordre natural i l'ordre capgirat (creuat)
+    score_direct = SequenceMatcher(None, t1_m1+t2_m1, t1_m2+t2_m2).ratio()
+    score_crossed = SequenceMatcher(None, t1_m1+t2_m1, t2_m2+t1_m2).ratio()
+    
+    # Ens quedem amb la millor puntuació de les dues
+    return max(score_direct, score_crossed) > 0.65
+
+def fetch_cdn_live():
+    matches = []
+    log("Buscant partits en directe a la CDN...")
+    if not API_URL_CDN: 
+        log("❌ ERROR: La URL de la CDN està buida a les variables d'entorn!")
+        return matches
+        
+    try:
+        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
+        resp = scraper.get(API_URL_CDN, headers={"Referer": "https://cdn-live.tv/"}, timeout=15)
+        
+        if resp.status_code == 200:
+            data = resp.json()
+            events_dict = data.get("cdn-live-tv") or data
+            
+            for sport, event_list in events_dict.items():
+                if isinstance(event_list, list):
+                    for m in event_list:
+                        m['start_raw'] = m.get('start', '')
+                        m.update({'custom_sport_cat': sport, 'provider': 'CDN'})
+                        matches.append(m)
+            
+            log(f"✅ S'han trobat {len(matches)} partits a la CDN de diferents esports.")
+        else:
+            log(f"❌ ERROR: La CDN ha rebutjat la connexió. Codi HTTP: {resp.status_code}")
+    except Exception as e:
+        log(f"❌ Error greu llegint la API de CDN: {e}")
+        
+    return matches
 
 def fetch_ppv_to(scraper):
     matches = []
@@ -247,86 +259,160 @@ def fetch_ppv_to(scraper):
     except Exception as e: log(f"❌ Error PPV.to: {e}")
     return matches
 
-def fetch_daddylive_events(scraper, base_domain):
-    matches = []
-    log("Buscant partits en directe a DaddyLive (tv2.json)...")
+def processar_partit_livetv(item, scraper):
+    url_partit, text, esport = item
     try:
-        resp = scraper.get(f"{base_domain}/cache/tv2/tv2.json", timeout=15)
-        if resp.status_code == 200:
-            data = resp.json()
-            now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
-            avui_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        r_ev = scraper.get(url_partit, timeout=8)
+        art_soup = BeautifulSoup(r_ev.text, 'html.parser')
+        
+        canals_formatats = []
+        c = 1
+        urls_processades = set()
+        
+        mapa_banderes_linkflag = {
+            "1": "ru", "2": "gb", "3": "ua", "4": "nl", "5": "sa", 
+            "7": "es", "8": "pl", "9": "pt", "10": "tr", "11": "fr", 
+            "12": "it", "13": "de", "16": "bg", "17": "rs", "21": "fi", 
+            "22": "se", "23": "az", "28": "gr", "29": "hr"
+        }
+        
+        for a in art_soup.find_all('a', href=True):
+            href = a['href']
             
-            for main_category, sub_data in data.items():
-                if not isinstance(sub_data, dict): continue
-                for sub_category, events_list in sub_data.items():
-                    if not isinstance(events_list, list): continue
+            if any(x in href for x in ['webplayer', 'embed', 'alieztv', 'bintvs']):
+                if 'acestream' in href.lower(): continue
+                
+                clean_link = href if href.startswith('http') else f"https:{href}"
+                if clean_link in urls_processades: continue
+                urls_processades.add(clean_link)
+                
+                lang_code = 'un' 
+                
+                # Millora: Busquem la bandera a la fila mare sencera en lloc de només l'element previ
+                parent_row = a.find_parent('tr')
+                img_tag = None
+                
+                if parent_row:
+                    img_tag = parent_row.find('img', src=re.compile(r'/img/linkflag/|/fl/'))
+                
+                # Si no la troba a la fila, fa l'intent de l'element previ per si de cas
+                if not img_tag:
+                    img_tag = a.find_previous('img')
                     
-                    for ev in events_list:
-                        event_text = ev.get('event', '')
-                        if ' vs ' not in event_text.lower() and ' vs. ' not in event_text.lower(): continue
-                        
-                        esport = "Other"
-                        if 'football' in event_text.lower() or 'soccer' in event_text.lower(): esport = "Soccer"
-                        elif 'basketball' in event_text.lower() or 'nba' in event_text.lower(): esport = "NBA"
-                        if esport not in ["Soccer", "NBA"]: continue
+                if img_tag and img_tag.get('src'):
+                    src_img = img_tag['src']
+                    
+                    if '/linkflag/' in src_img:
+                        match_linkflag = re.search(r'/img/linkflag/(\d+)\.png', src_img)
+                        if match_linkflag:
+                            id_bandera = match_linkflag.group(1)
+                            lang_code = mapa_banderes_linkflag.get(id_bandera, "un")
                             
-                        noms_equips = event_text.split(' : ')[-1].strip() if ' : ' in event_text else event_text
-                        equips = noms_equips.split(' vs ') if ' vs ' in noms_equips else noms_equips.split(' vs. ')
-                        if len(equips) < 2: continue
-                        
-                        home, away = equips[0].strip(), equips[1].strip()
-                        
-                        canals_formatats = []
-                        for i, ch in enumerate(ev.get('channels', [])):
-                            c_name = ch.get('channel_name', f"Opció {i+1}")
-                            c_id = ch.get('channel_id', '')
-                            if c_id:
-                                url_embed = f"{base_domain}/embed/stream.php?id={c_id}&player=1&source=tv2"
-                                canals_formatats.append({
-                                    'channel_name': f"DaddyLive {c_name.replace('Link -', '').strip()}",
-                                    'url': url_embed, 'channel_code': 'us'
-                                })
-                                
-                        if canals_formatats:
-                            temps_raw = ev.get('time', 'Live')
-                            status = 'live' if 'live' in temps_raw.lower() else 'upcoming'
-                            start_real = now_str if status == 'live' else f"{avui_str} {temps_raw}"
-                            start_display = "EN DIRECTE 🟢" if status == 'live' else temps_raw
-                            
-                            matches.append({
-                                'custom_sport_cat': esport, 'homeTeam': home, 'awayTeam': away,
-                                'start': start_display, 'start_raw': start_real, 'status': status,
-                                'provider': 'DADDYLIVE_EVENTS',
-                                'channels': canals_formatats
-                            })
-            log(f"✅ S'han trobat {len(matches)} partits esportius a DaddyLive.")
-    except Exception as e: log(f"❌ Error a DaddyLive Events: {e}")
-    return matches
-
-def fetch_daddylive_channels(scraper, base_domain):
-    matches = []
-    log("Buscant canals 24/7 (via guia d'IDs)...")
-    try:
-        resp = scraper.get("https://lmao.love/channels/index.json", timeout=15)
-        if resp.status_code == 200:
-            data = resp.json()
-            canals_trobats = []
-            if isinstance(data, dict):
-                for cid, name in data.items():
-                    if any(d.lower() in name.lower() for d in CANALS_DESITJATS):
-                        nom_net = name.replace(" Spain", "").replace(" (TDP)", "").strip()
-                        url_final = f"{base_domain}/embed/stream.php?id={cid}&player=1&source=tv"
-                        canals_trobats.append({'channel_name': nom_net, 'url': url_final, 'channel_code': 'es'})
-            if canals_trobats:
-                now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
-                matches.append({
-                    'custom_sport_cat': 'Canals 24/7 📺', 'homeTeam': "Televisió en Directe", 'awayTeam': "Graella Premium", 
-                    'start': "Sempre Actiu 🟢", 'start_raw': now, 'status': 'live', 
-                    'provider': 'DADDY_TV', 'channels': canals_trobats
+                    elif '/fl/' in src_img:
+                        match_fl = re.search(r'/fl/([a-z]{2,3})\.gif', src_img)
+                        if match_fl:
+                            l = match_fl.group(1)
+                            map_flags_antic = {
+                                'en': 'gb', 'sp': 'es', 'ru': 'ru', 'rs': 'rs', 
+                                'bg': 'bg', 'fr': 'fr', 'de': 'de', 'it': 'it', 
+                                'pt': 'pt', 'nl': 'nl', 'pl': 'pl', 'ro': 'ro', 
+                                'tr': 'tr', 'gr': 'gr', 'cz': 'cz', 'hr': 'hr', 
+                                'ar': 'ar', 'ua': 'ua'
+                            }
+                            lang_code = map_flags_antic.get(l, l)
+                
+                nom_canal = "Opció"
+                if 'alieztv' in clean_link: nom_canal = "AliezTV"
+                elif 'ifr' in clean_link: nom_canal = "Live Stream"
+                elif 'bintvs' in clean_link: nom_canal = "BinTVs"
+                
+                canals_formatats.append({
+                    'channel_name': f"LiveTV ({nom_canal} {c})", 
+                    'url': clean_link, 
+                    'channel_code': lang_code
                 })
-                log(f"✅ S'han integrat {len(canals_trobats)} canals 24/7 a la web.")
-    except Exception as e: log(f"❌ Error als Canals 24/7: {e}")
+                c += 1
+                
+        if canals_formatats:
+            return (text, esport, canals_formatats)
+    except: pass
+    return None
+
+def fetch_livetv(scraper):
+    matches = []
+    log("Buscant partits en paral·lel a LiveTV.sx (Filtre Futbol/Bàsquet)...")
+    LIVETV_DOMAINS = ["https://livetv.sx/enx", "https://livetv873.me/enx", "https://livetv740.me/enx"]
+    
+    domini = None
+    html = ""
+    for dom in LIVETV_DOMAINS:
+        try:
+            r = scraper.get(dom, timeout=10)
+            if r.status_code == 200:
+                domini = dom
+                html = r.text
+                break
+        except: pass
+        
+    if not domini:
+        log("❌ No s'ha pogut connectar a LiveTV.")
+        return matches
+
+    soup = BeautifulSoup(html, 'html.parser')
+    partits_links = soup.find_all('a', href=re.compile(r'/eventinfo/'))
+    
+    links_a_processar = []
+    urls_vistes = set()
+    bad_words = ['hockey', 'tennis', 'volleyball', 'handball', 'table tennis', 'snooker', 'darts', 'rugby', 'cricket', 'futsal', 'badminton', 'ahl', 'atp', 'wta', 'nfl', 'mlb']
+    
+    for a in partits_links:
+        text = a.text.strip()
+        if text and (' - ' in text or ' – ' in text):
+            url_partit = a['href'] if a['href'].startswith('http') else f"{domini.replace('/enx', '')}{a['href']}"
+            
+            if url_partit in urls_vistes: continue
+            
+            esport = None
+            img = a.find_previous('img')
+            if img and img.get('src'):
+                if '1.gif' in img['src'] or 'soccer' in img.get('title', '').lower(): esport = 'Soccer'
+                elif '3.gif' in img['src'] or 'basket' in img.get('title', '').lower(): esport = 'NBA'
+            
+            if not esport:
+                text_lower = text.lower()
+                parent_text = a.parent.text.lower() if a.parent else ""
+                if any(bw in text_lower or bw in parent_text for bw in bad_words):
+                    continue
+                is_nba = any(nba_t in text_lower for nba_t in NBA_LOGOS.keys())
+                esport = 'NBA' if is_nba else 'Soccer' 
+
+            links_a_processar.append((url_partit, text, esport))
+            urls_vistes.add(url_partit)
+
+    links_a_processar = links_a_processar[:35]
+    log(f"🔎 Processant {len(links_a_processar)} partits amb exploració de banderes...")
+    
+    now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
+    
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        futures = [executor.submit(processar_partit_livetv, item, scraper) for item in links_a_processar]
+        resultats = [f.result() for f in concurrent.futures.as_completed(futures)]
+        
+    for res in resultats:
+        if res:
+            text, esport, channels = res
+            sep = ' – ' if ' – ' in text else ' - '
+            parts = text.split(sep, 1)
+            home = parts[0].strip()
+            away = parts[1].strip() if len(parts) > 1 else "Unknown"
+            
+            matches.append({
+                'custom_sport_cat': esport, 'homeTeam': home, 'awayTeam': away,
+                'start': "EN DIRECTE 🟢", 'start_raw': now_str, 'status': 'live',
+                'provider': 'LIVETV', 'channels': channels
+            })
+            
+    log(f"✅ S'han extret amb èxit {len(matches)} partits de LiveTV.")
     return matches
 
 def fetch_nba_replays(scraper, memory_matches):
@@ -340,7 +426,7 @@ def fetch_nba_replays(scraper, memory_matches):
         partits_a_visitar = []
         for a in soup.find_all('a', href=True):
             link = a['href']
-            if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower():
+            if 'replay' in link.lower() or 'full-game' in link.lower():
                 title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
                 
                 t_low = title.lower()
@@ -395,7 +481,7 @@ def fetch_nba_replays(scraper, memory_matches):
                         'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels
                     })
             except: pass
-        log(f"✅ S'han trobat {len(matches)} repeticions NBA.")
+        log(f"✅ S'han trobat {len(matches)} repeticions NBA netes.")
     except Exception as e: log(f"❌ Error NBA: {e}")
     return matches
 
@@ -415,14 +501,14 @@ def main():
         memory = load_memory()
         
         scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
-        daddy_domain = get_working_daddy_domain(scraper)
         
-        daddy_events = fetch_daddylive_events(scraper, daddy_domain)
-        daddy_channels = fetch_daddylive_channels(scraper, daddy_domain)
+        # Recuperem totes les fonts: CDN + PPV + LiveTV + NBA Replays
+        cdn_events = fetch_cdn_live()
         ppv_events = fetch_ppv_to(scraper)
+        livetv_events = fetch_livetv(scraper)
         nba_replays = fetch_nba_replays(scraper, list(memory.values()))
         
-        all_raw = list(memory.values()) + ppv_events + daddy_events + daddy_channels + nba_replays
+        all_raw = list(memory.values()) + cdn_events + ppv_events + livetv_events + nba_replays
         unique = {}
 
         for match in all_raw:
@@ -451,9 +537,9 @@ def main():
             diff = (now_utc - dt).total_seconds() / 3600
             
             limit = 96.0 if m.get('provider') == 'NBA_REPLAY' else 5.0
-            if m.get('provider') == 'DADDY_TV' or diff < limit:
+            if diff < limit:
                 clean_mem[gid] = m
-                if m.get('provider') == 'DADDY_TV' or diff < 4.0 or m.get('provider') == 'NBA_REPLAY':
+                if diff < 4.0 or m.get('provider') == 'NBA_REPLAY':
                     display.append(m)
 
         save_memory(clean_mem)
@@ -465,7 +551,7 @@ def main():
             cats[c].append(m)
 
         navbar, content = '<a href="#" class="nav-btn active">Inici</a>', ""
-        order_weights = {'Soccer': 1, 'NBA': 2, 'NBA Replays 🏀': 3, 'Canals 24/7 📺': 4}
+        order_weights = {'Soccer': 1, 'NBA': 2, 'NBA Replays 🏀': 3}
         order = sorted(cats.keys(), key=lambda x: order_weights.get(x, 99))
         
         for sport in order:
@@ -477,7 +563,8 @@ def main():
                 btns = ""
                 for ch in m.get('channels', []):
                     b64 = base64.b64encode(ch["url"].encode()).decode()
-                    flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img"> ' if 'channel_code' in ch else ''
+                    # Afegeixo l'atribut onerror com tenies a la part bona del codi per ocultar banderes trencades
+                    flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img" onerror="this.style.display=\'none\'"> ' if 'channel_code' in ch else ''
                     btns += f'<div class="btn" data-link="{b64}" onclick="openLink(this)">{flag}{ch["channel_name"]}</div>'
                 
                 is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
@@ -495,4 +582,5 @@ def main():
 
     except Exception as e: log(f"CRITICAL ERROR: {e}")
 
-if __name__ == "__main__": main()
+if __name__ == "__main__": 
+    main()

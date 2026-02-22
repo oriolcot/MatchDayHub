@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
     "5771768085226059414": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Cleveland Cavaliers",
@@ -32,60 +33,220 @@
         ]
     },
     "4973316268443007743": {
+=======
+    "8264586557153379239": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Brooklyn Nets",
         "awayTeam": "Atlanta Hawks",
         "start": "2026-02-22 20:30",
         "start_raw": "2026-02-22 20:30",
-        "status": "upcoming",
+        "status": "live",
         "provider": "PPV",
         "channels": [
             {
                 "channel_name": "PPV Stream",
                 "url": "https://embed.ppv.to/embed/nba/2026-02-22/bkn-atl",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661175&lang=en&eid=341792244&lid=2661175&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661174&lang=en&eid=341792244&lid=2661174&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2958832&lang=en&eid=341792244&lid=2958832&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2957476&lang=en&eid=341792244&lid=2957476&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2957491&lang=en&eid=341792244&lid=2957491&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960194&lang=en&eid=341792244&lid=2960194&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959587&lang=en&eid=341792244&lid=2959587&ci=3&si=3",
+                "channel_code": "gb"
             }
         ]
     },
+<<<<<<< Updated upstream
     "803501549156479458": {
+=======
+    "3738340786969477035": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Toronto Raptors",
         "awayTeam": "Milwaukee Bucks",
         "start": "2026-02-22 20:30",
         "start_raw": "2026-02-22 20:30",
-        "status": "upcoming",
+        "status": "live",
         "provider": "PPV",
         "channels": [
             {
                 "channel_name": "PPV Stream",
                 "url": "https://embed.ppv.to/embed/nba/2026-02-22/tor-mil",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661170&lang=en&eid=341792242&lid=2661170&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661171&lang=en&eid=341792242&lid=2661171&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2958347&lang=en&eid=341792242&lid=2958347&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2957478&lang=en&eid=341792242&lid=2957478&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2949353&lang=en&eid=341792242&lid=2949353&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960192&lang=en&eid=341792242&lid=2960192&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959590&lang=en&eid=341792242&lid=2959590&ci=3&si=3",
+                "channel_code": "gb"
             }
         ]
     },
+<<<<<<< Updated upstream
     "3414956769124571737": {
+=======
+    "7956419353719137435": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Denver Nuggets",
         "awayTeam": "Golden State Warriors",
         "start": "2026-02-22 20:30",
         "start_raw": "2026-02-22 20:30",
-        "status": "upcoming",
+        "status": "live",
         "provider": "PPV",
         "channels": [
             {
                 "channel_name": "PPV Stream",
                 "url": "https://embed.ppv.to/embed/nba/2026-02-22/den-gs",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241816&lang=en&eid=341792243&lid=2822880&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661172&lang=en&eid=341792243&lid=2661172&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661173&lang=en&eid=341792243&lid=2661173&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2956484&lang=en&eid=341792243&lid=2956484&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2958680&lang=en&eid=341792243&lid=2958680&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2957479&lang=en&eid=341792243&lid=2957479&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960193&lang=en&eid=341792243&lid=2960193&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 8)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242749&lang=en&eid=341792243&lid=2820618&ci=3&si=3",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 9)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247737&lang=en&eid=341792243&lid=2955464&ci=3&si=3",
+                "channel_code": "nl"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 10)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248613&lang=en&eid=341792243&lid=2950562&ci=3&si=3",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 11)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248660&lang=en&eid=341792243&lid=2951245&ci=3&si=3",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 12)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249029&lang=en&eid=341792243&lid=2956095&ci=3&si=3",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 13)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241480&lang=en&eid=341792243&lid=2958867&ci=3&si=3",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 14)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241815&lang=en&eid=341792243&lid=2958869&ci=3&si=3",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 15)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959588&lang=en&eid=341792243&lid=2959588&ci=3&si=3",
+                "channel_code": "de"
             }
         ]
     },
+<<<<<<< Updated upstream
     "1442883598666966396": {
+=======
+    "9067635474739880384": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Iowa Hawkeyes",
         "awayTeam": "Wisconsin Badgers",
         "start": "2026-02-22 21:00",
         "start_raw": "2026-02-22 21:00",
-        "status": "upcoming",
+        "status": "live",
         "provider": "PPV",
         "channels": [
             {
@@ -95,13 +256,17 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "227957807350232718": {
+=======
+    "865028600627007328": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Dallas Mavericks",
         "awayTeam": "Indiana Pacers",
         "start": "2026-02-22 22:00",
         "start_raw": "2026-02-22 22:00",
-        "status": "upcoming",
+        "status": "live",
         "provider": "PPV",
         "channels": [
             {
@@ -111,7 +276,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "969792267799799241": {
+=======
+    "1439913022265926177": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Charlotte Hornets",
         "awayTeam": "Washington Wizards",
@@ -127,7 +296,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "5559237773869093579": {
+=======
+    "4750416530508136833": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Boston Celtics",
         "awayTeam": "Los Angeles Lakers",
@@ -143,7 +316,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "9041509516267858687": {
+=======
+    "6398604835128239426": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Philadelphia 76ers",
         "awayTeam": "Minnesota Timberwolves",
@@ -159,7 +336,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "4835221460253014961": {
+=======
+    "1898374478116191170": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "New York Knicks",
         "awayTeam": "Chicago Bulls",
@@ -175,7 +356,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "2695303276068473103": {
+=======
+    "4627469555913463194": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Portland Trail Blazers",
         "awayTeam": "Phoenix Suns",
@@ -191,7 +376,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "393466778866549369": {
+=======
+    "7005842973274423498": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA",
         "homeTeam": "Orlando Magic",
         "awayTeam": "LA Clippers",
@@ -207,6 +396,7 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "8080252777327677231": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Angers",
@@ -586,12 +776,15 @@
         ]
     },
     "8183302989355033208": {
+=======
+    "6539448060593035399": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "Soccer",
         "homeTeam": "AS Roma",
         "awayTeam": "Cremonese",
         "start": "2026-02-22 19:45",
         "start_raw": "2026-02-22 19:45",
-        "status": "upcoming",
+        "status": "live",
         "provider": "PPV",
         "channels": [
             {
@@ -641,13 +834,17 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "1309240488756411112": {
+=======
+    "6179921469910555741": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "Soccer",
         "homeTeam": "Strasbourg",
         "awayTeam": "Lyon",
         "start": "2026-02-22 19:45",
         "start_raw": "2026-02-22 19:45",
-        "status": "upcoming",
+        "status": "live",
         "provider": "PPV",
         "channels": [
             {
@@ -687,13 +884,17 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "2417631528152663900": {
+=======
+    "3062722900904023211": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "Soccer",
         "homeTeam": "Villarreal",
         "awayTeam": "Valencia",
         "start": "2026-02-22 20:00",
         "start_raw": "2026-02-22 20:00",
-        "status": "upcoming",
+        "status": "live",
         "provider": "PPV",
         "channels": [
             {
@@ -702,6 +903,7 @@
                 "channel_code": "us"
             },
             {
+<<<<<<< Updated upstream
                 "channel_name": "DaddyLive 1",
                 "url": "https://daddylive.cv/embed/stream.php?id=admin/ppv-villarreal-vs-valencia/1&player=1&source=tv2",
                 "channel_code": "us"
@@ -739,6 +941,130 @@
         ]
     },
     "3551992742474995178": {
+=======
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242325&lang=en&eid=341780714&lid=2812095&ci=15&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2666844&lang=en&eid=341780714&lid=2666844&ci=15&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959076&lang=en&eid=341780714&lid=2959076&ci=15&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959328&lang=en&eid=341780714&lid=2959328&ci=15&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959077&lang=en&eid=341780714&lid=2959077&ci=15&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2915160&lang=en&eid=341780714&lid=2915160&ci=15&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2918404&lang=en&eid=341780714&lid=2918404&ci=15&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 8)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247665&lang=en&eid=341780714&lid=2945117&ci=15&si=1",
+                "channel_code": "gr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 9)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248395&lang=en&eid=341780714&lid=2950191&ci=15&si=1",
+                "channel_code": "nl"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 10)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248607&lang=en&eid=341780714&lid=2950560&ci=15&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 11)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248608&lang=en&eid=341780714&lid=2951486&ci=15&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 12)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248819&lang=en&eid=341780714&lid=2951157&ci=15&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 13)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249026&lang=en&eid=341780714&lid=2955419&ci=15&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 14)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249094&lang=en&eid=341780714&lid=2959914&ci=15&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 15)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237150&lang=en&eid=341780714&lid=2940372&ci=15&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 16)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242315&lang=en&eid=341780714&lid=2956102&ci=15&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 17)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242326&lang=en&eid=341780714&lid=2956103&ci=15&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 18)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661247&lang=en&eid=341780714&lid=2661247&ci=15&si=1",
+                "channel_code": "es"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 19)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2956492&lang=en&eid=341780714&lid=2956492&ci=15&si=1",
+                "channel_code": "es"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 20)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2958352&lang=en&eid=341780714&lid=2958352&ci=15&si=1",
+                "channel_code": "es"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 21)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2918405&lang=en&eid=341780714&lid=2918405&ci=15&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 22)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960262&lang=en&eid=341780714&lid=2960262&ci=15&si=1",
+                "channel_code": "es"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 23)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959624&lang=en&eid=341780714&lid=2959624&ci=15&si=1",
+                "channel_code": "es"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 24)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959612&lang=en&eid=341780714&lid=2959612&ci=15&si=1",
+                "channel_code": "es"
+            }
+        ]
+    },
+    "5604765713732659774": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "Soccer",
         "homeTeam": "Fiorentina",
         "awayTeam": "Pisa",
@@ -754,7 +1080,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "2638059099974335209": {
+=======
+    "5396115729723159489": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "Soccer",
         "homeTeam": "Bologna",
         "awayTeam": "Udinese",
@@ -770,7 +1100,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "4532646105400868627": {
+=======
+    "6624323405831591144": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "Soccer",
         "homeTeam": "Alav\u00e9s",
         "awayTeam": "Girona",
@@ -786,7 +1120,11 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "2813069023706301080": {
+=======
+    "6895324758468340667": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "Soccer",
         "homeTeam": "Everton",
         "awayTeam": "Manchester United",
@@ -802,184 +1140,349 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "7761196628145737746": {
+=======
+    "1847339880038927595": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "Soccer",
-        "homeTeam": "Barcelona",
-        "awayTeam": "Levante",
+        "homeTeam": "JF Volei",
+        "awayTeam": "SESI Bauru",
         "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-02-22 17:56",
+        "start_raw": "2026-02-22 22:03",
         "status": "live",
-        "provider": "DADDYLIVE_EVENTS",
+        "provider": "LIVETV",
         "channels": [
             {
-                "channel_name": "DaddyLive 1",
-                "url": "https://daddylive.cv/embed/stream.php?id=admin/ppv-barcelona-vs-levante/1&player=1&source=tv2",
-                "channel_code": "us"
-            },
-            {
-                "channel_name": "DaddyLive 2",
-                "url": "https://daddylive.cv/embed/stream.php?id=admin/ppv-barcelona-vs-levante/2&player=1&source=tv2",
-                "channel_code": "us"
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=XFVpyY6_kDc&lang=en&eid=341799928&lid=2960290&ci=1008&si=5",
+                "channel_code": "pt"
             }
         ]
     },
+<<<<<<< Updated upstream
     "8087999337056621540": {
         "custom_sport_cat": "Canals 24/7 \ud83d\udcfa",
         "homeTeam": "Televisi\u00f3 en Directe",
         "awayTeam": "Graella Premium",
         "start": "Sempre Actiu \ud83d\udfe2",
         "start_raw": "2026-02-22 17:56",
+=======
+    "4569437882074171783": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Velez Sarsfield",
+        "awayTeam": "River Plate",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+>>>>>>> Stashed changes
         "status": "live",
-        "provider": "DADDY_TV",
+        "provider": "LIVETV",
         "channels": [
             {
-                "channel_name": "Antena 3",
-                "url": "https://daddylive.cv/embed/stream.php?id=531&player=1&source=tv",
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=246089&lang=en&eid=341809189&lid=2930491&ci=16&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242327&lang=en&eid=341809189&lid=2956104&ci=16&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242328&lang=en&eid=341809189&lid=2956105&ci=16&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 4)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242346&lang=en&eid=341809189&lid=2956106&ci=16&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2958390&lang=en&eid=341809189&lid=2958390&ci=16&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2957058&lang=en&eid=341809189&lid=2957058&ci=16&si=1",
                 "channel_code": "es"
             },
             {
-                "channel_name": "Barca TV",
-                "url": "https://daddylive.cv/embed/stream.php?id=522&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Cuatro",
-                "url": "https://daddylive.cv/embed/stream.php?id=535&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "DAZN 1",
-                "url": "https://daddylive.cv/embed/stream.php?id=445&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "DAZN 2",
-                "url": "https://daddylive.cv/embed/stream.php?id=446&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "DAZN 3",
-                "url": "https://daddylive.cv/embed/stream.php?id=447&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "DAZN 4",
-                "url": "https://daddylive.cv/embed/stream.php?id=448&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "DAZN F1 ES",
-                "url": "https://daddylive.cv/embed/stream.php?id=537&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "DAZN LaLiga",
-                "url": "https://daddylive.cv/embed/stream.php?id=538&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "DAZN LaLiga 2",
-                "url": "https://daddylive.cv/embed/stream.php?id=43&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "EuroSport 1",
-                "url": "https://daddylive.cv/embed/stream.php?id=524&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "EuroSport 2",
-                "url": "https://daddylive.cv/embed/stream.php?id=525&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "GOL PLAY",
-                "url": "https://daddylive.cv/embed/stream.php?id=530&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "La Sexta",
-                "url": "https://daddylive.cv/embed/stream.php?id=534&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "LALIGA TV Hypermotion",
-                "url": "https://daddylive.cv/embed/stream.php?id=539&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Movistar Deportes 2",
-                "url": "https://daddylive.cv/embed/stream.php?id=438&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Movistar Deportes 3",
-                "url": "https://daddylive.cv/embed/stream.php?id=526&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Movistar Deportes 4",
-                "url": "https://daddylive.cv/embed/stream.php?id=527&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Movistar Deportes",
-                "url": "https://daddylive.cv/embed/stream.php?id=436&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Movistar Golf",
-                "url": "https://daddylive.cv/embed/stream.php?id=528&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Movistar Laliga",
-                "url": "https://daddylive.cv/embed/stream.php?id=84&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Movistar Liga de Campeones",
-                "url": "https://daddylive.cv/embed/stream.php?id=435&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Movistar Plus+",
-                "url": "https://daddylive.cv/embed/stream.php?id=437&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Real Madrid TV",
-                "url": "https://daddylive.cv/embed/stream.php?id=523&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Telecinco",
-                "url": "https://daddylive.cv/embed/stream.php?id=532&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "Teledeporte",
-                "url": "https://daddylive.cv/embed/stream.php?id=529&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "TVE La 1",
-                "url": "https://daddylive.cv/embed/stream.php?id=533&player=1&source=tv",
-                "channel_code": "es"
-            },
-            {
-                "channel_name": "TVE La 2",
-                "url": "https://daddylive.cv/embed/stream.php?id=536&player=1&source=tv",
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959632&lang=en&eid=341809189&lid=2959632&ci=16&si=1",
                 "channel_code": "es"
             }
         ]
     },
+<<<<<<< Updated upstream
     "2709702670391723818": {
+=======
+    "6404416872282208698": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Porto",
+        "awayTeam": "Rio Ave",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241822&lang=en&eid=341792545&lid=2958865&ci=28&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248395&lang=en&eid=341792545&lid=2950191&ci=28&si=1",
+                "channel_code": "nl"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248601&lang=en&eid=341792545&lid=2950554&ci=28&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 4)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248643&lang=en&eid=341792545&lid=2950662&ci=28&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 5)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248662&lang=en&eid=341792545&lid=2951592&ci=28&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 6)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248740&lang=en&eid=341792545&lid=2950843&ci=28&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 7)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248794&lang=en&eid=341792545&lid=2959912&ci=28&si=1",
+                "channel_code": "hr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 8)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248978&lang=en&eid=341792545&lid=2959962&ci=28&si=1",
+                "channel_code": "tr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 9)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=227655&lang=en&eid=341792545&lid=2959145&ci=28&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 10)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237230&lang=en&eid=341792545&lid=2956253&ci=28&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 11)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241821&lang=en&eid=341792545&lid=2958864&ci=28&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 12)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242262&lang=en&eid=341792545&lid=2814483&ci=28&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 13)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2662574&lang=en&eid=341792545&lid=2662574&ci=28&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 14)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2957496&lang=en&eid=341792545&lid=2957496&ci=28&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 15)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2958298&lang=en&eid=341792545&lid=2958298&ci=28&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 16)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2920160&lang=en&eid=341792545&lid=2920160&ci=28&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 17)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959605&lang=en&eid=341792545&lid=2959605&ci=28&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 18)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2958387&lang=en&eid=341792545&lid=2958387&ci=28&si=1",
+                "channel_code": "nl"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 19)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2927623&lang=en&eid=341792545&lid=2927623&ci=28&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 20)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2958333&lang=en&eid=341792545&lid=2958333&ci=28&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 21)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2916171&lang=en&eid=341792545&lid=2916171&ci=28&si=1",
+                "channel_code": "pt"
+            }
+        ]
+    },
+    "7771376068696562932": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Indiana",
+        "awayTeam": "Dallas",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247379&lang=en&eid=341820989&lid=2955066&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247489&lang=en&eid=341820989&lid=2955065&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247639&lang=en&eid=341820989&lid=2953904&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661176&lang=en&eid=341820989&lid=2661176&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661177&lang=en&eid=341820989&lid=2661177&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959589&lang=en&eid=341820989&lid=2959589&ci=3&si=3",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960203&lang=en&eid=341820989&lid=2960203&ci=3&si=3",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "2333600753145353728": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Chacarita Juniors",
+        "awayTeam": "Gimnasia de Jujuy",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960180&lang=en&eid=341779789&lid=2960180&ci=532&si=1",
+                "channel_code": "es"
+            }
+        ]
+    },
+    "7622492410776392102": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Almirante Brown",
+        "awayTeam": "All Boys",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960182&lang=en&eid=341779791&lid=2960182&ci=532&si=1",
+                "channel_code": "es"
+            }
+        ]
+    },
+    "6240842016307737566": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Al-Kahrabaa",
+        "awayTeam": "Amanat Baghdad",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=fnZywfHfzFc&lang=en&eid=344481240&lid=2960284&ci=2637&si=1",
+                "channel_code": "sa"
+            }
+        ]
+    },
+    "4784246323028649417": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Atletico Grau",
+        "awayTeam": "Juan Pablo II",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959525&lang=en&eid=341792379&lid=2959525&ci=110&si=1",
+                "channel_code": "es"
+            }
+        ]
+    },
+    "3074929358702960656": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Greenville Swamp",
+        "awayTeam": "Tulsa Oilers",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960190&lang=en&eid=344785267&lid=2960190&ci=1488&si=2",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "722592576005959497": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Delfin",
+        "awayTeam": "CD Cuenca",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-02-22 22:03",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960195&lang=en&eid=341963539&lid=2960195&ci=307&si=1",
+                "channel_code": "es"
+            }
+        ]
+    },
+    "8330755697822508621": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Houston Rockets",
         "awayTeam": "New York Knicks",
         "start": "\ud83d\udcfc REPLAY",
-        "start_raw": "2026-02-22 17:56",
+        "start_raw": "2026-02-22 22:03",
         "status": "vod",
         "provider": "NBA_REPLAY",
         "channels": [
@@ -1010,12 +1513,16 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "7557313723139211086": {
+=======
+    "8319458642615558402": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Sacramento Kings",
         "awayTeam": "San Antonio Spurs",
         "start": "\ud83d\udcfc REPLAY",
-        "start_raw": "2026-02-22 17:56",
+        "start_raw": "2026-02-22 22:03",
         "status": "vod",
         "provider": "NBA_REPLAY",
         "channels": [
@@ -1046,12 +1553,16 @@
             }
         ]
     },
+<<<<<<< Updated upstream
     "7805218843832287357": {
+=======
+    "4347308324442658104": {
+>>>>>>> Stashed changes
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Detroit Pistons",
         "awayTeam": "Chicago Bulls",
         "start": "\ud83d\udcfc REPLAY",
-        "start_raw": "2026-02-22 17:56",
+        "start_raw": "2026-02-22 22:03",
         "status": "vod",
         "provider": "NBA_REPLAY",
         "channels": [
@@ -1081,6 +1592,7 @@
                 "channel_code": "us"
             }
         ]
+<<<<<<< Updated upstream
     },
     "2611931802037359501": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
@@ -1581,5 +2093,7 @@
                 "channel_code": "us"
             }
         ]
+=======
+>>>>>>> Stashed changes
     }
 }
