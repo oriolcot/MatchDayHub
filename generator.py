@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 # Carregar les variables d'entorn per a la CDN
 load_dotenv()
 
+
 # --- CONFIGURACIÓ GLOBAL ---
 API_URL_PPV = "https://api.ppv.to/api/streams"
 API_URL_CDN = os.environ.get("API_URL")
