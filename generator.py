@@ -129,7 +129,9 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
 
         document.querySelectorAll('.utc-time').forEach(el => {
             const raw = el.getAttribute('data-ts');
-            if(raw && !raw.includes("Diferit") && !raw.includes("📼") && !raw.includes("Sempre Actiu")) {
+            const txt = el.innerText;
+            // Ignorem la conversió d'hora si és un Replay o un Canal 24/7
+            if(raw && !txt.includes("Diferit") && !txt.includes("📼") && !txt.includes("Sempre Actiu") && !txt.includes("EN DIRECTE")) {
                 try {
                     const d = new Date(raw.replace(' ', 'T')+'Z');
                     if(!isNaN(d.getTime())) el.innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
@@ -184,11 +186,9 @@ def clean_string(text):
     return "".join(e for e in cleaned if e.isalnum())
 
 def are_duplicates(m1, m2):
-    # NBA Replays i Canals només es comparen amb ells mateixos
     if m1.get('provider') in ['NBA_REPLAY', 'DADDY_TV'] or m2.get('provider') in ['NBA_REPLAY', 'DADDY_TV']:
         return m1.get('provider') == m2.get('provider') and m1.get('homeTeam') == m2.get('homeTeam')
     
-    # Diferència d'hora
     t1, t2 = parse_date(m1.get('start_raw')), parse_date(m2.get('start_raw'))
     if t1 and t2:
         if abs((t1 - t2).total_seconds()) / 3600 > 2.0: return False
@@ -261,7 +261,6 @@ def fetch_daddylive_events(scraper, base_domain):
                             c_name = ch.get('channel_name', f"Opció {i+1}")
                             c_id = ch.get('channel_id', '')
                             if c_id:
-                                # Events fan servir source=tv2 segons l'API
                                 url_embed = f"{base_domain}/embed/stream.php?id={c_id}&player=1&source=tv2"
                                 canals_formatats.append({
                                     'channel_name': f"DaddyLive {c_name.replace('Link -', '').strip()}",
@@ -288,7 +287,6 @@ def fetch_daddylive_channels(scraper, base_domain):
     matches = []
     log("Buscant canals 24/7 directament a DaddyLive...")
     try:
-        # Evitem cache del navegador
         cb = int(time.time() * 1000)
         resp = scraper.get(f"{base_domain}/cache/channels.json?v={cb}", timeout=15)
         if resp.status_code == 200:
@@ -298,7 +296,6 @@ def fetch_daddylive_channels(scraper, base_domain):
                 for cid, name in data.items():
                     if any(d.lower() in name.lower() for d in CANALS_DESITJATS):
                         nom_net = name.replace(" Spain", "").replace(" (TDP)", "").strip()
-                        # Canals regulars fan servir source=tv segons l'API
                         url_final = f"{base_domain}/embed/stream.php?id={cid}&player=1&source=tv"
                         canals_trobats.append({'channel_name': nom_net, 'url': url_final, 'channel_code': 'es'})
             if canals_trobats:
@@ -325,6 +322,12 @@ def fetch_nba_replays(scraper, memory_matches):
             link = a['href']
             if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower():
                 title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
+                
+                # --- FILTRE WNBA ---
+                t_low = title.lower()
+                if any(w in t_low for w in ['wnba', 'aces', 'mercury', 'liberty', 'sun', 'lynx', 'sky']):
+                    continue
+                
                 if ' vs ' in title.lower() or ' vs. ' in title.lower() or any(x in title.lower() for x in ['all star', 'rising stars']):
                     home_t = title.split(' Vs ')[0].strip() if ' Vs ' in title else title.split(' Full ')[0].strip()
                     if home_t not in partits_coneguts: partits_a_visitar.append((link, title))
@@ -346,9 +349,13 @@ def fetch_nba_replays(scraper, memory_matches):
                             except: pass
                         channels.append({'channel_name': la.text.strip() or "Veure", 'url': href, 'channel_code': 'us'})
                 if channels:
-                    matches.append({'custom_sport_cat': 'NBA Replays 🏀', 'homeTeam': title, 'awayTeam': "VOD", 'start': "📼 NBA REPLAY", 'start_raw': datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M"), 'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels})
+                    matches.append({
+                        'custom_sport_cat': 'NBA Replays 🏀', 'homeTeam': title, 'awayTeam': "VOD", 
+                        'start': "📼 REPLAY", 'start_raw': datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M"), 
+                        'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels
+                    })
             except: pass
-        log(f"✅ S'han trobat {len(matches)} repeticions NBA noves.")
+        log(f"✅ S'han trobat {len(matches)} repeticions NBA (Sense WNBA).")
     except Exception as e: log(f"❌ Error NBA: {e}")
     return matches
 
@@ -367,13 +374,9 @@ def main():
         sys.stdout.reconfigure(encoding='utf-8')
         memory = load_memory()
         
-        # Inicialitzem CloudScraper un sol cop
         scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
-        
-        # Trobem el domini de DaddyLive que estigui actiu avui
         daddy_domain = get_working_daddy_domain(scraper)
         
-        # Recollida massiva
         daddy_events = fetch_daddylive_events(scraper, daddy_domain)
         daddy_channels = fetch_daddylive_channels(scraper, daddy_domain)
         ppv_events = fetch_ppv_to(scraper)
@@ -436,8 +439,8 @@ def main():
                     flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img"> ' if 'channel_code' in ch else ''
                     btns += f'<div class="btn" data-link="{b64}" onclick="openLink(this)">{flag}{ch["channel_name"]}</div>'
                 
-                h_logo = f'<img src="{m.get("homeLogo")}" class="team-logo">' if m.get('homeLogo') else ''
-                a_logo = f'<img src="{m.get("awayLogo")}" class="team-logo">' if m.get('awayLogo') else ''
+                h_logo = f'<img src="{get_nba_logo(m["homeTeam"])}" class="team-logo" onerror="this.style.display=\'none\'">' if m.get('provider')=='NBA_REPLAY' else (f'<img src="{m.get("homeLogo")}" class="team-logo">' if m.get('homeLogo') else '')
+                a_logo = f'<img src="{get_nba_logo(m["awayTeam"])}" class="team-logo" onerror="this.style.display=\'none\'">' if m.get('provider')=='NBA_REPLAY' else (f'<img src="{m.get("awayLogo")}" class="team-logo">' if m.get('awayLogo') else '')
                 
                 content += f'<div class="card"><div class="header"><div class="meta"><span class="utc-time" data-ts="{m["start_raw"]}">{m["start"]}</span>{badge}</div><div class="match-info"><div class="teams">{h_logo} {m["homeTeam"]} <span class="versus">vs</span> {m["awayTeam"]} {a_logo}</div></div></div><div class="channels">{btns}</div></div>'
             content += "</div></div>"
