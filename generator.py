@@ -287,8 +287,6 @@ def fetch_daddylive_channels(scraper, base_domain):
     matches = []
     log("Buscant canals 24/7 (via guia d'IDs)...")
     try:
-        # Utilitzem l'API de lmao NOMÉS com a llibreta de contactes (perquè sabem que l'estructura no canvia)
-        # Però generem l'enllaç original de DaddyLive!
         resp = scraper.get("https://lmao.love/channels/index.json", timeout=15)
         if resp.status_code == 200:
             data = resp.json()
@@ -297,7 +295,6 @@ def fetch_daddylive_channels(scraper, base_domain):
                 for cid, name in data.items():
                     if any(d.lower() in name.lower() for d in CANALS_DESITJATS):
                         nom_net = name.replace(" Spain", "").replace(" (TDP)", "").strip()
-                        # Generem l'enllaç ofical de l'API de DaddyLive que obre el seu reproductor net
                         url_final = f"{base_domain}/embed/stream.php?id={cid}&player=1&source=tv"
                         canals_trobats.append({'channel_name': nom_net, 'url': url_final, 'channel_code': 'es'})
             if canals_trobats:
@@ -325,7 +322,6 @@ def fetch_nba_replays(scraper, memory_matches):
             if ('replay' in link.lower() or 'full-game' in link.lower()) and '/videos/' not in link.lower():
                 title = link.split('/')[-1].replace('.html', '').replace('-', ' ').title()
                 
-                # --- FILTRE WNBA / EXTRAR ---
                 t_low = title.lower()
                 if any(w in t_low for w in ['wnba', 'aces', 'mercury', 'liberty', 'sun', 'lynx', 'sky']): continue
                 
@@ -335,7 +331,6 @@ def fetch_nba_replays(scraper, memory_matches):
         
         for link, title in partits_a_visitar[:8]:
             try:
-                # Arreglem la separació del títol perquè surtin bé els logos
                 home = title
                 away = "VOD"
                 if ' Vs ' in title or ' vs ' in title.lower():
@@ -352,10 +347,9 @@ def fetch_nba_replays(scraper, memory_matches):
                 
                 for la in art_soup.find_all('a', href=True):
                     btn_text = la.text.strip()
-                    # Condició: Text curt (evitem el menú lateral) i paraula clau
                     if len(btn_text) < 25 and any(x in btn_text.lower() for x in ['watch', 'full game', 'part']):
                         href = la['href']
-                        if href.endswith('.html') and 'player' not in href: continue # Ignorem enllaços interns d'articles
+                        if href.endswith('.html') and 'player' not in href: continue 
                         
                         if not any(d in href.lower() for d in dominis_directes):
                             try:
@@ -450,7 +444,10 @@ def main():
             cats[c].append(m)
 
         navbar, content = '<a href="#" class="nav-btn active">Inici</a>', ""
-        order = sorted(cats.keys(), key=lambda x: (x=='Canals 24/7 📺', x=='NBA Replays 🏀', x))
+        
+        # --- ORDRE ESTRICTE DE LES SECCIONS ---
+        order_weights = {'Soccer': 1, 'NBA': 2, 'NBA Replays 🏀': 3, 'Canals 24/7 📺': 4}
+        order = sorted(cats.keys(), key=lambda x: order_weights.get(x, 99))
         
         for sport in order:
             nice = get_sport_name(sport)
@@ -464,8 +461,13 @@ def main():
                     flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img"> ' if 'channel_code' in ch else ''
                     btns += f'<div class="btn" data-link="{b64}" onclick="openLink(this)">{flag}{ch["channel_name"]}</div>'
                 
-                h_logo = f'<img src="{get_nba_logo(m["homeTeam"])}" class="team-logo" onerror="this.style.display=\'none\'">' if m.get('provider')=='NBA_REPLAY' else (f'<img src="{m.get("homeLogo")}" class="team-logo">' if m.get('homeLogo') else '')
-                a_logo = f'<img src="{get_nba_logo(m["awayTeam"])}" class="team-logo" onerror="this.style.display=\'none\'">' if m.get('provider')=='NBA_REPLAY' else (f'<img src="{m.get("awayLogo")}" class="team-logo">' if m.get('awayLogo') else '')
+                # --- LÒGICA DE LOGOS (TANT PER REPLAYS COM PER DIRECTES) ---
+                is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
+                home_logo_url = get_nba_logo(m["homeTeam"]) if is_nba else m.get("homeLogo", "")
+                away_logo_url = get_nba_logo(m["awayTeam"]) if is_nba else m.get("awayLogo", "")
+                
+                h_logo = f'<img src="{home_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if home_logo_url else ''
+                a_logo = f'<img src="{away_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if away_logo_url else ''
                 
                 content += f'<div class="card"><div class="header"><div class="meta"><span class="utc-time" data-ts="{m["start_raw"]}">{m["start"]}</span>{badge}</div><div class="match-info"><div class="teams">{h_logo} {m["homeTeam"]} <span class="versus">vs</span> {m["awayTeam"]} {a_logo}</div></div></div><div class="channels">{btns}</div></div>'
             content += "</div></div>"
