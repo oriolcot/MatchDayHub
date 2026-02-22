@@ -9,10 +9,11 @@ import concurrent.futures
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv
-
-# Carregar les variables d'entorn per a la CDN
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass # Ignorem l'error si estem a GitHub Actions on la llibreria no existeix
 
 
 # --- CONFIGURACIÓ GLOBAL ---
