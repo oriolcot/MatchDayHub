@@ -1,5 +1,5 @@
 {
-    "6265001524202512084": {
+    "2717517073448847971": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Toronto Raptors",
         "awayTeam": "Washington Wizards",
@@ -25,7 +25,7 @@
             }
         ]
     },
-    "6590371192597029920": {
+    "8675161335202265382": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Minnesota Timberwolves",
         "awayTeam": "La Clippers",
@@ -61,7 +61,7 @@
             }
         ]
     },
-    "6455434213058911300": {
+    "5913497017120588836": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Rayo Vallecano",
         "awayTeam": "Real Oviedo",
@@ -182,7 +182,7 @@
             }
         ]
     },
-    "614756558411126819": {
+    "8337186706612339219": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Hamburg SV",
         "awayTeam": "Bayer Leverkusen",
@@ -293,10 +293,110 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+4&code=ro&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-4.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967595&lang=en&eid=348962399&lid=2967595&ci=36&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=246089&lang=en&eid=348962399&lid=2930491&ci=36&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249612&lang=en&eid=348962399&lid=2964575&ci=36&si=1",
+                "channel_code": "gr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 4)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249658&lang=en&eid=348962399&lid=2963540&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 5)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249681&lang=en&eid=348962399&lid=2967775&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 6)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249682&lang=en&eid=348962399&lid=2967776&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 7)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=227403&lang=en&eid=348962399&lid=2967553&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 8)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=227619&lang=en&eid=348962399&lid=2967690&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 9)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241480&lang=en&eid=348962399&lid=2967159&ci=36&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 10)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241815&lang=en&eid=348962399&lid=2967161&ci=36&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 11)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241816&lang=en&eid=348962399&lid=2822880&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 12)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=244422&lang=en&eid=348962399&lid=2967783&ci=36&si=1",
+                "channel_code": "un"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 13)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247388&lang=en&eid=348962399&lid=2966986&ci=36&si=1",
+                "channel_code": "un"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 14)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247813&lang=en&eid=348962399&lid=2966990&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 15)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247814&lang=en&eid=348962399&lid=2966991&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 16)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2665491&lang=en&eid=348962399&lid=2665491&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 17)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661158&lang=en&eid=348962399&lid=2661158&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 18)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967331&lang=en&eid=348962399&lid=2967331&ci=36&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 19)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967591&lang=en&eid=348962399&lid=2967591&ci=36&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 20)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2927620&lang=en&eid=348962399&lid=2927620&ci=36&si=1",
+                "channel_code": "de"
             }
         ]
     },
-    "3831805025536282098": {
+    "5818656590887282396": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Aston Villa",
         "awayTeam": "Chelsea",
@@ -449,10 +549,130 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249934&lang=en&eid=344816558&lid=2967762&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241086&lang=en&eid=344816558&lid=2967761&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241802&lang=en&eid=344816558&lid=2967166&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2666839&lang=en&eid=344816558&lid=2666839&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967324&lang=en&eid=344816558&lid=2967324&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967389&lang=en&eid=344816558&lid=2967389&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966871&lang=en&eid=344816558&lid=2966871&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 8)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2949353&lang=en&eid=344816558&lid=2949353&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 9)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967387&lang=en&eid=344816558&lid=2967387&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 10)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967386&lang=en&eid=344816558&lid=2967386&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 11)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966379&lang=en&eid=344816558&lid=2966379&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 12)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2915164&lang=en&eid=344816558&lid=2915164&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 13)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967385&lang=en&eid=344816558&lid=2967385&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 14)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249528&lang=en&eid=344816558&lid=2963532&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 15)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249592&lang=en&eid=344816558&lid=2963294&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 16)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250184&lang=en&eid=344816558&lid=2966957&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 17)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237163&lang=en&eid=344816558&lid=2966804&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 18)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242258&lang=en&eid=344816558&lid=2967165&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 19)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242259&lang=en&eid=344816558&lid=2967167&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 20)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967323&lang=en&eid=344816558&lid=2967323&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 21)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967388&lang=en&eid=344816558&lid=2967388&ci=1&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 22)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966400&lang=en&eid=344816558&lid=2966400&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 23)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2937096&lang=en&eid=344816558&lid=2937096&ci=1&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 24)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966354&lang=en&eid=344816558&lid=2966354&ci=1&si=1",
+                "channel_code": "pt"
             }
         ]
     },
-    "2633283335019882989": {
+    "1346491839927702939": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Brighton & Hove Albion",
         "awayTeam": "Arsenal",
@@ -598,10 +818,185 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+4&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-4.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250245&lang=en&eid=344816557&lid=2967767&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=231379&lang=en&eid=344816557&lid=2967756&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242328&lang=en&eid=344816557&lid=2956105&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 4)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247383&lang=en&eid=344816557&lid=2966437&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 5)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247707&lang=en&eid=344816557&lid=2966438&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 6)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247708&lang=en&eid=344816557&lid=2966439&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2666640&lang=en&eid=344816557&lid=2666640&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 8)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966630&lang=en&eid=344816557&lid=2966630&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 9)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2959094&lang=en&eid=344816557&lid=2959094&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 10)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966619&lang=en&eid=344816557&lid=2966619&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 11)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2957491&lang=en&eid=344816557&lid=2957491&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 12)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966617&lang=en&eid=344816557&lid=2966617&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 13)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966378&lang=en&eid=344816557&lid=2966378&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 14)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967493&lang=en&eid=344816557&lid=2967493&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 15)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242914&lang=en&eid=344816557&lid=2828767&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 16)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=243128&lang=en&eid=344816557&lid=2840818&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 17)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249556&lang=en&eid=344816557&lid=2963613&ci=1&si=1",
+                "channel_code": "it"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 18)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250039&lang=en&eid=344816557&lid=2966027&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 19)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250162&lang=en&eid=344816557&lid=2966928&ci=1&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 20)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=227655&lang=en&eid=344816557&lid=2966678&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 21)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237230&lang=en&eid=344816557&lid=2962858&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 22)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242327&lang=en&eid=344816557&lid=2956104&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 23)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242346&lang=en&eid=344816557&lid=2956106&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 24)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249436&lang=en&eid=344816557&lid=2966949&ci=1&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 25)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249638&lang=en&eid=344816557&lid=2966940&ci=1&si=1",
+                "channel_code": "bg"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 26)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661152&lang=en&eid=344816557&lid=2661152&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 27)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966687&lang=en&eid=344816557&lid=2966687&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 28)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966542&lang=en&eid=344816557&lid=2966542&ci=1&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 29)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966391&lang=en&eid=344816557&lid=2966391&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 30)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966352&lang=en&eid=344816557&lid=2966352&ci=1&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 31)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966355&lang=en&eid=344816557&lid=2966355&ci=1&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 32)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2937096&lang=en&eid=344816557&lid=2937096&ci=1&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 33)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2961111&lang=en&eid=344816557&lid=2961111&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 34)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2961132&lang=en&eid=344816557&lid=2961132&ci=1&si=1",
+                "channel_code": "se"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 35)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967321&lang=en&eid=344816557&lid=2967321&ci=1&si=1",
+                "channel_code": "bg"
             }
         ]
     },
-    "1943364372746481695": {
+    "1287268548432118103": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Fulham",
         "awayTeam": "West Ham United",
@@ -656,10 +1051,90 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+6&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-6.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247382&lang=en&eid=344816556&lid=2966306&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247705&lang=en&eid=344816556&lid=2966305&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247706&lang=en&eid=344816556&lid=2966303&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967391&lang=en&eid=344816556&lid=2967391&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966381&lang=en&eid=344816556&lid=2966381&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966895&lang=en&eid=344816556&lid=2966895&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966688&lang=en&eid=344816556&lid=2966688&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 8)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2956483&lang=en&eid=344816556&lid=2956483&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 9)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966353&lang=en&eid=344816556&lid=2966353&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 10)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249754&lang=en&eid=344816556&lid=2964543&ci=1&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 11)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250045&lang=en&eid=344816556&lid=2966958&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 12)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=247876&lang=en&eid=344816556&lid=2964830&ci=1&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 13)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249627&lang=en&eid=344816556&lid=2966941&ci=1&si=1",
+                "channel_code": "tr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 14)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2961113&lang=en&eid=344816556&lid=2961113&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 15)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967319&lang=en&eid=344816556&lid=2967319&ci=1&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 16)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2965629&lang=en&eid=344816556&lid=2965629&ci=1&si=1",
+                "channel_code": "pt"
             }
         ]
     },
-    "8953969576469352217": {
+    "6625151135561693481": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Manchester City",
         "awayTeam": "Nottingham Forest",
@@ -756,10 +1231,130 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241094&lang=en&eid=344816555&lid=2967759&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241822&lang=en&eid=344816555&lid=2967164&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249146&lang=en&eid=344816555&lid=2966945&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661215&lang=en&eid=344816555&lid=2661215&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2965655&lang=en&eid=344816555&lid=2965655&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966380&lang=en&eid=344816555&lid=2966380&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967518&lang=en&eid=344816555&lid=2967518&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 8)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2961183&lang=en&eid=344816555&lid=2961183&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 9)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966612&lang=en&eid=344816555&lid=2966612&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 10)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966686&lang=en&eid=344816555&lid=2966686&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 11)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2957492&lang=en&eid=344816555&lid=2957492&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 12)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966833&lang=en&eid=344816555&lid=2966833&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 13)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967316&lang=en&eid=344816555&lid=2967316&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 14)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=240348&lang=en&eid=344816555&lid=2877393&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 15)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250041&lang=en&eid=344816555&lid=2966947&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 16)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237231&lang=en&eid=344816555&lid=2966814&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 17)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237333&lang=en&eid=344816555&lid=2966689&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 18)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241821&lang=en&eid=344816555&lid=2967163&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 19)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242262&lang=en&eid=344816555&lid=2814483&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 20)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249838&lang=en&eid=344816555&lid=2966302&ci=1&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 21)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2952046&lang=en&eid=344816555&lid=2952046&ci=1&si=1",
+                "channel_code": "se"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 22)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966395&lang=en&eid=344816555&lid=2966395&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 23)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966351&lang=en&eid=344816555&lid=2966351&ci=1&si=1",
+                "channel_code": "bg"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 24)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966356&lang=en&eid=344816555&lid=2966356&ci=1&si=1",
+                "channel_code": "bg"
             }
         ]
     },
-    "507652782547576778": {
+    "3654601761536443476": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Newcastle United",
         "awayTeam": "Manchester United",
@@ -912,10 +1507,150 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250233&lang=en&eid=344816559&lid=2967764&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=227555&lang=en&eid=344816559&lid=2967778&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242313&lang=en&eid=344816559&lid=2819130&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661214&lang=en&eid=344816559&lid=2661214&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2965738&lang=en&eid=344816559&lid=2965738&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966383&lang=en&eid=344816559&lid=2966383&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2960816&lang=en&eid=344816559&lid=2960816&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 8)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2965955&lang=en&eid=344816559&lid=2965955&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 9)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2951637&lang=en&eid=344816559&lid=2951637&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 10)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966831&lang=en&eid=344816559&lid=2966831&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 11)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2961503&lang=en&eid=344816559&lid=2961503&ci=1&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 12)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=244386&lang=en&eid=344816559&lid=2894758&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 13)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249529&lang=en&eid=344816559&lid=2963905&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 14)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249548&lang=en&eid=344816559&lid=2963284&ci=1&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 15)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237285&lang=en&eid=344816559&lid=2967711&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 16)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241015&lang=en&eid=344816559&lid=2965147&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 17)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242305&lang=en&eid=344816559&lid=2956098&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 18)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242312&lang=en&eid=344816559&lid=2956097&ci=1&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 19)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249941&lang=en&eid=344816559&lid=2965513&ci=1&si=1",
+                "channel_code": "gr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 20)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2661156&lang=en&eid=344816559&lid=2661156&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 21)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2940123&lang=en&eid=344816559&lid=2940123&ci=1&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 22)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966691&lang=en&eid=344816559&lid=2966691&ci=1&si=1",
+                "channel_code": "se"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 23)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2961114&lang=en&eid=344816559&lid=2961114&ci=1&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 24)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2920871&lang=en&eid=344816559&lid=2920871&ci=1&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 25)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966360&lang=en&eid=344816559&lid=2966360&ci=1&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 26)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967347&lang=en&eid=344816559&lid=2967347&ci=1&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 27)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966350&lang=en&eid=344816559&lid=2966350&ci=1&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 28)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967298&lang=en&eid=344816559&lid=2967298&ci=1&si=1",
+                "channel_code": "bg"
             }
         ]
     },
-    "882395232112905947": {
+    "4405372529852368847": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Tottenham Hotspur",
         "awayTeam": "Crystal Palace",
@@ -931,7 +1666,7 @@
             }
         ]
     },
-    "3827853306152704139": {
+    "2772012236052915210": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Bayern Munich",
         "awayTeam": "Borussia M\u00f6nchengladbach",
@@ -947,7 +1682,7 @@
             }
         ]
     },
-    "1273953395200050811": {
+    "249362101009702205": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Napoli",
         "awayTeam": "Torino",
@@ -963,7 +1698,7 @@
             }
         ]
     },
-    "494426566493126215": {
+    "1255008239711663324": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Paris Saint-Germain",
         "awayTeam": "AS Monaco",
@@ -979,7 +1714,7 @@
             }
         ]
     },
-    "67205523522682855": {
+    "7830189333594002474": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Celta Vigo",
         "awayTeam": "Real Madrid",
@@ -995,7 +1730,7 @@
             }
         ]
     },
-    "4754007856474381523": {
+    "1682716178928722413": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Osasuna",
         "awayTeam": "Mallorca",
@@ -1011,7 +1746,7 @@
             }
         ]
     },
-    "5648198352984485806": {
+    "7164097881297428769": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Cagliari",
         "awayTeam": "Como",
@@ -1027,7 +1762,7 @@
             }
         ]
     },
-    "9064777725865542919": {
+    "6638645702018331620": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "1. FC Heidenheim 1846",
         "awayTeam": "TSG Hoffenheim",
@@ -1043,7 +1778,7 @@
             }
         ]
     },
-    "7749202241609106304": {
+    "5489612841577443777": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Mainz",
         "awayTeam": "VfB Stuttgart",
@@ -1059,7 +1794,7 @@
             }
         ]
     },
-    "6813278660806635724": {
+    "9062680191632733208": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "RB Leipzig",
         "awayTeam": "FC Augsburg",
@@ -1075,7 +1810,7 @@
             }
         ]
     },
-    "2315869620987685958": {
+    "6800199898888175292": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "SC Freiburg",
         "awayTeam": "Bayer Leverkusen",
@@ -1091,7 +1826,7 @@
             }
         ]
     },
-    "2767086547468142140": {
+    "3013689313129197427": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "VfL Wolfsburg",
         "awayTeam": "Hamburg SV",
@@ -1107,7 +1842,7 @@
             }
         ]
     },
-    "6411254093921073967": {
+    "1948918393834244618": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Levante",
         "awayTeam": "Girona",
@@ -1123,7 +1858,7 @@
             }
         ]
     },
-    "3871054759575478372": {
+    "3067213572261450562": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Nantes",
         "awayTeam": "Angers",
@@ -1139,7 +1874,7 @@
             }
         ]
     },
-    "6048552381997517966": {
+    "4602688304550732900": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Atalanta",
         "awayTeam": "Udinese",
@@ -1155,7 +1890,7 @@
             }
         ]
     },
-    "2070826297505624786": {
+    "7769377283606415226": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Atl\u00e9tico Madrid",
         "awayTeam": "Real Sociedad",
@@ -1171,7 +1906,7 @@
             }
         ]
     },
-    "1323733680568192588": {
+    "710650709928476798": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "FC Cologne",
         "awayTeam": "Borussia Dortmund",
@@ -1187,7 +1922,7 @@
             }
         ]
     },
-    "8127833579217257817": {
+    "8595641769236852269": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "AJ Auxerre",
         "awayTeam": "Strasbourg",
@@ -1203,7 +1938,7 @@
             }
         ]
     },
-    "4416236985520550498": {
+    "5069404089604498243": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Juventus",
         "awayTeam": "Pisa",
@@ -1219,7 +1954,7 @@
             }
         ]
     },
-    "7879221712718521845": {
+    "411611191108615376": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Athletic Club",
         "awayTeam": "Barcelona",
@@ -1235,7 +1970,7 @@
             }
         ]
     },
-    "174606532726748289": {
+    "7781045591156142535": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Toulouse",
         "awayTeam": "Marseille",
@@ -1251,7 +1986,7 @@
             }
         ]
     },
-    "6308152487351545145": {
+    "7588534427583220792": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Lecce",
         "awayTeam": "Cremonese",
@@ -1267,7 +2002,7 @@
             }
         ]
     },
-    "4848845539475532163": {
+    "3977417800698065275": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Villarreal",
         "awayTeam": "Elche",
@@ -1283,7 +2018,7 @@
             }
         ]
     },
-    "7020746246994194591": {
+    "8022014562929950437": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Bologna",
         "awayTeam": "Hellas Verona",
@@ -1299,7 +2034,7 @@
             }
         ]
     },
-    "5187873266815817419": {
+    "7824826775612036227": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Fiorentina",
         "awayTeam": "Parma",
@@ -1315,7 +2050,7 @@
             }
         ]
     },
-    "1827958872337685598": {
+    "4525026510768785243": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Lens",
         "awayTeam": "Metz",
@@ -1331,7 +2066,7 @@
             }
         ]
     },
-    "1606115684882587646": {
+    "1858126862635521929": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "St. Pauli",
         "awayTeam": "Eintracht Frankfurt",
@@ -1347,7 +2082,7 @@
             }
         ]
     },
-    "8848812878991499883": {
+    "1135619451494054228": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Getafe",
         "awayTeam": "Real Betis",
@@ -1363,7 +2098,7 @@
             }
         ]
     },
-    "5240327973727515271": {
+    "281444468277539414": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Brest",
         "awayTeam": "Le Havre AC",
@@ -1379,7 +2114,7 @@
             }
         ]
     },
-    "1473385011275228127": {
+    "8462060167529758603": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Lille",
         "awayTeam": "Lorient",
@@ -1395,7 +2130,7 @@
             }
         ]
     },
-    "797737394891973767": {
+    "280735514328840367": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Nice",
         "awayTeam": "Stade Rennais",
@@ -1411,7 +2146,7 @@
             }
         ]
     },
-    "8128486421866297511": {
+    "2062364066518355023": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "1. FC Union Berlin",
         "awayTeam": "Werder Bremen",
@@ -1427,7 +2162,7 @@
             }
         ]
     },
-    "7465600411080164483": {
+    "8645109046195123892": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Genoa",
         "awayTeam": "AS Roma",
@@ -1443,7 +2178,7 @@
             }
         ]
     },
-    "5038082174941043097": {
+    "1685473996859840406": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Sevilla",
         "awayTeam": "Rayo Vallecano",
@@ -1459,7 +2194,7 @@
             }
         ]
     },
-    "5476125116179508827": {
+    "1978308162525143799": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "AC Milan",
         "awayTeam": "Inter Milan",
@@ -1475,7 +2210,7 @@
             }
         ]
     },
-    "3640587958295923957": {
+    "7191755452729007598": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Lyon",
         "awayTeam": "Paris FC",
@@ -1491,7 +2226,7 @@
             }
         ]
     },
-    "8669150983883474537": {
+    "1348400059437502452": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Valencia",
         "awayTeam": "Alav\u00e9s",
@@ -1507,7 +2242,7 @@
             }
         ]
     },
-    "7875485893762371712": {
+    "266732631666242330": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Lazio",
         "awayTeam": "Sassuolo",
@@ -1523,7 +2258,7 @@
             }
         ]
     },
-    "1660004635031359553": {
+    "1406512709596423245": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Espanyol",
         "awayTeam": "Real Oviedo",
@@ -1539,7 +2274,7 @@
             }
         ]
     },
-    "8587582315234058344": {
+    "5611987634793380481": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Philadelphia 76Ers",
         "awayTeam": "Boston Celtics",
@@ -1565,7 +2300,7 @@
             }
         ]
     },
-    "2532000160534789852": {
+    "5151950648898382183": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Oklahoma City Thunder",
         "awayTeam": "Dallas Mavericks",
@@ -1591,7 +2326,7 @@
             }
         ]
     },
-    "3782413778685852028": {
+    "6489855203667791788": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Detroit Pistons",
         "awayTeam": "Orlando Magic",
@@ -1617,7 +2352,7 @@
             }
         ]
     },
-    "5588619848427831368": {
+    "6198251939157006270": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Lorient",
         "awayTeam": "Nice",
@@ -1665,10 +2400,45 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+6&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-6.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966372&lang=en&eid=344831313&lid=2966372&ci=74&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250071&lang=en&eid=344831313&lid=2967231&ci=74&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966410&lang=en&eid=344831313&lid=2966410&ci=74&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2925322&lang=en&eid=344831313&lid=2925322&ci=74&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967325&lang=en&eid=344831313&lid=2967325&ci=74&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967326&lang=en&eid=344831313&lid=2967326&ci=74&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967327&lang=en&eid=344831313&lid=2967327&ci=74&si=1",
+                "channel_code": "fr"
             }
         ]
     },
-    "8558283893428592408": {
+    "5508189085094836170": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Lazio",
         "awayTeam": "Atalanta",
@@ -1765,10 +2535,125 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249796&lang=en&eid=347349408&lid=2964080&ci=75&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242757&lang=en&eid=347349408&lid=2956100&ci=75&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=248441&lang=en&eid=347349408&lid=2966952&ci=75&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 4)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250213&lang=en&eid=347349408&lid=2967781&ci=75&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967522&lang=en&eid=347349408&lid=2967522&ci=75&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966377&lang=en&eid=347349408&lid=2966377&ci=75&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 7)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2956484&lang=en&eid=347349408&lid=2956484&ci=75&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 8)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249544&lang=en&eid=347349408&lid=2964536&ci=75&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 9)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249579&lang=en&eid=347349408&lid=2963960&ci=75&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 10)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249596&lang=en&eid=347349408&lid=2963531&ci=75&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 11)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249935&lang=en&eid=347349408&lid=2965473&ci=75&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 12)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249995&lang=en&eid=347349408&lid=2965788&ci=75&si=1",
+                "channel_code": "tr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 13)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237115&lang=en&eid=347349408&lid=2924379&ci=75&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 14)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242274&lang=en&eid=347349408&lid=2956101&ci=75&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 15)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242285&lang=en&eid=347349408&lid=2956099&ci=75&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 16)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249148&lang=en&eid=347349408&lid=2966946&ci=75&si=1",
+                "channel_code": "it"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 17)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967523&lang=en&eid=347349408&lid=2967523&ci=75&si=1",
+                "channel_code": "it"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 18)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967343&lang=en&eid=347349408&lid=2967343&ci=75&si=1",
+                "channel_code": "it"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 19)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967341&lang=en&eid=347349408&lid=2967341&ci=75&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 20)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2961115&lang=en&eid=347349408&lid=2961115&ci=75&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 21)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966361&lang=en&eid=347349408&lid=2966361&ci=75&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 22)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967342&lang=en&eid=347349408&lid=2967342&ci=75&si=1",
+                "channel_code": "pt"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 23)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2920870&lang=en&eid=347349408&lid=2920870&ci=75&si=1",
+                "channel_code": "de"
             }
         ]
     },
-    "5433748093769310930": {
+    "1967751088652996193": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Real Sociedad",
         "awayTeam": "Athletic Club",
@@ -1882,7 +2767,7 @@
             }
         ]
     },
-    "1010780190108466495": {
+    "2648048727249419896": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Marseille",
         "awayTeam": "Toulouse",
@@ -1937,10 +2822,70 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+8&code=sa&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-8.svg",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2927627&lang=en&eid=344831314&lid=2927627&ci=74&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966234&lang=en&eid=344831314&lid=2966234&ci=74&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2956491&lang=en&eid=344831314&lid=2956491&ci=74&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966903&lang=en&eid=344831314&lid=2966903&ci=74&si=1",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 5)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242336&lang=en&eid=344831314&lid=2967168&ci=74&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 6)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242337&lang=en&eid=344831314&lid=2967169&ci=74&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 7)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242752&lang=en&eid=344831314&lid=2967170&ci=74&si=1",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 8)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966370&lang=en&eid=344831314&lid=2966370&ci=74&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 9)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967337&lang=en&eid=344831314&lid=2967337&ci=74&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 10)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2965916&lang=en&eid=344831314&lid=2965916&ci=74&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 11)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2952075&lang=en&eid=344831314&lid=2952075&ci=74&si=1",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 12)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967338&lang=en&eid=344831314&lid=2967338&ci=74&si=1",
+                "channel_code": "pt"
             }
         ]
     },
-    "2733631359951252284": {
+    "4382435824041642118": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Lyon",
         "awayTeam": "Lens",
@@ -1956,7 +2901,7 @@
             }
         ]
     },
-    "5613123771399903051": {
+    "9122983775972255797": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Wolverhampton Wanderers",
         "awayTeam": "Liverpool",
@@ -1972,7 +2917,7 @@
             }
         ]
     },
-    "8158632750129175167": {
+    "2150130926036029889": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Mansfield Town",
         "awayTeam": "Arsenal",
@@ -1988,7 +2933,7 @@
             }
         ]
     },
-    "4989957120037796029": {
+    "7414213941297432273": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Wrexham",
         "awayTeam": "Chelsea",
@@ -2004,7 +2949,7 @@
             }
         ]
     },
-    "4522397990043030742": {
+    "5387048551036962538": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Newcastle United",
         "awayTeam": "Manchester City",
@@ -2020,7 +2965,7 @@
             }
         ]
     },
-    "2696186839565954568": {
+    "2349019891689971145": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Fulham",
         "awayTeam": "Southampton",
@@ -2036,7 +2981,7 @@
             }
         ]
     },
-    "2493916549509048159": {
+    "4725065298086077655": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Leeds United",
         "awayTeam": "Norwich City",
@@ -2052,7 +2997,7 @@
             }
         ]
     },
-    "599724999372973361": {
+    "7501725286551473645": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Milwaukee Bucks",
         "awayTeam": "Chicago Bulls",
@@ -2078,7 +3023,7 @@
             }
         ]
     },
-    "3850039872523396842": {
+    "3580389729659638104": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "La Clippers",
         "awayTeam": "Golden State Warriors",
@@ -2104,7 +3049,7 @@
             }
         ]
     },
-    "504715783764619215": {
+    "2602493130410068468": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Sacramento Kings",
         "awayTeam": "Los Angeles Lakers",
@@ -2140,7 +3085,7 @@
             }
         ]
     },
-    "955173970276151535": {
+    "5211803267880855891": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Houston Rockets",
         "awayTeam": "Washington Wizards",
@@ -2166,7 +3111,7 @@
             }
         ]
     },
-    "4373647872299398923": {
+    "6568251589717237260": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "New Orleans Pelicans",
         "awayTeam": "La Clippers",
@@ -2192,7 +3137,7 @@
             }
         ]
     },
-    "8083748606009233972": {
+    "7253863818047119398": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Portland Trail Blazers",
         "awayTeam": "Atlanta Hawks",
@@ -2218,7 +3163,7 @@
             }
         ]
     },
-    "2013536737605890413": {
+    "5376061757655817464": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Boston Celtics",
         "awayTeam": "Milwaukee Bucks",
@@ -2254,7 +3199,7 @@
             }
         ]
     },
-    "5208973597453437721": {
+    "6645779422523293355": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Oklahoma City Thunder",
         "awayTeam": "New York Knicks",
@@ -2368,7 +3313,7 @@
             }
         ]
     },
-    "6027038417174608002": {
+    "1332418561321874831": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Charlotte Hornets",
         "awayTeam": "Boston Celtics",
@@ -2398,7 +3343,7 @@
             }
         ]
     },
-    "3184555628078398157": {
+    "3718235836237159419": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Utah Jazz",
         "awayTeam": "Philadelphia 76ers",
@@ -2421,7 +3366,7 @@
             }
         ]
     },
-    "3243204262434991978": {
+    "6498675615072660800": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Portland Trail Blazers",
         "awayTeam": "Memphis Grizzlies",
@@ -2444,7 +3389,7 @@
             }
         ]
     },
-    "7292786126110856326": {
+    "600581588721529617": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Atlanta Hawks",
         "awayTeam": "Milwaukee Bucks",
@@ -2530,7 +3475,7 @@
             }
         ]
     },
-    "1315153814863279302": {
+    "2627948557625498874": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Indiana Pacers",
         "awayTeam": "LA Clippers",
@@ -2553,7 +3498,7 @@
             }
         ]
     },
-    "8373309667098824747": {
+    "7110668679092430237": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "San Antonio Spurs",
         "awayTeam": "Oklahoma City Thunder",
@@ -2584,7 +3529,7 @@
             }
         ]
     },
-    "8330240061612457697": {
+    "1675520433766157428": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba All Star Game",
         "awayTeam": "VOD",
@@ -2625,7 +3570,7 @@
             }
         ]
     },
-    "2669961153180202280": {
+    "4379438042637571603": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Dallas Mavericks",
         "awayTeam": "Charlotte Hornets",
@@ -2651,7 +3596,7 @@
             }
         ]
     },
-    "3436506975411221262": {
+    "178491289602478601": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Washington Wizards",
         "awayTeam": "Orlando Magic",
@@ -2677,7 +3622,7 @@
             }
         ]
     },
-    "4127270922684702340": {
+    "972313582212101511": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Los Angeles Lakers",
         "awayTeam": "Philadelphia 76Ers",
@@ -2708,514 +3653,7 @@
             }
         ]
     },
-    "4654021496968461851": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Karaganda (W)",
-        "awayTeam": "Aktobe (W)",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=BHKu_UH08cY&lang=en&eid=349503021&lid=2967174&ci=3439&si=5",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "8394800181207991973": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "North West",
-        "awayTeam": "Lions",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=sc5dZalEw7U&lang=en&eid=347036301&lid=2967259&ci=814&si=41",
-                "channel_code": "gb"
-            }
-        ]
-    },
-    "1635803708122347115": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Rocks",
-        "awayTeam": "Moothee Ram Tuskers",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=8fWVItjmG-U&lang=en&eid=347036302&lid=2967176&ci=814&si=41",
-                "channel_code": "gb"
-            }
-        ]
-    },
-    "5632790458079284083": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Zhetysu (W)",
-        "awayTeam": "Almaty (W)",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=M_XSxfL6vOo&lang=en&eid=349442076&lid=2967173&ci=3439&si=5",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "1603639395578502653": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Chainat Hornbill",
-        "awayTeam": "Chanthaburi",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967178&lang=en&eid=348890637&lid=2967178&ci=2540&si=1",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "214960322379580783": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Johor DT",
-        "awayTeam": "Sanfrecce Hiroshima",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (AliezTV 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241822&lang=en&eid=344793348&lid=2967164&ci=53&si=1",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (AliezTV 2)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249535&lang=en&eid=344793348&lid=2963146&ci=53&si=1",
-                "channel_code": "hr"
-            },
-            {
-                "channel_name": "LiveTV (AliezTV 3)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237115&lang=en&eid=344793348&lid=2924379&ci=53&si=1",
-                "channel_code": "ru"
-            },
-            {
-                "channel_name": "LiveTV (AliezTV 4)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=241821&lang=en&eid=344793348&lid=2967163&ci=53&si=1",
-                "channel_code": "ru"
-            },
-            {
-                "channel_name": "LiveTV (AliezTV 5)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=242262&lang=en&eid=344793348&lid=2814483&ci=53&si=1",
-                "channel_code": "ru"
-            },
-            {
-                "channel_name": "Astro Grandstand",
-                "channel_code": "us",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=astro+grandstand&code=us&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/astro-grandstand.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport Klub 2",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-2.png.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "beIN SPORTS 1",
-                "channel_code": "sa",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
-                "viewers": 0
-            }
-        ]
-    },
-    "6694673476531148169": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "JHC Dynamo Msk",
-        "awayTeam": "Loko",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=heoFF0ZmHQE&lang=en&eid=344763327&lid=2966152&ci=279&si=2",
-                "channel_code": "ru"
-            }
-        ]
-    },
-    "5264338440770417932": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Vietnam (W)",
-        "awayTeam": "India (W)",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (AliezTV 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249545&lang=en&eid=348740998&lid=2964537&ci=4353&si=1",
-                "channel_code": "hr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 2)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966848&lang=en&eid=348740998&lid=2966848&ci=4353&si=1",
-                "channel_code": "hr"
-            }
-        ]
-    },
-    "7626863913380441087": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "New Taipei Kings",
-        "awayTeam": "Taiwan Beer Leopards",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=DsFUY_BgxDU&lang=en&eid=348773418&lid=2967175&ci=8074&si=3",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "2081463085891237883": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "BB Erzurumspor",
-        "awayTeam": "Keciorengucu",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://cdn.livetv873.me/webplayer2.php?t=youtube&c=mgeW8Qm8-SY&lang=en&eid=345013158&lid=2966394&ci=193&si=1",
-                "channel_code": "tr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 2)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2697238&lang=en&eid=345013158&lid=2697238&ci=193&si=1",
-                "channel_code": "tr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 3)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966393&lang=en&eid=345013158&lid=2966393&ci=193&si=1",
-                "channel_code": "tr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 4)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966363&lang=en&eid=345013158&lid=2966363&ci=193&si=1",
-                "channel_code": "tr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 5)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2952298&lang=en&eid=345013158&lid=2952298&ci=193&si=1",
-                "channel_code": "tr"
-            }
-        ]
-    },
-    "2412224263400829318": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Khonkaen Utd",
-        "awayTeam": "Trat",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967263&lang=en&eid=348890638&lid=2967263&ci=2540&si=1",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "4184825993894482016": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Jedinstvo Ub",
-        "awayTeam": "Zemun",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966936&lang=en&eid=349188675&lid=2966936&ci=255&si=1",
-                "channel_code": "rs"
-            },
-            {
-                "channel_name": "Arena Sport 10",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+10&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-10.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena 1 Premium",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
-                "viewers": 0
-            }
-        ]
-    },
-    "3867588001414111851": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Mahasarakham",
-        "awayTeam": "Pattaya United",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967179&lang=en&eid=348890639&lid=2967179&ci=2540&si=1",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "3731956999190261258": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Samara (W)",
-        "awayTeam": "Energia (W)",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967264&lang=en&eid=348789718&lid=2967264&ci=1183&si=3",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "8865760774620517711": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Chiangmai Utd",
-        "awayTeam": "Pattani",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967265&lang=en&eid=348890641&lid=2967265&ci=2540&si=1",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "1988858175365738740": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Kasetsart",
-        "awayTeam": "Songkhla",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967260&lang=en&eid=348890640&lid=2967260&ci=2540&si=1",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "7687066607127333888": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "PAOK",
-        "awayTeam": "Panathinaikos",
-        "start": "EN DIRECTE \ud83d\udfe2",
-        "start_raw": "2026-03-04 12:52",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966685&lang=en&eid=349174508&lid=2966685&ci=5110&si=22",
-                "channel_code": "un"
-            },
-            {
-                "channel_name": "Cosmote Sport 2",
-                "channel_code": "gr",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+2&code=gr&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-2.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2665504&lang=en&eid=348732585&lid=2665504&ci=26&si=1",
-                "channel_code": "gr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 2)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2665503&lang=en&eid=348732585&lid=2665503&ci=26&si=1",
-                "channel_code": "gr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 3)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966370&lang=en&eid=348732585&lid=2966370&ci=26&si=1",
-                "channel_code": "tr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 4)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967296&lang=en&eid=348732585&lid=2967296&ci=26&si=1",
-                "channel_code": "gr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 5)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966402&lang=en&eid=348732585&lid=2966402&ci=26&si=1",
-                "channel_code": "gr"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 6)",
-                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966897&lang=en&eid=348732585&lid=2966897&ci=26&si=1",
-                "channel_code": "gr"
-            }
-        ]
-    },
-    "5025544266162619732": {
-        "gameID": "qLzDFcTC",
-        "homeTeam": "Cherno More",
-        "awayTeam": "Arda",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/274971.png",
-        "time": "14:00",
-        "tournament": "Parva Liga",
-        "country": "Bulgaria",
-        "countryIMG": "https://flagcdn.com/w40/bg.png",
-        "status": "finished",
-        "start": "2026-03-04 14:00",
-        "end": "2026-03-04 16:39",
-        "channels": [
-            {
-                "channel_name": "Diema Sport 1",
-                "channel_code": "bg",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Sport Klub 1",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-                "viewers": 0
-            }
-        ],
-        "start_raw": "2026-03-04 14:00",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "3451617816088308398": {
-        "gameID": "SPC69ykX",
-        "homeTeam": "Vojvodina",
-        "awayTeam": "Trajal Krusevac",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5150.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "time": "14:30",
-        "tournament": "Serbian Cup",
-        "country": "Serbia",
-        "countryIMG": "https://flagcdn.com/w40/rs.png",
-        "status": "live",
-        "start": "2026-03-04 14:30",
-        "end": "2026-03-04 17:09",
-        "channels": [
-            {
-                "channel_name": "Arena Sport 10",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+10&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-10.webp",
-                "viewers": 0
-            },
-            {
-                "channel_name": "Arena 1 Premium",
-                "channel_code": "rs",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
-                "viewers": 0
-            }
-        ],
-        "start_raw": "2026-03-04 14:30",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "1231199474409337907": {
-        "gameID": "Qiw3BISh",
-        "homeTeam": "Cittadella",
-        "awayTeam": "Inter II",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2717.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1110631.png",
-        "time": "15:00",
-        "tournament": "Serie C",
-        "country": "Italy",
-        "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "live",
-        "start": "2026-03-04 15:00",
-        "end": "2026-03-04 17:39",
-        "channels": [
-            {
-                "channel_name": "Sky Sport 254",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+254&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 0
-            }
-        ],
-        "start_raw": "2026-03-04 15:00",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "8127523557645066518": {
-        "gameID": "5fKCV1Pu",
-        "homeTeam": "Albinoleffe",
-        "awayTeam": "Union Brescia",
-        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
-        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/1110141.png",
-        "time": "15:00",
-        "tournament": "Serie C",
-        "country": "Italy",
-        "countryIMG": "https://flagcdn.com/w40/it.png",
-        "status": "live",
-        "start": "2026-03-04 15:00",
-        "end": "2026-03-04 17:39",
-        "channels": [
-            {
-                "channel_name": "Sky Sport 252",
-                "channel_code": "it",
-                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+252&code=it&user=cdnlivetv&plan=free",
-                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
-                "viewers": 0
-            }
-        ],
-        "start_raw": "2026-03-04 15:00",
-        "custom_sport_cat": "Soccer",
-        "provider": "CDN"
-    },
-    "1991611460213846999": {
+    "2438722807754390362": {
         "gameID": "wWabFeGY",
         "homeTeam": "Rostov",
         "awayTeam": "Dynamo Makhachkala",
@@ -3281,7 +3719,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7756882427801216561": {
+    "7364956133997838834": {
         "gameID": "Hts1i0ho",
         "homeTeam": "Krylya Sovetov",
         "awayTeam": "Orenburg",
@@ -3342,7 +3780,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4568016910441850151": {
+    "4800591626969976439": {
         "gameID": "uz71ioh3",
         "homeTeam": "SCM Arge\u015ful Pite\u015fti",
         "awayTeam": "Gloria Bistri\u0163a",
@@ -3400,7 +3838,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4227561870938440867": {
+    "6242772105340377052": {
         "gameID": "9mEzf54C",
         "homeTeam": "Zawisza Bydgoszcz",
         "awayTeam": "Chojniczanka Chojnice",
@@ -3426,7 +3864,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6446359429161733072": {
+    "3727325558242034911": {
         "gameID": "z8okXa5S",
         "homeTeam": "CSKA Sofia",
         "awayTeam": "Botev Vratsa",
@@ -3459,7 +3897,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4090453981097342986": {
+    "6042787410086802581": {
         "gameID": "mjqas0OQ",
         "homeTeam": "Grafi\u010dar",
         "awayTeam": "Ma\u010dva \u0160abac",
@@ -3492,7 +3930,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1516821163633187212": {
+    "6056052751638166004": {
         "gameID": "CUeiTP8Z",
         "homeTeam": "Gubbio",
         "awayTeam": "Athletic Carpi",
@@ -3525,7 +3963,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8665176160052374862": {
+    "5126572770797980098": {
         "gameID": "8MyN6cEB",
         "homeTeam": "Pontedera",
         "awayTeam": "Juventus II",
@@ -3558,7 +3996,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1757063429772763941": {
+    "6442214516314353052": {
         "gameID": "dtvySDIL",
         "homeTeam": "Vis Pesaro",
         "awayTeam": "Bra",
@@ -3591,7 +4029,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4090962570352381833": {
+    "1540643403649589500": {
         "gameID": "GYzfEMVS",
         "homeTeam": "Be\u015fikta\u015f",
         "awayTeam": "Rizespor",
@@ -3617,7 +4055,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5388224648459610874": {
+    "4728483937709836732": {
         "gameID": "YegHqx6D",
         "homeTeam": "Beyo\u011flu Yeni \u00c7ar\u015f\u0131",
         "awayTeam": "Kocaelispor",
@@ -3635,7 +4073,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3654337382483814053": {
+    "8483523074580858541": {
         "gameID": "lj3RBQCL",
         "homeTeam": "Gaziantep FK",
         "awayTeam": "Fenerbah\u00e7e",
@@ -3662,13 +4100,38 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+3&code=il&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-3.png",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=237399&lang=en&eid=345013161&lid=2963433&ci=193&si=1",
+                "channel_code": "ua"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2684045&lang=en&eid=345013161&lid=2684045&ci=193&si=1",
+                "channel_code": "tr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966373&lang=en&eid=345013161&lid=2966373&ci=193&si=1",
+                "channel_code": "it"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2956128&lang=en&eid=345013161&lid=2956128&ci=193&si=1",
+                "channel_code": "gr"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966409&lang=en&eid=345013161&lid=2966409&ci=193&si=1",
+                "channel_code": "bg"
             }
         ],
         "start_raw": "2026-03-04 17:30",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2093045779340259708": {
+    "697018479801797997": {
         "gameID": "4l1eb56p",
         "homeTeam": "Mamelodi Sundowns",
         "awayTeam": "Golden Arrows",
@@ -3694,7 +4157,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6813357594756323383": {
+    "8402058424804226443": {
         "gameID": "kUWJD9Vs",
         "homeTeam": "CSKA Moskva",
         "awayTeam": "Krasnodar",
@@ -3727,7 +4190,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8190694471550373440": {
+    "5680721419054748943": {
         "gameID": "ACTwsmNF",
         "homeTeam": "Carrarese",
         "awayTeam": "Catanzaro",
@@ -3745,7 +4208,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8109463391601275593": {
+    "3946611506286865109": {
         "gameID": "aO1uyT5d",
         "homeTeam": "Kifisia",
         "awayTeam": "PAOK",
@@ -3778,7 +4241,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4957691775158705076": {
+    "7866270131121471057": {
         "gameID": "4u0Ai5DQ",
         "homeTeam": "CSU Craiova",
         "awayTeam": "CFR Cluj",
@@ -3811,7 +4274,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "7581299401404027923": {
+    "6534639337240338604": {
         "gameID": "vh02EnQ9",
         "homeTeam": "Bari 1908",
         "awayTeam": "Empoli",
@@ -3837,7 +4300,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "293146947005487305": {
+    "4622369611687977923": {
         "gameID": "tuIg0z8N",
         "homeTeam": "Juve Stabia",
         "awayTeam": "Sampdoria",
@@ -3855,7 +4318,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3508448934202574916": {
+    "9076825804761757598": {
         "gameID": "0TwBIfsS",
         "homeTeam": "Palermo",
         "awayTeam": "Mantova",
@@ -3881,7 +4344,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2969580731091903901": {
+    "8926179290123646079": {
         "gameID": "Dsh3ktJL",
         "homeTeam": "Frosinone",
         "awayTeam": "Pescara",
@@ -3899,7 +4362,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "4708639741942997858": {
+    "3647675177487659643": {
         "gameID": "ji75QJGk",
         "homeTeam": "AZ",
         "awayTeam": "Telstar",
@@ -3933,13 +4396,43 @@
                 "url": "https://cdn-live.tv/api/v1/channels/player/?name=ring&code=bg&user=cdnlivetv&plan=free",
                 "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/ring.png",
                 "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249705&lang=en&eid=345013148&lid=2966089&ci=52&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249945&lang=en&eid=345013148&lid=2965541&ci=52&si=1",
+                "channel_code": "nl"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966364&lang=en&eid=345013148&lid=2966364&ci=52&si=1",
+                "channel_code": "nl"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967312&lang=en&eid=345013148&lid=2967312&ci=52&si=1",
+                "channel_code": "de"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967313&lang=en&eid=345013148&lid=2967313&ci=52&si=1",
+                "channel_code": "nl"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 6)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966874&lang=en&eid=345013148&lid=2966874&ci=52&si=1",
+                "channel_code": "nl"
             }
         ],
         "start_raw": "2026-03-04 19:00",
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5823367211624602172": {
+    "4406128627777559580": {
         "gameID": "A7jGD9o5",
         "homeTeam": "Al Wasl",
         "awayTeam": "Al Nassr",
@@ -3979,7 +4472,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5681635144749789617": {
+    "4472122642035025250": {
         "gameID": "H0UgJPLF",
         "homeTeam": "Simulcast",
         "awayTeam": "Simulcast",
@@ -4026,7 +4519,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6897371914179409569": {
+    "4032954323630004352": {
         "gameID": "HJlwu4b6",
         "homeTeam": "Lech Pozna\u0144",
         "awayTeam": "G\u00f3rnik Zabrze",
@@ -4052,7 +4545,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8087430779704363374": {
+    "9053982440262455429": {
         "gameID": "HKeJq835",
         "homeTeam": "Livorno",
         "awayTeam": "Perugia",
@@ -4078,7 +4571,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "1389217641970556755": {
+    "6983786713480799910": {
         "gameID": "b0QgJmyt",
         "homeTeam": "Sassari Torres",
         "awayTeam": "Nuova Monterosi",
@@ -4104,7 +4597,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "312943877282294895": {
+    "5391171811080940806": {
         "gameID": "weZ6EpTL",
         "homeTeam": "Ravenna",
         "awayTeam": "Pianese",
@@ -4130,7 +4623,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2527996831281118765": {
+    "2550625196567013124": {
         "gameID": "30ZPkiWE",
         "homeTeam": "Pineto",
         "awayTeam": "Forl\u00ec",
@@ -4156,7 +4649,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8873198107584239178": {
+    "9176857368899286447": {
         "gameID": "leoqDfYw",
         "homeTeam": "Arezzo",
         "awayTeam": "Ternana",
@@ -4182,7 +4675,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8078510930127741126": {
+    "5641067935678679941": {
         "gameID": "kydoMg8w",
         "homeTeam": "Sambenedettese",
         "awayTeam": "Ascoli",
@@ -4215,7 +4708,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "6868095369709671115": {
+    "7524483702575270660": {
         "gameID": "LcEA7sMt",
         "homeTeam": "Aberdeen",
         "awayTeam": "Celtic",
@@ -4297,7 +4790,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "497641167886708463": {
+    "3994713265155927596": {
         "gameID": "eYbGIaBD",
         "homeTeam": "Carabobo",
         "awayTeam": "Sporting Cristal",
@@ -4344,7 +4837,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "5681959400602473074": {
+    "1778646875226525757": {
         "gameID": "XC3z0HLh",
         "homeTeam": "Lan\u00fas",
         "awayTeam": "Boca Juniors",
@@ -4398,7 +4891,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3160441589002044875": {
+    "1051907480637279355": {
         "gameID": "PvaHMqdT",
         "homeTeam": "Fortaleza CEIF",
         "awayTeam": "Jaguares de C\u00f3rdoba",
@@ -4424,7 +4917,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "3907101963090275759": {
+    "5631088562698622954": {
         "gameID": "w0C5Ikvn",
         "homeTeam": "O'Higgins",
         "awayTeam": "Deportes Tolima",
@@ -4450,7 +4943,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2910737110166234146": {
+    "3258798814491014197": {
         "gameID": "w4cU95hZ",
         "homeTeam": "Monterrey",
         "awayTeam": "Quer\u00e9taro",
@@ -4476,7 +4969,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "8058568395360854797": {
+    "4930001186979899506": {
         "gameID": "wzZUP1H3",
         "homeTeam": "Am\u00e9rica",
         "awayTeam": "Ju\u00e1rez",
@@ -4502,7 +4995,7 @@
         "custom_sport_cat": "Soccer",
         "provider": "CDN"
     },
-    "2715719827698757432": {
+    "1510065939959286102": {
         "gameID": "ZbFlaRyw",
         "homeTeam": "Toronto Maple Leafs",
         "awayTeam": "New Jersey Devils",
@@ -4570,7 +5063,7 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "6975168111298648435": {
+    "62165886611861013": {
         "gameID": "oxjWbEGT",
         "homeTeam": "Vegas Golden Knights",
         "awayTeam": "Detroit Red Wings",
@@ -4617,7 +5110,7 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "7944980462998826632": {
+    "5996684494924265803": {
         "gameID": "FG4vpqZ1",
         "homeTeam": "Carolina Hurricanes",
         "awayTeam": "Vancouver Canucks",
@@ -4650,7 +5143,7 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "2404871100998402556": {
+    "394770989259708139": {
         "gameID": "6AUhIc2p",
         "homeTeam": "New York Islanders",
         "awayTeam": "Anaheim Ducks",
@@ -4718,7 +5211,7 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "3209797411644568220": {
+    "7944875927084399664": {
         "gameID": "nw4qo8uU",
         "homeTeam": "St. Louis Blues",
         "awayTeam": "Seattle Kraken",
@@ -4751,7 +5244,7 @@
         "custom_sport_cat": "NHL",
         "provider": "CDN"
     },
-    "8556625547672261819": {
+    "4307682640258782938": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Olsztyn",
         "awayTeam": "Skra Belchatow",
@@ -4767,7 +5260,7 @@
             }
         ]
     },
-    "3291696535751482717": {
+    "5677438398973230864": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "New Zealand",
         "awayTeam": "South Africa",
@@ -4843,7 +5336,7 @@
             }
         ]
     },
-    "3388052085874292151": {
+    "438593715093678435": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Sakamoto P./Saraiva Dos Santos P. A.",
         "awayTeam": "De La Fuente S./Roncadelli F.",
@@ -4859,7 +5352,7 @@
             }
         ]
     },
-    "6728127263649636162": {
+    "9011656661287387240": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Efstathiou M./Neos E.",
         "awayTeam": "Jans J./Poljak D.",
@@ -4875,7 +5368,7 @@
             }
         ]
     },
-    "9060678002980805462": {
+    "841416204494447286": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Ladia",
         "awayTeam": "Chaika",
@@ -4891,7 +5384,7 @@
             }
         ]
     },
-    "1725150996288065576": {
+    "4658332831539484335": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Berrettini J./Coppejans K.",
         "awayTeam": "Bertrand R./Jones M.",
@@ -4907,7 +5400,7 @@
             }
         ]
     },
-    "6364835608797453957": {
+    "4489187217038028111": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Kremenchuk",
         "awayTeam": "Storm",
@@ -4923,7 +5416,7 @@
             }
         ]
     },
-    "5579353089205834417": {
+    "4818893573506489799": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Karabakh",
         "awayTeam": "Shamakhi",
@@ -4944,7 +5437,7 @@
             }
         ]
     },
-    "1441662414817660971": {
+    "4984325507623989694": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Vojvodina",
         "awayTeam": "Radnicki",
@@ -4970,7 +5463,7 @@
             }
         ]
     },
-    "6072350744333805729": {
+    "904102089077840506": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Hermans M./Loof T.",
         "awayTeam": "Harper C./Stevenson D.",
@@ -4986,7 +5479,7 @@
             }
         ]
     },
-    "4523505393162777088": {
+    "40783225719980773": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Loko-76",
         "awayTeam": "Avto",
@@ -5002,7 +5495,7 @@
             }
         ]
     },
-    "3238663267575479050": {
+    "2466848427789242564": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Partizan (W)",
         "awayTeam": "Studio Zagreb (W)",
@@ -5018,7 +5511,7 @@
             }
         ]
     },
-    "8937321953366998489": {
+    "206727680345531709": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Tambov",
         "awayTeam": "Metallurg Nk",
@@ -5034,7 +5527,7 @@
             }
         ]
     },
-    "1924786339626946321": {
+    "3534913880679447664": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Hradec Kralove",
         "awayTeam": "Banik Ostrava",
@@ -5050,7 +5543,7 @@
             }
         ]
     },
-    "5966654936795126016": {
+    "2251333952990674106": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Mikhailov Academy",
         "awayTeam": "Almaz",
@@ -5066,7 +5559,7 @@
             }
         ]
     },
-    "4715687421438376024": {
+    "5100125681159859266": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Torpedo NN",
         "awayTeam": "Traktor",
@@ -5107,7 +5600,7 @@
             }
         ]
     },
-    "21954871037747729": {
+    "3274011163124593977": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Greensboro Swarm",
         "awayTeam": "Long Island Nets",
@@ -5123,7 +5616,7 @@
             }
         ]
     },
-    "1705245372441105709": {
+    "4438302890981576458": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Buran Voronezh",
         "awayTeam": "Norilsk",
@@ -5139,7 +5632,7 @@
             }
         ]
     },
-    "6418267763919937115": {
+    "2812804439840191316": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Delaware Blue Coats",
         "awayTeam": "Westchester",
@@ -5160,7 +5653,7 @@
             }
         ]
     },
-    "1882118077237230422": {
+    "9186650862657891665": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Rostov",
         "awayTeam": "Sokol Krasnoyarsk",
@@ -5176,7 +5669,7 @@
             }
         ]
     },
-    "4565186377880577476": {
+    "3559440895852509560": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Ankara PTT (W)",
         "awayTeam": "Ankaragucu (W)",
@@ -5192,7 +5685,7 @@
             }
         ]
     },
-    "9043170384257201870": {
+    "1594517951242009142": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "AKM Novomoskovsk",
         "awayTeam": "Belye Medvedi",
@@ -5208,7 +5701,7 @@
             }
         ]
     },
-    "8670864847750537116": {
+    "6104857364236579004": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Varazdin",
         "awayTeam": "Gorica",
@@ -5224,7 +5717,7 @@
             }
         ]
     },
-    "8330310620514552478": {
+    "8155896621347280685": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "New York Knicks",
         "awayTeam": "Toronto Raptors",
@@ -5260,7 +5753,7 @@
             }
         ]
     },
-    "2106305097684830775": {
+    "5679093812123404982": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Memphis Grizzlies",
         "awayTeam": "Minnesota Timberwolves",
@@ -5286,7 +5779,7 @@
             }
         ]
     },
-    "1427588203901370043": {
+    "2964747709481288030": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Brooklyn Nets",
         "awayTeam": "Miami Heat",
@@ -5308,6 +5801,215 @@
             {
                 "channel_name": "Partit Sencer \ud83c\udf7f",
                 "url": "https://bysesukior.com/e/tu0irny1uuqb",
+                "channel_code": "us"
+            }
+        ]
+    },
+    "8725146432059360385": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Goal Rush",
+        "awayTeam": "Unknown",
+        "start": "2026-03-04 19:30",
+        "start_raw": "2026-03-04 19:30",
+        "status": "live",
+        "provider": "PPV",
+        "channels": [
+            {
+                "channel_name": "PPV Stream",
+                "url": "https://pooembed.eu/embed/premierleague/goal-rush",
+                "channel_code": "us"
+            }
+        ]
+    },
+    "5971839805136641259": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Pelister",
+        "awayTeam": "PSG",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-03-04 20:29",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966906&lang=en&eid=344818045&lid=2966906&ci=293&si=13",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=250080&lang=en&eid=344818045&lid=2966232&ci=293&si=13",
+                "channel_code": "hr"
+            }
+        ]
+    },
+    "4622105085728266543": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Projekt Warszawa",
+        "awayTeam": "Trentino",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-03-04 20:29",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249543&lang=en&eid=345122562&lid=2963612&ci=309&si=5",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://cdn.livetv873.me/webplayer2.php?t=alieztv&c=249825&lang=en&eid=345122562&lid=2967131&ci=309&si=5",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2923121&lang=en&eid=345122562&lid=2923121&ci=309&si=5",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967301&lang=en&eid=345122562&lid=2967301&ci=309&si=5",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 5)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966839&lang=en&eid=345122562&lid=2966839&ci=309&si=5",
+                "channel_code": "pl"
+            }
+        ]
+    },
+    "3154920778132398614": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Vive Kielce",
+        "awayTeam": "Sporting",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-03-04 20:29",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967632&lang=en&eid=344818046&lid=2967632&ci=293&si=13",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966841&lang=en&eid=344818046&lid=2966841&ci=293&si=13",
+                "channel_code": "un"
+            }
+        ]
+    },
+    "6741465757118582050": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Luton Town",
+        "awayTeam": "Northampton Town",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-03-04 20:29",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966855&lang=en&eid=346852274&lid=2966855&ci=2065&si=1",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "998718245075511974": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Vimmerby",
+        "awayTeam": "Sodertalje",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-03-04 20:29",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2966423&lang=en&eid=344820641&lid=2966423&ci=661&si=2",
+                "channel_code": "se"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967218&lang=en&eid=344820641&lid=2967218&ci=661&si=2",
+                "channel_code": "se"
+            }
+        ]
+    },
+    "3764131238691214356": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "AIK",
+        "awayTeam": "Oestersund",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-03-04 20:29",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2938964&lang=en&eid=344820644&lid=2938964&ci=661&si=2",
+                "channel_code": "se"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967220&lang=en&eid=344820644&lid=2967220&ci=661&si=2",
+                "channel_code": "se"
+            }
+        ]
+    },
+    "2650110898784974882": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "MODO",
+        "awayTeam": "Oskarshamn",
+        "start": "EN DIRECTE \ud83d\udfe2",
+        "start_raw": "2026-03-04 20:29",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2965871&lang=en&eid=344820639&lid=2965871&ci=661&si=2",
+                "channel_code": "se"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://cdn.livetv873.me/webplayer.php?t=ifr&c=2967216&lang=en&eid=344820639&lid=2967216&ci=661&si=2",
+                "channel_code": "se"
+            }
+        ]
+    },
+    "5370218130924240621": {
+        "custom_sport_cat": "NBA Replays \ud83c\udfc0",
+        "homeTeam": "Denver Nuggets",
+        "awayTeam": "Utah Jazz",
+        "start": "\ud83d\udcfc REPLAY",
+        "start_raw": "2026-03-04 20:29",
+        "status": "vod",
+        "provider": "NBA_REPLAY",
+        "channels": [
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://basketball-video.com/videos/nba_full_games/1-2-3-4-251-999/10",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "//ok.ru/videoembed/12493195905622",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "1a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa13sbu",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "2a Part \ud83c\udfac",
+                "url": "https://geo.dailymotion.com/player.html?video=xa13szw",
+                "channel_code": "us"
+            },
+            {
+                "channel_name": "Partit Sencer \ud83c\udf7f",
+                "url": "https://bysesukior.com/e/lcxwus805102",
                 "channel_code": "us"
             }
         ]
