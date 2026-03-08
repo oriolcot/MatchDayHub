@@ -9,12 +9,13 @@ import concurrent.futures
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
+
+# Evitem que peti a GitHub Actions si no existeix la llibreria dotenv
 try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
-    pass # Ignorem l'error si estem a GitHub Actions on la llibreria no existeix
-
+    pass
 
 # --- CONFIGURACIÓ GLOBAL ---
 API_URL_PPV = "https://api.ppv.to/api/streams"
@@ -79,9 +80,13 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
 
     /* ESTILS DEL REPRODUCTOR OPTIMITZAT PER A TV */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000000; z-index: 9999; flex-direction: column; align-items: center; justify-content: center; }
-    .modal-container { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 10px; padding: 10px; box-sizing: border-box; }
-    .modal-header { display: flex; justify-content: flex-end; }
-    .close-btn { background: var(--live); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+    .modal-container { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 10px; padding: 10px; box-sizing: border-box; position: relative; }
+    
+    /* El botó de tancar flota per sobre i s'amaga sol */
+    .modal-header { position: absolute; top: -50px; right: 10px; z-index: 10000; transition: opacity 0.5s ease; opacity: 1; }
+    .modal-header.hidden { opacity: 0; pointer-events: none; }
+    .close-btn { background: var(--live); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.5); }
+    
     .iframe-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; overflow: hidden; transform: translateZ(0); }
     .iframe-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 </style>
@@ -95,7 +100,7 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
     
     <div id="playerModal" class="modal-overlay">
         <div class="modal-container">
-            <div class="modal-header">
+            <div class="modal-header" id="playerHeader">
                 <button class="close-btn" onclick="closePlayer()">TORNAR A LA LLISTA ✖</button>
             </div>
             <div class="iframe-wrapper" id="videoContainer"></div>
@@ -103,6 +108,25 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
     </div>
 
     <script>
+        let hideTimeout;
+        
+        function resetHideTimeout() {
+            const header = document.getElementById('playerHeader');
+            if(!header) return;
+            header.classList.remove('hidden');
+            clearTimeout(hideTimeout);
+            
+            if(document.getElementById('playerModal').style.display === 'flex') {
+                hideTimeout = setTimeout(() => {
+                    header.classList.add('hidden');
+                }, 3000);
+            }
+        }
+
+        document.addEventListener('mousemove', resetHideTimeout);
+        document.addEventListener('keydown', resetHideTimeout);
+        document.addEventListener('touchstart', resetHideTimeout);
+
         function openLink(el) { 
             try { 
                 const url = atob(el.getAttribute('data-link')); 
@@ -117,17 +141,21 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
                 iframe.setAttribute('scrolling', 'no');
                 iframe.setAttribute('frameborder', '0');
                 iframe.setAttribute('allow', 'autoplay; fullscreen');
-                iframe.removeAttribute('sandbox');
+                // Retirem el sandbox per evitar el bloqueig "Embedding Not Allowed"
+                iframe.removeAttribute('sandbox'); 
                 
                 container.appendChild(iframe);
                 
                 document.getElementById('playerModal').style.display = 'flex';
                 document.body.style.overflow = 'hidden'; 
                 window.scrollTo(0,0);
+                
+                resetHideTimeout();
             } catch(e){ console.error("Error link", e); } 
         }
 
         function closePlayer() {
+            clearTimeout(hideTimeout);
             document.getElementById('videoContainer').innerHTML = ''; 
             document.getElementById('playerModal').style.display = 'none';
             document.getElementById('main-ui').style.display = 'block';
@@ -166,14 +194,8 @@ def get_nba_logo(team_name):
 
 def get_sport_name(key):
     names = { 
-        "Soccer": "FUTBOL ⚽", 
-        "Football": "FUTBOL ⚽", 
-        "Basketball": "BÀSQUET 🏀", 
-        "NBA": "BÀSQUET 🏀", 
-        "NBA Replays 🏀": "NBA REPLAYS 🏀",
-        "NFL": "NFL 🏈",
-        "Tennis": "TENNIS 🎾",
-        "Motorsport": "MOTOR 🏎️"
+        "Soccer": "FUTBOL ⚽", "Football": "FUTBOL ⚽", "Basketball": "BÀSQUET 🏀", "NBA": "BÀSQUET 🏀", 
+        "NBA Replays 🏀": "NBA REPLAYS 🏀", "NFL": "NFL 🏈", "Tennis": "TENNIS 🎾", "Motorsport": "MOTOR 🏎️"
     }
     return names.get(key, key.upper())
 
@@ -190,23 +212,18 @@ def are_duplicates(m1, m2):
     
     t1, t2 = parse_date(m1.get('start_raw')), parse_date(m2.get('start_raw'))
     if t1 and t2:
-        # Augmentem el marge de 2 a 4 hores. Evita duplicats en partits llargs (NBA/Futbol) 
-        # quan LiveTV sobrescriu l'hora amb l'hora actual de l'scraping.
         if abs((t1 - t2).total_seconds()) / 3600 > 4.0: return False
     else: return False
 
-    # Netegem els noms però SENSE alterar l'ordre alfabèticament
     t1_m1 = clean_string(m1.get('homeTeam', ''))
     t2_m1 = clean_string(m1.get('awayTeam', ''))
     
     t1_m2 = clean_string(m2.get('homeTeam', ''))
     t2_m2 = clean_string(m2.get('awayTeam', ''))
     
-    # Comprovem l'ordre natural i l'ordre capgirat (creuat)
     score_direct = SequenceMatcher(None, t1_m1+t2_m1, t1_m2+t2_m2).ratio()
     score_crossed = SequenceMatcher(None, t1_m1+t2_m1, t2_m2+t1_m2).ratio()
     
-    # Ens quedem amb la millor puntuació de les dues
     return max(score_direct, score_crossed) > 0.65
 
 def fetch_cdn_live():
@@ -224,21 +241,20 @@ def fetch_cdn_live():
             data = resp.json()
             events_dict = data.get("cdn-live-tv") or data
             
-            # 1. Definim la llista blanca d'esports (en minúscules per comoditat)
+            # Llista blanca estricta d'esports permesos
             allowed_sports = ['soccer', 'football', 'nba', 'basketball', 'nfl', 'tennis', 'motorsport']
             
             for sport, event_list in events_dict.items():
-                # 2. Si l'esport no ens interessa, el descartem ràpidament
-                if sport.lower() not in allowed_sports:
+                s_low = sport.lower()
+                if s_low not in allowed_sports:
                     continue
                     
                 if isinstance(event_list, list):
                     for m in event_list:
                         m['start_raw'] = m.get('start', '')
-                        
-                        # 3. Agrupem NBA i Basketball a la mateixa pestanya
-                        sport_key = 'NBA' if sport.lower() in ['nba', 'basketball'] else sport.capitalize()
+                        sport_key = 'NBA' if s_low in ['nba', 'basketball'] else sport.capitalize()
                         if sport_key.lower() == 'nfl': sport_key = 'NFL'
+                        if sport_key.lower() in ['soccer', 'football']: sport_key = 'Soccer'
                         
                         m.update({'custom_sport_cat': sport_key, 'provider': 'CDN'})
                         matches.append(m)
@@ -265,13 +281,13 @@ def fetch_ppv_to(scraper):
                     for s in cat.get("streams", []):
                         name = s.get("name", "")
                         teams = name.split(" vs. ") if " vs. " in name else name.split(" vs ")
-                        home = teams[0].split(" (")[0].strip() if len(teams) > 0 else "Event"
-                        away = teams[1].split(" (")[0].strip() if len(teams) > 1 else "Unknown"
+                        home = teams[0].split(" (")[0].strip() if len(teams) > 0 else name
+                        away = teams[1].split(" (")[0].strip() if len(teams) > 1 else ""
                         dt = datetime.fromtimestamp(s.get("starts_at"), tz=timezone.utc)
                         start_str = dt.strftime("%Y-%m-%d %H:%M")
                         matches.append({
                             'custom_sport_cat': sport_key, 'homeTeam': home, 'awayTeam': away,
-                            'start': start_str, 'start_raw': start_str,
+                            'start': start_str, 'start_raw': start_str, 'name': name,
                             'status': 'live' if dt < datetime.now(timezone.utc) else 'upcoming',
                             'provider': 'PPV', 'channels': [{'channel_name': 'PPV Stream', 'url': s.get("iframe"), 'channel_code': 'us'}]
                         })
@@ -308,14 +324,12 @@ def processar_partit_livetv(item, scraper):
                 
                 lang_code = 'un' 
                 
-                # Millora: Busquem la bandera a la fila mare sencera en lloc de només l'element previ
                 parent_row = a.find_parent('tr')
                 img_tag = None
                 
                 if parent_row:
                     img_tag = parent_row.find('img', src=re.compile(r'/img/linkflag/|/fl/'))
                 
-                # Si no la troba a la fila, fa l'intent de l'element previ per si de cas
                 if not img_tag:
                     img_tag = a.find_previous('img')
                     
@@ -424,7 +438,7 @@ def fetch_livetv(scraper):
             sep = ' – ' if ' – ' in text else ' - '
             parts = text.split(sep, 1)
             home = parts[0].strip()
-            away = parts[1].strip() if len(parts) > 1 else "Unknown"
+            away = parts[1].strip() if len(parts) > 1 else ""
             
             matches.append({
                 'custom_sport_cat': esport, 'homeTeam': home, 'awayTeam': away,
@@ -459,7 +473,7 @@ def fetch_nba_replays(scraper, memory_matches):
         for link, title in partits_a_visitar[:8]:
             try:
                 home = title
-                away = "VOD"
+                away = ""
                 if ' Vs ' in title or ' vs ' in title.lower():
                     sep = ' Vs ' if ' Vs ' in title else (' vs ' if ' vs ' in title else ' vs. ')
                     parts = title.split(sep, 1)
@@ -522,7 +536,6 @@ def main():
         
         scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
         
-        # Recuperem totes les fonts: CDN + PPV + LiveTV + NBA Replays
         cdn_events = fetch_cdn_live()
         ppv_events = fetch_ppv_to(scraper)
         livetv_events = fetch_livetv(scraper)
@@ -556,10 +569,17 @@ def main():
             if not dt: continue
             diff = (now_utc - dt).total_seconds() / 3600
             
-            limit = 96.0 if m.get('provider') == 'NBA_REPLAY' else 5.0
+            is_nba_replay = m.get('provider') == 'NBA_REPLAY'
+            is_soccer = m.get('custom_sport_cat') == 'Soccer'
+            
+            # Temps que ho guardem a la memòria en segon pla (96h per Replays, 5h per Live)
+            limit = 96.0 if is_nba_replay else 5.0
             if diff < limit:
                 clean_mem[gid] = m
-                if diff < 4.0 or m.get('provider') == 'NBA_REPLAY':
+                
+                # Temps real d'expiració a la web: 2.25h per futbol, 4h per la resta
+                display_limit = 2.25 if is_soccer else 4.0
+                if is_nba_replay or diff < display_limit:
                     display.append(m)
 
         save_memory(clean_mem)
@@ -570,16 +590,68 @@ def main():
             if c not in cats: cats[c] = []
             cats[c].append(m)
 
+        # -------------------------------------------------------------------
+        # FILTRE D'IDIOMES I DIVERSITAT D'OPCIONS
+        # -------------------------------------------------------------------
+        # S'han afegit codis prohibits incloent expressament 'un' com a demanat.
+        banned_langs = {'se', 'gr', 'dk', 'pl', 'bg', 'cz', 'nl', 'ru', 'il', 'ua', 'un', 'de', 'he', 'ch', 'no'}
+        filtered_cats = {}
+        
+        for sport, matches_list in cats.items():
+            valid_matches = []
+            for m in matches_list:
+                langs_dict = {}
+                for ch in m.get('channels', []):
+                    code = ch.get('channel_code', 'un')
+                    
+                    # Elimina directament els codis de la llista negra
+                    if code in banned_langs: continue
+                    
+                    if code not in langs_dict: langs_dict[code] = []
+                    langs_dict[code].append(ch)
+                    
+                final_channels = []
+                for code, ch_list in langs_dict.items():
+                    picked = []
+                    seen_types = set()
+                    
+                    # 1a passada: Intentem agafar opcions de diferents fonts
+                    for ch in ch_list:
+                        cname = ch['channel_name'].lower()
+                        ctype = "alieztv" if "alieztv" in cname else ("stream" if "stream" in cname else "other")
+                        if ctype not in seen_types and len(picked) < 3:
+                            picked.append(ch)
+                            seen_types.add(ctype)
+                            
+                    # 2a passada: Si encara no arribem a 3, omplim amb el que quedi
+                    for ch in ch_list:
+                        if len(picked) < 3 and ch not in picked:
+                            picked.append(ch)
+                            
+                    final_channels.extend(picked)
+                
+                # REQUISIT: Si no queda cap stream vàlid, destruïm el partit
+                if final_channels:
+                    m['channels'] = final_channels
+                    valid_matches.append(m)
+            
+            # Si a l'esport li queden partits vius, el desem a la llista d'imprimir
+            if valid_matches:
+                filtered_cats[sport] = valid_matches
+
+
+        # -------------------------------------------------------------------
+        # GENERACIÓ HTML
+        # -------------------------------------------------------------------
         navbar, content = '<a href="#" class="nav-btn active">Inici</a>', ""
-        # Actualitzem l'ordre de les pestanyes d'esquerra a dreta
         order_weights = {'Soccer': 1, 'NBA': 2, 'Tennis': 3, 'Motorsport': 4, 'NFL': 5, 'NBA Replays 🏀': 6}
-        order = sorted(cats.keys(), key=lambda x: order_weights.get(x, 99))
+        order = sorted(filtered_cats.keys(), key=lambda x: order_weights.get(x, 99))
         
         for sport in order:
             nice = get_sport_name(sport)
             navbar += f'<a href="#{sport}" class="nav-btn">{nice}</a>'
             content += f'<div id="{sport}" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>{nice}</div><div class="grid">'
-            for m in cats[sport]:
+            for m in filtered_cats[sport]:
                 badge = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>' if m.get('status') == 'live' else ''
                 btns = ""
                 for ch in m.get('channels', []):
@@ -589,9 +661,7 @@ def main():
                 
                 is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
                 
-                # EXTRACTORS SEGURS per al Motorsport i Tennis
-                # Mirem si ve un "homeTeam", sinó provem d'agafar "name" o deixem "Esdeveniment"
-                nom_local = m.get("homeTeam", m.get("name", "Esdeveniment Motor/Tennis"))
+                nom_local = m.get("homeTeam", m.get("name", "Esdeveniment"))
                 nom_visitant = m.get("awayTeam", "")
                 
                 home_logo_url = get_nba_logo(nom_local) if is_nba else m.get("homeLogo", "")
@@ -600,7 +670,6 @@ def main():
                 h_logo = f'<img src="{home_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if home_logo_url else ''
                 a_logo = f'<img src="{away_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if away_logo_url else ''
                 
-                # Amaguem el 'vs' si només tenim un esdeveniment (ex: Cursa de F1)
                 vs_html = ' <span class="versus">vs</span> ' if nom_visitant else ''
                 
                 content += f'<div class="card"><div class="header"><div class="meta"><span class="utc-time" data-ts="{m.get("start_raw", "")}">{m.get("start", "")}</span>{badge}</div><div class="match-info"><div class="teams">{h_logo} {nom_local}{vs_html}{nom_visitant} {a_logo}</div></div></div><div class="channels">{btns}</div></div>'
