@@ -166,8 +166,14 @@ def get_nba_logo(team_name):
 
 def get_sport_name(key):
     names = { 
-        "Soccer": "FUTBOL ⚽", "Football": "FUTBOL ⚽", "Basketball": "BÀSQUET 🏀", "NBA": "BÀSQUET 🏀", 
-        "NBA Replays 🏀": "NBA REPLAYS 🏀"
+        "Soccer": "FUTBOL ⚽", 
+        "Football": "FUTBOL ⚽", 
+        "Basketball": "BÀSQUET 🏀", 
+        "NBA": "BÀSQUET 🏀", 
+        "NBA Replays 🏀": "NBA REPLAYS 🏀",
+        "NFL": "NFL 🏈",
+        "Tennis": "TENNIS 🎾",
+        "Motorsport": "MOTOR 🏎️"
     }
     return names.get(key, key.upper())
 
@@ -218,14 +224,26 @@ def fetch_cdn_live():
             data = resp.json()
             events_dict = data.get("cdn-live-tv") or data
             
+            # 1. Definim la llista blanca d'esports (en minúscules per comoditat)
+            allowed_sports = ['soccer', 'football', 'nba', 'basketball', 'nfl', 'tennis', 'motorsport']
+            
             for sport, event_list in events_dict.items():
+                # 2. Si l'esport no ens interessa, el descartem ràpidament
+                if sport.lower() not in allowed_sports:
+                    continue
+                    
                 if isinstance(event_list, list):
                     for m in event_list:
                         m['start_raw'] = m.get('start', '')
-                        m.update({'custom_sport_cat': sport, 'provider': 'CDN'})
+                        
+                        # 3. Agrupem NBA i Basketball a la mateixa pestanya
+                        sport_key = 'NBA' if sport.lower() in ['nba', 'basketball'] else sport.capitalize()
+                        if sport_key.lower() == 'nfl': sport_key = 'NFL'
+                        
+                        m.update({'custom_sport_cat': sport_key, 'provider': 'CDN'})
                         matches.append(m)
             
-            log(f"✅ S'han trobat {len(matches)} partits a la CDN de diferents esports.")
+            log(f"✅ S'han trobat {len(matches)} partits a la CDN (només esports filtrats).")
         else:
             log(f"❌ ERROR: La CDN ha rebutjat la connexió. Codi HTTP: {resp.status_code}")
     except Exception as e:
@@ -553,7 +571,8 @@ def main():
             cats[c].append(m)
 
         navbar, content = '<a href="#" class="nav-btn active">Inici</a>', ""
-        order_weights = {'Soccer': 1, 'NBA': 2, 'NBA Replays 🏀': 3}
+        # Actualitzem l'ordre de les pestanyes d'esquerra a dreta
+        order_weights = {'Soccer': 1, 'NBA': 2, 'Tennis': 3, 'Motorsport': 4, 'NFL': 5, 'NBA Replays 🏀': 6}
         order = sorted(cats.keys(), key=lambda x: order_weights.get(x, 99))
         
         for sport in order:
@@ -565,18 +584,26 @@ def main():
                 btns = ""
                 for ch in m.get('channels', []):
                     b64 = base64.b64encode(ch["url"].encode()).decode()
-                    # Afegeixo l'atribut onerror com tenies a la part bona del codi per ocultar banderes trencades
                     flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img" onerror="this.style.display=\'none\'"> ' if 'channel_code' in ch else ''
                     btns += f'<div class="btn" data-link="{b64}" onclick="openLink(this)">{flag}{ch["channel_name"]}</div>'
                 
                 is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
-                home_logo_url = get_nba_logo(m["homeTeam"]) if is_nba else m.get("homeLogo", "")
-                away_logo_url = get_nba_logo(m["awayTeam"]) if is_nba else m.get("awayLogo", "")
+                
+                # EXTRACTORS SEGURS per al Motorsport i Tennis
+                # Mirem si ve un "homeTeam", sinó provem d'agafar "name" o deixem "Esdeveniment"
+                nom_local = m.get("homeTeam", m.get("name", "Esdeveniment Motor/Tennis"))
+                nom_visitant = m.get("awayTeam", "")
+                
+                home_logo_url = get_nba_logo(nom_local) if is_nba else m.get("homeLogo", "")
+                away_logo_url = get_nba_logo(nom_visitant) if is_nba else m.get("awayLogo", "")
                 
                 h_logo = f'<img src="{home_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if home_logo_url else ''
                 a_logo = f'<img src="{away_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if away_logo_url else ''
                 
-                content += f'<div class="card"><div class="header"><div class="meta"><span class="utc-time" data-ts="{m["start_raw"]}">{m["start"]}</span>{badge}</div><div class="match-info"><div class="teams">{h_logo} {m["homeTeam"]} <span class="versus">vs</span> {m["awayTeam"]} {a_logo}</div></div></div><div class="channels">{btns}</div></div>'
+                # Amaguem el 'vs' si només tenim un esdeveniment (ex: Cursa de F1)
+                vs_html = ' <span class="versus">vs</span> ' if nom_visitant else ''
+                
+                content += f'<div class="card"><div class="header"><div class="meta"><span class="utc-time" data-ts="{m.get("start_raw", "")}">{m.get("start", "")}</span>{badge}</div><div class="match-info"><div class="teams">{h_logo} {nom_local}{vs_html}{nom_visitant} {a_logo}</div></div></div><div class="channels">{btns}</div></div>'
             content += "</div></div>"
 
         html_final = INTERNAL_TEMPLATE.replace('{{NAVBAR}}', navbar).replace('{{CONTENT}}', content).replace('{{DATE}}', datetime.now(timezone.utc).strftime("%d/%m/%Y %H:%M UTC"))
