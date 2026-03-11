@@ -601,10 +601,13 @@ def main():
             if c not in cats: cats[c] = []
             cats[c].append(m)
 
-        # -------------------------------------------------------------------
+# -------------------------------------------------------------------
         # FILTRE D'IDIOMES I DIVERSITAT D'OPCIONS
         # -------------------------------------------------------------------
-        banned_langs = {'se', 'gr', 'dk', 'pl', 'bg', 'cz', 'nl', 'ru', 'il', 'ua', 'un', 'de', 'he', 'ch', 'no'}
+        banned_langs = {
+            'se', 'gr', 'dk', 'pl', 'bg', 'cz', 'nl', 'ru', 'il', 'ua', 'un', 'de', 'he', 'ch', 'no',
+            'rs', 'hr', 'ro', 'sa', 'ar', 'lt', 'tr', 'hu'
+        }
         filtered_cats = {}
         
         for sport, matches_list in cats.items():
