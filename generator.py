@@ -141,7 +141,6 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
                 iframe.setAttribute('scrolling', 'no');
                 iframe.setAttribute('frameborder', '0');
                 iframe.setAttribute('allow', 'autoplay; fullscreen');
-                // Retirem el sandbox per evitar el bloqueig "Embedding Not Allowed"
                 iframe.removeAttribute('sandbox'); 
                 
                 container.appendChild(iframe);
@@ -165,7 +164,7 @@ INTERNAL_TEMPLATE = """<!DOCTYPE html>
         document.querySelectorAll('.utc-time').forEach(el => {
             const raw = el.getAttribute('data-ts');
             const txt = el.innerText;
-            if(raw && !txt.includes("Diferit") && !txt.includes("📼") && !txt.includes("Sempre Actiu") && !txt.includes("EN DIRECTE")) {
+            if(raw && !txt.includes("Diferit") && !txt.includes("📼") && !txt.includes("Sempre Actiu")) {
                 try {
                     const d = new Date(raw.replace(' ', 'T')+'Z');
                     if(!isNaN(d.getTime())) el.innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
@@ -241,7 +240,6 @@ def fetch_cdn_live():
             data = resp.json()
             events_dict = data.get("cdn-live-tv") or data
             
-            # Llista blanca estricta d'esports permesos
             allowed_sports = ['soccer', 'football', 'nba', 'basketball', 'nfl', 'tennis', 'motorsport']
             
             for sport, event_list in events_dict.items():
@@ -280,6 +278,12 @@ def fetch_ppv_to(scraper):
                     sport_key = "Soccer" if cat_name == "Football" else "NBA"
                     for s in cat.get("streams", []):
                         name = s.get("name", "")
+                        
+                        # FILTRE 1: Eliminar Unknown, TBD, Simulcast i Programes
+                        nl = name.lower()
+                        if "unknown" in nl or "tbd" in nl or "simulcast" in nl or "golazo" in nl:
+                            continue
+                            
                         teams = name.split(" vs. ") if " vs. " in name else name.split(" vs ")
                         home = teams[0].split(" (")[0].strip() if len(teams) > 0 else name
                         away = teams[1].split(" (")[0].strip() if len(teams) > 1 else ""
@@ -442,7 +446,8 @@ def fetch_livetv(scraper):
             
             matches.append({
                 'custom_sport_cat': esport, 'homeTeam': home, 'awayTeam': away,
-                'start': "EN DIRECTE 🟢", 'start_raw': now_str, 'status': 'live',
+                # Ara usem l'hora real perquè JavaScript no elimini el text EN DIRECTE
+                'start': now_str, 'start_raw': now_str, 'status': 'live',
                 'provider': 'LIVETV', 'channels': channels
             })
             
@@ -572,12 +577,18 @@ def main():
             is_nba_replay = m.get('provider') == 'NBA_REPLAY'
             is_soccer = m.get('custom_sport_cat') == 'Soccer'
             
-            # Temps que ho guardem a la memòria en segon pla (96h per Replays, 5h per Live)
+            # FILTRE 2: Aturar el futur. Limitem que l'esdeveniment sigui com a molt d'aquí a 24h.
+            if not is_nba_replay and diff < -24.0:
+                continue
+                
+            # FILTRE 3: Eliminar "Esdeveniments" sense rival (excepte Motor o NFL)
+            if not m.get('awayTeam') and m.get('custom_sport_cat') not in ['Motorsport', 'NFL', 'NBA Replays 🏀']:
+                continue
+            
             limit = 96.0 if is_nba_replay else 5.0
             if diff < limit:
                 clean_mem[gid] = m
                 
-                # Temps real d'expiració a la web: 2.25h per futbol, 4h per la resta
                 display_limit = 2.25 if is_soccer else 4.0
                 if is_nba_replay or diff < display_limit:
                     display.append(m)
@@ -593,7 +604,6 @@ def main():
         # -------------------------------------------------------------------
         # FILTRE D'IDIOMES I DIVERSITAT D'OPCIONS
         # -------------------------------------------------------------------
-        # S'han afegit codis prohibits incloent expressament 'un' com a demanat.
         banned_langs = {'se', 'gr', 'dk', 'pl', 'bg', 'cz', 'nl', 'ru', 'il', 'ua', 'un', 'de', 'he', 'ch', 'no'}
         filtered_cats = {}
         
@@ -604,7 +614,6 @@ def main():
                 for ch in m.get('channels', []):
                     code = ch.get('channel_code', 'un')
                     
-                    # Elimina directament els codis de la llista negra
                     if code in banned_langs: continue
                     
                     if code not in langs_dict: langs_dict[code] = []
@@ -615,7 +624,6 @@ def main():
                     picked = []
                     seen_types = set()
                     
-                    # 1a passada: Intentem agafar opcions de diferents fonts
                     for ch in ch_list:
                         cname = ch['channel_name'].lower()
                         ctype = "alieztv" if "alieztv" in cname else ("stream" if "stream" in cname else "other")
@@ -623,19 +631,28 @@ def main():
                             picked.append(ch)
                             seen_types.add(ctype)
                             
-                    # 2a passada: Si encara no arribem a 3, omplim amb el que quedi
                     for ch in ch_list:
                         if len(picked) < 3 and ch not in picked:
                             picked.append(ch)
                             
                     final_channels.extend(picked)
+                    
+                # FILTRE 4: Renumerar els botons de LiveTV per evitar els salts de números
+                livetv_count = 1
+                for ch in final_channels:
+                    cname = ch.get('channel_name', '')
+                    if cname.startswith("LiveTV ("):
+                        base = "Opció"
+                        if "AliezTV" in cname: base = "AliezTV"
+                        elif "Live Stream" in cname: base = "Live Stream"
+                        elif "BinTVs" in cname: base = "BinTVs"
+                        ch['channel_name'] = f"LiveTV ({base} {livetv_count})"
+                        livetv_count += 1
                 
-                # REQUISIT: Si no queda cap stream vàlid, destruïm el partit
                 if final_channels:
                     m['channels'] = final_channels
                     valid_matches.append(m)
             
-            # Si a l'esport li queden partits vius, el desem a la llista d'imprimir
             if valid_matches:
                 filtered_cats[sport] = valid_matches
 
