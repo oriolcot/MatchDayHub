@@ -537,9 +537,6 @@ def load_memory():
 def save_memory(data):
     with open(MEMORY_FILE, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
 
-# -------------------------------------------------------------------
-# FUNCIÓ EXTRETA PER GENERAR TARGETES (Llegibilitat HTML millorada)
-# -------------------------------------------------------------------
 def render_card(m):
     badge = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>' if m.get('status') == 'live' else ''
     btns = ""
@@ -575,7 +572,6 @@ def main():
         livetv_events = []
         nba_replays = []
         
-        # ⚡ EXECUCIÓ EN PARAL·LEL (Molt més ràpid)
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
             fut_cdn = executor.submit(fetch_cdn_live)
             fut_ppv = executor.submit(fetch_ppv_to, scraper)
@@ -710,13 +706,15 @@ def main():
             navbar += f'<a href="#{sport}" class="nav-btn">{nice}</a>'
             content += f'<div id="{sport}" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>{nice}</div><div class="grid">'
             
-            # --- NOVA LÒGICA D'ORDENACIÓ ---
-            # 1r prioritat: partits 'live' (0 va abans que 1). 2a prioritat: hora cronològica
+            # Ordenació afegida: primer els live (0), després la resta (1) per ordre cronològic
             partits_ordenats = sorted(filtered_cats[sport], key=lambda x: (0 if x.get('status') == 'live' else 1, x.get('start_raw', '')))
             
             for m in partits_ordenats:
                 content += render_card(m)
             content += "</div></div>"
+
+        html_final = INTERNAL_TEMPLATE.replace('{{NAVBAR}}', navbar).replace('{{CONTENT}}', content).replace('{{DATE}}', datetime.now(timezone.utc).strftime("%d/%m/%Y %H:%M UTC"))
+        print(html_final)
 
     except Exception as e: log(f"CRITICAL ERROR: {e}")
 
