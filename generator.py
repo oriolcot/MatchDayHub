@@ -9,6 +9,7 @@ import concurrent.futures
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
 # Evitem que peti a GitHub Actions si no existeix la llibreria dotenv
 try:
@@ -321,7 +322,11 @@ def processar_partit_livetv(item, scraper):
             if any(x in href for x in ['webplayer', 'embed', 'alieztv', 'bintvs']):
                 if 'acestream' in href.lower(): continue
                 
-                clean_link = href if href.startswith('http') else f"https:{href}"
+                # CORRECCIÓ 404: Reconstrucció segura de rutes relatives
+                clean_link = urljoin(url_partit, href)
+                if clean_link.startswith('http:'):
+                    clean_link = clean_link.replace('http:', 'https:')
+                
                 if clean_link in urls_processades: continue
                 urls_processades.add(clean_link)
                 
@@ -407,7 +412,7 @@ def fetch_livetv(scraper):
     for a in partits_links:
         text = a.text.strip()
         if text and (' - ' in text or ' – ' in text):
-            url_partit = a['href'] if a['href'].startswith('http') else f"{domini.replace('/enx', '')}{a['href']}"
+            url_partit = urljoin(domini, a['href'])
             
             if url_partit in urls_vistes: continue
             
@@ -460,7 +465,8 @@ def fetch_nba_replays(scraper, memory_matches):
     partits_coneguts = [m.get('homeTeam') for m in memory_matches if m.get('provider') == 'NBA_REPLAY']
     dominis_directes = ['filemoon', 'vidmoly', 'vk.com', 'ok.ru', 'streamtape', 'voe', 'uqload', 'dood', 'dailymotion']
     try:
-        resp = scraper.get("https://basketball-video.com/", timeout=15)
+        base_domain = "https://basketball-video.com/"
+        resp = scraper.get(base_domain, timeout=15)
         soup = BeautifulSoup(resp.text, 'html.parser')
         partits_a_visitar = []
         for a in soup.find_all('a', href=True):
@@ -487,24 +493,32 @@ def fetch_nba_replays(scraper, memory_matches):
                 else:
                     home = title.split(' Full ')[0].strip()
 
-                art_resp = scraper.get(link if link.startswith('http') else "https://basketball-video.com"+link, timeout=10)
+                url_visita = urljoin(base_domain, link)
+                art_resp = scraper.get(url_visita, timeout=10)
                 art_soup = BeautifulSoup(art_resp.text, 'html.parser')
                 channels = []
                 
                 for la in art_soup.find_all('a', href=True):
                     btn_text = la.text.strip()
                     if len(btn_text) < 25 and any(x in btn_text.lower() for x in ['watch', 'full game', 'part']):
-                        href = la['href']
-                        if href.endswith('.html') and 'player' not in href: continue 
+                        raw_href = la['href']
+                        if raw_href.endswith('.html') and 'player' not in raw_href: continue 
                         
+                        href = urljoin(base_domain, raw_href)
+                        
+                        # CORRECCIÓ NBA: Si no és directe, busquem l'iframe. Si falla, el matem.
                         if not any(d in href.lower() for d in dominis_directes):
                             try:
                                 f_r = scraper.get(href, timeout=5)
                                 f_s = BeautifulSoup(f_r.text, 'html.parser')
                                 iframe = f_s.find('iframe')
-                                if iframe: href = iframe.get('src')
+                                if iframe and iframe.get('src'): 
+                                    href = iframe.get('src')
+                                else:
+                                    continue # Salta l'enllaç perquè és només text, no hi ha vídeo
                             except Exception as e:
                                 log(f"⚠ Ignorant error iframe directe a NBA: {e}")
+                                continue
                         
                         c_name = "Veure"
                         if 'part 1' in btn_text.lower() or '1a part' in btn_text.lower(): c_name = '1a Part 🎬'
@@ -547,8 +561,9 @@ def render_card(m):
     
     is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
     
-    nom_local = m.get("homeTeam", m.get("name", "Esdeveniment"))
-    nom_visitant = m.get("awayTeam", "")
+    # CORRECCIÓ MOTOR: Ús correcte de la jerarquia or
+    nom_local = m.get("homeTeam") or m.get("name") or "Esdeveniment"
+    nom_visitant = m.get("awayTeam") or ""
     
     home_logo_url = get_nba_logo(nom_local) if is_nba else m.get("homeLogo", "")
     away_logo_url = get_nba_logo(nom_visitant) if is_nba else m.get("awayLogo", "")
@@ -706,7 +721,6 @@ def main():
             navbar += f'<a href="#{sport}" class="nav-btn">{nice}</a>'
             content += f'<div id="{sport}" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>{nice}</div><div class="grid">'
             
-            # Ordenació afegida: primer els live (0), després la resta (1) per ordre cronològic
             partits_ordenats = sorted(filtered_cats[sport], key=lambda x: (0 if x.get('status') == 'live' else 1, x.get('start_raw', '')))
             
             for m in partits_ordenats:
