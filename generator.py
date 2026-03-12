@@ -226,6 +226,48 @@ def are_duplicates(m1, m2):
     
     return max(score_direct, score_crossed) > 0.65
 
+# =====================================================================
+# AUTO-HEAL DE MEMÒRIA (Purgador d'errors vells catxetjats)
+# =====================================================================
+def load_memory():
+    if os.path.exists(MEMORY_FILE):
+        try:
+            with open(MEMORY_FILE, 'r', encoding='utf-8') as f: 
+                data = json.load(f)
+                clean_data = {}
+                for gid, m in data.items():
+                    # 1. Purgar el text vell i redundant d'"EN DIRECTE"
+                    if m.get('start') == 'EN DIRECTE 🟢':
+                        m['start'] = m.get('start_raw')
+                    
+                    valid_channels = []
+                    for ch in m.get('channels', []):
+                        url = ch.get('url', '')
+                        # 2. Curar l'Error 404: Reescriure els dominis cdn.livetv trencats cap al principal
+                        url = re.sub(r'https?://(?:cdn\.)?livetv[0-9]*\.[a-z]+', 'https://livetv.sx', url)
+                        ch['url'] = url
+                        
+                        # 3. Purgar els enllaços brossa de bàsquet vells 
+                        if 'basketball-video.com' in url and not url.endswith('.html'):
+                            continue
+                            
+                        valid_channels.append(ch)
+                    m['channels'] = valid_channels
+                    
+                    # 4. Purgar Motor/Tennis trencats perquè es tornin a raspar de zero amb el nom arreglat
+                    nom = m.get('homeTeam') or m.get('name') or m.get('title') or m.get('event') or ""
+                    if (nom == "Esdeveniment" or nom == "") and not m.get('awayTeam'):
+                        continue
+                    
+                    clean_data[gid] = m
+                return clean_data
+        except Exception as e: 
+            log(f"⚠ No s'ha pogut carregar la memòria correctament: {e}")
+    return {}
+
+def save_memory(data):
+    with open(MEMORY_FILE, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
+
 def fetch_cdn_live():
     matches = []
     log("Buscant partits en directe a la CDN...")
@@ -254,6 +296,10 @@ def fetch_cdn_live():
                         sport_key = 'NBA' if s_low in ['nba', 'basketball'] else sport.capitalize()
                         if sport_key.lower() == 'nfl': sport_key = 'NFL'
                         if sport_key.lower() in ['soccer', 'football']: sport_key = 'Soccer'
+                        
+                        # Extraure bé el nom per als esports de Motor o Tennis que no tenen 'homeTeam'
+                        if not m.get('homeTeam'):
+                            m['homeTeam'] = m.get('title') or m.get('event') or m.get('name') or ""
                         
                         m.update({'custom_sport_cat': sport_key, 'provider': 'CDN'})
                         matches.append(m)
@@ -322,10 +368,12 @@ def processar_partit_livetv(item, scraper):
             if any(x in href for x in ['webplayer', 'embed', 'alieztv', 'bintvs']):
                 if 'acestream' in href.lower(): continue
                 
-                # CORRECCIÓ 404: Reconstrucció segura de rutes relatives
                 clean_link = urljoin(url_partit, href)
                 if clean_link.startswith('http:'):
                     clean_link = clean_link.replace('http:', 'https:')
+                
+                # REPARACIÓ ERROR 404: Reescrivim dominis fraudulents a l'oficial
+                clean_link = re.sub(r'https?://(?:cdn\.)?livetv[0-9]*\.[a-z]+', 'https://livetv.sx', clean_link)
                 
                 if clean_link in urls_processades: continue
                 urls_processades.add(clean_link)
@@ -499,14 +547,18 @@ def fetch_nba_replays(scraper, memory_matches):
                 channels = []
                 
                 for la in art_soup.find_all('a', href=True):
-                    btn_text = la.text.strip()
-                    if len(btn_text) < 25 and any(x in btn_text.lower() for x in ['watch', 'full game', 'part']):
+                    btn_text = la.text.strip().lower()
+                    
+                    # PROHIBIM caçar enllaços al menú de navegació ("NBA Archives")
+                    if 'archive' in btn_text or 'classic' in btn_text:
+                        continue
+                        
+                    if len(btn_text) < 25 and any(x in btn_text for x in ['watch', 'full game', 'part']):
                         raw_href = la['href']
                         if raw_href.endswith('.html') and 'player' not in raw_href: continue 
                         
                         href = urljoin(base_domain, raw_href)
                         
-                        # CORRECCIÓ NBA: Si no és directe, busquem l'iframe. Si falla, el matem.
                         if not any(d in href.lower() for d in dominis_directes):
                             try:
                                 f_r = scraper.get(href, timeout=5)
@@ -517,14 +569,13 @@ def fetch_nba_replays(scraper, memory_matches):
                                 else:
                                     continue # Salta l'enllaç perquè és només text, no hi ha vídeo
                             except Exception as e:
-                                log(f"⚠ Ignorant error iframe directe a NBA: {e}")
                                 continue
                         
                         c_name = "Veure"
-                        if 'part 1' in btn_text.lower() or '1a part' in btn_text.lower(): c_name = '1a Part 🎬'
-                        elif 'part 2' in btn_text.lower() or '2a part' in btn_text.lower(): c_name = '2a Part 🎬'
-                        elif 'part 3' in btn_text.lower() or '3a part' in btn_text.lower(): c_name = '3a Part 🎬'
-                        elif 'full' in btn_text.lower() or 'watch' in btn_text.lower(): c_name = 'Partit Sencer 🍿'
+                        if 'part 1' in btn_text or '1a part' in btn_text: c_name = '1a Part 🎬'
+                        elif 'part 2' in btn_text or '2a part' in btn_text: c_name = '2a Part 🎬'
+                        elif 'part 3' in btn_text or '3a part' in btn_text: c_name = '3a Part 🎬'
+                        elif 'full' in btn_text or 'watch' in btn_text: c_name = 'Partit Sencer 🍿'
                         
                         channels.append({'channel_name': c_name, 'url': href, 'channel_code': 'us'})
                 
@@ -540,17 +591,6 @@ def fetch_nba_replays(scraper, memory_matches):
     except Exception as e: log(f"❌ Error NBA: {e}")
     return matches
 
-def load_memory():
-    if os.path.exists(MEMORY_FILE):
-        try:
-            with open(MEMORY_FILE, 'r', encoding='utf-8') as f: return json.load(f)
-        except Exception as e: 
-            log(f"⚠ No s'ha pogut carregar la memòria: {e}")
-    return {}
-
-def save_memory(data):
-    with open(MEMORY_FILE, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
-
 def render_card(m):
     badge = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>' if m.get('status') == 'live' else ''
     btns = ""
@@ -561,8 +601,8 @@ def render_card(m):
     
     is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
     
-    # CORRECCIÓ MOTOR: Ús correcte de la jerarquia or
-    nom_local = m.get("homeTeam") or m.get("name") or "Esdeveniment"
+    # Ara raspa bé el nom per als esports de Motor des de qualsevol de les claus
+    nom_local = m.get("homeTeam") or m.get("title") or m.get("name") or m.get("event") or "Esdeveniment"
     nom_visitant = m.get("awayTeam") or ""
     
     home_logo_url = get_nba_logo(nom_local) if is_nba else m.get("homeLogo", "")
@@ -707,7 +747,6 @@ def main():
             
             if valid_matches:
                 filtered_cats[sport] = valid_matches
-
 
         # -------------------------------------------------------------------
         # GENERACIÓ HTML
