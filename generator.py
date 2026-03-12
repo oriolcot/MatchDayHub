@@ -279,7 +279,6 @@ def fetch_ppv_to(scraper):
                     for s in cat.get("streams", []):
                         name = s.get("name", "")
                         
-                        # FILTRE 1: Eliminar Unknown, TBD, Simulcast i Programes
                         nl = name.lower()
                         if "unknown" in nl or "tbd" in nl or "simulcast" in nl or "golazo" in nl:
                             continue
@@ -373,7 +372,8 @@ def processar_partit_livetv(item, scraper):
                 
         if canals_formatats:
             return (text, esport, canals_formatats)
-    except: pass
+    except Exception as e: 
+        log(f"⚠ Ignorant error al processar partit a LiveTV: {e}")
     return None
 
 def fetch_livetv(scraper):
@@ -390,7 +390,8 @@ def fetch_livetv(scraper):
                 domini = dom
                 html = r.text
                 break
-        except: pass
+        except Exception as e: 
+            log(f"⚠ Fallada intentant domini {dom}: {e}")
         
     if not domini:
         log("❌ No s'ha pogut connectar a LiveTV.")
@@ -446,7 +447,6 @@ def fetch_livetv(scraper):
             
             matches.append({
                 'custom_sport_cat': esport, 'homeTeam': home, 'awayTeam': away,
-                # Ara usem l'hora real perquè JavaScript no elimini el text EN DIRECTE
                 'start': now_str, 'start_raw': now_str, 'status': 'live',
                 'provider': 'LIVETV', 'channels': channels
             })
@@ -503,7 +503,8 @@ def fetch_nba_replays(scraper, memory_matches):
                                 f_s = BeautifulSoup(f_r.text, 'html.parser')
                                 iframe = f_s.find('iframe')
                                 if iframe: href = iframe.get('src')
-                            except: pass
+                            except Exception as e:
+                                log(f"⚠ Ignorant error iframe directe a NBA: {e}")
                         
                         c_name = "Veure"
                         if 'part 1' in btn_text.lower() or '1a part' in btn_text.lower(): c_name = '1a Part 🎬'
@@ -519,7 +520,8 @@ def fetch_nba_replays(scraper, memory_matches):
                         'start': "📼 REPLAY", 'start_raw': datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M"), 
                         'status': 'vod', 'provider': 'NBA_REPLAY', 'channels': channels
                     })
-            except: pass
+            except Exception as e: 
+                log(f"⚠ Ignorant error processant un replay: {e}")
         log(f"✅ S'han trobat {len(matches)} repeticions NBA netes.")
     except Exception as e: log(f"❌ Error NBA: {e}")
     return matches
@@ -528,11 +530,38 @@ def load_memory():
     if os.path.exists(MEMORY_FILE):
         try:
             with open(MEMORY_FILE, 'r', encoding='utf-8') as f: return json.load(f)
-        except: pass
+        except Exception as e: 
+            log(f"⚠ No s'ha pogut carregar la memòria: {e}")
     return {}
 
 def save_memory(data):
     with open(MEMORY_FILE, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
+
+# -------------------------------------------------------------------
+# FUNCIÓ EXTRETA PER GENERAR TARGETES (Llegibilitat HTML millorada)
+# -------------------------------------------------------------------
+def render_card(m):
+    badge = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>' if m.get('status') == 'live' else ''
+    btns = ""
+    for ch in m.get('channels', []):
+        b64 = base64.b64encode(ch["url"].encode()).decode()
+        flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img" onerror="this.style.display=\'none\'"> ' if 'channel_code' in ch else ''
+        btns += f'<div class="btn" data-link="{b64}" onclick="openLink(this)">{flag}{ch["channel_name"]}</div>'
+    
+    is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
+    
+    nom_local = m.get("homeTeam", m.get("name", "Esdeveniment"))
+    nom_visitant = m.get("awayTeam", "")
+    
+    home_logo_url = get_nba_logo(nom_local) if is_nba else m.get("homeLogo", "")
+    away_logo_url = get_nba_logo(nom_visitant) if is_nba else m.get("awayLogo", "")
+    
+    h_logo = f'<img src="{home_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if home_logo_url else ''
+    a_logo = f'<img src="{away_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if away_logo_url else ''
+    
+    vs_html = ' <span class="versus">vs</span> ' if nom_visitant else ''
+    
+    return f'<div class="card"><div class="header"><div class="meta"><span class="utc-time" data-ts="{m.get("start_raw", "")}">{m.get("start", "")}</span>{badge}</div><div class="match-info"><div class="teams">{h_logo} {nom_local}{vs_html}{nom_visitant} {a_logo}</div></div></div><div class="channels">{btns}</div></div>'
 
 def main():
     try:
@@ -541,10 +570,22 @@ def main():
         
         scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
         
-        cdn_events = fetch_cdn_live()
-        ppv_events = fetch_ppv_to(scraper)
-        livetv_events = fetch_livetv(scraper)
-        nba_replays = fetch_nba_replays(scraper, list(memory.values()))
+        cdn_events = []
+        ppv_events = []
+        livetv_events = []
+        nba_replays = []
+        
+        # ⚡ EXECUCIÓ EN PARAL·LEL (Molt més ràpid)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+            fut_cdn = executor.submit(fetch_cdn_live)
+            fut_ppv = executor.submit(fetch_ppv_to, scraper)
+            fut_livetv = executor.submit(fetch_livetv, scraper)
+            fut_replays = executor.submit(fetch_nba_replays, scraper, list(memory.values()))
+            
+            cdn_events = fut_cdn.result()
+            ppv_events = fut_ppv.result()
+            livetv_events = fut_livetv.result()
+            nba_replays = fut_replays.result()
         
         all_raw = list(memory.values()) + cdn_events + ppv_events + livetv_events + nba_replays
         unique = {}
@@ -577,11 +618,9 @@ def main():
             is_nba_replay = m.get('provider') == 'NBA_REPLAY'
             is_soccer = m.get('custom_sport_cat') == 'Soccer'
             
-            # FILTRE 2: Aturar el futur. Limitem que l'esdeveniment sigui com a molt d'aquí a 24h.
             if not is_nba_replay and diff < -24.0:
                 continue
                 
-            # FILTRE 3: Eliminar "Esdeveniments" sense rival (excepte Motor o NFL)
             if not m.get('awayTeam') and m.get('custom_sport_cat') not in ['Motorsport', 'NFL', 'NBA Replays 🏀']:
                 continue
             
@@ -601,7 +640,7 @@ def main():
             if c not in cats: cats[c] = []
             cats[c].append(m)
 
-# -------------------------------------------------------------------
+        # -------------------------------------------------------------------
         # FILTRE D'IDIOMES I DIVERSITAT D'OPCIONS
         # -------------------------------------------------------------------
         banned_langs = {
@@ -640,7 +679,6 @@ def main():
                             
                     final_channels.extend(picked)
                     
-                # FILTRE 4: Renumerar els botons de LiveTV per evitar els salts de números
                 livetv_count = 1
                 for ch in final_channels:
                     cname = ch.get('channel_name', '')
@@ -672,27 +710,8 @@ def main():
             navbar += f'<a href="#{sport}" class="nav-btn">{nice}</a>'
             content += f'<div id="{sport}" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>{nice}</div><div class="grid">'
             for m in filtered_cats[sport]:
-                badge = '<span class="live-badge"><div class="live-dot"></div> EN VIU</span>' if m.get('status') == 'live' else ''
-                btns = ""
-                for ch in m.get('channels', []):
-                    b64 = base64.b64encode(ch["url"].encode()).decode()
-                    flag = f'<img src="https://flagcdn.com/20x15/{ch["channel_code"]}.png" class="flag-img" onerror="this.style.display=\'none\'"> ' if 'channel_code' in ch else ''
-                    btns += f'<div class="btn" data-link="{b64}" onclick="openLink(this)">{flag}{ch["channel_name"]}</div>'
-                
-                is_nba = m.get('custom_sport_cat') in ['NBA', 'NBA Replays 🏀']
-                
-                nom_local = m.get("homeTeam", m.get("name", "Esdeveniment"))
-                nom_visitant = m.get("awayTeam", "")
-                
-                home_logo_url = get_nba_logo(nom_local) if is_nba else m.get("homeLogo", "")
-                away_logo_url = get_nba_logo(nom_visitant) if is_nba else m.get("awayLogo", "")
-                
-                h_logo = f'<img src="{home_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if home_logo_url else ''
-                a_logo = f'<img src="{away_logo_url}" class="team-logo" onerror="this.style.display=\'none\'">' if away_logo_url else ''
-                
-                vs_html = ' <span class="versus">vs</span> ' if nom_visitant else ''
-                
-                content += f'<div class="card"><div class="header"><div class="meta"><span class="utc-time" data-ts="{m.get("start_raw", "")}">{m.get("start", "")}</span>{badge}</div><div class="match-info"><div class="teams">{h_logo} {nom_local}{vs_html}{nom_visitant} {a_logo}</div></div></div><div class="channels">{btns}</div></div>'
+                # Tota l'espagueti de div s'ha mogut a render_card()
+                content += render_card(m)
             content += "</div></div>"
 
         html_final = INTERNAL_TEMPLATE.replace('{{NAVBAR}}', navbar).replace('{{CONTENT}}', content).replace('{{DATE}}', datetime.now(timezone.utc).strftime("%d/%m/%Y %H:%M UTC"))
