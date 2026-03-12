@@ -709,13 +709,14 @@ def main():
             nice = get_sport_name(sport)
             navbar += f'<a href="#{sport}" class="nav-btn">{nice}</a>'
             content += f'<div id="{sport}" class="sport-section"><div class="sport-title"><span class="sport-icon"></span>{nice}</div><div class="grid">'
-            for m in filtered_cats[sport]:
-                # Tota l'espagueti de div s'ha mogut a render_card()
+            
+            # --- NOVA LÒGICA D'ORDENACIÓ ---
+            # 1r prioritat: partits 'live' (0 va abans que 1). 2a prioritat: hora cronològica
+            partits_ordenats = sorted(filtered_cats[sport], key=lambda x: (0 if x.get('status') == 'live' else 1, x.get('start_raw', '')))
+            
+            for m in partits_ordenats:
                 content += render_card(m)
             content += "</div></div>"
-
-        html_final = INTERNAL_TEMPLATE.replace('{{NAVBAR}}', navbar).replace('{{CONTENT}}', content).replace('{{DATE}}', datetime.now(timezone.utc).strftime("%d/%m/%Y %H:%M UTC"))
-        print(html_final)
 
     except Exception as e: log(f"CRITICAL ERROR: {e}")
 
