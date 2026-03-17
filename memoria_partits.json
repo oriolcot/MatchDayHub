@@ -1,5 +1,5 @@
 {
-    "9054153762507015171": {
+    "3902845687538557329": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Chicago Bulls",
         "awayTeam": "Los Angeles Lakers",
@@ -35,7 +35,7 @@
             }
         ]
     },
-    "347661401807469360": {
+    "1591995661139984800": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Dallas Mavericks",
         "awayTeam": "Memphis Grizzlies",
@@ -56,7 +56,7 @@
             }
         ]
     },
-    "3420986963475276742": {
+    "2925319058510012855": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Washington Wizards",
         "awayTeam": "Orlando Magic",
@@ -77,7 +77,7 @@
             }
         ]
     },
-    "7231374346617125276": {
+    "5182646238156260564": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Utah Jazz",
         "awayTeam": "Portland Trail Blazers",
@@ -98,7 +98,7 @@
             }
         ]
     },
-    "2446087278759799961": {
+    "5788441206402810321": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "New Orleans Pelicans",
         "awayTeam": "Houston Rockets",
@@ -119,7 +119,7 @@
             }
         ]
     },
-    "4292133203694807500": {
+    "7781128016696955138": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Memphis Grizzlies",
         "awayTeam": "Detroit Pistons",
@@ -140,7 +140,7 @@
             }
         ]
     },
-    "6784538034816887146": {
+    "1063111947470511810": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Los Angeles Lakers",
         "awayTeam": "Denver Nuggets",
@@ -161,7 +161,7 @@
             }
         ]
     },
-    "5717777046464379359": {
+    "1472319363257330841": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba All Star Saturday Night",
         "awayTeam": "",
@@ -187,7 +187,7 @@
             }
         ]
     },
-    "1638854903281755213": {
+    "6525833318094002216": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Sacramento Kings",
         "awayTeam": "La Clippers",
@@ -208,7 +208,7 @@
             }
         ]
     },
-    "5465672550690141895": {
+    "3011476335571236806": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Denver Nuggets",
         "awayTeam": "Los Angeles Lakers",
@@ -229,7 +229,7 @@
             }
         ]
     },
-    "2514421970543600647": {
+    "4686850449583958663": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Orlando Magic",
         "awayTeam": "Miami Heat",
@@ -250,7 +250,7 @@
             }
         ]
     },
-    "4655544574382320302": {
+    "5774312462836309035": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Charlotte Hornets",
         "awayTeam": "San Antonio Spurs",
@@ -281,7 +281,7 @@
             }
         ]
     },
-    "7423863596431246337": {
+    "1443895269506216004": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Minnesota Timberwolves",
         "awayTeam": "Golden State Warriors",
@@ -312,7 +312,7 @@
             }
         ]
     },
-    "7879361528661903730": {
+    "7925448960565698062": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Golden State Warriors",
         "awayTeam": "New York Knicks",
@@ -333,7 +333,7 @@
             }
         ]
     },
-    "214453464350081038": {
+    "5441094418864502526": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Portland Trail Blazers",
         "awayTeam": "Philadelphia 76Ers",
@@ -354,7 +354,7 @@
             }
         ]
     },
-    "7412545721863003007": {
+    "2984619021289270533": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Detroit Pistons",
         "awayTeam": "Toronto Raptors",
@@ -375,7 +375,7 @@
             }
         ]
     },
-    "6301417444799091478": {
+    "2613348688521022912": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Indiana Pacers",
         "awayTeam": "Milwaukee Bucks",
@@ -396,7 +396,7 @@
             }
         ]
     },
-    "771385876457596009": {
+    "7114337541987139893": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Sporting CP",
         "awayTeam": "Bod\u00f8/Glimt",
@@ -410,10 +410,171 @@
                 "channel_name": "PPV Stream",
                 "url": "https://pooembed.eu/embed/ucl/2026-03-17/spo-bod",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "CBS Sports Network",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cbs+sports+network&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/cbs-sports-network.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 1",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TUDN",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS MENA 2",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+mena+2&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-2.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 3",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+3&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-3.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport Premier League",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+premier+league&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-premier-league.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Canal Sport",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/canal-sport.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "DAZN 1",
+                "channel_code": "de",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=de&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport TV 5",
+                "channel_code": "pt",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+5&code=pt&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-5.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Ziggo Sport 1",
+                "channel_code": "nl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+1&code=nl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Cosmote Sport 7",
+                "channel_code": "gr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+7&code=gr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-7.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TV3 Sport",
+                "channel_code": "dk",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+sport&code=dk&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-sport.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sport 1",
+                "channel_code": "at",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+1&code=at&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/austria/sky-sport-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Max Sport 3",
+                "channel_code": "bg",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+3&code=bg&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-3.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Arena 2 Premium",
+                "channel_code": "rs",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Arena Sport 2",
+                "channel_code": "hr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Nova Sport 4",
+                "channel_code": "cz",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+4&code=cz&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-4.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TNT",
+                "channel_code": "br",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt&code=br&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/tnt.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "FOX Sports 2",
+                "channel_code": "ar",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+sports+2&code=ar&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/fox-sports-2.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Digi Sport 1",
+                "channel_code": "ro",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Prima Sport 1",
+                "channel_code": "ro",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport 5",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 4",
+                "channel_code": "sa",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+4&code=sa&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-4.svg",
+                "viewers": 0
             }
         ]
     },
-    "2636243156888057678": {
+    "4916186106237321474": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Chelsea",
         "awayTeam": "Paris",
@@ -427,10 +588,143 @@
                 "channel_name": "PPV Stream",
                 "url": "https://pooembed.eu/embed/ucl/2026-03-17/che-psg",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "TUDN",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "UniM\u00e1s",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=unim\u00e1s&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/unimas.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 2",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-2.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 2",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport Variety 3",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+variety+3&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-variety-3.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Canal Foot",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+foot&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/canal-foot.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sport Arena",
+                "channel_code": "it",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+arena&code=it&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-arena.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "DAZN 2",
+                "channel_code": "de",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+2&code=de&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-2.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Ziggo Sport 2",
+                "channel_code": "nl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+2&code=nl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-2.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Cosmote Sport 3",
+                "channel_code": "gr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+3&code=gr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-3.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TV3 Sport",
+                "channel_code": "dk",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+sport&code=dk&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-sport.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Max Sport 4",
+                "channel_code": "bg",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Arena 3 Premium",
+                "channel_code": "rs",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+3+premium&code=rs&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-3.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Arena Sport 2",
+                "channel_code": "hr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "FOX Sports",
+                "channel_code": "ar",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+sports&code=ar&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/fox-sports.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Digi Sport 2",
+                "channel_code": "ro",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+2&code=ro&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-2.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Prima Sport 2",
+                "channel_code": "ro",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+2&code=ro&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-2.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport 5 Plus",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+plus&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-plus.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 1",
+                "channel_code": "sa",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
+                "viewers": 0
             }
         ]
     },
-    "8269168861895903659": {
+    "6520199914967871863": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Man City",
         "awayTeam": "Real Madrid",
@@ -444,10 +738,178 @@
                 "channel_name": "PPV Stream",
                 "url": "https://pooembed.eu/embed/ucl/2026-03-17/mci-rma",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "beIN SPORTS 1",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TUDN",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "UniM\u00e1s",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=unim\u00e1s&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/unimas.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS MENA 2",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+mena+2&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-2.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport Premier League",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+premier+league&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-premier-league.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Canal Sport",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/canal-sport.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "M Liga de Campeones 1",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sport Calcio",
+                "channel_code": "it",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "DAZN 1",
+                "channel_code": "de",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=de&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "DAZN 1",
+                "channel_code": "pt",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=pt&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Ziggo Sport 1",
+                "channel_code": "nl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+1&code=nl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Ziggo Sport 5",
+                "channel_code": "nl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+5&code=nl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-5.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Cosmote Sport 2",
+                "channel_code": "gr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+2&code=gr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-2.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TV3 Puls",
+                "channel_code": "dk",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+puls&code=dk&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-plus.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Max Sport 3",
+                "channel_code": "bg",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+3&code=bg&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-3.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Arena 2 Premium",
+                "channel_code": "rs",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Arena Sport 1",
+                "channel_code": "hr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Nova Sport 3",
+                "channel_code": "cz",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+3&code=cz&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-3.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TNT",
+                "channel_code": "br",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt&code=br&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/tnt.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "ESPN",
+                "channel_code": "ar",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=ar&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Digi Sport 1",
+                "channel_code": "ro",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Prima Sport 1",
+                "channel_code": "ro",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport 5",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 2",
+                "channel_code": "sa",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
+                "viewers": 0
             }
         ]
     },
-    "5956773729228154551": {
+    "6431041386077644707": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Arsenal",
         "awayTeam": "Leverkusen",
@@ -461,10 +923,143 @@
                 "channel_name": "PPV Stream",
                 "url": "https://pooembed.eu/embed/ucl/2026-03-17/ars-lev",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "beIN SPORTS 3",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-3.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TNT Sports 1",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport Maximo 1",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+maximo+1&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-maximo-1.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport PSL",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+psl&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-pls.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Canal Sport360",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport360&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/canal-sport-360.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Italia 1",
+                "channel_code": "it",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=italia+1&code=it&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/italia-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sport Max",
+                "channel_code": "it",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+max&code=it&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-max.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "DAZN 3",
+                "channel_code": "pt",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+3&code=pt&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-3.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Ziggo Sport 3",
+                "channel_code": "nl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+3&code=nl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-3.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Cosmote Sport 5",
+                "channel_code": "gr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+5&code=gr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-5.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "TV3 Max",
+                "channel_code": "dk",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+max&code=dk&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-max.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Canal 360",
+                "channel_code": "pl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+360&code=pl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-360.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Max Sport 2",
+                "channel_code": "bg",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+2&code=bg&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-2.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Arena Sport 3",
+                "channel_code": "hr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+3&code=hr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-3.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Nova Sport 5",
+                "channel_code": "cz",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+5&code=cz&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-5.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "ESPN 2",
+                "channel_code": "ar",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=ar&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-2.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Prima Sport 3",
+                "channel_code": "ro",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+3&code=ro&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-3.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport 5 Stars",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 3",
+                "channel_code": "sa",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp",
+                "viewers": 0
             }
         ]
     },
-    "696116854615885636": {
+    "440970567683686731": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "Nba All Star Game",
         "awayTeam": "",
@@ -490,7 +1085,7 @@
             }
         ]
     },
-    "6428431144937183452": {
+    "687434757119371211": {
         "custom_sport_cat": "NBA",
         "homeTeam": "UMBC Retrievers",
         "awayTeam": "Howard Bison",
@@ -507,7 +1102,7 @@
             }
         ]
     },
-    "8649739606370335672": {
+    "9192174110321886087": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Texas Longhorns",
         "awayTeam": "NC State Wolfpack",
@@ -524,7 +1119,7 @@
             }
         ]
     },
-    "2696344798997772692": {
+    "3949950213452803514": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Miami Heat",
         "awayTeam": "Charlotte Hornets",
@@ -541,7 +1136,7 @@
             }
         ]
     },
-    "7405523203858120746": {
+    "154017217111340931": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Oklahoma City Thunder",
         "awayTeam": "Orlando Magic",
@@ -555,10 +1150,52 @@
                 "channel_name": "PPV Stream",
                 "url": "https://pooembed.eu/embed/nba/2026-03-17/okc-orl",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "beIN SPORTS MENA 1",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+mena+1&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 1",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport TV 1",
+                "channel_code": "pt",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport Klub 1",
+                "channel_code": "rs",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport 5",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 8",
+                "channel_code": "sa",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+8&code=sa&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-8.svg",
+                "viewers": 0
             }
         ]
     },
-    "8302139396088069200": {
+    "3954348190164034694": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Detroit Pistons",
         "awayTeam": "Washington Wizards",
@@ -575,7 +1212,7 @@
             }
         ]
     },
-    "8884881285785029573": {
+    "7996741531559931602": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Indiana Pacers",
         "awayTeam": "New York Knicks",
@@ -589,10 +1226,17 @@
                 "channel_name": "PPV Stream",
                 "url": "https://pooembed.eu/embed/nba/2026-03-17/ind-ny",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "MSG",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png",
+                "viewers": 0
             }
         ]
     },
-    "7593096007903124929": {
+    "160946072718972875": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Cleveland Cavaliers",
         "awayTeam": "Milwaukee Bucks",
@@ -606,10 +1250,45 @@
                 "channel_name": "PPV Stream",
                 "url": "https://pooembed.eu/embed/nba/2026-03-17/cle-mil",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "Sky Sports Arena",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+arena&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-arena.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport Grandstand",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+grandstand&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-grandstand.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport Action",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+action&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-action.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sport Top Event",
+                "channel_code": "de",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Cosmote Sport 4",
+                "channel_code": "gr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp",
+                "viewers": 0
             }
         ]
     },
-    "1401543864272762792": {
+    "5958619884270109829": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Phoenix Suns",
         "awayTeam": "Minnesota Timberwolves",
@@ -626,7 +1305,7 @@
             }
         ]
     },
-    "3496949924415571335": {
+    "2969628188405022265": {
         "custom_sport_cat": "NBA",
         "homeTeam": "Philadelphia 76ers",
         "awayTeam": "Denver Nuggets",
@@ -640,10 +1319,94 @@
                 "channel_name": "PPV Stream",
                 "url": "https://pooembed.eu/embed/nba/2026-03-17/phi-den",
                 "channel_code": "us"
+            },
+            {
+                "channel_name": "beIN SPORTS MENA 1",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+mena+1&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport Grandstand",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+grandstand&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-grandstand.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "SuperSport Action",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+action&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-action.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 1",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sport Max",
+                "channel_code": "it",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+max&code=it&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-max.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sport Mix",
+                "channel_code": "de",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sport Top Event",
+                "channel_code": "de",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport TV 1",
+                "channel_code": "pt",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Arena 1 Premium",
+                "channel_code": "rs",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Nova Sport 2",
+                "channel_code": "cz",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+2&code=cz&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-2.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport 5",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 8",
+                "channel_code": "sa",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+8&code=sa&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-8.svg",
+                "viewers": 0
             }
         ]
     },
-    "549222332969485022": {
+    "1757447685480733508": {
         "custom_sport_cat": "NBA",
         "homeTeam": "San Antonio Spurs",
         "awayTeam": "Sacramento Kings",
@@ -660,179 +1423,7 @@
             }
         ]
     },
-    "2578420526721795252": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Astana Tigers",
-        "awayTeam": "AiRom",
-        "start": "2026-03-17 08:51",
-        "start_raw": "2026-03-17 08:51",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=opVmhKMKwAA&lang=ru&eid=353773277&lid=2976902&ci=1482&si=3",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "3541346030595766979": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "New Zealand",
-        "awayTeam": "South Africa",
-        "start": "2026-03-17 08:51",
-        "start_raw": "2026-03-17 08:51",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (AliezTV 1)",
-                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=250364&lang=ru&eid=356690063&lid=2969737&ci=261&si=41",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (AliezTV 2)",
-                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=251267&lang=ru&eid=356690063&lid=2977113&ci=261&si=41",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 3)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2959094&lang=ru&eid=356690063&lid=2959094&ci=261&si=41",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 4)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977108&lang=ru&eid=356690063&lid=2977108&ci=261&si=41",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 5)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977107&lang=ru&eid=356690063&lid=2977107&ci=261&si=41",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 6)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977106&lang=ru&eid=356690063&lid=2977106&ci=261&si=41",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 7)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2976835&lang=ru&eid=356690063&lid=2976835&ci=261&si=41",
-                "channel_code": "gb"
-            }
-        ]
-    },
-    "3060657164189138075": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Adelaide 36ers",
-        "awayTeam": "SE Melbourne Phoenix",
-        "start": "2026-03-17 08:51",
-        "start_raw": "2026-03-17 08:51",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Live Stream 1)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2976846&lang=ru&eid=355507946&lid=2976846&ci=596&si=3",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "8756680625924852211": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Sydney",
-        "awayTeam": "Melbourne City",
-        "start": "2026-03-17 08:51",
-        "start_raw": "2026-03-17 08:51",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (AliezTV 1)",
-                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=251242&lang=ru&eid=348933121&lid=2977114&ci=150&si=1",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (AliezTV 2)",
-                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=251264&lang=ru&eid=348933121&lid=2977115&ci=150&si=1",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 3)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2970751&lang=ru&eid=348933121&lid=2970751&ci=150&si=1",
-                "channel_code": "gb"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 4)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2976836&lang=ru&eid=348933121&lid=2976836&ci=150&si=1",
-                "channel_code": "un"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 5)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2973137&lang=ru&eid=348933121&lid=2973137&ci=150&si=1",
-                "channel_code": "de"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 6)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2972409&lang=ru&eid=348933121&lid=2972409&ci=150&si=1",
-                "channel_code": "gb"
-            }
-        ]
-    },
-    "7323252430164788309": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Bars Petropavlovsk",
-        "awayTeam": "BQO-ARLANS",
-        "start": "2026-03-17 08:51",
-        "start_raw": "2026-03-17 08:51",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=C_2-zgH3ifs&lang=ru&eid=353773278&lid=2976903&ci=1482&si=3",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "8369909535729810737": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Sakhalinskie Akuly",
-        "awayTeam": "Amurskie Tigry",
-        "start": "2026-03-17 08:51",
-        "start_raw": "2026-03-17 08:51",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (Opci\u00f3 1)",
-                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=pek-msAxflY&lang=ru&eid=348936189&lid=2976935&ci=279&si=2",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "6340280739502001651": {
-        "custom_sport_cat": "Soccer",
-        "homeTeam": "Belgium (W)",
-        "awayTeam": "Czech Republic (W)",
-        "start": "2026-03-17 08:51",
-        "start_raw": "2026-03-17 08:51",
-        "status": "live",
-        "provider": "LIVETV",
-        "channels": [
-            {
-                "channel_name": "LiveTV (AliezTV 1)",
-                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=242357&lang=ru&eid=356824767&lid=2812169&ci=2111&si=3",
-                "channel_code": "ru"
-            },
-            {
-                "channel_name": "LiveTV (Live Stream 2)",
-                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2976937&lang=ru&eid=356824767&lid=2976937&ci=2111&si=3",
-                "channel_code": "un"
-            }
-        ]
-    },
-    "2500396592435219854": {
+    "1133228158286738487": {
         "custom_sport_cat": "NBA Replays \ud83c\udfc0",
         "homeTeam": "San Antonio Spurs",
         "awayTeam": "La Clippers",
@@ -853,7 +1444,7 @@
             }
         ]
     },
-    "3768273288639898598": {
+    "6620124836391037857": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Dinamo-Neva (W)",
         "awayTeam": "Sakhalin (W)",
@@ -874,7 +1465,7 @@
             }
         ]
     },
-    "7138326822567134427": {
+    "3712618742766670102": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Dolphins",
         "awayTeam": "Rocks",
@@ -890,7 +1481,7 @@
             }
         ]
     },
-    "6072774865682026566": {
+    "8400518609836476485": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Abay",
         "awayTeam": "Kostanay",
@@ -906,7 +1497,7 @@
             }
         ]
     },
-    "4851920035931938787": {
+    "2410527675098591191": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Torreense U-23",
         "awayTeam": "Santa Clara U-23",
@@ -922,7 +1513,7 @@
             }
         ]
     },
-    "1018810234387115733": {
+    "4522122046032384318": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Guangdong Southern Tigers",
         "awayTeam": "Xinjiang Flying Tigers",
@@ -938,7 +1529,7 @@
             }
         ]
     },
-    "2371950132527485037": {
+    "7166214293051566268": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "China (W)",
         "awayTeam": "Brazil (W)",
@@ -951,10 +1542,17 @@
                 "channel_name": "LiveTV (AliezTV 1)",
                 "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=242357&lang=ru&eid=356824771&lid=2812169&ci=2111&si=3",
                 "channel_code": "ru"
+            },
+            {
+                "channel_name": "beIN SPORTS MAX 5",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
+                "viewers": 0
             }
         ]
     },
-    "8373551718918703225": {
+    "897881078690336377": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Jyvaskyla U-20",
         "awayTeam": "Kiekko-Espoo U-20",
@@ -970,7 +1568,7 @@
             }
         ]
     },
-    "5849953236403244032": {
+    "1060114996691809840": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Japan (W)",
         "awayTeam": "Argentina (W)",
@@ -986,7 +1584,7 @@
             }
         ]
     },
-    "3162472988709726847": {
+    "2140042241977696965": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Shanxi Loongs",
         "awayTeam": "Beijing Royal Fighters",
@@ -1002,7 +1600,7 @@
             }
         ]
     },
-    "1789806518937540792": {
+    "8284975267546385442": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Caspiy",
         "awayTeam": "Okzhetpes",
@@ -1018,7 +1616,7 @@
             }
         ]
     },
-    "7152333295347141771": {
+    "597696892901936030": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Aliya (W)",
         "awayTeam": "Astana SDD (W)",
@@ -1034,7 +1632,7 @@
             }
         ]
     },
-    "4061259599861088838": {
+    "1225264508300014195": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "NO Patras (W)",
         "awayTeam": "Olympiacos (W)",
@@ -1050,7 +1648,7 @@
             }
         ]
     },
-    "1764669070311107342": {
+    "7672839912689231366": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Atletico Madrid U-19",
         "awayTeam": "Brugge U-19",
@@ -1081,7 +1679,7 @@
             }
         ]
     },
-    "5589914351838531505": {
+    "7540761043951338161": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Mangystau",
         "awayTeam": "Turan Dynamo",
@@ -1097,7 +1695,7 @@
             }
         ]
     },
-    "2980648765157119511": {
+    "4168155936194158577": {
         "custom_sport_cat": "Soccer",
         "homeTeam": "Philippines (W)",
         "awayTeam": "Colombia (W)",
@@ -1110,6 +1708,1095 @@
                 "channel_name": "LiveTV (Live Stream 1)",
                 "url": "https://livetv.sx/webplayer.php?t=ifr&c=2976914&lang=ru&eid=356842983&lid=2976914&ci=8803&si=3",
                 "channel_code": "fr"
+            },
+            {
+                "channel_name": "beIN SPORTS MAX 6",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+6&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-6.svg",
+                "viewers": 0
+            }
+        ]
+    },
+    "6044818331409675078": {
+        "gameID": "1oZ8wsSE",
+        "homeTeam": "Lokomotiv Sofia 1929",
+        "awayTeam": "Septemvri Sofia",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/201203.png",
+        "time": "16:00",
+        "tournament": "Parva Liga",
+        "country": "Bulgaria",
+        "countryIMG": "https://flagcdn.com/w40/bg.png",
+        "status": "live",
+        "start": "2026-03-17 16:00",
+        "end": "2026-03-17 18:39",
+        "channels": [
+            {
+                "channel_name": "Diema Sport 1",
+                "channel_code": "bg",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
+                "viewers": 0
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2973691&lang=ru&eid=356878897&lid=2973691&ci=59&si=1",
+                "channel_code": "bg"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977381&lang=ru&eid=356878897&lid=2977381&ci=59&si=1",
+                "channel_code": "bg"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977379&lang=ru&eid=356878897&lid=2977379&ci=59&si=1",
+                "channel_code": "bg"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 4)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2976975&lang=ru&eid=356878897&lid=2976975&ci=59&si=1",
+                "channel_code": "bg"
+            }
+        ],
+        "start_raw": "2026-03-17 16:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "7998893859638788555": {
+        "gameID": "qtBwdx4V",
+        "homeTeam": "Krasnodar",
+        "awayTeam": "CSKA Moskva",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/34425.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2325.png",
+        "time": "16:30",
+        "tournament": "Russian Cup",
+        "country": "Russia",
+        "countryIMG": "https://flagcdn.com/w40/ru.png",
+        "status": "live",
+        "start": "2026-03-17 16:30",
+        "end": "2026-03-17 19:09",
+        "channels": [
+            {
+                "channel_name": "Match Premier",
+                "channel_code": "ru",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+premier&code=ru&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-premier.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Match TV",
+                "channel_code": "ru",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+tv&code=ru&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-tv.webp",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 16:30",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "7967128572065125346": {
+        "gameID": "BSFmcEdU",
+        "homeTeam": "Fenerbah\u00e7e",
+        "awayTeam": "Gaziantep FK",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3052.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5138.png",
+        "time": "17:00",
+        "tournament": "Super Lig",
+        "country": "Turkey",
+        "countryIMG": "https://flagcdn.com/w40/tr.png",
+        "status": "live",
+        "start": "2026-03-17 17:00",
+        "end": "2026-03-17 19:39",
+        "channels": [
+            {
+                "channel_name": "beIN SPORTS",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 3",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-3.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 2",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-2.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS MAX 6",
+                "channel_code": "fr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+6&code=fr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-6.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS N",
+                "channel_code": "es",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport TV 1",
+                "channel_code": "pt",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Match Football 3",
+                "channel_code": "ru",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport Klub 1",
+                "channel_code": "rs",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "ESPN 3",
+                "channel_code": "br",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=br&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-3.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "ESPN 4",
+                "channel_code": "mx",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+4&code=mx&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-4.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Prima Sport 3",
+                "channel_code": "ro",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+3&code=ro&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-3.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "beIN SPORTS 1",
+                "channel_code": "tr",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=tr&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-1.webp",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sport 2",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+2&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-2.png",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 17:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "7606754582280587600": {
+        "gameID": "fxeXg4OU",
+        "homeTeam": "Mamelodi Sundowns",
+        "awayTeam": "Marumo Gallants",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7665.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/263077.png",
+        "time": "17:30",
+        "tournament": "DStv Premiership",
+        "country": "South Africa",
+        "countryIMG": "https://flagcdn.com/w40/za.png",
+        "status": "upcoming",
+        "start": "2026-03-17 17:30",
+        "end": "2026-03-17 20:09",
+        "channels": [
+            {
+                "channel_name": "SuperSport PSL",
+                "channel_code": "za",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+psl&code=za&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-pls.webp",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 17:30",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "8791853675628486433": {
+        "gameID": "IO0cdRBN",
+        "homeTeam": "Palermo",
+        "awayTeam": "Juve Stabia",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2715.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/5324.png",
+        "time": "18:00",
+        "tournament": "Serie B",
+        "country": "Italy",
+        "countryIMG": "https://flagcdn.com/w40/it.png",
+        "status": "upcoming",
+        "start": "2026-03-17 18:00",
+        "end": "2026-03-17 20:39",
+        "channels": [
+            {
+                "channel_name": "Sport 5 Stars",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 18:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "3115452167582380119": {
+        "gameID": "dYV0jI3i",
+        "homeTeam": "Jagiellonia Bia\u0142ystok",
+        "awayTeam": "Katowice",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/7691.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
+        "time": "18:00",
+        "tournament": "Ekstraklasa",
+        "country": "Poland",
+        "countryIMG": "https://flagcdn.com/w40/pl.png",
+        "status": "upcoming",
+        "start": "2026-03-17 18:00",
+        "end": "2026-03-17 20:39",
+        "channels": [
+            {
+                "channel_name": "Canal Sport 3",
+                "channel_code": "pl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+3&code=pl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-3.svg",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 18:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "5633299352662885977": {
+        "gameID": "Bb8p9gCo",
+        "homeTeam": "Dordrecht",
+        "awayTeam": "Oss",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2973.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2978.png",
+        "time": "19:00",
+        "tournament": "Eerste Divisie",
+        "country": "Netherlands",
+        "countryIMG": "https://flagcdn.com/w40/nl.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "7188096942911407138": {
+        "gameID": "0elmviz8",
+        "homeTeam": "VVV",
+        "awayTeam": "Ajax II",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2980.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/46160.png",
+        "time": "19:00",
+        "tournament": "Eerste Divisie",
+        "country": "Netherlands",
+        "countryIMG": "https://flagcdn.com/w40/nl.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [
+            {
+                "channel_name": "ESPN 3",
+                "channel_code": "nl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=nl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn-3.svg",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "5064965669602103048": {
+        "gameID": "Zovm7yXC",
+        "homeTeam": "ADO Den Haag",
+        "awayTeam": "Utrecht II",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2966.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
+        "time": "19:00",
+        "tournament": "Eerste Divisie",
+        "country": "Netherlands",
+        "countryIMG": "https://flagcdn.com/w40/nl.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [
+            {
+                "channel_name": "ESPN",
+                "channel_code": "nl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "2356572218496691341": {
+        "gameID": "FDVy5rYJ",
+        "homeTeam": "Almere City",
+        "awayTeam": "RKC Waalwijk",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2990.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2956.png",
+        "time": "19:00",
+        "tournament": "Eerste Divisie",
+        "country": "Netherlands",
+        "countryIMG": "https://flagcdn.com/w40/nl.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [
+            {
+                "channel_name": "ESPN 2",
+                "channel_code": "nl",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=nl&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn-2.svg",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "3880686991899133520": {
+        "gameID": "1YE6RS5l",
+        "homeTeam": "Spezia",
+        "awayTeam": "Empoli",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2735.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2705.png",
+        "time": "19:00",
+        "tournament": "Serie B",
+        "country": "Italy",
+        "countryIMG": "https://flagcdn.com/w40/it.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "6135646086249458461": {
+        "gameID": "COPfyY6g",
+        "homeTeam": "Mantova",
+        "awayTeam": "Cesena",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2770.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2742.png",
+        "time": "19:00",
+        "tournament": "Serie B",
+        "country": "Italy",
+        "countryIMG": "https://flagcdn.com/w40/it.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "4494636449844872589": {
+        "gameID": "qmneWd5t",
+        "homeTeam": "Venezia",
+        "awayTeam": "Calcio Padova",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2688.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
+        "time": "19:00",
+        "tournament": "Serie B",
+        "country": "Italy",
+        "countryIMG": "https://flagcdn.com/w40/it.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [
+            {
+                "channel_name": "Sport 5 Gold",
+                "channel_code": "il",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+gold&code=il&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-gold.png",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "4297916213389918074": {
+        "gameID": "lDViNhFR",
+        "homeTeam": "Reggiana",
+        "awayTeam": "Monza",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/24516.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2729.png",
+        "time": "19:00",
+        "tournament": "Serie B",
+        "country": "Italy",
+        "countryIMG": "https://flagcdn.com/w40/it.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "4409960743232307226": {
+        "gameID": "ciaNSGZC",
+        "homeTeam": "Catanzaro",
+        "awayTeam": "Modena",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2796.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/2706.png",
+        "time": "19:00",
+        "tournament": "Serie B",
+        "country": "Italy",
+        "countryIMG": "https://flagcdn.com/w40/it.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:00",
+        "end": "2026-03-17 21:39",
+        "channels": [],
+        "start_raw": "2026-03-17 19:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "440712695685218897": {
+        "gameID": "wjVWl1Bm",
+        "homeTeam": "Watford",
+        "awayTeam": "Wrexham",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/24.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/64.png",
+        "time": "19:45",
+        "tournament": "Championship",
+        "country": "England",
+        "countryIMG": "https://flagcdn.com/w40/gb-eng.png",
+        "status": "upcoming",
+        "start": "2026-03-17 19:45",
+        "end": "2026-03-17 22:24",
+        "channels": [
+            {
+                "channel_name": "CBS Sports Network",
+                "channel_code": "us",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=cbs+sports+network&code=us&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/cbs-sports-network.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "Sky Sports Arena",
+                "channel_code": "gb",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+arena&code=gb&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-arena.svg",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 19:45",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "7283164867632619934": {
+        "gameID": "JI6b9i3Y",
+        "homeTeam": "Llaneros",
+        "awayTeam": "C\u00facuta Deportivo",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/logo.png",
+        "time": "21:10",
+        "tournament": "Primera A",
+        "country": "Colombia",
+        "countryIMG": "https://flagcdn.com/w40/co.png",
+        "status": "upcoming",
+        "start": "2026-03-17 21:10",
+        "end": "2026-03-17 23:49",
+        "channels": [
+            {
+                "channel_name": "Win Futbol",
+                "channel_code": "co",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 21:10",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "3893252571376569276": {
+        "gameID": "QmzGO8Ud",
+        "homeTeam": "Lan\u00fas",
+        "awayTeam": "Newell's Old Boys",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3218.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3212.png",
+        "time": "22:00",
+        "tournament": "Primera Divisi\u00f3n",
+        "country": "Argentina",
+        "countryIMG": "https://flagcdn.com/w40/ar.png",
+        "status": "upcoming",
+        "start": "2026-03-17 22:00",
+        "end": "2026-03-18 00:39",
+        "channels": [
+            {
+                "channel_name": "ESPN Premium",
+                "channel_code": "ar",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 22:00",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "109667365399008733": {
+        "gameID": "TfeV9dPB",
+        "homeTeam": "Atl\u00e9tico Bucaramanga",
+        "awayTeam": "Once Caldas",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/6103.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/6118.png",
+        "time": "23:20",
+        "tournament": "Primera A",
+        "country": "Colombia",
+        "countryIMG": "https://flagcdn.com/w40/co.png",
+        "status": "upcoming",
+        "start": "2026-03-17 23:20",
+        "end": "2026-03-18 01:59",
+        "channels": [
+            {
+                "channel_name": "Win Futbol",
+                "channel_code": "co",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-17 23:20",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "2860167462163686258": {
+        "gameID": "T5dCMHfb",
+        "homeTeam": "Central C\u00f3rdoba SdE",
+        "awayTeam": "Deportivo Riestra",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/65676.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/189723.png",
+        "time": "00:15",
+        "tournament": "Primera Divisi\u00f3n",
+        "country": "Argentina",
+        "countryIMG": "https://flagcdn.com/w40/ar.png",
+        "status": "upcoming",
+        "start": "2026-03-18 00:15",
+        "end": "2026-03-18 02:54",
+        "channels": [
+            {
+                "channel_name": "TNT Sports",
+                "channel_code": "ar",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-18 00:15",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "4518059224068808368": {
+        "gameID": "qfpzN45i",
+        "homeTeam": "Gimnasia Mendoza",
+        "awayTeam": "Estudiantes",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/188441.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/3206.png",
+        "time": "00:15",
+        "tournament": "Primera Divisi\u00f3n",
+        "country": "Argentina",
+        "countryIMG": "https://flagcdn.com/w40/ar.png",
+        "status": "upcoming",
+        "start": "2026-03-18 00:15",
+        "end": "2026-03-18 02:54",
+        "channels": [
+            {
+                "channel_name": "ESPN",
+                "channel_code": "ar",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=ar&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn.svg",
+                "viewers": 0
+            },
+            {
+                "channel_name": "ESPN Premium",
+                "channel_code": "ar",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-18 00:15",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "1804731508094092909": {
+        "gameID": "sbpQ9Ffg",
+        "homeTeam": "Millonarios",
+        "awayTeam": "Atl\u00e9tico Nacional",
+        "homeTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/6117.png",
+        "awayTeamIMG": "https://api.cdn-live.tv/api/v1/team/images/6106.png",
+        "time": "01:30",
+        "tournament": "Primera A",
+        "country": "Colombia",
+        "countryIMG": "https://flagcdn.com/w40/co.png",
+        "status": "upcoming",
+        "start": "2026-03-18 01:30",
+        "end": "2026-03-18 04:09",
+        "channels": [
+            {
+                "channel_name": "Win Futbol",
+                "channel_code": "co",
+                "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free",
+                "image": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
+                "viewers": 0
+            }
+        ],
+        "start_raw": "2026-03-18 01:30",
+        "custom_sport_cat": "Soccer",
+        "provider": "CDN"
+    },
+    "653650467255419637": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Braga",
+        "awayTeam": "Ferencv\u00e1ros",
+        "start": "2026-03-18 15:30",
+        "start_raw": "2026-03-18 15:30",
+        "name": "Braga vs. Ferencv\u00e1ros",
+        "status": "upcoming",
+        "provider": "PPV",
+        "channels": [
+            {
+                "channel_name": "PPV Stream",
+                "url": "https://pooembed.eu/embed/uel/2026-03-18/bra-fer",
+                "channel_code": "us"
+            }
+        ]
+    },
+    "2136978584296100686": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Sweden (W)",
+        "awayTeam": "Scotland (W)",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=250364&lang=ru&eid=356850330&lid=2969737&ci=61&si=20",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=251267&lang=ru&eid=356850330&lid=2977113&ci=61&si=20",
+                "channel_code": "gb"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 3)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977391&lang=ru&eid=356850330&lid=2977391&ci=61&si=20",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "7155838157587161933": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Italy (W)",
+        "awayTeam": "Canada (W)",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977390&lang=ru&eid=356890045&lid=2977390&ci=61&si=20",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "3981933439591105206": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Cuprum",
+        "awayTeam": "Kedzierzyn-Kozle",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2976095&lang=ru&eid=356889550&lid=2976095&ci=394&si=5",
+                "channel_code": "pl"
+            }
+        ]
+    },
+    "1704731969673703213": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Lada Tl",
+        "awayTeam": "Amur",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977419&lang=ru&eid=349071082&lid=2977419&ci=167&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "9216479742875480849": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Samara",
+        "awayTeam": "Yenisey",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (AliezTV 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=242274&lang=ru&eid=349069652&lid=2956101&ci=291&si=3",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 2)",
+                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=242285&lang=ru&eid=349069652&lid=2956099&ci=291&si=3",
+                "channel_code": "ru"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 3)",
+                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=242258&lang=ru&eid=349069652&lid=2974991&ci=291&si=3",
+                "channel_code": "fr"
+            },
+            {
+                "channel_name": "LiveTV (AliezTV 4)",
+                "url": "https://livetv.sx/webplayer2.php?t=alieztv&c=242757&lang=ru&eid=349069652&lid=2956100&ci=291&si=3",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "8996704942199476586": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Odeshchina",
+        "awayTeam": "Kremenchuk",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=RkXRBN7B-W4&lang=ru&eid=350577593&lid=2976920&ci=655&si=2",
+                "channel_code": "ua"
+            }
+        ]
+    },
+    "899006840500633226": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Neman Grodno",
+        "awayTeam": "Yunost Minsk",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtub&c=4EHjmGQQorM&lang=ru&eid=352773348&lid=2977363&ci=595&si=2",
+                "channel_code": "un"
+            }
+        ]
+    },
+    "6222476521806471681": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "EkoNiva Bobrov",
+        "awayTeam": "MHC Tambov",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977405&lang=ru&eid=356730420&lid=2977405&ci=1493&si=2",
+                "channel_code": "un"
+            }
+        ]
+    },
+    "4155721500893766808": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Radnik Bijeljina",
+        "awayTeam": "Laktasi",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2954289&lang=ru&eid=353231637&lid=2954289&ci=457&si=1",
+                "channel_code": "rs"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977417&lang=ru&eid=353231637&lid=2977417&ci=457&si=1",
+                "channel_code": "un"
+            }
+        ]
+    },
+    "707606561580062907": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Polet",
+        "awayTeam": "Granit",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977415&lang=ru&eid=356730421&lid=2977415&ci=1493&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "2622982602436701680": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Loko-76",
+        "awayTeam": "Snezhnye Barsy",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=NI7vh1tGJro&lang=ru&eid=349084171&lid=2976934&ci=279&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "635290175126981348": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Spartak MAH",
+        "awayTeam": "JHC Spartak",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=7adVO_U6WMQ&lang=ru&eid=310107815&lid=2976933&ci=279&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "4570893718006262102": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "DC Power (W)",
+        "awayTeam": "Carolina Ascent (W)",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=1YPe1tsCvVM&lang=ru&eid=356819487&lid=2977378&ci=7948&si=1",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "8086311551943609639": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Suduva-Mantinga",
+        "awayTeam": "Vytis",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifrx&c=2977472&lang=ru&eid=357242491&lid=2977472&ci=1816&si=3",
+                "channel_code": "un"
+            }
+        ]
+    },
+    "8549372507315495570": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Kapitan",
+        "awayTeam": "Almaz",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=KwTtsMMJTIU&lang=ru&eid=349094712&lid=2976930&ci=279&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "1368738197498977391": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Dinamo Szynnik",
+        "awayTeam": "JHC Dynamo Msk",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=zCnePgTNTYA&lang=ru&eid=349094710&lid=2976929&ci=279&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "8776185030068103445": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Krylia Sovetov",
+        "awayTeam": "Dynamo Kareliya",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=BOTg9VJQ6Sc&lang=ru&eid=349094714&lid=2976931&ci=279&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "2231648322586804947": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "AKM-Junior",
+        "awayTeam": "Loko",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=C-ajGi6dBu0&lang=ru&eid=349094716&lid=2976932&ci=279&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "1164338565346991975": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "MOK Mursa",
+        "awayTeam": "HAOK Mladost",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Live Stream 1)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977475&lang=ru&eid=353773327&lid=2977475&ci=817&si=5",
+                "channel_code": "un"
+            }
+        ]
+    },
+    "5133519941832827801": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Dynamo St Pburg",
+        "awayTeam": "Tambov",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=1dhEM_Is0Qs&lang=ru&eid=349094496&lid=2976945&ci=418&si=2",
+                "channel_code": "ru"
+            }
+        ]
+    },
+    "1682115825038253094": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Costa Rica U17 (W)",
+        "awayTeam": "Panama U17 (W)",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=kX27zEceAmo&lang=ru&eid=356878659&lid=2976807&ci=1239&si=1",
+                "channel_code": "un"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977384&lang=ru&eid=356878659&lid=2977384&ci=1239&si=1",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "7925492518538059090": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Mexico U17 (W)",
+        "awayTeam": "Jamaica U17 (W)",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtube&c=XCX4hhPw69s&lang=ru&eid=356878660&lid=2976808&ci=1239&si=1",
+                "channel_code": "un"
+            },
+            {
+                "channel_name": "LiveTV (Live Stream 2)",
+                "url": "https://livetv.sx/webplayer.php?t=ifr&c=2977383&lang=ru&eid=356878660&lid=2977383&ci=1239&si=1",
+                "channel_code": "gb"
+            }
+        ]
+    },
+    "2629647078641439628": {
+        "custom_sport_cat": "Soccer",
+        "homeTeam": "Slavutych",
+        "awayTeam": "Lida",
+        "start": "2026-03-17 17:02",
+        "start_raw": "2026-03-17 17:02",
+        "status": "live",
+        "provider": "LIVETV",
+        "channels": [
+            {
+                "channel_name": "LiveTV (Opci\u00f3 1)",
+                "url": "https://livetv.sx/webplayer2.php?t=youtub&c=71hl2GkAG8g&lang=ru&eid=352773346&lid=2977364&ci=595&si=2",
+                "channel_code": "un"
             }
         ]
     }
