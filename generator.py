@@ -20,7 +20,7 @@ except ImportError:
 
 # --- CONFIGURACIÓ GLOBAL ---
 API_URL_PPV = "https://api.ppv.to/api/streams"
-API_URL_CDN = os.environ.get("API_URL")
+API_URL_CDN = "https://api.cdn-live.tv/api/v1/events/sports/?user=cdnlivetv&plan=free"
 MEMORY_FILE = "memoria_partits.json"
 
 NBA_LOGOS = {
@@ -276,7 +276,7 @@ def fetch_cdn_live():
         return matches
         
     try:
-        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
+        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': False})
         resp = scraper.get(API_URL_CDN, headers={"Referer": "https://cdn-live.tv/"}, timeout=15)
         
         if resp.status_code == 200:
