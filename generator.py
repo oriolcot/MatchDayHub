@@ -10,6 +10,8 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import requests
+import xml.etree.ElementTree as ET
 
 # Evitem que peti a GitHub Actions si no existeix la llibreria dotenv
 try:
@@ -268,49 +270,59 @@ def load_memory():
 def save_memory(data):
     with open(MEMORY_FILE, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
 
-def fetch_cdn_live():
-    matches = []
-    log("Buscant partits en directe a la CDN...")
-    if not API_URL_CDN: 
-        log("❌ ERROR: La URL de la CDN està buida a les variables d'entorn!")
-        return matches
-        
+def obtenir_partits_livetv_rss():
+    url_rss = "https://cdn.livetv873.me/rss/upcoming_en.xml"
+    
+    # La teva llista blanca de competicions (en minúscules per evitar errors)
+    LLISTA_BLANCA = [
+        # Futbol
+        "spanish primera division", "english premier league", 
+        "german bundesliga", "italian serie a", 
+        "uefa champions league", "uefa europa league", 
+        "copa del rey", "supercopa", "fa cup", "dfb pokal", "coppa italia",
+        # Bàsquet
+        "nba", "euroleague", "spain. liga acb",
+        # Motor
+        "motogp", "moto gp", "formula 1"
+    ]
+    
+    partits_filtrats = []
+    
     try:
-        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': False})
-        resp = scraper.get(API_URL_CDN, headers={"Referer": "https://cdn-live.tv/"}, timeout=15)
+        # Baixem l'XML com si fóssim un navegador normal
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+        response = requests.get(url_rss, headers=headers, timeout=15)
+        response.raise_for_status() # Comprova que no hi hagi errors 404/500
         
-        if resp.status_code == 200:
-            data = resp.json()
-            events_dict = data.get("cdn-live-tv") or data
+        # Llegim l'XML
+        root = ET.fromstring(response.content)
+        
+        # Busquem tots els <item> dins del <channel>
+        for item in root.findall('./channel/item'):
+            # Extraiem les dades, posant un text buit si per casualitat falta alguna etiqueta
+            titol = item.find('title').text if item.find('title') is not None else ""
+            enllac = item.find('link').text if item.find('link') is not None else ""
+            descripcio = item.find('description').text if item.find('description') is not None else ""
+            hora = item.find('pubDate').text if item.find('pubDate') is not None else ""
             
-            allowed_sports = ['soccer', 'football', 'nba', 'basketball', 'nfl', 'tennis', 'motorsport']
+            desc_minusc = descripcio.lower()
             
-            for sport, event_list in events_dict.items():
-                s_low = sport.lower()
-                if s_low not in allowed_sports:
-                    continue
-                    
-                if isinstance(event_list, list):
-                    for m in event_list:
-                        m['start_raw'] = m.get('start', '')
-                        sport_key = 'NBA' if s_low in ['nba', 'basketball'] else sport.capitalize()
-                        if sport_key.lower() == 'nfl': sport_key = 'NFL'
-                        if sport_key.lower() in ['soccer', 'football']: sport_key = 'Soccer'
-                        
-                        # Extraure bé el nom per als esports de Motor o Tennis que no tenen 'homeTeam'
-                        if not m.get('homeTeam'):
-                            m['homeTeam'] = m.get('title') or m.get('event') or m.get('name') or ""
-                        
-                        m.update({'custom_sport_cat': sport_key, 'provider': 'CDN'})
-                        matches.append(m)
-            
-            log(f"✅ S'han trobat {len(matches)} partits a la CDN (només esports filtrats).")
-        else:
-            log(f"❌ ERROR: La CDN ha rebutjat la connexió. Codi HTTP: {resp.status_code}")
+            # FILTRE MÀGIC: Comprovem si alguna paraula de la llista blanca està a la descripció
+            if any(lliga in desc_minusc for lliga in LLISTA_BLANCA):
+                partit = {
+                    "titol": titol,
+                    "enllac": enllac,
+                    "competicio": descripcio,
+                    "hora": hora
+                }
+                partits_filtrats.append(partit)
+                
+        print(f"[LOG] ✅ S'han filtrat {len(partits_filtrats)} partits prèmium de l'RSS de LiveTV.")
+        return partits_filtrats
+
     except Exception as e:
-        log(f"❌ Error greu llegint la API de CDN: {e}")
-        
-    return matches
+        print(f"[LOG] ❌ Error llegint l'RSS de LiveTV: {e}")
+        return []
 
 def fetch_ppv_to(scraper):
     matches = []
