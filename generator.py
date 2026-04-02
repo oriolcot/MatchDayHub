@@ -274,12 +274,13 @@ def fetch_cdn_live():
     matches = []
     log("Buscant partits en directe a la CDN...")
     if not API_URL_CDN: 
-        log("❌ ERROR: La URL de la CDN està buida a les variables d'entorn!")
+        log("❌ ERROR: La URL de la CDN està buida!")
         return matches
         
     try:
-        scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': False})
-        resp = scraper.get(API_URL_CDN, headers={"Referer": "https://cdn-live.tv/"}, timeout=15)
+        # Per la CDN no cal cloudscraper, fem servir requests normal
+        # Ja no posem verify=False, així evitem l'error de 'check_hostname'
+        resp = requests.get(API_URL_CDN, headers={"Referer": "https://cdn-live.tv/"}, timeout=15)
         
         if resp.status_code == 200:
             data = resp.json()
@@ -299,16 +300,15 @@ def fetch_cdn_live():
                         if sport_key.lower() == 'nfl': sport_key = 'NFL'
                         if sport_key.lower() in ['soccer', 'football']: sport_key = 'Soccer'
                         
-                        # Extraure bé el nom per als esports de Motor o Tennis que no tenen 'homeTeam'
                         if not m.get('homeTeam'):
                             m['homeTeam'] = m.get('title') or m.get('event') or m.get('name') or ""
                         
                         m.update({'custom_sport_cat': sport_key, 'provider': 'CDN'})
                         matches.append(m)
             
-            log(f"✅ S'han trobat {len(matches)} partits a la CDN (només esports filtrats).")
+            log(f"✅ S'han trobat {len(matches)} partits a la CDN.")
         else:
-            log(f"❌ ERROR: La CDN ha rebutjat la connexió. Codi HTTP: {resp.status_code}")
+            log(f"❌ ERROR: La CDN ha respost amb codi {resp.status_code}")
     except Exception as e:
         log(f"❌ Error greu llegint la API de CDN: {e}")
         
@@ -433,14 +433,17 @@ def processar_partit_livetv(item, scraper):
 
 def fetch_livetv(scraper):
     matches = []
-    log("Buscant partits en paral·lel a LiveTV.sx (Filtre Futbol/Bàsquet)...")
+    log("Buscant partits en paral·lel a LiveTV.sx (Filtre estricte Futbol/Bàsquet)...")
     LIVETV_DOMAINS = ["https://livetv.sx/enx", "https://livetv873.me/enx", "https://livetv740.me/enx"]
     
     domini = None
     html = ""
+    # Intentem connectar a un dels dominis disponibles
     for dom in LIVETV_DOMAINS:
         try:
-            r = scraper.get(dom, timeout=10)
+            # Fem servir certifi per evitar errors de certificat SSL a Oracle
+            import certifi
+            r = scraper.get(dom, timeout=10, verify=certifi.where())
             if r.status_code == 200:
                 domini = dom
                 html = r.text
@@ -453,41 +456,68 @@ def fetch_livetv(scraper):
         return matches
 
     soup = BeautifulSoup(html, 'html.parser')
+    # Busquem tots els enllaços d'esdeveniments
     partits_links = soup.find_all('a', href=re.compile(r'/eventinfo/'))
     
     links_a_processar = []
     urls_vistes = set()
-    bad_words = ['hockey', 'tennis', 'volleyball', 'handball', 'table tennis', 'snooker', 'darts', 'rugby', 'cricket', 'futsal', 'badminton', 'ahl', 'atp', 'wta', 'nfl', 'mlb']
+    # Llista negra ampliada per evitar "tenistes" i altres esports
+    bad_words = [
+        'hockey', 'tennis', 'volleyball', 'handball', 'table tennis', 
+        'snoker', 'darts', 'rugby', 'cricket', 'futsal', 'badminton', 
+        'ahl', 'atp', 'wta', 'itf', 'challenger', 'nfl', 'mlb', 'baseball'
+    ]
     
     for a in partits_links:
         text = a.text.strip()
+        # Només ens interessen línies amb format "Equip A - Equip B"
         if text and (' - ' in text or ' – ' in text):
             url_partit = urljoin(domini, a['href'])
             
-            if url_partit in urls_vistes: continue
+            if url_partit in urls_vistes: 
+                continue
             
             esport = None
+            # Busquem la icona que hi ha just abans de l'enllaç
             img = a.find_previous('img')
             if img and img.get('src'):
-                if '1.gif' in img['src'] or 'soccer' in img.get('title', '').lower(): esport = 'Soccer'
-                elif '3.gif' in img['src'] or 'basket' in img.get('title', '').lower(): esport = 'NBA'
+                src = img['src']
+                # 1.gif = Futbol, 3.gif = Bàsquet
+                if '1.gif' in src or 'soccer' in img.get('title', '').lower(): 
+                    esport = 'Soccer'
+                elif '3.gif' in src or 'basket' in img.get('title', '').lower(): 
+                    esport = 'NBA'
+                else:
+                    # Si hi ha una altra icona (tenis, etc.), descartem directament
+                    continue 
             
+            # Si no hem trobat icona, intentem filtrar per text (com a segona opció)
             if not esport:
                 text_lower = text.lower()
-                parent_text = a.parent.text.lower() if a.parent else ""
-                if any(bw in text_lower or bw in parent_text for bw in bad_words):
+                # Si conté alguna paraula de la llista negra, fora
+                if any(bw in text_lower for bw in bad_words):
                     continue
+                
+                # Comprovem si és bàsquet per noms d'equips NBA
                 is_nba = any(nba_t in text_lower for nba_t in NBA_LOGOS.keys())
-                esport = 'NBA' if is_nba else 'Soccer' 
+                if is_nba:
+                    esport = 'NBA'
+                elif any(x in text_lower for x in ['fc', 'united', 'city', 'real', 'atlético', 'villarreal']):
+                    esport = 'Soccer'
+                else:
+                    # Si no estem segurs, millor ignorar-ho per no omplir la web de brossa
+                    continue 
 
             links_a_processar.append((url_partit, text, esport))
             urls_vistes.add(url_partit)
 
+    # Limitem a 35 partits per no saturar el servidor i processem en paral·lel
     links_a_processar = links_a_processar[:35]
-    log(f"🔎 Processant {len(links_a_processar)} partits amb exploració de banderes...")
+    log(f"🔎 Processant {len(links_a_processar)} partits filtrats correctament...")
     
     now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
     
+    # Executem l'exploració de cada partit per trobar els canals/banderes
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
         futures = [executor.submit(processar_partit_livetv, item, scraper) for item in links_a_processar]
         resultats = [f.result() for f in concurrent.futures.as_completed(futures)]
@@ -506,7 +536,7 @@ def fetch_livetv(scraper):
                 'provider': 'LIVETV', 'channels': channels
             })
             
-    log(f"✅ S'han extret amb èxit {len(matches)} partits de LiveTV.")
+    log(f"✅ S'han extret amb èxit {len(matches)} partits de LiveTV (Neteja feta).")
     return matches
 
 def fetch_nba_replays(scraper, memory_matches):

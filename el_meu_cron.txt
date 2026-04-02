@@ -1,0 +1,2 @@
+*/15 * * * * cd /home/ubuntu/MatchDayHub && git pull && /home/ubuntu/hub_env/bin/python3 generator.py > /home/ubuntu/MatchDayHub/index_temp.html && mv /home/ubuntu/MatchDayHub/index_temp.html /var/www/html/index.html
+@reboot lookbusy -c 15

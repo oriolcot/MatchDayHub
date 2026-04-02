@@ -1,0 +1,32 @@
+stress-ng: info:  [10740] defaulting to a 1 day, 0 secs run per stressor
+stress-ng: info:  [10740] dispatching hogs: 1 cpu
+stress-ng: info:  [10741] cpu: for stable load results, select a specific cpu stress method with --cpu-method other than 'all'
+stress-ng: info:  [10740] skipped: 0
+stress-ng: info:  [10740] passed: 1: cpu (1)
+stress-ng: info:  [10740] failed: 0
+stress-ng: info:  [10740] metrics untrustworthy: 0
+stress-ng: info:  [10740] successful run completed in 24 mins, 17.86 secs
+stress-ng: info:  [49268] defaulting to a 1 day, 0 secs run per stressor
+stress-ng: info:  [49268] dispatching hogs: 1 cpu
+stress-ng: info:  [49269] cpu: for stable load results, select a specific cpu stress method with --cpu-method other than 'all'
+stress-ng: info:  [49274] defaulting to a 1 day, 0 secs run per stressor
+stress-ng: info:  [49274] dispatching hogs: 1 cpu
+stress-ng: info:  [49275] cpu: for stable load results, select a specific cpu stress method with --cpu-method other than 'all'
+stress-ng: info:  [49899] defaulting to a 1 day, 0 secs run per stressor
+stress-ng: info:  [49899] dispatching hogs: 1 cpu
+stress-ng: info:  [49900] cpu: for stable load results, select a specific cpu stress method with --cpu-method other than 'all'
+stress-ng: info:  [49268] skipped: 0
+stress-ng: info:  [49268] passed: 1: cpu (1)
+stress-ng: info:  [49268] failed: 0
+stress-ng: info:  [49268] metrics untrustworthy: 0
+stress-ng: info:  [49268] successful run completed in 1 day, 0.01 secs
+stress-ng: info:  [49274] skipped: 0
+stress-ng: info:  [49274] passed: 1: cpu (1)
+stress-ng: info:  [49274] failed: 0
+stress-ng: info:  [49274] metrics untrustworthy: 0
+stress-ng: info:  [49274] successful run completed in 1 day, 0.01 secs
+stress-ng: info:  [49899] skipped: 0
+stress-ng: info:  [49899] passed: 1: cpu (1)
+stress-ng: info:  [49899] failed: 0
+stress-ng: info:  [49899] metrics untrustworthy: 0
+stress-ng: info:  [49899] successful run completed in 1 day, 0.01 secs
